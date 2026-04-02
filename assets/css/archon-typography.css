@@ -1,0 +1,139 @@
+:root{
+  --font-body:"Manrope",sans-serif;
+  --font-display:"Fraunces",serif;
+}
+
+body,
+body div,
+body span,
+body p,
+body li,
+body a,
+button,
+input,
+select,
+textarea{
+  font-family:var(--font-body) !important;
+}
+
+.brand strong,
+h1,
+h2,
+h3,
+.hero-copy h1,
+.hero h1,
+.hero article h1,
+.hero-side h2,
+.section-title,
+.cta-panel h2,
+.card h3,
+.faq h3,
+.body h2,
+.foot strong,
+.story-card h3,
+.system-card h3,
+.problem-card h3,
+.lane-card h3,
+.fit-card h3,
+.faq-card h3,
+.local-card h3,
+.stat-card strong,
+.brand strong{
+  font-family:var(--font-display) !important;
+  font-weight:700 !important;
+  letter-spacing:-0.03em !important;
+  font-optical-sizing:auto !important;
+}
+
+.brand span,
+.eyebrow,
+.section-label,
+.nav-links a,
+.navcta,
+.nav-cta,
+.btn,
+.btn-primary,
+.form button,
+.sticky-cta a,
+.links a,
+.meta span,
+.pill,
+.badge,
+.mini-chip,
+.signal-tag,
+.formnote,
+.chatbot-form-note{
+  font-family:var(--font-body) !important;
+  font-weight:700 !important;
+}
+
+.lead,
+.intro,
+.hero-side p,
+.card p,
+.faq p,
+.cta-panel p,
+.body p,
+.body li,
+.mini-item,
+.form input,
+.form select{
+  font-family:var(--font-body) !important;
+}
+
+.brand strong{
+  font-size:clamp(21px, 2vw, 24px);
+}
+
+h1{
+  font-weight:700;
+  line-height:0.98;
+}
+
+h2,
+h3{
+  line-height:1.02;
+}
+
+.lead,
+.intro,
+.hero-side p,
+.card p,
+.faq p,
+.cta-panel p,
+.body p,
+.body li{
+  letter-spacing:0.01em;
+}
+
+.nav-links a,
+.navcta,
+.nav-cta,
+.btn,
+.btn-primary,
+.form button,
+.sticky-cta a,
+.links a,
+.meta span,
+.pill,
+.eyebrow,
+.section-label{
+  letter-spacing:0.2em;
+}
+
+.form input,
+.form select{
+  font-size:14px;
+  letter-spacing:0.01em;
+}
+
+.archon-chatbot,
+.archon-chatbot *{
+  font-family:var(--font-body) !important;
+}
+
+.archon-chatbot-header strong,
+.archon-chatbot-message strong,
+.archon-chatbot-summary strong{
+  font-family:var(--font-display) !important;
+}

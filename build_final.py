@@ -1,0 +1,231 @@
+html = """<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="MD0MtiYe9We5JQqG_ZiAK8qcA6-PZyUIP-LVGOFcgAM">
+<meta name="description" content="Archon Consultancies — Automatizacion e-commerce Zaragoza. Eliminamos procesos manuales con IA. Auditoria gratuita 33 minutos.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Archon Consultancies — Precision. Control. Arquitectura.">
+<meta property="og:description" content="Tu e-commerce se desangra. Nosotros lo blindamos.">
+<title>Archon Consultancies — Precision. Control. Arquitectura.</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--black:#050505;--green:#39FF14;--white:#f0f0f0;--gray:#888;--graphite:#0d0d0d}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:20px 60px;z-index:100;border-bottom:1px solid rgba(57,255,20,0.1);background:rgba(5,5,5,0.95);backdrop-filter:blur(10px)}
+.logo{font-family:'UnifrakturMaguntia',cursive,'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px}
+.logo span{color:var(--green)}
+.nav-links{display:flex;gap:40px;list-style:none}
+.nav-links a{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--gray);text-decoration:none;text-transform:uppercase;transition:color 0.3s}
+.nav-links a:hover{color:var(--green)}
+.ticker{background:var(--green);padding:10px 0;overflow:hidden;white-space:nowrap;margin-top:72px}
+.ticker-inner{display:inline-flex;gap:60px;animation:ticker 20s linear infinite}
+.ticker-item{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:3px;color:#050505;font-weight:bold}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 40px 80px;position:relative;overflow:hidden}
+.hero-grid{position:absolute;top:0;left:0;right:0;bottom:0;background-image:linear-gradient(rgba(57,255,20,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,20,0.03) 1px,transparent 1px);background-size:60px 60px}
+.hero-eyebrow{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:6px;color:var(--green);text-transform:uppercase;margin-bottom:30px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(60px,10vw,140px);line-height:0.9;margin-bottom:20px}
+.hero-title .g{color:var(--green);display:block}
+.hero-title .w{display:block}
+.hero-sub{font-size:16px;line-height:1.8;color:var(--gray);max-width:560px;margin:30px auto}
+.hero-sub strong{color:var(--white)}
+.cta{display:inline-flex;align-items:center;background:var(--green);color:#050505;font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;padding:18px 40px;text-decoration:none;font-weight:bold;margin-top:20px;transition:all 0.3s}
+.cta:hover{box-shadow:0 0 40px rgba(57,255,20,0.4);transform:translateY(-2px)}
+.counter{font-family:'Share Tech Mono',monospace;font-size:11px;color:#1a7a09;margin-top:16px}
+.sec{padding:100px 60px;max-width:1200px;margin:0 auto}
+.lbl{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:6px;color:var(--green);text-transform:uppercase;margin-bottom:20px}
+.sec h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,80px);line-height:1;margin-bottom:40px}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(57,255,20,0.1);margin-top:60px}
+.pc{background:var(--black);padding:40px 30px;border:1px solid rgba(57,255,20,0.08);transition:all 0.3s}
+.pc:hover{background:rgba(57,255,20,0.03)}
+.pn{font-family:'Bebas Neue',sans-serif;font-size:80px;color:rgba(57,255,20,0.08);line-height:1}
+.pt{font-family:'Bebas Neue',sans-serif;font-size:22px;margin-bottom:12px}
+.pd{font-size:13px;color:var(--gray);line-height:1.8}
+.pd strong{color:var(--green)}
+.asec{padding:100px 60px;background:var(--graphite);border-top:1px solid rgba(57,255,20,0.1);border-bottom:1px solid rgba(57,255,20,0.1)}
+.ain{max-width:1200px;margin:0 auto}
+.agrid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:60px;background:rgba(57,255,20,0.1)}
+.ac{background:var(--graphite);padding:50px 40px;transition:background 0.3s}
+.ac:hover{background:rgba(57,255,20,0.04)}
+.ai{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:4px;color:var(--green);margin-bottom:20px}
+.an{font-family:'Bebas Neue',sans-serif;font-size:32px;margin-bottom:8px}
+.at{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--green);letter-spacing:2px;margin-bottom:16px}
+.ad{font-size:13px;color:var(--gray);line-height:1.9}
+.ssec{padding:100px 60px;max-width:1200px;margin:0 auto}
+.sl{margin-top:60px}
+.si{display:grid;grid-template-columns:80px 1fr auto;align-items:start;gap:40px;padding:40px 0;border-bottom:1px solid rgba(255,255,255,0.06);transition:border-color 0.3s}
+.si:hover{border-bottom-color:rgba(57,255,20,0.3)}
+.si:hover .sn{color:var(--green)}
+.snum{font-family:'Bebas Neue',sans-serif;font-size:48px;color:rgba(57,255,20,0.15);line-height:1}
+.sn{font-family:'Bebas Neue',sans-serif;font-size:30px;margin-bottom:10px;transition:color 0.3s}
+.sd{font-size:13px;color:var(--gray);line-height:1.8;max-width:500px}
+.sb{font-family:'Share Tech Mono',monospace;font-size:11px;color:#050505;background:var(--green);padding:6px 16px;white-space:nowrap;align-self:center}
+.sb.r{background:transparent;border:1px solid var(--green);color:var(--green)}
+.audsec{padding:120px 60px;background:var(--graphite);border-top:1px solid rgba(57,255,20,0.1);text-align:center}
+.audin{max-width:700px;margin:0 auto}
+.audt{font-family:'Bebas Neue',sans-serif;font-size:100px;color:var(--green);line-height:1;text-shadow:0 0 40px rgba(57,255,20,0.3)}
+.audl{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:6px;color:var(--gray);text-transform:uppercase;margin-bottom:40px}
+.audh{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,60px);margin-bottom:20px;line-height:1}
+.audd{font-size:15px;color:var(--gray);line-height:1.9;margin-bottom:50px}
+.aform{display:flex;flex-direction:column;gap:16px;max-width:480px;margin:0 auto}
+.aform input,.aform select{background:rgba(255,255,255,0.04);border:1px solid rgba(57,255,20,0.2);color:var(--white);font-family:'Share Tech Mono',monospace;font-size:12px;padding:16px 20px;outline:none;transition:border-color 0.3s;-webkit-appearance:none;width:100%}
+.aform input::placeholder{color:rgba(255,255,255,0.2)}
+.aform input:focus,.aform select:focus{border-color:var(--green)}
+.aform select option{background:var(--black)}
+.asub{background:var(--green);color:#050505;font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:4px;text-transform:uppercase;padding:18px;border:none;font-weight:bold;cursor:pointer;transition:all 0.3s;width:100%}
+.asub:hover{box-shadow:0 0 60px rgba(57,255,20,0.5)}
+.disc{font-size:11px;color:rgba(255,255,255,0.2);margin-top:20px;letter-spacing:1px}
+.aboutsec{padding:100px 60px;max-width:1200px;margin:0 auto}
+.aboutgrid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:40px}
+.aboutstat{border-left:1px solid rgba(57,255,20,0.2);padding-left:60px}
+.statnum{font-family:'Bebas Neue',sans-serif;font-size:60px;color:var(--green);line-height:1}
+.statlbl{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--gray);letter-spacing:3px;margin-bottom:30px}
+.blogsec{padding:100px 60px;background:var(--graphite);border-top:1px solid rgba(57,255,20,0.1)}
+.blogin{max-width:1200px;margin:0 auto}
+.blogrid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:60px}
+.blogcard{border:1px solid rgba(57,255,20,0.1);padding:40px;transition:border-color 0.3s}
+.blogcard:hover{border-color:rgba(57,255,20,0.4)}
+.blogcat{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--green);letter-spacing:3px;margin-bottom:20px}
+.blogtitle{font-family:'Bebas Neue',sans-serif;font-size:28px;margin-bottom:16px;line-height:1.1;color:var(--white)}
+.blogtext{font-size:13px;color:var(--gray);line-height:1.8;margin-bottom:24px}
+.bloglink{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--green);letter-spacing:2px}
+footer{padding:60px;border-top:1px solid rgba(57,255,20,0.1);display:flex;justify-content:space-between;align-items:center}
+.fl{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:4px}
+.fl span{color:var(--green)}
+.ftag{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--gray);margin-top:6px}
+.flinks{display:flex;gap:30px;list-style:none}
+.flinks a{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gray);text-decoration:none;text-transform:uppercase;transition:color 0.3s}
+.flinks a:hover{color:var(--green)}
+.fc{font-family:'Share Tech Mono',monospace;font-size:10px;color:rgba(255,255,255,0.15);letter-spacing:2px}
+@media(max-width:768px){nav{padding:16px 24px}.nav-links{display:none}.sec{padding:60px 24px}.pgrid{grid-template-columns:1fr}.asec{padding:60px 24px}.agrid{grid-template-columns:1fr}.ssec{padding:60px 24px}.si{grid-template-columns:50px 1fr}.sb{display:none}.audsec{padding:80px 24px}.aboutsec{padding:60px 24px}.aboutgrid{grid-template-columns:1fr}.blogsec{padding:60px 24px}.blogrid{grid-template-columns:1fr}footer{flex-direction:column;gap:30px;padding:40px 24px;text-align:center}.flinks{flex-wrap:wrap;justify-content:center}}
+</style>
+</head>
+<body>
+<nav>
+<div class="logo">Archon <span>Consultancies</span></div>
+<ul class="nav-links">
+<li><a href="#problema">El Problema</a></li>
+<li><a href="#arquitectura">Arquitectura</a></li>
+<li><a href="#servicios">Servicios</a></li>
+<li><a href="#about">Nosotros</a></li>
+<li><a href="#auditoria">Auditoria</a></li>
+</ul>
+</nav>
+<div class="ticker"><div class="ticker-inner"><span class="ticker-item">Precision</span><span class="ticker-item">*</span><span class="ticker-item">Control</span><span class="ticker-item">*</span><span class="ticker-item">Arquitectura</span><span class="ticker-item">*</span><span class="ticker-item">Operativa 24/7</span><span class="ticker-item">*</span><span class="ticker-item">Cero Errores Manuales</span><span class="ticker-item">*</span><span class="ticker-item">Precision</span><span class="ticker-item">*</span><span class="ticker-item">Control</span><span class="ticker-item">*</span><span class="ticker-item">Arquitectura</span><span class="ticker-item">*</span><span class="ticker-item">Operativa 24/7</span><span class="ticker-item">*</span><span class="ticker-item">Cero Errores Manuales</span><span class="ticker-item">*</span></div></div>
+<section class="hero">
+<div class="hero-grid"></div>
+<p class="hero-eyebrow">Archon Consultancies — Sistema Activo</p>
+<h1 class="hero-title"><span class="w">Tu negocio se</span><span class="g">desangra.</span><span class="w">Y ni lo sabes.</span></h1>
+<p class="hero-sub">Cada pedido copiado a mano. Cada Excel desincronizado. No es ineficiencia. Es <strong>hemorragia operativa en tiempo real</strong>. Tenemos el bisturi.</p>
+<a href="#auditoria" class="cta">Auditoria gratuita — 33 minutos</a>
+<p class="counter">[ Sin coste. Sin humo. Solo datos. ]</p>
+</section>
+<section id="problema" class="sec">
+<p class="lbl">Diagnostico</p>
+<h2>El 80% de las tiendas gestionan su logistica <span style="color:var(--green)">como en 2010.</span></h2>
+<div class="pgrid">
+<div class="pc"><div class="pn">01</div><div class="pt">La Hemorragia de Datos</div><p class="pd">Tu inventario vive en el panel vulnerable de tu web. Un solo fallo del servidor y pierdes el control total. <strong>Datos sin blindar = capital en riesgo.</strong></p></div>
+<div class="pc"><div class="pn">02</div><div class="pt">El Error Humano</div><p class="pd">1 pedido equivocado = doble envio + producto perdido + cliente enfadado. <strong>40 decisiones criticas por hora.</strong></p></div>
+<div class="pc"><div class="pn">03</div><div class="pt">La Fuga de Capital</div><p class="pd">Cada proceso manual activo es dinero que no ves salir. <strong>La ineficiencia tiene precio exacto.</strong></p></div>
+</div>
+</section>
+<section id="arquitectura" class="asec">
+<div class="ain">
+<p class="lbl">La Solucion</p>
+<h2 class="sec h2" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,80px);line-height:1;margin-bottom:40px">La Arquitectura <span style="color:var(--green)">Archon</span></h2>
+<div class="agrid">
+<div class="ac"><div class="ai">Modulo 01</div><div class="an">La Caja Fuerte</div><div class="at">Airtable — Base de datos relacional</div><p class="ad">Extraemos tus datos del panel vulnerable y los blindamos en una base de datos externa. El inventario real a prueba de caidas del servidor.</p></div>
+<div class="ac"><div class="ai">Modulo 02</div><div class="an">Las Arterias</div><div class="at">Make / n8n — Sistema nervioso central</div><p class="ad">Tuberias para que tu tienda hable con tu banco y tu almacen en milisegundos. Sin intervencion humana. Sin delays. Sin errores.</p></div>
+<div class="ac"><div class="ai">Modulo 03</div><div class="an">La Aduana</div><div class="at">Stripe — Seguridad criptografica</div><p class="ad">Ningun pedido pasa a preparacion sin confirmacion criptografica de pago. Cero fraudes. Cero pedidos sin cobrar.</p></div>
+<div class="ac"><div class="ai">Modulo 04</div><div class="an">El Supervisor</div><div class="at">IA — Vigilancia permanente</div><p class="ad">Nodos de inteligencia artificial que auditan direcciones, detectan anomalias y notifican al cliente automaticamente.</p></div>
+</div>
+</div>
+</section>
+<section id="servicios" class="ssec">
+<p class="lbl">Menu Archon</p>
+<h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,80px);line-height:1;margin-bottom:40px">Lo que <span style="color:var(--green)">construimos</span></h2>
+<div class="sl">
+<div class="si"><div class="snum">00</div><div><div class="sn">Auditoria Operativa</div><p class="sd">33 minutos. Diseccion clinica. Te mostramos por donde se desangra tu negocio. Sin compromiso.</p></div><div class="sb">Gratis</div></div>
+<div class="si"><div class="snum">01</div><div><div class="sn">Radiografia Operativa</div><p class="sd">Documento estrategico completo. Fugas, herramientas que fallan, estructura del nuevo sistema.</p></div><div class="sb">250 euros</div></div>
+<div class="si"><div class="snum">02</div><div><div class="sn">Setup Logistica Express</div><p class="sd">Conectamos Shopify o WooCommerce con tu proveedor de transporte. Etiquetas generadas solas.</p></div><div class="sb">950 euros</div></div>
+<div class="si"><div class="snum">03</div><div><div class="sn">Full Stack Cerebro Archon</div><p class="sd">Sustitucion total del trabajo administrativo por IA y No-Code. Operativa 24/7.</p></div><div class="sb">2.500 euros</div></div>
+<div class="si"><div class="snum">04</div><div><div class="sn">Mantenimiento y Calidad Total</div><p class="sd">Supervision constante, actualizacion de APIs, soporte prioritario. El Cerebro Digital nunca se apaga.</p></div><div class="sb r">350 euros/mes</div></div>
+</div>
+</section>
+<section id="about" class="aboutsec">
+<p class="lbl">Quienes somos</p>
+<h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,80px);line-height:1;margin-bottom:40px">Archon <span style="color:var(--green)">Consultancies</span></h2>
+<div class="aboutgrid">
+<div>
+<p style="font-size:16px;line-height:1.9;color:var(--gray);margin-bottom:20px;">Somos una consultoria de infraestructuras algoritmicas fundada en Zaragoza con un objetivo claro: eliminar la variable humana de los procesos operativos criticos de los negocios.</p>
+<p style="font-size:16px;line-height:1.9;color:var(--gray);">Fundada por Pablo Alcocer, estudiante de Marketing y Publicidad con una obsesion por la automatizacion inteligente aplicada a negocios reales.</p>
+</div>
+<div class="aboutstat">
+<div class="statnum">24/7</div><div class="statlbl">Operativa sin interrupcion</div>
+<div class="statnum">0</div><div class="statlbl">Errores manuales tolerados</div>
+<div class="statnum">100%</div><div class="statlbl">Infraestructura auditada</div>
+</div>
+</div>
+</section>
+<section class="blogsec">
+<div class="blogin">
+<p class="lbl">Conocimiento Archon</p>
+<h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,80px);line-height:1;margin-bottom:20px">Blog <span style="color:var(--green)">operativo</span></h2>
+<div class="blogrid">
+<article class="blogcard">
+<div class="blogcat">Marzo 2026 — Logistica</div>
+<h3 class="blogtitle">Como automatizar los pedidos de tu tienda online en 2026</h3>
+<p class="blogtext">Cada pedido copiado a mano es una fuga de capital activa. Te explicamos como conectar Shopify con tu proveedor de transporte para que las etiquetas se generen solas.</p>
+<div class="bloglink">Leer articulo →</div>
+</article>
+<article class="blogcard">
+<div class="blogcat">Marzo 2026 — Operaciones</div>
+<h3 class="blogtitle">Por que el 80% de los e-commerce pierden dinero con procesos manuales</h3>
+<p class="blogtext">El error humano tiene un precio exacto. Te mostramos como calcular cuanto te cuesta cada proceso manual activo en tu negocio y como eliminarlo.</p>
+<div class="bloglink">Leer articulo →</div>
+</article>
+<article class="blogcard">
+<div class="blogcat">Marzo 2026 — Tecnologia</div>
+<h3 class="blogtitle">Que es n8n y como puede sustituir a un empleado administrativo</h3>
+<p class="blogtext">n8n es la herramienta de automatizacion open source que usamos en Archon. Te explicamos que hace y por que es mejor que contratar a alguien para tareas repetitivas.</p>
+<div class="bloglink">Leer articulo →</div>
+</article>
+</div>
+</div>
+</section>
+<section id="auditoria" class="audsec">
+<div class="audin">
+<div class="audt">33</div>
+<div class="audl">Auditoria Operativa Gratuita</div>
+<h2 class="audh">Quieres saber por donde se desangra <span style="color:var(--green)">tu negocio?</span></h2>
+<p class="audd">No es una charla de bar. Es una diseccion clinica donde te demostramos cuanto te esta costando cada proceso manual activo. Sin compromiso. Sin humo. Solo numeros.</p>
+<form class="aform" onsubmit="handleSubmit(event)">
+<input type="text" placeholder="Nombre y apellidos" required>
+<input type="email" placeholder="Email de contacto" required>
+<input type="text" placeholder="Nombre de tu tienda o negocio" required>
+<select required><option value="" disabled selected>Plataforma que usas</option><option>Shopify</option><option>WooCommerce</option><option>PrestaShop</option><option>Otra plataforma</option><option>No tengo tienda online aun</option></select>
+<button type="submit" class="asub">Reservar mi slot de auditoria</button>
+</form>
+<p class="disc">33 minutos. Completamente gratuito. Sin presion comercial posterior.</p>
+</div>
+</section>
+<footer>
+<div><div class="fl">Archon <span>Consultancies</span></div><div class="ftag">Precision. Control. Arquitectura.</div></div>
+<ul class="flinks"><li><a href="#problema">El Problema</a></li><li><a href="#arquitectura">Arquitectura</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#about">Nosotros</a></li><li><a href="#auditoria">Auditoria</a></li><li><a href="https://github.com/palcocerhurtado-tech/quantbot" target="_blank">GitHub</a></li></ul>
+<div class="fc">2026 Archon Consultancies — Zaragoza</div>
+</footer>
+<script>
+function handleSubmit(e){e.preventDefault();var b=e.target.querySelector('.asub');b.textContent='Solicitud recibida. Contactamos en 24h.';b.style.background='transparent';b.style.border='1px solid #39FF14';b.style.color='#39FF14';}
+</script>
+</body>
+</html>"""
+with open('index.html', 'w') as f:
+    f.write(html)
+print('OK - Longitud:', len(html))
+print('Hero:', 'desangra' in html)
+print('About:', 'Quienes somos' in html)
+print('Blog:', 'Blog operativo' in html)
