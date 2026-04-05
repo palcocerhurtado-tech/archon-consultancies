@@ -32,7 +32,8 @@
 <link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
 <link rel="preload" as="image" href="assets/archon/hero-brain.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/archon-chatbot.css">
+<!-- chatbot desactivado -->
+<!-- <link rel="stylesheet" href="assets/css/archon-chatbot.css"> -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -258,9 +259,9 @@ nav{
   position:absolute;
   inset:0;
   background:
-    linear-gradient(180deg, rgba(6,6,6,0.26), rgba(6,6,6,0.82)),
+    linear-gradient(180deg, rgba(6,6,6,0.70), rgba(6,6,6,0.92)),
     url("assets/archon/hero-brain.jpg") center/cover no-repeat;
-  opacity:0.18;
+  opacity:0.12;
   pointer-events:none;
 }
 .hero-grid{
@@ -1309,7 +1310,7 @@ footer{
         <div class="system-visual reveal">
           <img
             src="assets/archon/system-diagram.jpg"
-            srcset="/assets/archon/system-diagram-900.jpg 720w, /assets/archon/system-diagram.jpg 1080w"
+            srcset="assets/archon/system-diagram-900.jpg 720w, assets/archon/system-diagram.jpg 1080w"
             sizes="(max-width: 1060px) 100vw, 42vw"
             alt="Diagrama del sistema operativo Archon"
             width="1080"
@@ -1317,7 +1318,7 @@ footer{
             loading="lazy"
             decoding="async"
             fetchpriority="low"
-            onerror="if(!this.dataset.fallbackApplied){this.dataset.fallbackApplied='true';this.src='/assets/archon/system-diagram.png';this.srcset='/assets/archon/system-diagram.png 1080w';}"
+            onerror="if(!this.dataset.fallbackApplied){this.dataset.fallbackApplied='true';this.src='assets/archon/system-diagram.png';this.srcset='assets/archon/system-diagram.png 1080w';}"
           >
         </div>
         <div class="system-grid">
@@ -1701,7 +1702,8 @@ footer{
   <a href="#auditoria">Reservar auditoría</a>
 </div>
 
-<script src="assets/js/archon-chatbot.js" defer></script>
+<!-- chatbot desactivado hasta desplegar API -->
+<!-- <script src="assets/js/archon-chatbot.js" defer></script> -->
 <script>
 const sectorData = {
   ecommerce: {
