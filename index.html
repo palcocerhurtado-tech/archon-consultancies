@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!-- Google Analytics 4 — reemplazar G-XXXXXXXXXX por el ID real -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="MD0MtiYe9We5JQqG_ZiAK8qcA6-PZyUIP-LVGOFcgAM">
-<meta name="description" content="Consultoría de IA en Zaragoza para empresas que quieren automatizar operaciones, ventas y soporte con un sistema serio. Archon diseña Digital Brain Infrastructure para pymes y equipos con fricción operativa.">
+<meta name="description" content="Consultoría de IA en Zaragoza para pymes y empresas que quieren automatizar operaciones, reducir fricción y escalar con sistema.">
 <meta name="author" content="Archon Consultancies">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -16,7 +24,7 @@
 <meta property="og:locale" content="es_ES">
 <meta property="og:url" content="https://archonconsultancies.com/">
 <meta property="og:title" content="Consultoría de IA en Zaragoza para empresas | Archon Consultancies">
-<meta property="og:description" content="Arquitectura operativa, automatización y sistemas de IA para empresas que quieren crecer con control real. Base en Zaragoza, ejecución en toda España.">
+<meta property="og:description" content="Archon Consultancies diseña Digital Brain Infrastructure para pymes, ecommerce y empresas de servicios en Zaragoza y toda España.">
 <meta property="og:image" content="https://archonconsultancies.com/assets/archon/banner.jpg">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="400">
@@ -24,7 +32,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://archonconsultancies.com/">
 <meta name="twitter:title" content="Consultoría de IA en Zaragoza para empresas | Archon Consultancies">
-<meta name="twitter:description" content="Digital Brain Infrastructure para pymes, ecommerce y operaciones internas. Reserva una auditoría y descubre qué automatizar primero.">
+<meta name="twitter:description" content="Digital Brain Infrastructure para pymes, ecommerce y empresas de servicios que quieren reducir fricción y escalar con sistema.">
 <meta name="twitter:image" content="https://archonconsultancies.com/assets/archon/banner.jpg">
 <meta name="theme-color" content="#060606">
 <title>Consultoría de IA en Zaragoza para empresas | Archon Consultancies</title>
@@ -32,8 +40,7 @@
 <link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
 <link rel="preload" as="image" href="assets/archon/hero-brain.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<!-- chatbot desactivado -->
-<!-- <link rel="stylesheet" href="assets/css/archon-chatbot.css"> -->
+<link rel="stylesheet" href="assets/css/archon-chatbot.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -76,7 +83,65 @@
         "name": "Archon Consultancies"
       },
       "areaServed": "ES",
-      "url": "https://archonconsultancies.com/consultoría-ia.html"
+      "url": "https://archonconsultancies.com/consultoria-ia.html"
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "Archon Consultancies",
+      "description": "Consultoría de IA y agencia de automatización operativa para empresas que quieren reducir fricción, automatizar procesos y escalar con sistema. Base en Zaragoza, ejecución en toda España.",
+      "url": "https://archonconsultancies.com/",
+      "telephone": "",
+      "email": "archon.consultancies@hotmail.com",
+      "image": "https://archonconsultancies.com/favicon-192.png",
+      "logo": "https://archonconsultancies.com/favicon-192.png",
+      "founder": {
+        "@type": "Person",
+        "name": "Pablo Alcocer Hurtado",
+        "url": "https://archonconsultancies.com/pablo-alcocer-hurtado.html",
+        "jobTitle": "Fundador y Director",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Archon Consultancies"
+        }
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Zaragoza",
+        "addressRegion": "Aragón",
+        "postalCode": "50001",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.6488,
+        "longitude": -0.8891
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Zaragoza"
+        },
+        {
+          "@type": "Country",
+          "name": "España"
+        }
+      ],
+      "priceRange": "€€",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "19:00"
+      },
+      "sameAs": [],
+      "knowsAbout": [
+        "Inteligencia artificial",
+        "Automatización de procesos",
+        "Consultoría de IA",
+        "Agentes de IA",
+        "Digital Brain Infrastructure",
+        "Arquitectura operativa"
+      ]
     },
     {
       "@type": "FAQPage",
@@ -568,6 +633,10 @@ section{padding:88px 0}
   font-family:"Fraunces",serif;
   font-size:28px;
   line-height:1.06;
+}
+.system-card h3{
+  font-size:clamp(18px, 1.6vw, 24px);
+  line-height:1.2;
 }
 .lane-card p,
 .problem-card p,
@@ -1068,9 +1137,33 @@ footer{
   background:linear-gradient(135deg, var(--green) 0%, #d8ff82 100%);
   box-shadow:0 16px 40px rgba(122,255,93,0.2);
 }
+.lang-toggle{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:0 14px;
+  border:1px solid rgba(255,255,255,0.14);
+  background:rgba(255,255,255,0.03);
+  color:var(--white);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2.2px;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.lang-toggle:hover,
+.lang-toggle:focus-visible{
+  border-color:var(--green);
+  color:var(--green);
+  background:rgba(122,255,93,0.08);
+  outline:none;
+}
 @media (max-width: 820px){
   .nav-links{display:none}
   .nav-cta{display:none}
+  .lang-toggle{min-height:40px;padding:0 12px;letter-spacing:1.8px}
   .hamburger{display:flex}
   .hero-story,
   .sector-flow,
@@ -1084,6 +1177,7 @@ footer{
   .metric-grid{
     grid-template-columns:1fr;
   }
+  .system-card h3{font-size:22px}
   .sector-switch{grid-template-columns:1fr}
   .hero-copy,
   .hero-panel,
@@ -1128,6 +1222,7 @@ footer{
         <li><a href="blog.html">Blog</a></li>
         <li><a href="sobre-archon.html">Sobre</a></li>
       </ul>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Cambiar idioma" aria-pressed="false">ES / EN</button>
       <a class="nav-cta" href="#auditoria">Reservar auditoría</a>
       <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Abrir menú">
         <span></span><span></span><span></span>
@@ -1135,7 +1230,7 @@ footer{
     </div>
   </div>
 </nav>
-
+ 
 <div class="mobile-overlay" id="mobileMenu">
   <a href="#rutas" class="mob-link">Servicios</a>
   <a href="#sectores" class="mob-link">Sectores</a>
@@ -1146,7 +1241,7 @@ footer{
   <a href="sobre-archon.html" class="mob-link">Sobre</a>
   <a href="#auditoria" class="mob-cta mob-link">Reservar auditoría</a>
 </div>
-
+ 
 <main id="top">
   <section class="hero">
     <div class="shell">
@@ -1154,7 +1249,7 @@ footer{
         <div class="hero-copy reveal">
           <p class="eyebrow">Base operativa: Zaragoza | ejecución en toda España</p>
           <h1>Tu empresa no necesita más herramientas. <span>Necesita sistema.</span></h1>
-          <p class="hero-sub">Archon diseña Digital Brain Infrastructure para ecommerce, empresas de servicios y operaciones internas que quieren reducir fricción, ejecutar mejor y crecer sin depender del caos manual.</p>
+          <p class="hero-sub">Archon Consultancies es una consultoría de IA en Zaragoza que diseña Digital Brain Infrastructure para pymes, ecommerce y empresas de servicios que quieren reducir fricción operativa y escalar con sistema.</p>
           <div class="hero-actions">
             <a class="btn-primary" href="#auditoria">Reservar auditoría de 33 min</a>
             <a class="btn-secondary" href="#roi">Calcular fuga operativa</a>
@@ -1179,7 +1274,7 @@ footer{
             </article>
           </div>
         </div>
-
+ 
         <aside class="hero-panel reveal">
           <div class="panel-top">
             <div>
@@ -1211,7 +1306,7 @@ footer{
           </div>
         </aside>
       </div>
-
+ 
       <div class="metric-grid reveal">
         <article class="stat-card">
           <strong>Tiempo a roadmap</strong>
@@ -1236,7 +1331,7 @@ footer{
       </div>
     </div>
   </section>
-
+ 
   <section id="rutas">
     <div class="shell">
       <div class="section-header reveal">
@@ -1266,7 +1361,7 @@ footer{
       </div>
     </div>
   </section>
-
+ 
   <section id="problema">
     <div class="shell">
       <div class="section-header reveal">
@@ -1298,7 +1393,7 @@ footer{
       </div>
     </div>
   </section>
-
+ 
   <section id="arquitectura">
     <div class="shell">
       <div class="section-header reveal">
@@ -1346,7 +1441,7 @@ footer{
       </div>
     </div>
   </section>
-
+ 
   <section id="sectores">
     <div class="shell">
       <div class="section-header reveal">
@@ -1401,7 +1496,7 @@ footer{
       </div>
     </div>
   </section>
-
+ 
   <section id="roadmap">
     <div class="shell">
       <div class="section-header reveal">
@@ -1433,7 +1528,7 @@ footer{
       </div>
     </div>
   </section>
-
+ 
   <section id="zaragoza">
     <div class="shell">
       <div class="section-header reveal">
@@ -1464,7 +1559,7 @@ footer{
       </div>
     </div>
   </section>
-
+ 
   <section id="roi">
     <div class="shell">
       <div class="section-header reveal">
@@ -1514,7 +1609,7 @@ footer{
       </div>
     </div>
   </section>
-
+ 
   <section id="fit">
     <div class="shell">
       <div class="section-header reveal">
@@ -1546,7 +1641,7 @@ footer{
       </div>
     </div>
   </section>
-
+ 
   <section id="editorial">
     <div class="shell">
       <div class="section-header reveal">
@@ -1582,7 +1677,7 @@ footer{
       </div>
     </div>
   </section>
-
+ 
   <section id="faq">
     <div class="shell">
       <div class="section-header reveal">
@@ -1618,7 +1713,7 @@ footer{
       </div>
     </div>
   </section>
-
+ 
   <section id="auditoria">
     <div class="shell">
       <div class="cta-layout">
@@ -1673,7 +1768,7 @@ footer{
     </div>
   </section>
 </main>
-
+ 
 <footer>
   <div class="shell foot">
     <div class="foot-copy">
@@ -1693,7 +1788,7 @@ footer{
     </ul>
   </div>
 </footer>
-
+ 
 <div class="sticky-cta" id="stickyCta">
   <div class="sticky-copy">
     <strong>Archon / Zaragoza / Audit</strong>
@@ -1701,350 +1796,9 @@ footer{
   </div>
   <a href="#auditoria">Reservar auditoría</a>
 </div>
-
-<!-- chatbot desactivado hasta desplegar API -->
-<!-- <script src="assets/js/archon-chatbot.js" defer></script> -->
-<script>
-const sectorData = {
-  ecommerce: {
-    form: "E-commerce",
-    headline: "E-commerce con pedidos, cobros e incidencias tensas",
-    narrative: "Cuando la tienda vende, el problema ya no es vender más. El problema es que pagos, stock, envíos y soporte cruzan demasiadas manos antes de resolverse bien.",
-    pain: "Pedidos mal validados, excepciones manuales y soporte reaccionando tarde.",
-    quickWin: "Automatizar validación de pedidos, incidencias y notificaciones con reglas claras.",
-    stack: ["Shopify / WooCommerce", "Logística y pagos", "Soporte y postventa"],
-    panelTitle: "Si vendes online desde Zaragoza, la fricción aparece cuando ventas y operaciones dejan de ir al mismo ritmo.",
-    panelCopy: "Tu stack puede ser bueno. El problema es la distancia entre herramienta y acción. Cuando una validación, una incidencia o una notificación tarda más de lo que debería, el negocio pierde margen y claridad.",
-    flow: [
-      "Entrada limpia del pedido y su contexto.",
-      "Reglas para pagos, stock, fraude o excepciones.",
-      "Notificaciones y soporte con información consistente."
-    ],
-    outcome: "Menos tiempo persiguiendo estados, menos incidencias sin dueño y una operativa que soporta más volumen sin añadir desorden.",
-    firstMove: "Mapear el punto exacto donde las incidencias entran sin estructura y obligan a reaccionar tarde.",
-    avoid: "Herramientas nuevas antes de tener un flujo de decisiones claro.",
-    tags: ["Menos tickets rebotando", "Más trazabilidad", "Menos dependencia del fundador"],
-    cityHeadline: "Pymes, ecommerce y equipos operativos que ya no quieren sostener su crecimiento con heroísmo.",
-    cityCopy: "En ecommerce, la tensión suele aparecer cuando vender es fácil pero coordinar cobros, logística y soporte ya consume demasiado cerebro humano.",
-    calcPreset: {events: 420, minutes: 6, hourly: 18, errors: 14},
-    incidentCost: 110,
-    recoveryRate: 0.54,
-    priority: "Prioridad: pedidos e incidencias"
-  },
-  services: {
-    form: "Servicios",
-    headline: "Empresas de servicios con aprobaciones, seguimiento y handoffs lentos",
-    narrative: "Cuando presupuestos, proyectos, seguimientos y clientes dependen de demasiados mensajes, recordatorios y manos, la operativa se vuelve opaca y carísima.",
-    pain: "Seguimiento manual, aprobaciones lentas y conocimiento repartido en emails y chats.",
-    quickWin: "Diseñar un flujo único para captación, handoff, seguimiento y reporting con IA donde aporte criterio.",
-    stack: ["CRM y formularios", "Email y agenda", "Documentación y reporting"],
-    panelTitle: "En servicios, la fuga grande no siempre está en vender. Suele estar en coordinar y entregar bien sin sobrecargar al equipo.",
-    panelCopy: "Cada seguimiento sin sistema y cada handoff mal trazado multiplica retrasos. La buena noticia es que eso se puede rediseñar sin rehacer el negocio entero.",
-    flow: [
-      "Entrada y cualificación con contexto limpio.",
-      "Handoffs con estado, responsable y siguiente acción.",
-      "Reporting y seguimiento sin perseguir información."
-    ],
-    outcome: "Clientes mejor atendidos, menos cuellos de botella internos y una entrega más estable aunque el volumen suba.",
-    firstMove: "Ordenar el paso entre venta, ejecución y seguimiento para que nadie trabaje a ciegas.",
-    avoid: "Meter un agente de IA antes de tener responsables y etapas bien definidas.",
-    tags: ["Menos seguimiento manual", "Más visibilidad", "Más consistencia en entrega"],
-    cityHeadline: "Empresas de servicios que quieren dejar de gestionar cada entrega desde la bandeja de entrada.",
-    cityCopy: "En servicios, Archon suele entrar cuando el equipo ya vende, pero la coordinación interna y la comunicación con cliente están tragando demasiado tiempo de gente buena.",
-    calcPreset: {events: 260, minutes: 11, hourly: 28, errors: 8},
-    incidentCost: 170,
-    recoveryRate: 0.48,
-    priority: "Prioridad: handoff y seguimiento"
-  },
-  operations: {
-    form: "Operaciones internas",
-    headline: "Operaciones internas con validaciones, backoffice y excepciones sin railes",
-    narrative: "Compras, aprobaciones, conciliación, incidencias internas o reportes. Cuando el backoffice trabaja como pegamento, todo el negocio responde peor de lo que podría.",
-    pain: "Backoffice manual, estados ambiguos y demasiadas tareas administrativas sin automatizar.",
-    quickWin: "Crear una fuente única de verdad y automatizar validaciones, aprobaciones y alertas críticas.",
-    stack: ["ERP / hojas", "Aprobaciones", "Reportes y excepciones"],
-    panelTitle: "En operaciones internas, el mayor coste suele esconderse en tareas que nadie cuestiona porque siempre se han hecho así.",
-    panelCopy: "El problema no es solo tiempo. Es también latencia, errores silenciosos y falta de visibilidad para decidir bien. Ahorrar administración ya es bueno; recuperar control es mejor.",
-    flow: [
-      "Entrada estructurada de solicitudes y estados.",
-      "Reglas de aprobación y alertas por excepción.",
-      "Reporting limpio para dirección y operaciones."
-    ],
-    outcome: "Menos trabajo invisible, mejor control de procesos internos y una base más sana para crecer o delegar.",
-    firstMove: "Detectar qué validación o reporte está robando más tiempo y no aporta valor humano real.",
-    avoid: "Automatizar el caos tal y como esta, sin limpiar responsables ni criterios.",
-    tags: ["Menos backoffice ciego", "Más control", "Más velocidad de decisión"],
-    cityHeadline: "Equipos internos que ya notan que el verdadero cuello de botella no esta en vender, sino en gobernar bien lo que ya existe.",
-    cityCopy: "Si estás en Zaragoza y tu operativa depende de demasiadas validaciones o reportes manuales, una lectura cercana del proceso puede acelerar muchísimo la priorización correcta.",
-    calcPreset: {events: 310, minutes: 9, hourly: 24, errors: 11},
-    incidentCost: 210,
-    recoveryRate: 0.5,
-    priority: "Prioridad: aprobaciones y reporting"
-  }
-};
-
-const roadmapData = {
-  audit: {
-    label: "Fase 01",
-    title: "Radar de fricción operativa",
-    duration: "33 minutos + síntesis inicial",
-    signal: "Objetivo: decidir si hay retorno real",
-    copy: "Revisamos proceso, herramientas, personas clave, excepciones y bloqueos. La idea no es impresionarte, sino decidir si conviene construir algo, empezar por una automatización concreta o no tocar nada todavía.",
-    items: [
-      "Mapa de puntos de fricción y latencia.",
-      "Hipótesis de ahorro, riesgo y orden de prioridad.",
-      "Decisión clara sobre el siguiente paso."
-    ]
-  },
-  blueprint: {
-    label: "Fase 02",
-    title: "Blueprint del sistema",
-    duration: "72 horas para la dirección inicial",
-    signal: "Objetivo: ordenar datos, flujos y responsables",
-    copy: "Diseñamos la estructura mínima que hace falta: fuente de verdad, raíles de automatización, puntos de IA, alertas y supervisión. Ni una capa más de la necesaria.",
-    items: [
-      "Arquitectura propuesta por capas y secuencia.",
-      "Lista de quick wins y de decisiones que conviene aplazar.",
-      "Mapa de integraciones y excepciones relevantes."
-    ]
-  },
-  build: {
-    label: "Fase 03",
-    title: "Build y despliegue controlado",
-    duration: "Sprint quirúrgico según complejidad",
-    signal: "Objetivo: pasar de idea a flujo real",
-    copy: "Construimos lo que toca, lo probamos sobre el proceso real y dejamos criterios de supervisión para que el sistema no se convierta en otra fuente de incertidumbre.",
-    items: [
-      "Automatizaciones, validaciones y triggers.",
-      "IA aplicada donde realmente multiplica criterio o velocidad.",
-      "Pruebas sobre casos normales y excepciones."
-    ]
-  },
-  scale: {
-    label: "Fase 04",
-    title: "Scale, ajuste y gobierno",
-    duration: "Seguimiento y refinamiento",
-    signal: "Objetivo: no volver al caos al crecer",
-    copy: "Medimos resultados, afinamos reglas, abrimos nuevas capas solo si el sistema ya aguanta y evitamos que la complejidad vuelva a colarse por una puerta lateral.",
-    items: [
-      "Lectura de ahorro, latencia y puntos ciegos.",
-      "Iteraciones para nuevos cuellos de botella.",
-      "Gobierno operativo para sostener el sistema."
-    ]
-  }
-};
-
-let currentSector = "ecommerce";
-
-function formatEuros(value){
-  return new Intl.NumberFormat("es-ES", {maximumFractionDigits: 0}).format(Math.round(value)) + " EUR";
-}
-
-function setText(id, value){
-  const node = document.getElementById(id);
-  if (node) node.textContent = value;
-}
-
-function updateSector(sectorKey, applyPreset){
-  currentSector = sectorKey;
-  const data = sectorData[sectorKey];
-  document.querySelectorAll(".sector-btn").forEach((button) => {
-    button.classList.toggle("active", button.dataset.sector === sectorKey);
-  });
-
-  setText("sectorHeadline", data.headline);
-  setText("sectorNarrative", data.narrative);
-  setText("sectorPain", data.pain);
-  setText("sectorQuickWin", data.quickWin);
-  setText("sectorStackA", data.stack[0]);
-  setText("sectorStackB", data.stack[1]);
-  setText("sectorStackC", data.stack[2]);
-  setText("sectorPanelTitle", data.panelTitle);
-  setText("sectorPanelCopy", data.panelCopy);
-  setText("sectorFlow1", data.flow[0]);
-  setText("sectorFlow2", data.flow[1]);
-  setText("sectorFlow3", data.flow[2]);
-  setText("sectorOutcome", data.outcome);
-  setText("sectorFirstMove", data.firstMove);
-  setText("sectorAvoid", data.avoid);
-  setText("sectorTag1", data.tags[0]);
-  setText("sectorTag2", data.tags[1]);
-  setText("sectorTag3", data.tags[2]);
-  setText("cityHeadline", data.cityHeadline);
-  setText("cityCopy", data.cityCopy);
-
-  const sectorInput = document.querySelector('input[name="selected_sector"]');
-  if (sectorInput) sectorInput.value = data.form;
-
-  const sectorSelect = document.getElementById("serviceSector");
-  if (sectorSelect) sectorSelect.value = data.form;
-
-  if (applyPreset){
-    document.getElementById("eventsRange").value = data.calcPreset.events;
-    document.getElementById("minutesRange").value = data.calcPreset.minutes;
-    document.getElementById("hourlyRange").value = data.calcPreset.hourly;
-    document.getElementById("errorsRange").value = data.calcPreset.errors;
-  }
-
-  updateCalculator();
-}
-
-function updateCalculator(){
-  const data = sectorData[currentSector];
-  const events = Number(document.getElementById("eventsRange").value);
-  const minutes = Number(document.getElementById("minutesRange").value);
-  const hourly = Number(document.getElementById("hourlyRange").value);
-  const errors = Number(document.getElementById("errorsRange").value);
-
-  const monthlyHours = (events * minutes) / 60;
-  const monthlyLaborLeak = monthlyHours * hourly;
-  const monthlyErrorLeak = errors * data.incidentCost;
-  const monthlyLeak = monthlyLaborLeak + monthlyErrorLeak;
-  const annualLeak = monthlyLeak * 12;
-  const recoverableHours = monthlyHours * data.recoveryRate;
-
-  setText("eventsOutput", events);
-  setText("minutesOutput", minutes);
-  setText("hourlyOutput", hourly + " EUR");
-  setText("errorsOutput", errors);
-  setText("annualLeakValue", formatEuros(annualLeak));
-  setText("monthlyLeakChip", formatEuros(monthlyLeak) + " / mes");
-  setText("hoursLeakChip", Math.round(recoverableHours) + " h recuperables / mes");
-  setText("priorityChip", data.priority);
-
-  let urgency = "Urgencia moderada";
-  if (annualLeak >= 30000) urgency = "Urgencia crítica";
-  else if (annualLeak >= 14000) urgency = "Urgencia alta";
-  setText("urgencyChip", urgency);
-
-  setText(
-    "calcNarrative",
-    "En este escenario " +
-      sectorData[currentSector].form.toLowerCase() +
-      " está perdiendo aproximadamente " +
-      formatEuros(annualLeak) +
-      " al año entre tiempo operativo y excepciones. Lo importante no es solo ahorrar: es recuperar control y bajar latencia."
-  );
-
-  const sticky = document.getElementById("stickyLeakText");
-  if (sticky){
-    sticky.textContent = "Tu fuga operativa estimada ahora mismo: " + formatEuros(annualLeak) + " / año.";
-  }
-
-  const hiddenLeak = document.querySelector('input[name="estimated_annual_leak"]');
-  if (hiddenLeak) hiddenLeak.value = formatEuros(annualLeak);
-
-  const hiddenPriority = document.querySelector('input[name="priority_hint"]');
-  if (hiddenPriority) hiddenPriority.value = data.quickWin;
-}
-
-function updateRoadmap(stageKey){
-  const data = roadmapData[stageKey];
-  document.querySelectorAll(".roadmap-tab").forEach((button) => {
-    button.classList.toggle("active", button.dataset.stage === stageKey);
-  });
-  setText("roadmapLabel", data.label);
-  setText("roadmapTitle", data.title);
-  setText("roadmapDuration", data.duration);
-  setText("roadmapSignal", data.signal);
-  setText("roadmapCopy", data.copy);
-  setText("roadmapItem1", data.items[0]);
-  setText("roadmapItem2", data.items[1]);
-  setText("roadmapItem3", data.items[2]);
-}
-
-function initReveal(){
-  const nodes = document.querySelectorAll(".reveal");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting){
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {threshold: 0.14});
-
-  nodes.forEach((node) => observer.observe(node));
-}
-
-function initCounters(){
-  const counters = document.querySelectorAll(".counter");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      const node = entry.target;
-      const target = Number(node.dataset.target || 0);
-      const prefix = node.dataset.prefix || "";
-      const suffix = node.dataset.suffix || "";
-      let current = 0;
-      const duration = 900;
-      const start = performance.now();
-
-      function tick(now){
-        const progress = Math.min((now - start) / duration, 1);
-        current = target * progress;
-        node.textContent = prefix + Math.round(current) + suffix;
-        if (progress < 1){
-          requestAnimationFrame(tick);
-        } else {
-          node.textContent = prefix + target + suffix;
-        }
-      }
-
-      requestAnimationFrame(tick);
-      observer.unobserve(node);
-    });
-  }, {threshold: 0.55});
-
-  counters.forEach((counter) => observer.observe(counter));
-}
-
-function initStickyCta(){
-  const sticky = document.getElementById("stickyCta");
-  function onScroll(){
-    if (window.scrollY > 760){
-      sticky.classList.add("visible");
-    } else {
-      sticky.classList.remove("visible");
-    }
-  }
-  window.addEventListener("scroll", onScroll, {passive:true});
-  onScroll();
-}
-
-document.querySelectorAll(".sector-btn").forEach((button) => {
-  button.addEventListener("click", () => updateSector(button.dataset.sector, true));
-});
-
-document.querySelectorAll(".roadmap-tab").forEach((button) => {
-  button.addEventListener("click", () => updateRoadmap(button.dataset.stage));
-});
-
-["eventsRange", "minutesRange", "hourlyRange", "errorsRange"].forEach((id) => {
-  document.getElementById(id).addEventListener("input", updateCalculator);
-});
-
-updateSector("ecommerce", true);
-updateRoadmap("audit");
-initReveal();
-initCounters();
-initStickyCta();
-
-// Hamburger menu
-const hamburgerBtn = document.getElementById("hamburgerBtn");
-const mobileMenu = document.getElementById("mobileMenu");
-hamburgerBtn.addEventListener("click", () => {
-  hamburgerBtn.classList.toggle("active");
-  mobileMenu.classList.toggle("open");
-  document.body.style.overflow = mobileMenu.classList.contains("open") ? "hidden" : "";
-});
-document.querySelectorAll(".mob-link").forEach((link) => {
-  link.addEventListener("click", () => {
-    hamburgerBtn.classList.remove("active");
-    mobileMenu.classList.remove("open");
-    document.body.style.overflow = "";
-  });
-});
-</script>
+ 
+<script src="assets/js/archon-chatbot.js" defer></script>
+<script src="assets/js/archon-main.js" defer></script>
+<script src="assets/js/archon-i18n.js" defer></script>
 </body>
 </html>
