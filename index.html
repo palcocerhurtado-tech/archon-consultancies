@@ -544,11 +544,22 @@ section{padding:88px 0}
   border:1px solid var(--line);
   background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
   box-shadow:var(--shadow);
+  position:relative;
+}
+.system-visual::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:52%;
+  background:linear-gradient(180deg,#060606 0%,#060606 58%,rgba(6,6,6,0) 100%);
+  z-index:1;
+  pointer-events:none;
 }
 .system-visual img{
   width:100%;
   height:100%;
   object-fit:cover;
+  object-position:center bottom;
   opacity:0.92;
 }
 .sector-layout,
