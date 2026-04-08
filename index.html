@@ -499,11 +499,15 @@ section{padding:88px 0}
 }
 .lane-card h3,
 .problem-card h3,
-.system-card h3,
 .fit-card h3{
   font-family:"Fraunces",serif;
   font-size:28px;
   line-height:1.06;
+}
+.system-card h3{
+  font-family:"Fraunces",serif;
+  font-size:clamp(18px, 2vw, 26px);
+  line-height:1.08;
 }
 .lane-card p,
 .problem-card p,
@@ -538,29 +542,21 @@ section{padding:88px 0}
   gap:16px;
 }
 .system-visual{
-  aspect-ratio:1080/1350;
+  aspect-ratio:1/1;
   min-height:100%;
   overflow:hidden;
   border:1px solid var(--line);
-  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  background:#060606;
   box-shadow:var(--shadow);
-  position:relative;
-}
-.system-visual::before{
-  content:"";
-  position:absolute;
-  top:0;left:0;right:0;
-  height:52%;
-  background:linear-gradient(180deg,#060606 0%,#060606 58%,rgba(6,6,6,0) 100%);
-  z-index:1;
-  pointer-events:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .system-visual img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center bottom;
-  opacity:0.92;
+  width:90%;
+  height:90%;
+  object-fit:contain;
+  opacity:0.88;
 }
 .sector-layout,
 .local-layout,
@@ -1281,16 +1277,15 @@ footer{
       <div class="system-layout">
         <div class="system-visual reveal">
           <img
-            src="assets/archon/system-diagram.jpg"
-            srcset="assets/archon/system-diagram-900.jpg 720w, assets/archon/system-diagram.jpg 1080w"
+            src="assets/archon/archon-concept-render.jpg"
+            srcset="assets/archon/archon-concept-render.jpg 750w"
             sizes="(max-width: 1060px) 100vw, 42vw"
-            alt="Diagrama del sistema operativo Archon"
-            width="1080"
-            height="1350"
+            alt="Símbolo operativo Archon — estrella, ojo y ouroboros"
+            width="750"
+            height="750"
             loading="lazy"
             decoding="async"
             fetchpriority="low"
-            onerror="if(!this.dataset.fallbackApplied){this.dataset.fallbackApplied='true';this.src='assets/archon/system-diagram.png';this.srcset='assets/archon/system-diagram.png 1080w';}"
           >
         </div>
         <div class="system-grid">
