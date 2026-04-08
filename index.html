@@ -40,7 +40,41 @@ gtag('config', 'G-XXXXXXXXXX');
 <link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
 <link rel="preload" as="image" href="assets/archon/hero-brain.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/archon-chatbot.css">
+<style>
+.archon-chatbot{position:fixed;right:18px;bottom:96px;z-index:220;width:min(390px,calc(100vw - 28px));font-family:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;color:#f4f6ef}
+.archon-chatbot *{box-sizing:border-box}
+.archon-chatbot-toggle{margin-left:auto;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 18px;border:none;border-radius:999px;background:linear-gradient(135deg,#7aff5d 0%,#d8ff82 100%);color:#041004;font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;box-shadow:0 22px 46px rgba(0,0,0,0.28);cursor:pointer}
+.archon-chatbot-toggle::before{content:"";width:10px;height:10px;border-radius:50%;background:#0a3200;box-shadow:0 0 0 6px rgba(4,16,4,0.12)}
+.archon-chatbot-panel{margin-top:12px;display:none;overflow:hidden;border:1px solid rgba(122,255,93,0.22);border-radius:24px;background:radial-gradient(circle at top left,rgba(122,255,93,0.12),transparent 26%),linear-gradient(180deg,rgba(12,14,12,0.98),rgba(6,8,6,0.98));box-shadow:0 30px 80px rgba(0,0,0,0.42);backdrop-filter:blur(14px)}
+.archon-chatbot.is-open .archon-chatbot-panel{display:flex;flex-direction:column}
+.archon-chatbot-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:18px 18px 14px;border-bottom:1px solid rgba(255,255,255,0.07)}
+.archon-chatbot-header strong{display:block;font-family:"Fraunces",serif;font-weight:700;font-size:22px}
+.archon-chatbot-header span{display:block;margin-top:6px;color:#bfc8bb;font-size:12px;line-height:1.6}
+.archon-chatbot-close{flex:0 0 auto;width:40px;height:40px;border:1px solid rgba(255,255,255,0.12);border-radius:999px;background:rgba(255,255,255,0.04);color:#f4f6ef;font-size:20px;cursor:pointer}
+.archon-chatbot-body{max-height:min(66vh,620px);overflow:auto;padding:16px 16px 8px}
+.archon-chatbot-messages{display:grid;gap:12px}
+.archon-chatbot-message{max-width:92%;padding:14px 14px 13px;border-radius:18px;font-size:14px;line-height:1.7;border:1px solid rgba(255,255,255,0.08);white-space:pre-line}
+.archon-chatbot-message strong{font-family:"Fraunces",serif;font-weight:700}
+.archon-chatbot-message p+p{margin-top:10px}
+.archon-chatbot-message ul{margin:10px 0 0 18px;display:grid;gap:8px}
+.archon-chatbot-message--bot{justify-self:start;background:rgba(255,255,255,0.045)}
+.archon-chatbot-message--user{justify-self:end;background:rgba(122,255,93,0.13);border-color:rgba(122,255,93,0.18)}
+.archon-chatbot-options{display:flex;flex-wrap:wrap;gap:10px;margin-top:2px}
+.archon-chatbot-option{border:1px solid rgba(122,255,93,0.22);border-radius:999px;background:rgba(122,255,93,0.06);color:#eff7eb;padding:10px 14px;font-size:11px;font-weight:700;letter-spacing:.08em;cursor:pointer}
+.archon-chatbot-option:hover{background:rgba(122,255,93,0.14)}
+.archon-chatbot-footer{padding:14px 16px 16px;border-top:1px solid rgba(255,255,255,0.07)}
+.archon-chatbot-status{margin-bottom:10px;color:#aeb7aa;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.archon-chatbot-form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}
+.archon-chatbot-input{min-height:52px;border:1px solid rgba(255,255,255,0.1);border-radius:16px;background:rgba(255,255,255,0.05);color:#f4f6ef;padding:0 14px;font-size:14px;outline:none}
+.archon-chatbot-input::placeholder{color:rgba(244,246,239,0.54)}
+.archon-chatbot-send{min-width:120px;min-height:52px;border:none;border-radius:16px;background:linear-gradient(135deg,#7aff5d 0%,#d8ff82 100%);color:#041004;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
+.archon-chatbot-summary{display:grid;gap:8px;margin-top:10px;padding:14px;border-radius:18px;border:1px solid rgba(122,255,93,0.14);background:rgba(122,255,93,0.05)}
+.archon-chatbot-summary strong{font-family:"Fraunces",serif;font-weight:700;font-size:15px}
+.archon-chatbot-status[data-state="live"]{color:#9eff88}
+.archon-chatbot-status[data-state="fallback"]{color:#ddd09e}
+.archon-chatbot-status[data-state="thinking"]{color:#e2eadc}
+@media(max-width:720px){.archon-chatbot{right:14px;left:14px;bottom:88px;width:auto}.archon-chatbot-toggle{width:100%;justify-content:center}.archon-chatbot-panel{border-radius:22px}.archon-chatbot-form{grid-template-columns:1fr}.archon-chatbot-send{width:100%}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1230,7 +1264,7 @@ footer{
     </div>
   </div>
 </nav>
- 
+
 <div class="mobile-overlay" id="mobileMenu">
   <a href="#rutas" class="mob-link">Servicios</a>
   <a href="#sectores" class="mob-link">Sectores</a>
@@ -1241,7 +1275,7 @@ footer{
   <a href="sobre-archon.html" class="mob-link">Sobre</a>
   <a href="#auditoria" class="mob-cta mob-link">Reservar auditoría</a>
 </div>
- 
+
 <main id="top">
   <section class="hero">
     <div class="shell">
@@ -1274,7 +1308,7 @@ footer{
             </article>
           </div>
         </div>
- 
+
         <aside class="hero-panel reveal">
           <div class="panel-top">
             <div>
@@ -1306,7 +1340,7 @@ footer{
           </div>
         </aside>
       </div>
- 
+
       <div class="metric-grid reveal">
         <article class="stat-card">
           <strong>Tiempo a roadmap</strong>
@@ -1331,7 +1365,7 @@ footer{
       </div>
     </div>
   </section>
- 
+
   <section id="rutas">
     <div class="shell">
       <div class="section-header reveal">
@@ -1361,7 +1395,7 @@ footer{
       </div>
     </div>
   </section>
- 
+
   <section id="problema">
     <div class="shell">
       <div class="section-header reveal">
@@ -1393,7 +1427,7 @@ footer{
       </div>
     </div>
   </section>
- 
+
   <section id="arquitectura">
     <div class="shell">
       <div class="section-header reveal">
@@ -1441,7 +1475,7 @@ footer{
       </div>
     </div>
   </section>
- 
+
   <section id="sectores">
     <div class="shell">
       <div class="section-header reveal">
@@ -1496,7 +1530,7 @@ footer{
       </div>
     </div>
   </section>
- 
+
   <section id="roadmap">
     <div class="shell">
       <div class="section-header reveal">
@@ -1528,7 +1562,7 @@ footer{
       </div>
     </div>
   </section>
- 
+
   <section id="zaragoza">
     <div class="shell">
       <div class="section-header reveal">
@@ -1559,7 +1593,7 @@ footer{
       </div>
     </div>
   </section>
- 
+
   <section id="roi">
     <div class="shell">
       <div class="section-header reveal">
@@ -1609,7 +1643,7 @@ footer{
       </div>
     </div>
   </section>
- 
+
   <section id="fit">
     <div class="shell">
       <div class="section-header reveal">
@@ -1641,7 +1675,7 @@ footer{
       </div>
     </div>
   </section>
- 
+
   <section id="editorial">
     <div class="shell">
       <div class="section-header reveal">
@@ -1677,7 +1711,7 @@ footer{
       </div>
     </div>
   </section>
- 
+
   <section id="faq">
     <div class="shell">
       <div class="section-header reveal">
@@ -1713,7 +1747,7 @@ footer{
       </div>
     </div>
   </section>
- 
+
   <section id="auditoria">
     <div class="shell">
       <div class="cta-layout">
@@ -1768,7 +1802,7 @@ footer{
     </div>
   </section>
 </main>
- 
+
 <footer>
   <div class="shell foot">
     <div class="foot-copy">
@@ -1788,7 +1822,7 @@ footer{
     </ul>
   </div>
 </footer>
- 
+
 <div class="sticky-cta" id="stickyCta">
   <div class="sticky-copy">
     <strong>Archon / Zaragoza / Audit</strong>
@@ -1796,10 +1830,9 @@ footer{
   </div>
   <a href="#auditoria">Reservar auditoría</a>
 </div>
- 
+
 <script src="assets/js/archon-chatbot.js" defer></script>
 <script src="assets/js/archon-main.js" defer></script>
 <script src="assets/js/archon-i18n.js" defer></script>
 </body>
 </html>
- 
