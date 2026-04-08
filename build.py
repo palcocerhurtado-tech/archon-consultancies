@@ -1,0 +1,1 @@
+open("index.html","w").write(open("web.html").read())
