@@ -451,7 +451,8 @@ section{padding:88px 0}
   gap:18px;
   align-items:end;
 }
-#problema .section-header{
+#problema .section-header,
+#zaragoza .section-header{
   grid-template-columns:1fr auto;
   align-items:center;
   gap:clamp(2rem,5vw,5rem);
@@ -471,13 +472,32 @@ section{padding:88px 0}
   opacity:0.92;
   filter:drop-shadow(0 0 30px rgba(166,198,144,0.15));
 }
+#zaragoza .section-header__text{
+  display:grid;
+  gap:18px;
+}
+#zaragoza .section-header__img{
+  width:clamp(280px,32vw,500px);
+  flex-shrink:0;
+}
+#zaragoza .section-header__img img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:6px;
+  object-fit:cover;
+}
 @media(max-width:820px){
-  #problema .section-header{
+  #problema .section-header,
+  #zaragoza .section-header{
     grid-template-columns:1fr;
   }
   #problema .section-header__img{
     width:clamp(120px,35vw,180px);
     margin:0 auto;
+  }
+  #zaragoza .section-header__img{
+    width:100%;
   }
 }
 .section-title{
@@ -1444,9 +1464,21 @@ footer{
   <section id="zaragoza">
     <div class="shell">
       <div class="section-header reveal">
-        <p class="eyebrow">Base local</p>
-        <h2 class="section-title">Desde Zaragoza. <span>Con cabeza de sistema.</span></h2>
-        <p class="section-copy">Si estás en Zaragoza o en Aragón, podemos trabajar en una lectura más cercana del negocio. Si no, operamos perfectamente en remoto con equipos de toda España. El valor no es la videollamada. El valor es la arquitectura que queda después.</p>
+        <div class="section-header__text">
+          <p class="eyebrow">Base local</p>
+          <h2 class="section-title">Desde Zaragoza. <span>Con cabeza de sistema.</span></h2>
+          <p class="section-copy">Si estás en Zaragoza o en Aragón, podemos trabajar en una lectura más cercana del negocio. Si no, operamos perfectamente en remoto con equipos de toda España. El valor no es la videollamada. El valor es la arquitectura que queda después.</p>
+        </div>
+        <div class="section-header__img">
+          <img
+            src="assets/plaza-del-pilar.png"
+            alt="Plaza del Pilar, Zaragoza — vista aérea"
+            width="800"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
       </div>
       <div class="local-layout">
         <div class="local-copy reveal">
