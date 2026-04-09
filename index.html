@@ -451,6 +451,35 @@ section{padding:88px 0}
   gap:18px;
   align-items:end;
 }
+#problema .section-header{
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:clamp(2rem,5vw,5rem);
+}
+#problema .section-header__text{
+  display:grid;
+  gap:18px;
+}
+#problema .section-header__img{
+  width:clamp(160px,18vw,280px);
+  flex-shrink:0;
+}
+#problema .section-header__img img{
+  width:100%;
+  height:auto;
+  display:block;
+  opacity:0.92;
+  filter:drop-shadow(0 0 30px rgba(166,198,144,0.15));
+}
+@media(max-width:820px){
+  #problema .section-header{
+    grid-template-columns:1fr;
+  }
+  #problema .section-header__img{
+    width:clamp(120px,35vw,180px);
+    margin:0 auto;
+  }
+}
 .section-title{
   max-width:13ch;
   font-size:clamp(34px, 5vw, 72px);
@@ -1237,9 +1266,21 @@ footer{
   <section id="problema">
     <div class="shell">
       <div class="section-header reveal">
-        <p class="eyebrow">El problema</p>
-        <h2 class="section-title">Las empresas no se frenan por falta de ganas. <span>Se frenan por fricción.</span></h2>
-        <p class="section-copy">Pedidos, aprobaciones, seguimientos, incidencias, correcciones y datos repartidos. El coste no siempre se ve en una factura. Se ve en retrasos, decisiones lentas y equipos que hacen de pegamento humano.</p>
+        <div class="section-header__text">
+          <p class="eyebrow">El problema</p>
+          <h2 class="section-title">Las empresas no se frenan por falta de ganas. <span>Se frenan por fricción.</span></h2>
+          <p class="section-copy">Pedidos, aprobaciones, seguimientos, incidencias, correcciones y datos repartidos. El coste no siempre se ve en una factura. Se ve en retrasos, decisiones lentas y equipos que hacen de pegamento humano.</p>
+        </div>
+        <div class="section-header__img">
+          <img
+            src="assets/archon/recurso6.png"
+            alt="Sello A.C 33.3 — pirámide con laureles"
+            width="400"
+            height="400"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
       </div>
       <div class="problem-grid">
         <article class="problem-card reveal">
