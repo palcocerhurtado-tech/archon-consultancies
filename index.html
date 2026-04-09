@@ -112,13 +112,38 @@ img{display:block;max-width:100%}
   box-shadow:var(--shadow);
   backdrop-filter:blur(12px);
 }
+.problem-card,
+.lane-card,
+.system-card,
+.story-card,
+.local-card,
+.fit-card,
+.faq-card{
+  transition:transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+}
+.problem-card:hover,
+.lane-card:hover,
+.system-card:hover,
+.story-card:hover,
+.local-card:hover,
+.fit-card:hover,
+.faq-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(166,198,144,0.35);
+  box-shadow:0 12px 40px rgba(166,198,144,0.07);
+}
 nav{
   position:sticky;
   top:0;
   z-index:120;
   border-bottom:1px solid rgba(255,255,255,0.05);
-  background:rgba(6,6,6,0.84);
+  background:rgba(6,6,6,0.72);
   backdrop-filter:blur(18px);
+  transition:background .4s ease, border-color .4s ease;
+}
+nav.scrolled{
+  background:rgba(6,6,6,0.96);
+  border-bottom-color:rgba(166,198,144,0.12);
 }
 .nav-shell{
   width:min(1200px, calc(100% - 44px));
@@ -981,6 +1006,42 @@ footer{
   opacity:1;
   transform:translateY(0);
 }
+
+/* ── Hero entrance sequence ─────────────────────────── */
+@keyframes heroFadeUp{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero-copy .eyebrow    {animation:heroFadeUp .55s ease both;animation-delay:.05s}
+.hero-copy h1          {animation:heroFadeUp .65s ease both;animation-delay:.2s}
+.hero-copy .hero-sub   {animation:heroFadeUp .55s ease both;animation-delay:.42s}
+.hero-copy .hero-actions{animation:heroFadeUp .55s ease both;animation-delay:.58s}
+.hero-copy .hero-pills {animation:heroFadeUp .55s ease both;animation-delay:.72s}
+.hero-copy .hero-story {animation:heroFadeUp .55s ease both;animation-delay:.88s}
+
+/* ── Stagger: card grids ─────────────────────────────── */
+.problem-grid .problem-card:nth-child(2),
+.system-grid  .system-card:nth-child(2),
+.lanes-grid   .lane-card:nth-child(2),
+.fit-grid     .fit-card:nth-child(2),
+.faq-grid     .faq-card:nth-child(2),
+.local-grid   .local-card:nth-child(2),
+.hero-story   .story-card:nth-child(2){ transition-delay:80ms }
+
+.problem-grid .problem-card:nth-child(3),
+.system-grid  .system-card:nth-child(3),
+.lanes-grid   .lane-card:nth-child(3),
+.fit-grid     .fit-card:nth-child(3),
+.faq-grid     .faq-card:nth-child(3),
+.local-grid   .local-card:nth-child(3),
+.hero-story   .story-card:nth-child(3){ transition-delay:160ms }
+
+.problem-grid .problem-card:nth-child(4),
+.fit-grid     .fit-card:nth-child(4),
+.faq-grid     .faq-card:nth-child(4){ transition-delay:240ms }
+
+.faq-grid .faq-card:nth-child(5){ transition-delay:320ms }
+.faq-grid .faq-card:nth-child(6){ transition-delay:400ms }
 @media (max-width: 1060px){
   .hero-grid,
   .system-layout,
@@ -1167,7 +1228,7 @@ footer{
   <section class="hero">
     <div class="shell">
       <div class="hero-grid">
-        <div class="hero-copy reveal">
+        <div class="hero-copy">
           <p class="eyebrow">Base operativa: Zaragoza | ejecución en toda España</p>
           <h1>Tu empresa no necesita más herramientas. <span>Necesita sistema.</span></h1>
           <p class="hero-sub">Archon Consultancies es una consultoría de IA en Zaragoza que diseña Digital Brain Infrastructure para pymes, ecommerce y empresas de servicios que quieren reducir fricción operativa y escalar con sistema.</p>

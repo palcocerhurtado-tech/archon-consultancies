@@ -294,7 +294,8 @@ function initCounters(){
 
       function tick(now){
         const progress = Math.min((now - start) / duration, 1);
-        current = target * progress;
+        const ease = 1 - Math.pow(1 - progress, 3);
+        current = target * ease;
         node.textContent = prefix + Math.round(current) + suffix;
         if (progress < 1){
           requestAnimationFrame(tick);
@@ -324,6 +325,16 @@ function initStickyCta(){
   onScroll();
 }
 
+function initNavScroll(){
+  const nav = document.querySelector("nav");
+  if (!nav) return;
+  function onScroll(){
+    nav.classList.toggle("scrolled", window.scrollY > 80);
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+}
+
 document.querySelectorAll(".sector-btn").forEach((button) => {
   button.addEventListener("click", () => updateSector(button.dataset.sector, true));
 });
@@ -341,6 +352,7 @@ updateRoadmap("audit");
 initReveal();
 initCounters();
 initStickyCta();
+initNavScroll();
 
 // Hamburger menu
 const hamburgerBtn = document.getElementById("hamburgerBtn");
