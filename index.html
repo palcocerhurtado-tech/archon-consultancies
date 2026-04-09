@@ -294,9 +294,21 @@ nav.scrolled{
 }
 .brand{
   display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+.brand-text{
+  display:flex;
   flex-direction:column;
   gap:2px;
-  text-decoration:none;
+}
+.brand-icon{
+  height:44px;
+  width:auto;
+  object-fit:contain;
+  flex-shrink:0;
 }
 .brand strong{
   font-family:"Fraunces",serif;
@@ -1422,8 +1434,11 @@ footer{
 <nav>
   <div class="nav-shell">
     <a class="brand" href="#top">
-      <strong>Archon</strong>
-      <span>Consultancies</span>
+      <img class="brand-icon" src="assets/archon/recurso19.png" alt="A.C 33.3" width="31" height="42" loading="eager" decoding="async">
+      <div class="brand-text">
+        <strong>Archon</strong>
+        <span>Consultancies</span>
+      </div>
     </a>
     <div class="nav-right">
       <ul class="nav-links">
