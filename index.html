@@ -18,6 +18,8 @@ gtag('config', 'G-1DEHH0QHZ5');
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="keywords" content="consultoría inteligencia artificial España, agencia IA España, consultoría IA precio, automatización pymes IA, consultoría IA Zaragoza, agencia inteligencia artificial precio, digital brain infrastructure, automatización empresas IA España, precio consultoría IA, agencia automatización España">
 <link rel="canonical" href="https://archonconsultancies.com/">
+<link rel="alternate" hreflang="es" href="https://archonconsultancies.com/">
+<link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <meta property="og:type" content="website">
@@ -56,17 +58,57 @@ gtag('config', 'G-1DEHH0QHZ5');
       "image": "https://archonconsultancies.com/assets/archon/banner.jpg",
       "description": "Consultoría de inteligencia artificial y agencia de automatización operativa en España. Diseña e implementa Digital Brain Infrastructure para pymes, ecommerce y empresas de servicios. Precios transparentes desde 250 EUR.",
       "slogan": "Tu empresa no necesita más herramientas. Necesita sistema.",
+      "telephone": "+34693500740",
+      "email": "archon.consultancies@hotmail.com",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Centro de Zaragoza",
         "addressLocality": "Zaragoza",
+        "postalCode": "50001",
         "addressRegion": "Aragón",
         "addressCountry": "ES"
       },
-      "areaServed": {"@type": "Country","name": "España"},
-      "founder": {"@type": "Person","name": "Pablo Alcocer Hurtado"},
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.6560,
+        "longitude": -0.8784
+      },
+      "areaServed": [
+        {"@type": "City","name": "Zaragoza"},
+        {"@type": "State","name": "Aragón"},
+        {"@type": "Country","name": "España"}
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "serviceType": [
+        "Consultoría de inteligencia artificial",
+        "Automatización de procesos empresariales",
+        "Desarrollo de agentes de IA",
+        "Implementación de chatbots inteligentes",
+        "Automatización con n8n, Make y Zapier",
+        "Integración de IA en CRM y ERP",
+        "Auditoría y optimización de procesos con IA",
+        "Diseño de páginas web profesionales"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Pablo Alcocer Hurtado",
+        "jobTitle": "Fundador y Consultor de IA",
+        "url": "https://archonconsultancies.com/pablo-alcocer-hurtado.html",
+        "sameAs": [
+          "https://www.linkedin.com/in/pablo-alcocer-hurtado-a0bb573b6",
+          "https://www.instagram.com/pabloalcoceroficial33/"
+        ]
+      },
       "priceRange": "250€ – 2.500€+",
-      "email": "archon.consultancies@hotmail.com",
-      "sameAs": ["https://archonconsultancies.com"]
+      "sameAs": [
+        "https://www.linkedin.com/in/pablo-alcocer-hurtado-a0bb573b6",
+        "https://www.instagram.com/pabloalcoceroficial33/"
+      ]
     },
     {
       "@type": "Service",
@@ -1101,6 +1143,35 @@ footer{
   letter-spacing:3px;
   font-size:10px;
 }
+.foot-nap{
+  margin-top:14px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+.foot-nap a,
+.foot-nap span{
+  font-size:12px;
+  color:#8e8e8e;
+  letter-spacing:0.04em;
+  text-decoration:none;
+  text-transform:none;
+}
+.foot-nap a:hover{color:var(--green)}
+.foot-social{
+  display:flex;
+  gap:14px;
+  margin-top:10px;
+}
+.foot-social a{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#8e8e8e;
+  text-decoration:none;
+}
+.foot-social a:hover{color:var(--green)}
 .foot-links{
   display:flex;
   flex-wrap:wrap;
@@ -1512,7 +1583,7 @@ footer{
               <p class="eyebrow alt">Modo de lectura</p>
               <h2 id="sectorHeadline">E-commerce con pedidos, cobros e incidencias tensas</h2>
             </div>
-            <span class="panel-status">Live / Zaragoza</span>
+            <span class="panel-status">Activo · Zaragoza</span>
           </div>
           <p class="panel-copy" id="sectorNarrative">Cuando la tienda vende, el problema ya no es vender más. El problema es que pagos, stock, envíos y soporte cruzan demasiadas manos antes de resolverse bien.</p>
           <div class="sector-switch" aria-label="Selección de sector">
@@ -1526,7 +1597,7 @@ footer{
               <p id="sectorPain">Pedidos mal validados, excepciones manuales y soporte reaccionando tarde.</p>
             </article>
             <article class="signal-tag">
-              <strong>Quick win</strong>
+              <strong>Mejora rápida</strong>
               <p id="sectorQuickWin">Automatizar validación de pedidos, incidencias y notificaciones con reglas claras.</p>
             </article>
           </div>
@@ -2090,21 +2161,32 @@ footer{
   </section>
 </main>
 
-<footer>
+<footer itemscope itemtype="https://schema.org/LocalBusiness">
   <div class="shell foot">
     <div class="foot-copy">
-      <strong>Archon Consultancies</strong>
-      <span>IA - Automatización - Arquitectura operativa</span>
+      <strong itemprop="name">Archon Consultancies</strong>
+      <span>Consultoría de IA y automatización · <span itemprop="addressLocality">Zaragoza</span>, <span itemprop="addressCountry">España</span></span>
+      <div class="foot-nap">
+        <a href="tel:+34693500740" itemprop="telephone">+34 693 500 740</a>
+        <a href="mailto:archon.consultancies@hotmail.com" itemprop="email">archon.consultancies@hotmail.com</a>
+        <span>Centro de Zaragoza · Lun–Vie 9:00–18:00</span>
+      </div>
+      <div class="foot-social">
+        <a href="https://www.linkedin.com/in/pablo-alcocer-hurtado-a0bb573b6" target="_blank" rel="noopener" itemprop="sameAs">LinkedIn</a>
+        <a href="https://www.instagram.com/pabloalcoceroficial33/" target="_blank" rel="noopener" itemprop="sameAs">Instagram</a>
+      </div>
     </div>
     <ul class="foot-links">
       <li><a href="#rutas">Servicios</a></li>
       <li><a href="#sectores">Sectores</a></li>
       <li><a href="#roadmap">Proceso</a></li>
       <li><a href="#roi">ROI</a></li>
+      <li><a href="#precios">Precios</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="sobre-archon.html">Sobre Archon</a></li>
       <li><a href="pablo-alcocer-hurtado.html">Pablo</a></li>
       <li><a href="33.html">33</a></li>
+      <li><a href="777.html">777</a></li>
       <li><a href="#auditoria">Auditoría</a></li>
     </ul>
   </div>
