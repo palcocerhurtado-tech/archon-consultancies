@@ -47,6 +47,9 @@ Artículos del blog
 Consultoría de IA para pymes: Cuándo tiene sentido una consultoría de IA para una pyme, qué procesos revisar primero y cómo evitar automatizar caos.
 Agencia de IA para ecommerce: Cómo una agencia de IA puede resolver los cuellos de botella típicos de un ecommerce.
 Agentes de IA para soporte al cliente: Qué hace un agente de IA en soporte, cuándo conviene y qué errores evitar.
+Cuánto cuesta automatizar un ecommerce en España en 2026: Rangos de inversión, ahorro esperado y tiempos de implantación.
+Consultoría de IA vs agencia de IA: Diferencias entre diagnóstico y ejecución y cuándo elegir cada enfoque.
+Cómo construí mi bot de trading cripto: Artículo técnico sobre QuantBot, arquitectura modular, sentimiento histórico, riesgo, ejecución real y trazabilidad en producción.
 
 Datos clave
 

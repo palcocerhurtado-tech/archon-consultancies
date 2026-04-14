@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1DEHH0QHZ5"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-1DEHH0QHZ5');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cómo construí QuantBot: arquitectura modular, noticias, riesgo y ejecución real en cripto sin vender humo ni promesas irreales.">
+<meta name="author" content="Pablo Alcocer Hurtado, Archon Consultancies">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://archonconsultancies.com/como-construi-bot-trading-cripto.html">
+<link rel="alternate" hreflang="es" href="https://archonconsultancies.com/como-construi-bot-trading-cripto.html">
+<link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/como-construi-bot-trading-cripto.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Archon Consultancies">
+<meta property="og:locale" content="es_ES">
+<meta property="og:url" content="https://archonconsultancies.com/como-construi-bot-trading-cripto.html">
+<meta property="og:title" content="Cómo construí mi bot de trading cripto: de idea a ejecución real | Archon Consultancies">
+<meta property="og:description" content="Arquitectura modular, sentimiento, riesgo y ejecución real para construir un bot de trading cripto sin vender humo.">
+<meta property="og:image" content="https://archonconsultancies.com/assets/archon/banner.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="400">
+<meta property="og:image:alt" content="Archon Consultancies en Zaragoza">
+<meta property="article:published_time" content="2026-04-14">
+<meta property="article:modified_time" content="2026-04-14">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://archonconsultancies.com/como-construi-bot-trading-cripto.html">
+<meta name="twitter:title" content="Cómo construí mi bot de trading cripto: de idea a ejecución real | Archon Consultancies">
+<meta name="twitter:description" content="Cómo construir un bot de trading cripto con observabilidad, riesgo y ejecución real sin vender humo.">
+<meta name="twitter:image" content="https://archonconsultancies.com/assets/archon/banner.jpg">
+<meta name="theme-color" content="#070707">
+<title>Cómo construí mi bot de trading cripto: de idea a ejecución real | Archon Consultancies</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Archon Consultancies",
+      "url": "https://archonconsultancies.com/",
+      "logo": "https://archonconsultancies.com/favicon-192.png"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Cómo construí mi bot de trading cripto: de idea a ejecución real",
+      "author": {
+        "@type": "Person",
+        "name": "Pablo Alcocer Hurtado",
+        "url": "https://archonconsultancies.com/pablo-alcocer-hurtado.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Archon Consultancies",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://archonconsultancies.com/favicon-192.png"
+        }
+      },
+      "datePublished": "2026-04-14",
+      "dateModified": "2026-04-14",
+      "image": "https://archonconsultancies.com/assets/archon/banner.jpg",
+      "description": "Cómo construí QuantBot: arquitectura modular, noticias, riesgo y ejecución real en cripto sin vender humo ni promesas irreales.",
+      "mainEntityOfPage": "https://archonconsultancies.com/como-construi-bot-trading-cripto.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://archonconsultancies.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://archonconsultancies.com/blog.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Cómo construí mi bot de trading cripto",
+          "item": "https://archonconsultancies.com/como-construi-bot-trading-cripto.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuál era el objetivo real del bot de trading?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El objetivo no era ganar siempre, sino construir un sistema serio, trazable y seguro en producción: datos, noticias, predicción, filtros de riesgo, ejecución y registro auditable de cada decisión."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cada cuánto analiza mercado QuantBot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El bot recorre mercado y universo de símbolos de forma periódica cada 13 minutos, descarga OHLCV, genera features y solo intenta ejecutar si la señal supera umbral y pasa control de riesgo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué señales usa además del precio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Combina precio, volumen, RSI, ATR, señales derivadas y una ventana histórica de sentimiento y noticias de hasta 96 horas para reducir decisiones impulsivas basadas en ruido puntual."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuándo decide no operar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cuando la confianza no supera umbral, cuando el spread o el slippage son malos, cuando no se cumplen mínimos del exchange o cuando el sizing y la exposición incumplen los guardrails definidos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Dónde está el código del proyecto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El repositorio abierto del proyecto está publicado como QuantBot en GitHub y se puede revisar para entender la arquitectura modular, los scripts auxiliares y la lógica de operación."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="assets/css/archon-article.css">
+<link rel="stylesheet" href="assets/css/archon-typography.css">
+</head>
+<body>
+<nav>
+  <div class="navin">
+    <a class="brand" href="index.html"><strong>Archon</strong><span>Consultancies</span></a>
+    <a class="navcta" href="blog.html">Ver blog</a>
+  </div>
+</nav>
+<main>
+  <div class="shell">
+    <article class="hero">
+      <p class="eyebrow">Build / QuantBot / Cripto</p>
+      <h1>Cómo construí mi bot de trading cripto: de idea a ejecución real <span>sin vender humo</span></h1>
+      <div class="quick-answer" style="padding:20px 24px;border-left:3px solid #7aff5d;background:rgba(122,255,93,0.06);margin:18px 0 28px;font-size:15px;line-height:1.8;color:#e0e0e0;">
+        <strong style="color:#7aff5d;text-transform:uppercase;letter-spacing:2px;font-size:11px;display:block;margin-bottom:10px;">Respuesta rápida</strong>
+        QuantBot no nació para prometer rentabilidad mágica, sino para operar con disciplina: escaneo periódico de mercado, datos OHLCV, sentimiento histórico, predicción por símbolo, filtros de riesgo y ejecución auditable. La diferencia entre un juguete y un sistema serio aparece en la observabilidad, la resiliencia y la capacidad de decir HOLD cuando no toca entrar.
+      </div>
+      <p class="updated" style="color:#8e8e8e;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;">Última actualización: abril 2026</p>
+      <p class="lead">Este artículo no es una invitación a fantasear con dinero fácil. Es una explicación técnica y honesta de cómo pasé de una idea de trading algorítmico a un sistema modular que escanea mercado cada 13 minutos, enriquece contexto con sentimiento histórico, decide con umbrales estrictos y registra cada intento con trazabilidad real. El repositorio abierto está en <a href="https://github.com/palcocerhurtado-tech/quantbot">QuantBot en GitHub</a>.</p>
+      <div class="meta"><span>QuantBot</span><span>Trading</span><span>Riesgo</span><span>Arquitectura</span></div>
+    </article>
+
+    <section class="section body">
+      <div>
+        <h2>¿Cuál era el objetivo real del proyecto y por qué no quise venderlo como un bot que “gana siempre”?</h2>
+        <p>El objetivo real de QuantBot era construir un sistema serio, no una promesa vacía. Desde el principio la idea fue diseñar una arquitectura que analizara mercado, leyera noticias, tomara decisiones con reglas claras y pudiera operar con seguridad suficiente para no romperse en cuanto aparecieran condiciones reales de exchange, latencia o datos sucios.</p>
+        <p>Eso cambia mucho la forma de construir. Cuando alguien empieza pensando en “ganar siempre”, suele obsesionarse con el indicador milagroso o con un backtest bonito. Cuando empiezas pensando en producción, la conversación se mueve a módulos, observabilidad, auditoría, control de riesgo y mantenimiento continuo. Ahí deja de importar tanto la fantasía del acierto permanente y empieza a importar la supervivencia del sistema.</p>
+        <p>Ese enfoque encaja bastante con Archon. Aunque QuantBot no sea el servicio principal de la web, sí demuestra la misma filosofía de construcción: separar responsabilidades, registrar cada decisión y asumir que un sistema serio también debe saber cuándo no actuar. En trading eso protege capital. En empresa, protege margen y estabilidad operativa.</p>
+      </div>
+      <div>
+        <h2>¿Qué arquitectura modular sí funciona cuando quieres iterar rápido sin romperlo todo?</h2>
+        <p>La arquitectura que mejor me funcionó fue una arquitectura modular con límites muy claros: ingesta de datos de mercado, pipeline de noticias y sentimiento, generación de features, predicción por símbolo y ejecución con control de riesgo. Separar estas piezas fue clave para poder tocar una parte sin contaminar inmediatamente el resto.</p>
+        <p>El bot recorre su universo de símbolos cada 13 minutos. En cada ciclo descarga OHLCV, normaliza datos, enriquece con indicadores como RSI y ATR, agrega sentimiento y noticias recientes y lanza una predicción de tipo BUY, SELL u HOLD junto a un score de confianza. Después de eso no ejecuta automáticamente por fe ciega: primero pasa por filtros de spread, exposición, mínimos del exchange, slippage y sizing por riesgo.</p>
+        <p>La lección más útil aquí es que el modelo no es el centro absoluto del sistema. Lo que da estabilidad es el pipeline completo. Si una parte falla, necesitas saber exactamente qué módulo falló, qué dato faltó y qué camino tomó la decisión. Sin ese mapa, el bot se convierte en una caja negra y deja de ser mantenible en cuanto el entorno se complica.</p>
+      </div>
+      <div class="grid">
+        <div class="card"><h3>Frecuencia</h3><p><strong>13 min</strong></p><p>El bot vuelve a escanear mercado y universo de símbolos en ciclos periódicos para no quedarse ciego ante cambios recientes.</p></div>
+        <div class="card"><h3>Ventana histórica</h3><p><strong>96 h</strong></p><p>El pipeline de noticias y sentimiento toma contexto reciente de hasta 96 horas en vez de reaccionar a un único titular.</p></div>
+        <div class="card"><h3>Umbral</h3><p><strong>0.88</strong></p><p>Solo se plantea operar cuando la confianza supera un nivel alto, lo que reduce entradas impulsivas y deja muchos ciclos en HOLD.</p></div>
+      </div>
+      <div>
+        <h2>¿Por qué mezclar mercado, indicadores y noticias da señales menos ciegas que trabajar solo con precio?</h2>
+        <p>Una de las mejoras más importantes del proyecto fue dejar de depender de un único sentimiento instantáneo y construir una pipeline histórica de noticias. El bot no mira solo la foto de un minuto, sino una ventana de contexto reciente para entender si el ruido actual confirma o contradice lo que viene ocurriendo alrededor del símbolo y del mercado general.</p>
+        <p>A nivel técnico, la mezcla es bastante concreta: datos de precio y volumen, señales técnicas como RSI y ATR, derivados simples que ayudan a medir tensión del movimiento y una capa de sentimiento que intenta capturar contexto narrativo. No hace que el sistema sea infalible, pero sí reduce decisiones ciegas tomadas desde precio puro, que suele ser una lectura demasiado pobre para mercado cripto en alta volatilidad.</p>
+        <p>También aprendí algo importante: más datos no siempre significan mejor señal. Lo que ayuda es que los datos estén bien delimitados y que cada familia de features tenga una función clara. Si apilas inputs sin criterio, el modelo parece más sofisticado, pero en realidad se vuelve más difícil de explicar, auditar y mejorar.</p>
+      </div>
+      <div>
+        <h2>¿Cómo se traduce una predicción a una orden sin convertir el sistema en una demo frágil?</h2>
+        <p>El modelo devuelve una clase y un nivel de confianza, pero la decisión real no ocurre ahí. Después viene una regla simple y estricta: si no hay suficiente confianza, no se opera. Si la hay, todavía falta pasar por una capa de filtros que preguntan si el spread es aceptable, si el tamaño cumple mínimos de exchange, si el riesgo por símbolo está dentro de límite y si la cartera total no se está sobreexponiendo.</p>
+        <p>Ese paso parece obvio, pero separa un sistema de producción de una demo que “lanza señales”. Muchísimos proyectos funcionan hasta el momento en que tienen que tocar exchange real. Ahí aparecen mínimos de notional, estados parciales de orden, límites de rate, latencias variables, timeouts, fills parciales y errores de sincronización. El bot serio no es el que mejor predice en abstracto. Es el que sobrevive a esa fricción sin comportarse como un caos.</p>
+        <p>Por eso la ejecución de QuantBot registra tanto órdenes como rechazos. Cada decisión tiene motivo, identificador auditable y contexto suficiente para revisar después qué ocurrió. Incluso decir “no” a una operación deja huella. Y eso importa mucho porque sin historial de rechazos, muchos errores de diseño se vuelven invisibles.</p>
+      </div>
+      <div class="grid">
+        <div class="card"><h3>Ledger</h3><p>Toda orden, fill o rechazo se registra para reconciliación interna y revisión posterior.</p></div>
+        <div class="card"><h3>Backoff</h3><p>Los reintentos inteligentes con jitter ayudan a sobrevivir a rate limits y fallos de red sin romper el flujo.</p></div>
+        <div class="card"><h3>ClientOrderId</h3><p>Cada intento deja un identificador rastreable para auditar decisiones, fallos parciales y estados ambiguos.</p></div>
+      </div>
+      <div>
+        <h2>¿Dónde se gana o se pierde de verdad: en el modelo o en la ejecución?</h2>
+        <p>Si tuviera que quedarme con una sola lección, diría que la ejecución pesa más que el modelo en muchísimos momentos reales. Un modelo correcto con una ejecución floja pierde valor enseguida. Un modelo imperfecto con buen control operativo y disciplina de riesgo puede sobrevivir bastante mejor de lo que muchos esperan.</p>
+        <p>En QuantBot la capa de ejecución incluye validación previa de amount y notional, control de comisiones, métricas de latencia, observación de slippage y lógica de reintento. Eso no hace el sistema glamuroso, pero sí operable. Es la parte que evita que una buena idea se rompa por detalles aparentemente pequeños. Y esos detalles son justo los que en producción hacen más daño.</p>
+        <p>También incorporé una decisión que me parecía importante: el bot no vende balances antiguos que no haya abierto él mismo a menos que se configure explícitamente para gestionar toda la cartera desde el arranque. Ese detalle evita liquidaciones sorpresa y deja claro qué capital está realmente bajo la responsabilidad del sistema y cuál no.</p>
+      </div>
+    </section>
+
+    <section class="section body">
+      <div>
+        <h2>¿Cómo diseñé la capa de riesgo para priorizar supervivencia antes que actividad?</h2>
+        <p>La capa de riesgo se diseñó con una idea sencilla: evitar drawdowns estúpidos vale más que forzar operaciones. Por eso cada trade pasa por checks de exposición total, límites por símbolo, guardrails de spread y slippage, sizing por riesgo y restricciones de drawdown máximo. Si algo no encaja, el bot no discute: registra el motivo y se queda quieto.</p>
+        <p>Ese comportamiento tiene una lectura muy importante para cualquier sistema algorítmico: no operar también es una decisión válida. De hecho, con un umbral alto como 0.88, muchos ciclos acaban en HOLD. Y eso está bien. Un bot serio no existe para entretener con actividad constante, sino para protegerse de malas entradas y reservar capital para escenarios donde la combinación de contexto, señal y riesgo ofrece una ventaja más clara.</p>
+        <p>En trading live esto se nota mucho. El error típico del bot inmaduro es sentir que debe hacer algo en cada ciclo para justificar su existencia. QuantBot intenta lo contrario: justificar primero que merece actuar. Ese pequeño cambio de filosofía protege más capital del que parece y además simplifica mucho la lectura posterior del rendimiento.</p>
+      </div>
+      <div>
+        <h2>¿Qué aprendí operándolo en background y por qué el mantenimiento también forma parte del sistema?</h2>
+        <p>Para dejarlo estable en el día a día, lo opero en background con logs persistentes y comandos de control simples. Eso parece poco heroico, pero es exactamente lo que convierte un proyecto en algo usable. No basta con que el script funcione cuando lo ejecutas delante. Tiene que poder arrancar, parar, registrar, alertar y dejar un rastro legible cuando algo se tuerce a las tres de la mañana.</p>
+        <p>Ahí aparecieron dos lecciones operativas muy útiles. La primera: un warning no siempre es un fallo crítico. Algunos avisos de SSL o de entorno local parecen dramáticos y no afectan a la lógica central. La segunda: si el capital inicial con el que calculas PnL no coincide con el capital real que vive el bot, las métricas pueden volverse engañosas. Ese tipo de detalles no son glamourosos, pero separan un dashboard bonito de una lectura operativa fiable.</p>
+        <p>También comprobé que la robustez no se diseña solo en una pizarra. Se gana enfrentando fallos reales. Durante pruebas live aparecieron errores intermitentes de sincronización con Binance y cambios en endpoints legacy de user stream. En vez de verlo como un desastre, lo usé para reforzar resiliencia: mejor fallback, menos dependencia de un único canal y reintentos más inteligentes.</p>
+      </div>
+      <div class="grid">
+        <div class="card"><h3>Operación continua</h3><p>Logs persistentes, control simple y lectura clara del estado permiten mantener el sistema vivo sin improvisación.</p></div>
+        <div class="card"><h3>Warnings</h3><p>No todo aviso es un fallo crítico; aprender a clasificar ruido operativo evita perder tiempo en fantasmas.</p></div>
+        <div class="card"><h3>PNL real</h3><p>Si el capital base no coincide con el capital real, la interpretación de rendimiento se vuelve engañosa.</p></div>
+      </div>
+      <div>
+        <h2>¿Qué errores reales aparecieron y por qué fueron más útiles que dañinos?</h2>
+        <p>Los fallos más útiles fueron precisamente los que obligaron a reforzar la arquitectura. Problemas de sincronización con Binance, cambios en endpoints legacy del user stream y estados intermedios de orden sirvieron para detectar dependencias demasiado optimistas y endurecer la capa de ejecución. Cada incidente reveló una asunción falsa o demasiado frágil.</p>
+        <p>Eso me confirmó algo que también vale para automatización empresarial: la robustez no se presume, se demuestra reaccionando bien cuando el mundo real contradice el diseño ideal. Un sistema maduro no es el que no falla nunca. Es el que falla de forma legible, contenida y corregible. Si el error deja rastro claro, puedes mejorar. Si no lo deja, solo puedes repetirlo con más confianza.</p>
+        <p>Por eso la trazabilidad fue tan importante. Sin logs, sin clientOrderId, sin ledger de órdenes y sin motivos de rechazo, el proyecto habría sido mucho más bonito en superficie y mucho peor para aprender de verdad. La mejora continua no sale de intuición heroica, sino de revisar con calma qué ocurrió y por qué.</p>
+      </div>
+      <div>
+        <h2>¿Qué aprendí construyéndolo y por qué estas lecciones sirven también fuera del trading?</h2>
+        <p>La mayor lección no fue qué indicador usar. Fue esta: la arquitectura importa más que una táctica puntual, la ejecución y el riesgo pesan más que el backtest bonito, la trazabilidad es obligatoria si quieres mejorar y un sistema serio debe saber cuándo no operar. Esa idea vale en cripto, en ecommerce y en cualquier stack donde una automatización toque dinero, clientes o decisiones sensibles.</p>
+        <p>Si tuviera que resumir QuantBot en una línea, diría que pasé de un script que lanza señales a un sistema que puede operar con disciplina. Y eso, al final, es lo que más me interesa construir también en Archon: sistemas que no parezcan listos solo en la demo, sino que resistan el contacto con la realidad.</p>
+        <p>Quien quiera revisar el proyecto puede entrar directamente al repositorio abierto en <a href="https://github.com/palcocerhurtado-tech/quantbot">GitHub: palcocerhurtado-tech/quantbot</a>. Ahí está la prueba más útil de todo esto: no una promesa, sino un build real con módulos, scripts y decisiones visibles.</p>
+      </div>
+      <div class="grid">
+        <div class="card"><h3>Arquitectura</h3><p>Separar responsabilidades permitió iterar más rápido y corregir sin romper el pipeline completo.</p></div>
+        <div class="card"><h3>Disciplina</h3><p>HOLD no es ausencia de decisión; muchas veces es la decisión que más capital protege.</p></div>
+        <div class="card"><h3>Trazabilidad</h3><p>Sin rastro auditable no hay mejora continua, ni en trading, ni en empresa, ni en agentes de IA.</p></div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <p class="eyebrow">FAQ</p>
+      <div class="faq-grid">
+        <div class="card"><h3>¿Cuál era el objetivo real del bot de trading?</h3><p>Construir un sistema serio, trazable y seguro en producción, no prometer rentabilidad mágica ni “ganar siempre”.</p></div>
+        <div class="card"><h3>¿Cada cuánto analiza mercado QuantBot?</h3><p>Cada 13 minutos, recorriendo símbolos, descargando OHLCV y generando features antes de decidir.</p></div>
+        <div class="card"><h3>¿Qué señales usa además del precio?</h3><p>Precio, volumen, RSI, ATR, señales derivadas y una ventana histórica de sentimiento y noticias de hasta 96 horas.</p></div>
+        <div class="card"><h3>¿Cuándo decide no operar?</h3><p>Cuando la confianza no supera umbral o cuando el riesgo, el spread, el slippage o los mínimos del exchange no encajan.</p></div>
+        <div class="card"><h3>¿Dónde está el código del proyecto?</h3><p>En el repositorio abierto <a href="https://github.com/palcocerhurtado-tech/quantbot">QuantBot en GitHub</a>.</p></div>
+        <div class="card"><h3>¿Es asesoramiento financiero?</h3><p>No. Este contenido es técnico y educativo. Operar en live implica riesgo real y exige controles y cumplimiento según jurisdicción.</p></div>
+      </div>
+    </section>
+
+    <section class="related">
+      <p class="eyebrow">Lecturas relacionadas</p>
+      <div class="related-grid">
+        <div class="card"><h3>777</h3><p>La pieza pilar de Archon sobre sistema, jerarquía, límites y arquitectura operativa.</p><div class="links"><a href="777.html">Leer 777</a></div></div>
+        <div class="card"><h3>Recursos</h3><p>Herramientas, ecosistema y stack con el que Archon construye automatización y sistemas útiles.</p><div class="links"><a href="recursos.html">Ver recursos</a></div></div>
+        <div class="card"><h3>Consultoría de IA</h3><p>Si necesitas un sistema serio en empresa, la puerta sigue siendo un diagnóstico y roadmap con criterio.</p><div class="links"><a href="consultoria-ia.html">Ver consultoría</a></div></div>
+        <div class="card"><h3>Repositorio QuantBot</h3><p>El código abierto del bot de trading cripto, con módulos, scripts y arquitectura visible para revisión técnica.</p><div class="links"><a href="https://github.com/palcocerhurtado-tech/quantbot">Ver GitHub</a></div></div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <p class="eyebrow">Disclaimer</p>
+      <h2>Construir un bot serio no consiste en prometer resultados. Consiste en diseñar un sistema que sepa analizar, decidir, registrar y, cuando hace falta, <span>no operar.</span></h2>
+      <p>Este contenido es educativo y técnico. No es asesoramiento financiero. Si lo que buscas no es trading sino arquitectura operativa para empresa, la auditoría de Archon sigue siendo la puerta correcta.</p>
+      <div class="cta-actions">
+        <a class="btn primary" href="index.html#auditoria">Reservar auditoría</a>
+        <a class="btn secondary" href="blog.html">Volver al blog</a>
+      </div>
+    </section>
+  </div>
+</main>
+<footer>
+  <div class="shell foot">
+    <div>
+      <strong>Archon Consultancies</strong>
+      <span>Consultora de IA y automatización en Zaragoza | Servicio en toda España</span>
+      <span>Centro de Zaragoza, Zaragoza, España</span>
+      <span>+34 693 500 740 | archon.consultancies@hotmail.com</span>
+      <span>Lunes a viernes | 09:00 a 18:00</span>
+    </div>
+    <div class="foot-nav" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:flex-end;">
+      <a href="index.html">Inicio</a>
+      <a href="blog.html">Blog</a>
+      <a href="777.html">777</a>
+      <a href="consultoria-ia.html">Consultoría</a>
+      <a href="recursos.html">Recursos</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
