@@ -44,7 +44,7 @@ gtag('config', 'G-1DEHH0QHZ5');
 <link rel="preload" as="image" href="assets/archon/hero-brain.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <!-- chatbot desactivado -->
-<!-- <link rel="stylesheet" href="assets/css/archon-chatbot.css"> -->
+<link rel="stylesheet" href="assets/css/archon-chatbot.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -751,6 +751,8 @@ section{padding:88px 0}
 .fit-card,
 .faq-card{
   padding:28px;
+  overflow:hidden;
+  min-width:0;
 }
 .lane-card strong,
 .problem-card strong,
@@ -769,6 +771,9 @@ section{padding:88px 0}
   font-family:"Fraunces",serif;
   font-size:28px;
   line-height:1.06;
+  overflow-wrap:break-word;
+  word-wrap:break-word;
+  hyphens:auto;
 }
 .system-card h3{
   font-family:"Fraunces",serif;
@@ -784,6 +789,8 @@ section{padding:88px 0}
   color:#d2d2d2;
   font-size:14px;
   line-height:1.82;
+  overflow-wrap:break-word;
+  word-wrap:break-word;
 }
 .lane-card a{
   display:inline-flex;
@@ -1103,6 +1110,25 @@ section{padding:88px 0}
   color:var(--white);
   outline:none;
 }
+.form select{
+  background-color:#141414;
+  color:#f5f5f1;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%237aff5d' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 16px center;
+  padding-right:40px;
+  cursor:pointer;
+  color-scheme:dark;
+}
+.form select option{
+  background:#141414;
+  color:#f5f5f1;
+  padding:10px;
+}
+.form select:invalid{color:rgba(255,255,255,0.4)}
 .form textarea{
   min-height:120px;
   resize:vertical;
@@ -1279,6 +1305,8 @@ footer{
   .system-grid,
   .faq-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
   .local-grid{grid-template-columns:1fr}
+  .system-card h3{font-size:clamp(18px, 3vw, 26px)}
+  .sector-panel h3{font-size:clamp(22px, 4vw, 36px)}
 }
 .hamburger{
   display:none;
@@ -2200,8 +2228,8 @@ footer{
   <a href="#auditoria">Reservar auditoría</a>
 </div>
 
-<script src="assets/js/archon-chatbot.js" defer></script>
-<script src="assets/js/archon-main.js" defer></script>
 <script src="assets/js/archon-i18n.js" defer></script>
+<script src="assets/js/archon-main.js" defer></script>
+<script src="assets/js/archon-chatbot.js" defer></script>
 </body>
 </html>
