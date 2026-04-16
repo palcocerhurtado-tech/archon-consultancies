@@ -3,6 +3,7 @@
   const SESSION_KEY = "archon_chat_session_v1";
   const FORM_SELECTOR = 'form[action*="formsubmit.co"]';
   const API_ENDPOINT = "/api/chat";
+  const OCCULT_KEY = "jeremias 33.3";
 
   const profile = {
     founder:
@@ -130,7 +131,8 @@
     mode: "idle",
     step: 0,
     answers: {},
-    aiAvailable: null
+    aiAvailable: null,
+    occultMode: false
   };
 
   let ui = null;
@@ -141,6 +143,10 @@
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .trim();
+  }
+
+  function containsOccultKey(text) {
+    return normalize(text).indexOf(OCCULT_KEY) !== -1;
   }
 
   function escapeHtml(text) {
@@ -165,7 +171,8 @@
   function defaultSession() {
     return {
       history: [],
-      configured: null
+      configured: null,
+      occultMode: false
     };
   }
 
@@ -579,6 +586,33 @@
     ui.status.setAttribute("data-state", stateName || "");
   }
 
+  function setOccultMode(active) {
+    state.occultMode = Boolean(active);
+    updateSession({ occultMode: state.occultMode });
+
+    if (!ui) return;
+
+    ui.root.classList.toggle("is-occult", state.occultMode);
+
+    if (ui.gate) {
+      ui.gate.textContent = state.occultMode
+        ? "Camara velada abierta"
+        : "Camara velada dormida";
+    }
+
+    if (ui.subtitle) {
+      ui.subtitle.textContent = state.occultMode
+        ? "La segunda camara esta activa. Ahora tambien puedo hablar de ocultismo, hermetismo, alquimia y masoneria con mas profundidad."
+        : "Diagnostico estructural, borrador de presupuesto y respuestas sobre la marca. Existe una segunda camara para quien sepa abrirla.";
+    }
+
+    if (ui.toggle) {
+      ui.toggle.textContent = state.occultMode
+        ? "Camara velada"
+        : "Analisis Archon";
+    }
+  }
+
   function scrollMessagesToBottom() {
     if (!ui || !ui.body) return;
     ui.body.scrollTop = ui.body.scrollHeight;
@@ -599,6 +633,28 @@
 
   function addBotMessage(html) {
     return appendMessage("bot", html);
+  }
+
+  function addCitations(citations) {
+    if (!Array.isArray(citations) || !citations.length) return;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "archon-chatbot-actions archon-chatbot-citations";
+
+    citations.slice(0, 5).forEach(function (citation) {
+      if (!citation || !citation.url) return;
+
+      const link = document.createElement("a");
+      link.className = "archon-chatbot-link";
+      link.href = citation.url;
+      link.target = "_blank";
+      link.rel = "noreferrer noopener";
+      link.textContent = citation.title || citation.url;
+      wrapper.appendChild(link);
+    });
+
+    ui.messages.appendChild(wrapper);
+    scrollMessagesToBottom();
   }
 
   function addOptions(options) {
@@ -653,7 +709,8 @@
     ui.messages.innerHTML = "";
     addBotMessage(
       "<p><strong>Analisis Archon</strong></p>" +
-        "<p>Puedo diagnosticar debilidades estructurales, preparar un borrador de presupuesto y responder preguntas sobre Archon, su motivacion y sus servicios.</p>"
+        "<p>Puedo diagnosticar debilidades estructurales, preparar un borrador de presupuesto y responder preguntas sobre Archon, su motivacion y sus servicios.</p>" +
+        "<p>Y si alguna vez sospechas que este panel tiene una segunda camara, recuerda esto: algunas puertas no se abren con botones, sino con formula.</p>"
     );
 
     const saved = loadDiagnosis();
@@ -830,7 +887,7 @@
       updateSession({ configured: state.aiAvailable });
 
       if (state.aiAvailable) {
-        setStatus("IA Gemini conectada. Puedes conversar o pedir tu borrador.", "live");
+        setStatus("IA Gemini conectada con busqueda viva. Puedes conversar o pedir tu borrador.", "live");
       } else {
         setStatus("Modo local activo. La IA se activara al configurar GEMINI_API_KEY.", "fallback");
       }
@@ -853,6 +910,7 @@
         body: JSON.stringify({
           message: payload.message,
           mode: payload.mode || "chat",
+          occultMode: state.occultMode,
           history: session.history || [],
           page: {
             title: document.title,
@@ -888,8 +946,16 @@
   function renderApiResponse(data) {
     if (!data) return false;
 
+    if (data.occultMode) {
+      setOccultMode(true);
+    }
+
     if (data.reply) {
       addBotMessage(formatReplyHtml(data.reply));
+    }
+
+    if (data.citations && data.citations.length) {
+      addCitations(data.citations);
     }
 
     if (data.reportReady && data.report) {
@@ -899,17 +965,22 @@
       );
       saveDiagnosis(report);
       hydrateForms();
-      renderReportCard(report, "Gemini 2.0 Flash");
+      renderReportCard(report, "Gemini 2.5 Flash");
     }
 
     const actions = normalizeApiActions(data.ctas);
     if (actions.length) {
       addOptions(actions);
-    } else {
+    } else if (!state.occultMode) {
       addOptions(defaultOptions());
     }
 
-    setStatus("IA Gemini conectada. Sigo contigo.", "live");
+    setStatus(
+      state.occultMode
+        ? "Camara velada abierta. Gemini y busqueda viva activos."
+        : "IA Gemini conectada. Sigo contigo.",
+      "live"
+    );
     return true;
   }
 
@@ -951,7 +1022,7 @@
     let finalReport = localReport;
 
     removePendingOptions();
-    setStatus("Construyendo borrador con Gemini 2.0 Flash...", "thinking");
+    setStatus("Construyendo borrador con Gemini 2.5 Flash...", "thinking");
 
     const apiResponse = await askGemini({
       message: "Genera un borrador completo a partir del diagnostico guiado.",
@@ -969,7 +1040,7 @@
       if (apiResponse.reply) {
         addBotMessage(formatReplyHtml(apiResponse.reply));
       }
-      renderReportCard(finalReport, "Gemini 2.0 Flash");
+      renderReportCard(finalReport, "Gemini 2.5 Flash");
       addOptions([
         { label: "Reservar revision", action: "audit" },
         { label: "Copiar resumen", action: "copy" },
@@ -1104,6 +1175,32 @@
   function handleLocalFreeText(text) {
     const normalizedText = normalize(text);
 
+    if (containsOccultKey(text)) {
+      setOccultMode(true);
+      addBotMessage(
+        "<p><strong>La formula ha sido reconocida.</strong></p><p>La camara velada ya esta marcada para esta sesion, pero sin Gemini activo no puedo desplegar la capa ocultista completa.</p>"
+      );
+      setStatus("Camara velada lista. Falta activar la IA en Vercel.", "fallback");
+      return;
+    }
+
+    if (
+      normalizedText.indexOf("ocult") !== -1 ||
+      normalizedText.indexOf("hermet") !== -1 ||
+      normalizedText.indexOf("alquim") !== -1 ||
+      normalizedText.indexOf("mason") !== -1 ||
+      normalizedText.indexOf("rosacruz") !== -1 ||
+      normalizedText.indexOf("secreto") !== -1 ||
+      normalizedText.indexOf("camara") !== -1 ||
+      normalizedText.indexOf("pista") !== -1
+    ) {
+      addBotMessage(
+        "<p>Hay una segunda camara para ese tipo de preguntas. No se abre con un boton.</p><p>Puedo darte una pista: <strong>un profeta, un numero maestro repetido y un versiculo ternario</strong>. Otra mas: <strong>11 x 3 = 33; el tercer sello queda solo</strong>.</p>"
+      );
+      addOptions(defaultOptions());
+      return;
+    }
+
     if (
       normalizedText.indexOf("analisis") !== -1 ||
       normalizedText.indexOf("diagnostico") !== -1 ||
@@ -1184,6 +1281,10 @@
       return;
     }
 
+    if (containsOccultKey(text)) {
+      setOccultMode(true);
+    }
+
     setStatus("Pensando la mejor siguiente jugada...", "thinking");
 
     const apiResponse = await askGemini({
@@ -1228,8 +1329,9 @@
         '<div class="archon-chatbot-header">' +
           "<div>" +
             "<strong>Archon</strong>" +
-            "<span>Diagnostico estructural, borrador de presupuesto y respuestas sobre la marca.</span>" +
+            '<span class="archon-chatbot-subtitle">Diagnostico estructural, borrador de presupuesto y respuestas sobre la marca. Existe una segunda camara para quien sepa abrirla.</span>' +
           "</div>" +
+          '<div class="archon-chatbot-gate">Camara velada dormida</div>' +
           '<button class="archon-chatbot-close" type="button" aria-label="Cerrar chatbot">&times;</button>' +
         "</div>" +
         '<div class="archon-chatbot-body">' +
@@ -1254,7 +1356,9 @@
       messages: root.querySelector(".archon-chatbot-messages"),
       form: root.querySelector(".archon-chatbot-form"),
       input: root.querySelector(".archon-chatbot-input"),
-      status: root.querySelector(".archon-chatbot-status")
+      status: root.querySelector(".archon-chatbot-status"),
+      gate: root.querySelector(".archon-chatbot-gate"),
+      subtitle: root.querySelector(".archon-chatbot-subtitle")
     };
   }
 
@@ -1270,9 +1374,12 @@
   }
 
   function init() {
+    const session = loadSession();
+    state.occultMode = Boolean(session.occultMode);
     createUi();
     bindUi();
     hydrateForms();
+    setOccultMode(state.occultMode);
     renderWelcome();
     checkApiAvailability();
   }

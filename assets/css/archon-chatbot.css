@@ -69,6 +69,19 @@
   font-size:12px;
   line-height:1.6;
 }
+.archon-chatbot-gate{
+  align-self:center;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.04);
+  color:#aeb7aa;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
 .archon-chatbot-close{
   flex:0 0 auto;
   width:40px;
@@ -198,6 +211,10 @@
   gap:10px;
   margin-top:8px;
 }
+.archon-chatbot-citations{
+  margin-top:10px;
+  margin-bottom:2px;
+}
 .archon-chatbot-link{
   display:inline-flex;
   align-items:center;
@@ -220,6 +237,36 @@
   border-color:rgba(122,255,93,0.24);
   color:#eff7eb;
 }
+.archon-chatbot.is-occult .archon-chatbot-panel{
+  border-color:rgba(214,186,126,0.3);
+  background:
+    radial-gradient(circle at top left, rgba(214,186,126,0.12), transparent 26%),
+    linear-gradient(180deg, rgba(18,12,10,0.98), rgba(9,7,5,0.98));
+}
+.archon-chatbot.is-occult .archon-chatbot-toggle{
+  background:linear-gradient(135deg, #d6ba7e 0%, #f0d996 100%);
+  color:#160d02;
+}
+.archon-chatbot.is-occult .archon-chatbot-gate{
+  color:#f0d996;
+  border-color:rgba(214,186,126,0.26);
+  background:rgba(214,186,126,0.08);
+}
+.archon-chatbot.is-occult .archon-chatbot-message--user{
+  background:rgba(214,186,126,0.12);
+  border-color:rgba(214,186,126,0.22);
+}
+.archon-chatbot.is-occult .archon-chatbot-option{
+  border-color:rgba(214,186,126,0.22);
+  background:rgba(214,186,126,0.06);
+}
+.archon-chatbot.is-occult .archon-chatbot-option:hover{
+  background:rgba(214,186,126,0.14);
+}
+.archon-chatbot.is-occult .archon-chatbot-link--primary{
+  background:rgba(214,186,126,0.18);
+  border-color:rgba(214,186,126,0.28);
+}
 .archon-chatbot-toggle:focus-visible,
 .archon-chatbot-close:focus-visible,
 .archon-chatbot-option:focus-visible,
@@ -236,6 +283,9 @@
     bottom:88px;
     width:auto;
   }
+  .archon-chatbot-header{
+    flex-wrap:wrap;
+  }
   .archon-chatbot-toggle{
     width:100%;
     justify-content:center;
@@ -247,6 +297,10 @@
     grid-template-columns:1fr;
   }
   .archon-chatbot-send{width:100%}
+  .archon-chatbot-gate{
+    width:100%;
+    text-align:center;
+  }
 }
 @media (prefers-reduced-motion: reduce){
   .archon-chatbot *{

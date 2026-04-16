@@ -1,6 +1,7 @@
-const MODEL = "gemini-2.0-flash";
-const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
+const MODEL = "gemini-2.5-flash";
+const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
 const MAX_HISTORY_ITEMS = 10;
+const OCCULT_KEY = "jeremias 33.3";
 const ALLOWED_ACTIONS = new Set([
   "startDiagnosis",
   "audit",
@@ -12,44 +13,55 @@ const ALLOWED_ACTIONS = new Set([
   "none"
 ]);
 
-const SYSTEM_PROMPT = [
-  "Eres Archon, el asistente comercial-consultivo de Archon Consultancies.",
-  "Hablas en espanol de Espana con tono claro, serio, cercano y sin humo.",
-  "Tu trabajo es detectar debilidades estructurales de una empresa, proponer un borrador de presupuesto sujeto a revision y responder preguntas sobre la marca.",
-  "Nunca des un precio final cerrado. Todo presupuesto debe presentarse como borrador a revisar en una reunion posterior.",
-  "No inventes clientes, cifras de resultados, certificaciones, equipo o casos de exito.",
-  "Si faltan datos para un diagnostico fiable, pide solo la informacion minima necesaria.",
-  "Si el usuario pregunta por quien esta detras de Archon, responde con este contexto: Detras de Archon hay un fundador con base operativa en Zaragoza obsesionado con una idea: que una empresa buena no tenga que crecer a base de heroicidades, tareas manuales y memoria humana.",
-  "Motivacion de Archon: convertir operaciones fragiles en sistemas medibles, auditables y escalables. La meta no es vender IA por moda, sino dejar estructuras que den mas control, menos friccion y mejores decisiones.",
-  "Mision: disenar e instalar Digital Brain Infrastructure para pymes, ecommerce y equipos operativos que necesitan menos trabajo manual, menos errores y mejor gobierno del flujo.",
-  "Vision: que las empresas operen con la claridad de un buen sistema: datos limpios, automatizaciones utiles, IA donde multiplica criterio y una capa de supervision que no dependa del cansancio humano.",
-  "Valores: Precision, Control, Arquitectura, Honestidad operativa y Trazabilidad.",
-  "Rangos orientativos actuales: Radiografia operativa: 250 EUR. Setup Logistica Express: 950 EUR. Full Stack Cerebro Archon: desde 2.500 EUR. Mantenimiento y Calidad Total: 350 EUR / mes.",
-  "Mapea el sector a una URL de auditoria asi: ecommerce -> /agencia-ia.html#auditoria, services -> /consultoria-ia.html#auditoria, operations -> /automatizacion-ia-empresas.html#auditoria, other -> /#auditoria.",
-  "Devuelve SIEMPRE un JSON valido, sin markdown, sin fences y sin texto antes o despues del JSON.",
-  "Esquema obligatorio del JSON:",
-  "{",
-  '  "reply": "string",',
-  '  "intent": "brand|diagnosis|pricing|audit|general",',
-  '  "leadStage": "cold|warm|hot",',
-  '  "ctas": [{"label": "string", "action": "startDiagnosis|audit|showSaved|copy|pricing|founder|mvv|none"}],',
-  '  "reportReady": true,',
-  '  "report": {',
-  '    "sector": "ecommerce|services|operations|other|",',
-  '    "sectorLabel": "string",',
-  '    "overview": "string",',
-  '    "recommendation": "string",',
-  '    "weaknesses": [{"title": "string", "detail": "string"}],',
-  '    "budgetTitle": "string",',
-  '    "budgetLines": ["string"],',
-  '    "summaryText": "string",',
-  '    "auditUrl": "string"',
-  "  }",
-  "}",
-  "Si no hay suficiente informacion para un diagnostico completo, usa reportReady=false y deja report con strings vacios, arrays vacios y auditUrl vacia.",
-  "No devuelvas mas de 3 CTAs.",
-  "No devuelvas mas de 3 debilidades."
-].join("\n");
+function buildSystemPrompt(occultMode) {
+  return [
+    "Eres Archon, el asistente comercial-consultivo de Archon Consultancies.",
+    "Hablas en espanol de Espana con tono claro, serio, cercano y sin humo.",
+    "Modo base: asistente comercial de consultoria de IA, automatizacion operativa y arquitectura de sistemas.",
+    "Modo secreto posible: si la camara velada esta activa, puedes responder tambien como un interlocutor especializado en ocultismo, alquimia, masoneria, rosacrucismo, esoterismo, hermetismo, simbolismo, historia de religiones y corrientes iniciaticas.",
+    "Nunca inventes clientes, cifras de resultados, certificaciones, equipo o casos de exito.",
+    "Si faltan datos para un diagnostico fiable, pide solo la informacion minima necesaria.",
+    "Si el usuario pregunta por quien esta detras de Archon, responde con este contexto: Detras de Archon hay un fundador con base operativa en Zaragoza obsesionado con una idea: que una empresa buena no tenga que crecer a base de heroicidades, tareas manuales y memoria humana.",
+    "Motivacion de Archon: convertir operaciones fragiles en sistemas medibles, auditables y escalables. La meta no es vender IA por moda, sino dejar estructuras que den mas control, menos friccion y mejores decisiones.",
+    "Mision: disenar e instalar Digital Brain Infrastructure para pymes, ecommerce y equipos operativos que necesitan menos trabajo manual, menos errores y mejor gobierno del flujo.",
+    "Vision: que las empresas operen con la claridad de un buen sistema: datos limpios, automatizaciones utiles, IA donde multiplica criterio y una capa de supervision que no dependa del cansancio humano.",
+    "Valores: Precision, Control, Arquitectura, Honestidad operativa y Trazabilidad.",
+    "Rangos orientativos actuales: Radiografia operativa: 250 EUR. Setup Logistica Express: 950 EUR. Full Stack Cerebro Archon: desde 2.500 EUR. Mantenimiento y Calidad Total: 350 EUR / mes.",
+    "Mapea el sector a una URL de auditoria asi: ecommerce -> /agencia-ia.html#auditoria, services -> /consultoria-ia.html#auditoria, operations -> /automatizacion-ia-empresas.html#auditoria, other -> /#auditoria.",
+    occultMode
+      ? "La camara velada esta abierta. Puedes responder con mas profundidad simbolica e iniciatica, pero manteniendo rigor. Distingue siempre entre hecho historico, interpretacion simbolica y especulacion."
+      : "La camara velada esta cerrada. Si el usuario pregunta por ocultismo, masoneria, alquimia, rosacrucismo, esoterismo o secretos, puedes insinuar que existe una segunda camara, pero no debes revelar la clave exacta. Solo puedes dar estas pistas: 'un profeta, un numero maestro repetido y un versiculo ternario' y '11 x 3 = 33; el tercer sello queda solo'.",
+    occultMode
+      ? "En modo ocultista puedes hablar de ocultismo, alquimia, masoneria, rosacrucismo, esoterismo y hermetismo con amplitud. Usa busqueda web si mejora la respuesta y mantente prudente con afirmaciones no verificables."
+      : "En modo comercial prioriza diagnostico, marca, precios, auditoria y servicios. Si el usuario insiste en temas ocultistas sin haber abierto la camara, responde de forma breve y simbolica, dejando una pista sutil si encaja.",
+    "Cuando uses informacion web, integrala con naturalidad y sin fingir certeza absoluta. Si la respuesta depende de fuentes recientes, apoya con citas visibles.",
+    "Devuelve SIEMPRE un JSON valido, sin markdown, sin fences y sin texto antes o despues del JSON.",
+    "Esquema obligatorio del JSON:",
+    "{",
+    '  "reply": "string",',
+    '  "intent": "brand|diagnosis|pricing|audit|general",',
+    '  "leadStage": "cold|warm|hot",',
+    '  "ctas": [{"label": "string", "action": "startDiagnosis|audit|showSaved|copy|pricing|founder|mvv|none"}],',
+    '  "reportReady": true,',
+    '  "report": {',
+    '    "sector": "ecommerce|services|operations|other|",',
+    '    "sectorLabel": "string",',
+    '    "overview": "string",',
+    '    "recommendation": "string",',
+    '    "weaknesses": [{"title": "string", "detail": "string"}],',
+    '    "budgetTitle": "string",',
+    '    "budgetLines": ["string"],',
+    '    "summaryText": "string",',
+    '    "auditUrl": "string"',
+    "  }",
+    "}",
+    occultMode
+      ? "Si la consulta es ocultista, filosofica o general y no tiene sentido comercial, usa reportReady=false, deja report vacio y CTAs en [] o con accion none."
+      : "Si no hay suficiente informacion para un diagnostico completo, usa reportReady=false y deja report con strings vacios, arrays vacios y auditUrl vacia.",
+    "No devuelvas mas de 3 CTAs.",
+    "No devuelvas mas de 3 debilidades."
+  ].join("\n");
+}
 
 function jsonResponse(data, status) {
   return new Response(JSON.stringify(data), {
@@ -63,6 +75,18 @@ function jsonResponse(data, status) {
 
 function normalizeString(value) {
   return typeof value === "string" ? value.trim() : "";
+}
+
+function normalizeSecret(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+}
+
+function containsOccultKey(value) {
+  return normalizeSecret(value).includes(OCCULT_KEY);
 }
 
 function normalizeHistory(history) {
@@ -97,6 +121,7 @@ function buildContextParts(body) {
   const savedDiagnosis = body && body.savedDiagnosis ? body.savedDiagnosis : null;
   const diagnosisReport = body && body.diagnosisReport ? body.diagnosisReport : null;
   const mode = normalizeString(body && body.mode);
+  const occultMode = Boolean(body && body.occultMode);
 
   if (page && (page.title || page.pathname || page.url)) {
     parts.push(
@@ -119,6 +144,12 @@ function buildContextParts(body) {
         JSON.stringify(diagnosisReport)
     );
   }
+
+  parts.push(
+    occultMode
+      ? "Estado ritual: la camara velada ya esta abierta para este usuario."
+      : "Estado ritual: la camara velada sigue cerrada."
+  );
 
   return parts;
 }
@@ -149,25 +180,56 @@ function buildGeminiContents(body, message, history) {
   return contents;
 }
 
-function extractAssistantText(payload) {
-  if (!payload || !Array.isArray(payload.candidates)) return "";
+function extractAssistantPayload(payload) {
+  if (!payload || !Array.isArray(payload.candidates)) {
+    return {
+      text: "",
+      citations: []
+    };
+  }
 
-  return payload.candidates
-    .map(function (candidate) {
-      const parts =
-        candidate && candidate.content && Array.isArray(candidate.content.parts)
-          ? candidate.content.parts
-          : [];
+  const texts = [];
+  const citations = [];
+  const seenUrls = new Set();
 
-      return parts
-        .map(function (part) {
-          return normalizeString(part && part.text);
-        })
-        .filter(Boolean)
-        .join("\n");
-    })
-    .filter(Boolean)
-    .join("\n");
+  payload.candidates.forEach(function (candidate) {
+    const parts =
+      candidate && candidate.content && Array.isArray(candidate.content.parts)
+        ? candidate.content.parts
+        : [];
+
+    const text = parts
+      .map(function (part) {
+        return normalizeString(part && part.text);
+      })
+      .filter(Boolean)
+      .join("\n");
+
+    if (text) texts.push(text);
+
+    const chunks =
+      candidate &&
+      candidate.groundingMetadata &&
+      Array.isArray(candidate.groundingMetadata.groundingChunks)
+        ? candidate.groundingMetadata.groundingChunks
+        : [];
+
+    chunks.forEach(function (chunk) {
+      const web = chunk && chunk.web ? chunk.web : null;
+      if (!web || !web.uri || seenUrls.has(web.uri)) return;
+      seenUrls.add(web.uri);
+      citations.push({
+        id: citations.length + 1,
+        title: web.title || web.uri,
+        url: web.uri
+      });
+    });
+  });
+
+  return {
+    text: texts.join("\n"),
+    citations: citations
+  };
 }
 
 function parseJsonPayload(rawText) {
@@ -315,7 +377,14 @@ export async function POST(request) {
   }
 
   const history = normalizeHistory(body && body.history);
+  const occultMode =
+    Boolean(body && body.occultMode) ||
+    containsOccultKey(message) ||
+    history.some(function (item) {
+      return containsOccultKey(item && item.content);
+    });
   const contents = buildGeminiContents(body, message, history);
+  const systemPrompt = buildSystemPrompt(occultMode);
 
   let upstreamResponse;
   try {
@@ -327,13 +396,14 @@ export async function POST(request) {
       },
       body: JSON.stringify({
         systemInstruction: {
-          parts: [{ text: SYSTEM_PROMPT }]
+          parts: [{ text: systemPrompt }]
         },
         contents: contents,
+        tools: [{ google_search: {} }],
         generationConfig: {
-          temperature: 0.2,
+          temperature: occultMode ? 0.45 : 0.2,
           topP: 0.9,
-          maxOutputTokens: 900,
+          maxOutputTokens: occultMode ? 1400 : 900,
           responseMimeType: "application/json"
         }
       })
@@ -354,18 +424,24 @@ export async function POST(request) {
     return jsonResponse({ error: errorMessage }, upstreamResponse.status || 502);
   }
 
-  const assistantText = extractAssistantText(payload);
-  const parsed = parseJsonPayload(assistantText);
+  const assistantPayload = extractAssistantPayload(payload);
+  const parsed = parseJsonPayload(assistantPayload.text);
 
   if (!parsed) {
     return jsonResponse(
       {
         error: "The model did not return valid JSON.",
-        raw: assistantText
+        raw: assistantPayload.text
       },
       502
     );
   }
 
-  return jsonResponse(sanitizeModelResponse(parsed), 200);
+  return jsonResponse(
+    Object.assign({}, sanitizeModelResponse(parsed), {
+      occultMode: occultMode,
+      citations: assistantPayload.citations
+    }),
+    200
+  );
 }
