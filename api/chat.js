@@ -89,6 +89,13 @@ function containsOccultKey(value) {
   return normalizeSecret(value).includes(OCCULT_KEY);
 }
 
+function shouldUseSearch(value) {
+  const normalized = normalizeSecret(value);
+  return /(busca|fuentes?|recient|actual|hoy|ultima|ultimas|news|noticias?|investiga|verifica|enlace|link|cita|citas)/.test(
+    normalized
+  );
+}
+
 function normalizeHistory(history) {
   if (!Array.isArray(history)) return [];
 
@@ -229,6 +236,64 @@ function extractAssistantPayload(payload) {
   return {
     text: texts.join("\n"),
     citations: citations
+  };
+}
+
+async function callGeminiApi(params) {
+  const requestBody = {
+    systemInstruction: {
+      parts: [{ text: params.systemPrompt }]
+    },
+    contents: params.contents,
+    generationConfig: {
+      temperature: params.occultMode ? 0.45 : 0.2,
+      topP: 0.9,
+      maxOutputTokens: params.occultMode ? 1400 : 900,
+      responseMimeType: "application/json"
+    }
+  };
+
+  if (params.searchEnabled) {
+    requestBody.tools = [{ google_search: {} }];
+  }
+
+  let upstreamResponse;
+  try {
+    upstreamResponse = await fetch(GEMINI_API_URL, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-goog-api-key": process.env.GEMINI_API_KEY
+      },
+      body: JSON.stringify(requestBody)
+    });
+  } catch (error) {
+    return {
+      ok: false,
+      status: 502,
+      errorMessage: "Could not reach Gemini API."
+    };
+  }
+
+  const payload = await upstreamResponse.json().catch(function () {
+    return null;
+  });
+
+  if (!upstreamResponse.ok || !payload) {
+    return {
+      ok: false,
+      status: upstreamResponse.status || 502,
+      errorMessage:
+        payload && payload.error && payload.error.message
+          ? payload.error.message
+          : "Gemini API request failed."
+    };
+  }
+
+  return {
+    ok: true,
+    status: upstreamResponse.status,
+    payload: payload
   };
 }
 
@@ -385,47 +450,46 @@ export async function POST(request) {
     });
   const contents = buildGeminiContents(body, message, history);
   const systemPrompt = buildSystemPrompt(occultMode);
+  const wantsSearch = shouldUseSearch(message);
 
-  let upstreamResponse;
-  try {
-    upstreamResponse = await fetch(GEMINI_API_URL, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        "x-goog-api-key": process.env.GEMINI_API_KEY
-      },
-      body: JSON.stringify({
-        systemInstruction: {
-          parts: [{ text: systemPrompt }]
-        },
-        contents: contents,
-        tools: [{ google_search: {} }],
-        generationConfig: {
-          temperature: occultMode ? 0.45 : 0.2,
-          topP: 0.9,
-          maxOutputTokens: occultMode ? 1400 : 900,
-          responseMimeType: "application/json"
-        }
-      })
-    });
-  } catch (error) {
-    return jsonResponse({ error: "Could not reach Gemini API." }, 502);
-  }
-
-  const payload = await upstreamResponse.json().catch(function () {
-    return null;
+  let geminiCall = await callGeminiApi({
+    systemPrompt: systemPrompt,
+    contents: contents,
+    searchEnabled: wantsSearch,
+    occultMode: occultMode
   });
 
-  if (!upstreamResponse.ok || !payload) {
-    const errorMessage =
-      payload && payload.error && payload.error.message
-        ? payload.error.message
-        : "Gemini API request failed.";
-    return jsonResponse({ error: errorMessage }, upstreamResponse.status || 502);
+  if (!geminiCall.ok && wantsSearch) {
+    geminiCall = await callGeminiApi({
+      systemPrompt: systemPrompt,
+      contents: contents,
+      searchEnabled: false,
+      occultMode: occultMode
+    });
   }
 
-  const assistantPayload = extractAssistantPayload(payload);
-  const parsed = parseJsonPayload(assistantPayload.text);
+  if (!geminiCall.ok) {
+    return jsonResponse({ error: geminiCall.errorMessage }, geminiCall.status || 502);
+  }
+
+  let assistantPayload = extractAssistantPayload(geminiCall.payload);
+  let parsed = parseJsonPayload(assistantPayload.text);
+
+  if (!parsed && wantsSearch) {
+    geminiCall = await callGeminiApi({
+      systemPrompt: systemPrompt,
+      contents: contents,
+      searchEnabled: false,
+      occultMode: occultMode
+    });
+
+    if (!geminiCall.ok) {
+      return jsonResponse({ error: geminiCall.errorMessage }, geminiCall.status || 502);
+    }
+
+    assistantPayload = extractAssistantPayload(geminiCall.payload);
+    parsed = parseJsonPayload(assistantPayload.text);
+  }
 
   if (!parsed) {
     return jsonResponse(
@@ -440,7 +504,8 @@ export async function POST(request) {
   return jsonResponse(
     Object.assign({}, sanitizeModelResponse(parsed), {
       occultMode: occultMode,
-      citations: assistantPayload.citations
+      citations: assistantPayload.citations,
+      usedSearch: wantsSearch
     }),
     200
   );

@@ -30,6 +30,136 @@
     "Mantenimiento y Calidad Total: 350 EUR / mes."
   ];
 
+  const occultAdmissionFlow = [
+    {
+      id: "impulse",
+      prompt: "Primera prueba: que te trae a la camara velada?",
+      options: [
+        { value: "symbolic", label: "Comprender simbolos y textos", aliases: ["simbolos", "textos", "lectura", "comprender"] },
+        { value: "interior", label: "Ordenar trabajo interior y disciplina", aliases: ["interior", "disciplina", "orden", "trabajo interior"] },
+        { value: "historical", label: "Distinguir historia de mito", aliases: ["historia", "mito", "historico", "fuentes"] },
+        { value: "cosmic", label: "Explorar cosmologia oculta", aliases: ["cosmologia", "enoc", "ovni", "extraterrestre", "cosmico"] }
+      ]
+    },
+    {
+      id: "tradition",
+      prompt: "Segunda prueba: desde que umbral quieres entrar?",
+      options: [
+        { value: "hermetic", label: "Hermetismo y tabla esmeralda", aliases: ["hermetismo", "hermes", "kybalion", "tabla esmeralda"] },
+        { value: "alchemy", label: "Alquimia y transmutacion", aliases: ["alquimia", "transmutacion", "solve", "coagula"] },
+        { value: "initiatic", label: "Masoneria, rosacruz y via iniciatica", aliases: ["masoneria", "mason", "rosacruz", "iniciatica"] },
+        { value: "psyche", label: "Arquetipos, chakras, runas y meditacion", aliases: ["jung", "arquetipos", "chakras", "runas", "meditacion"] }
+      ]
+    },
+    {
+      id: "lens",
+      prompt: "Tercera prueba: con que lente quieres estudiar?",
+      options: [
+        { value: "historical", label: "Historica: separar texto, contexto y leyenda", aliases: ["historica", "historia", "contexto"] },
+        { value: "symbolic", label: "Simbolica: leer claves, imagenes y correspondencias", aliases: ["simbolica", "simbolo", "correspondencia"] },
+        { value: "inner", label: "Practica interior no ritualista", aliases: ["interior", "practica", "meditacion", "no ritualista"] },
+        { value: "mixed", label: "Mixta: rigor y simbolo a la vez", aliases: ["mixta", "mezcla", "ambas"] }
+      ]
+    },
+    {
+      id: "depth",
+      prompt: "Cuarta prueba: cuanta profundidad quieres de momento?",
+      options: [
+        { value: "initiation", label: "Puerta de entrada", aliases: ["inicio", "entrada", "basico"] },
+        { value: "middle", label: "Trayecto intermedio", aliases: ["intermedio", "medio"] },
+        { value: "deep", label: "Inmersion guiada", aliases: ["profundo", "inmersion", "avanzado"] }
+      ]
+    }
+  ];
+
+  const occultLibrary = [
+    {
+      id: "hermetismo",
+      label: "Hermetismo",
+      terms: ["hermet", "kybal", "tabla esmeralda", "mentalismo", "correspondencia", "vibracion", "polaridad", "ritmo", "causa", "efecto", "generacion", "hermes"],
+      overview:
+        "La base local del hermetismo en la biblioteca interna gira sobre El Kybalion y la Tabla Esmeralda: no como prueba empirica del mundo, sino como lenguaje de principios. Lo central es leer mentalismo, correspondencia y vibracion como una gramatica simbolica para interpretar experiencia, no como permiso para afirmar cualquier cosa sin criterio.",
+      guidance:
+        "La lectura mas solida aqui es distinguir tres planos: texto tradicional, interpretacion simbolica y aplicacion interior. Cuando los separas, el hermetismo gana profundidad y pierde humo.",
+      sources: [
+        "El Kybalion",
+        "La Tabla Esmeralda de Hermes Trismegisto"
+      ]
+    },
+    {
+      id: "alquimia",
+      label: "Alquimia",
+      terms: ["alquim", "transmut", "solve", "coagula", "athanor", "mercurio", "azufre", "sal"],
+      overview:
+        "En local, la alquimia se trabaja como proceso de transformacion interior y como tradicion simbolica de laboratorio mental. La version seria no promete oro ni milagros rapidos: habla de depuracion, coccion lenta, muerte de formas viejas y reordenacion de la materia psiquica.",
+      guidance:
+        "Si preguntas por alquimia, la orientacion segura y util es esta: solve et coagula como disciplina de observacion, separacion y recomposicion de habitos, impulsos y sentido.",
+      sources: [
+        "La Tabla Esmeralda de Hermes Trismegisto",
+        "El libro de oro, Saint Germain",
+        "Medicina Oculta y Magia Practica"
+      ]
+    },
+    {
+      id: "iniciatica",
+      label: "Masoneria y Rosacruz",
+      terms: ["mason", "masoneria", "rosacruz", "logia", "inici", "fraternidad", "melquisedek"],
+      overview:
+        "La lectura local de la via iniciatica se apoya en simbolismo, fraternidad, trabajo sobre uno mismo y grados de comprension. El enfoque serio no es teatralizar secretos, sino ordenar etica, silencio, metodo y capacidad de sostener una disciplina sin fanfarria.",
+      guidance:
+        "Cuando esta puerta se aborda bien, la pregunta no es que secreto me dan, sino que estructura interior necesito para entender una ensenanza sin deformarla.",
+      sources: [
+        "Bajo la Orden de Melquisedek",
+        "Ad Majorem Lucis Gloriam",
+        "Formulario de Alta Magia"
+      ]
+    },
+    {
+      id: "psique",
+      label: "Arquetipos, chakras y meditacion",
+      terms: ["jung", "arquet", "inconsciente", "chakra", "chakras", "kundalini", "medit", "runa", "runas"],
+      overview:
+        "La biblioteca local permite unir dos lenguajes que a menudo se estudian separados: el simbolico-arquetipal y el energetico-practico. Jung sirve para leer imagenes y patron de fondo; chakras, meditacion y runas sirven como mapas de atencion, postura y trabajo interior.",
+      guidance:
+        "La forma mas estable de usar este bloque es no confundir experiencia subjetiva con verdad universal. Se trabaja como entrenamiento de presencia, imaginacion disciplinada y autoconocimiento.",
+      sources: [
+        "Arquetipos e inconsciente colectivo",
+        "El gran libro de los chakras",
+        "Manual de Meditacion",
+        "Practicas Runicas"
+      ]
+    },
+    {
+      id: "grimorios",
+      label: "Clavicula y grimorios",
+      terms: ["clavicula", "salomon", "grimorio", "grimoire", "enoc", "enoch", "ritual"],
+      overview:
+        "La Clavicula y los grimorios del corpus local se pueden leer de forma historica y simbolica, no como atajo de poder. La utilidad intelectual esta en ver como una tradicion organiza nombres, jerarquias, sellos y operaciones del imaginario ritual.",
+      guidance:
+        "Si entras por aqui conmigo en modo local, voy a privilegiar contexto, estructura y simbolismo. No voy a convertir un grimorio en una receta operativa ciega.",
+      sources: [
+        "Clavicula de Salomon",
+        "El Libro Apocrifo de Enoc",
+        "Gran libro de San Cipriano"
+      ]
+    },
+    {
+      id: "cosmologia",
+      label: "Cosmologia oculta",
+      terms: ["ovni", "ovni", "ufo", "extraterrest", "razas", "cosmic", "cosmica", "enoc", "melquisedek", "historia secreta"],
+      overview:
+        "El bloque cosmologico del archivo mezcla mitologia moderna, ufologia, lecturas apocrifas y cosmologias esotericas. En local puedo ayudarte a leerlo como cartografia narrativa y simbolica, distinguiendo con claridad entre documento, interpretacion y especulacion.",
+      guidance:
+        "La regla aqui es simple: cuanto mas extraordinaria sea una afirmacion, mas conviene tratarla como hipotesis cultural o relato de frontera, salvo que haya evidencia verificable aparte.",
+      sources: [
+        "Historia Cosmica Oculta de la Humanidad",
+        "150 Razas Extraterrestres",
+        "Proyecto Majestic 12",
+        "Bajo la Orden de Melquisedek"
+      ]
+    }
+  ];
+
   const diagnosisFlow = [
     {
       id: "sector",
@@ -132,7 +262,10 @@
     step: 0,
     answers: {},
     aiAvailable: null,
-    occultMode: false
+    occultMode: false,
+    aiLastError: "",
+    admissionStep: 0,
+    admissionAnswers: {}
   };
 
   let ui = null;
@@ -245,6 +378,226 @@
     });
 
     return option ? option.label : value;
+  }
+
+  function labelForOccultAnswer(stepId, value) {
+    const step = occultAdmissionFlow.find(function (item) {
+      return item.id === stepId;
+    });
+
+    if (!step) return value;
+
+    const option = step.options.find(function (item) {
+      return item.value === value;
+    });
+
+    return option ? option.label : value;
+  }
+
+  function commercialDefaultOptions() {
+    return [
+      { label: "Analizar mi empresa", action: "startDiagnosis" },
+      { label: "Quien esta detras de Archon", action: "founder" },
+      { label: "Mision, vision y valores", action: "mvv" },
+      { label: "Precios orientativos", action: "pricing" }
+    ];
+  }
+
+  function occultDefaultOptions() {
+    return [
+      { label: "Proceso de admision", action: "startOccultAdmission" },
+      { label: "Hermetismo", action: "occultTopic", value: "hermetismo" },
+      { label: "Alquimia", action: "occultTopic", value: "alquimia" },
+      { label: "Masoneria y Rosacruz", action: "occultTopic", value: "iniciatica" }
+    ];
+  }
+
+  function defaultOptions() {
+    return state.occultMode ? occultDefaultOptions() : commercialDefaultOptions();
+  }
+
+  function findOccultTopicById(topicId) {
+    return occultLibrary.find(function (item) {
+      return item.id === topicId;
+    });
+  }
+
+  function findOccultTopic(normalizedText) {
+    return occultLibrary.find(function (item) {
+      return item.terms.some(function (term) {
+        return normalizedText.indexOf(term) !== -1;
+      });
+    });
+  }
+
+  function renderOccultSources(sources) {
+    if (!Array.isArray(sources) || !sources.length) return "";
+
+    return (
+      "<p><strong>Base local usada</strong></p><ul>" +
+      sources
+        .map(function (source) {
+          return "<li>" + escapeHtml(source) + "</li>";
+        })
+        .join("") +
+      "</ul>"
+    );
+  }
+
+  function answerOccultTopic(topicId) {
+    const topic = findOccultTopicById(topicId);
+    if (!topic) return;
+
+    addBotMessage(
+      "<p><strong>" + escapeHtml(topic.label) + "</strong></p>" +
+        "<p>" + escapeHtml(topic.overview) + "</p>" +
+        "<p>" + escapeHtml(topic.guidance) + "</p>" +
+        renderOccultSources(topic.sources)
+    );
+
+    addOptions([
+      { label: "Proceso de admision", action: "startOccultAdmission" },
+      { label: "Arquetipos y meditacion", action: "occultTopic", value: "psique" },
+      { label: "Grimorios y Clavicula", action: "occultTopic", value: "grimorios" },
+      { label: "Menu de la camara", action: "none" }
+    ]);
+    setStatus("Camara velada operativa en modo local.", "fallback");
+  }
+
+  function answerOccultLibraryOverview() {
+    addBotMessage(
+      "<p><strong>Biblioteca local de la camara velada</strong></p>" +
+        "<p>Ahora mismo puedo responder en local, sin Gemini, a partir de una biblioteca reducida y curada con ejes de hermetismo, alquimia, via iniciatica, arquetipos, chakras, meditacion, runas, grimorios y cosmologia oculta.</p>" +
+        renderOccultSources(
+          occultLibrary.reduce(function (sources, topic) {
+            return sources.concat(topic.sources.slice(0, 2));
+          }, []).slice(0, 8)
+        )
+    );
+    addOptions(occultDefaultOptions());
+  }
+
+  function currentOccultStep() {
+    return occultAdmissionFlow[state.admissionStep];
+  }
+
+  function askOccultQuestion() {
+    const step = currentOccultStep();
+    if (!step) {
+      finishOccultAdmission();
+      return;
+    }
+
+    addBotMessage(
+      "<p><strong>Umbral " +
+        (state.admissionStep + 1) +
+        " de " +
+        occultAdmissionFlow.length +
+        "</strong></p><p>" +
+        escapeHtml(step.prompt) +
+        "</p>"
+    );
+
+    addOptions(
+      step.options.map(function (option) {
+        return {
+          label: option.label,
+          action: "occultAdmissionChoice",
+          value: option.value
+        };
+      })
+    );
+    setStatus("Proceso de admision local en curso.", "fallback");
+  }
+
+  function startOccultAdmission() {
+    state.mode = "occult-admission";
+    state.admissionStep = 0;
+    state.admissionAnswers = {};
+    removePendingOptions();
+    addBotMessage(
+      "<p><strong>Proceso de admision de la camara velada</strong></p><p>Voy a leerte desde cuatro umbrales: impulso, tradicion, lente y profundidad. No es una iniciacion ritual; es una lectura de orientacion para decidir por donde entrar sin perderte.</p>"
+    );
+    askOccultQuestion();
+  }
+
+  function buildOccultReading(answers) {
+    const traditionMap = {
+      hermetic: {
+        title: "Ruta hermetica",
+        sources: ["El Kybalion", "La Tabla Esmeralda de Hermes Trismegisto"],
+        route:
+          "Empieza por los siete principios, luego pasa a correspondencia y vibracion, y solo despues traduce eso a practica interior o lectura simbolica."
+      },
+      alchemy: {
+        title: "Ruta alquimica",
+        sources: ["La Tabla Esmeralda de Hermes Trismegisto", "El libro de oro, Saint Germain", "Medicina Oculta y Magia Practica"],
+        route:
+          "Entra por solve et coagula, separa capas del yo, observa materia psiquica y usa la alquimia como mapa de transmutacion, no como fetiche literal."
+      },
+      initiatic: {
+        title: "Ruta iniciatica",
+        sources: ["Bajo la Orden de Melquisedek", "Ad Majorem Lucis Gloriam", "Formulario de Alta Magia"],
+        route:
+          "Empieza por disciplina, silencio y fraternidad interior. La via iniciatica madura mejor cuando ordenas conducta y simbolo antes de perseguir secretos."
+      },
+      psyche: {
+        title: "Ruta arquetipal y energetica",
+        sources: ["Arquetipos e inconsciente colectivo", "El gran libro de los chakras", "Manual de Meditacion", "Practicas Runicas"],
+        route:
+          "Une arquetipos, atencion corporal, respiracion y simbolo. Esta ruta sirve para leer imagenes internas con mas estructura y menos fantasia dispersa."
+      }
+    };
+
+    const chosenRoute = traditionMap[answers.tradition] || traditionMap.hermetic;
+    const lensLabel = labelForOccultAnswer("lens", answers.lens);
+    const depthLabel = labelForOccultAnswer("depth", answers.depth);
+    const impulseLabel = labelForOccultAnswer("impulse", answers.impulse);
+    const profileTitle = chosenRoute.title + " / " + depthLabel;
+    const summary =
+      "Tu entrada actual pide " +
+      impulseLabel.toLowerCase() +
+      " y conviene estudiarla con una lente " +
+      lensLabel.toLowerCase() +
+      ". La lectura mas sana aqui es avanzar por capas, sin convertir cada simbolo en dogma ni cada intuicion en verdad absoluta.";
+    const closing =
+      answers.lens === "historical"
+        ? "Mi recomendacion es separar siempre texto, contexto y reinterpretacion moderna."
+        : answers.lens === "inner"
+          ? "Mi recomendacion es convertir esto en practica de atencion, diario y disciplina, no en consumo impulsivo de secretos."
+          : "Mi recomendacion es mantener dos registros a la vez: rigor para no creerte cualquier cosa y sensibilidad simbolica para no quedarte en la superficie.";
+
+    return {
+      title: profileTitle,
+      summary: summary,
+      route: chosenRoute.route,
+      sources: chosenRoute.sources,
+      closing: closing
+    };
+  }
+
+  function finishOccultAdmission() {
+    const reading = buildOccultReading(state.admissionAnswers);
+
+    addBotMessage(
+      "<p><strong>" + escapeHtml(reading.title) + "</strong></p>" +
+        "<p>" + escapeHtml(reading.summary) + "</p>" +
+        "<p><strong>Ruta sugerida</strong></p><p>" + escapeHtml(reading.route) + "</p>" +
+        renderOccultSources(reading.sources) +
+        "<p>" + escapeHtml(reading.closing) + "</p>"
+    );
+
+    addOptions([
+      { label: "Hermetismo", action: "occultTopic", value: "hermetismo" },
+      { label: "Arquetipos y meditacion", action: "occultTopic", value: "psique" },
+      { label: "Biblioteca local", action: "occultLibrary" },
+      { label: "Menu de la camara", action: "none" }
+    ]);
+
+    state.mode = "idle";
+    state.admissionStep = 0;
+    state.admissionAnswers = {};
+    setStatus("Lectura de admision local completada.", "fallback");
   }
 
   function inferLeadStage(severity, answers) {
@@ -682,15 +1035,6 @@
     });
   }
 
-  function defaultOptions() {
-    return [
-      { label: "Analizar mi empresa", action: "startDiagnosis" },
-      { label: "Quien esta detras de Archon", action: "founder" },
-      { label: "Mision, vision y valores", action: "mvv" },
-      { label: "Precios orientativos", action: "pricing" }
-    ];
-  }
-
   function renderSavedDiagnosisPreview(saved) {
     addBotMessage(
       '<div class="archon-chatbot-summary">' +
@@ -708,9 +1052,13 @@
   function renderWelcome() {
     ui.messages.innerHTML = "";
     addBotMessage(
-      "<p><strong>Analisis Archon</strong></p>" +
-        "<p>Puedo diagnosticar debilidades estructurales, preparar un borrador de presupuesto y responder preguntas sobre Archon, su motivacion y sus servicios.</p>" +
-        "<p>Y si alguna vez sospechas que este panel tiene una segunda camara, recuerda esto: algunas puertas no se abren con botones, sino con formula.</p>"
+      state.occultMode
+        ? "<p><strong>Camara velada</strong></p>" +
+            "<p>La segunda camara esta activa. En local puedo orientarte en hermetismo, alquimia, via iniciatica, arquetipos, chakras, runas y cosmologia simbolica sin depender de Gemini.</p>" +
+            "<p>Si quieres, abrimos ahora el proceso de admision o entramos directamente por una de las rutas de la biblioteca.</p>"
+        : "<p><strong>Analisis Archon</strong></p>" +
+            "<p>Puedo diagnosticar debilidades estructurales, preparar un borrador de presupuesto y responder preguntas sobre Archon, su motivacion y sus servicios.</p>" +
+            "<p>Y si alguna vez sospechas que este panel tiene una segunda camara, recuerda esto: algunas puertas no se abren con botones, sino con formula.</p>"
     );
 
     const saved = loadDiagnosis();
@@ -884,6 +1232,7 @@
 
       const data = await response.json();
       state.aiAvailable = Boolean(data.configured);
+      state.aiLastError = "";
       updateSession({ configured: state.aiAvailable });
 
       if (state.aiAvailable) {
@@ -893,6 +1242,7 @@
       }
     } catch (error) {
       state.aiAvailable = false;
+      state.aiLastError = "No se pudo consultar el estado de Gemini.";
       updateSession({ configured: false });
       setStatus("Modo local activo. Si despliegas la API en Vercel, el chat conversara con IA.", "fallback");
     }
@@ -900,6 +1250,7 @@
 
   async function askGemini(payload) {
     const session = loadSession();
+    const wasConfigured = session.configured;
 
     try {
       const response = await fetch(API_ENDPOINT, {
@@ -923,12 +1274,27 @@
       });
 
       if (!response.ok) {
-        updateSession({ configured: false });
-        state.aiAvailable = false;
+        const errorPayload = await response.json().catch(function () {
+          return null;
+        });
+        const errorMessage =
+          errorPayload && errorPayload.error
+            ? errorPayload.error
+            : "Gemini no ha respondido correctamente en este turno.";
+
+        state.aiLastError = errorMessage;
+
+        if (response.status === 503 && /gemini_api_key/i.test(errorMessage)) {
+          updateSession({ configured: false });
+          state.aiAvailable = false;
+        } else {
+          state.aiAvailable = wasConfigured !== false;
+        }
         return null;
       }
 
       const data = await response.json();
+      state.aiLastError = "";
       updateSession({ configured: true });
       state.aiAvailable = true;
 
@@ -937,8 +1303,8 @@
 
       return data;
     } catch (error) {
-      updateSession({ configured: false });
-      state.aiAvailable = false;
+      state.aiLastError = "Gemini no ha respondido por red o timeout. Sigo contigo en local.";
+      state.aiAvailable = wasConfigured !== false;
       return null;
     }
   }
@@ -971,7 +1337,9 @@
     const actions = normalizeApiActions(data.ctas);
     if (actions.length) {
       addOptions(actions);
-    } else if (!state.occultMode) {
+    } else if (state.occultMode) {
+      addOptions(occultDefaultOptions());
+    } else {
       addOptions(defaultOptions());
     }
 
@@ -1051,7 +1419,14 @@
       saveDiagnosis(finalReport);
       hydrateForms();
       renderLocalDiagnosis(finalReport, "modo local");
-      setStatus("Borrador guardado. Si envias el formulario, el analisis viajara con el lead.", "fallback");
+      setStatus(
+        loadSession().configured === false
+          ? "Borrador local guardado. Gemini no esta configurado, pero el analisis sigue operativo."
+          : state.aiLastError
+            ? "Borrador local guardado. Gemini fallo en este turno, pero el proceso sigue estable en local."
+            : "Borrador guardado. Si envias el formulario, el analisis viajara con el lead.",
+        "fallback"
+      );
     }
 
     state.mode = "idle";
@@ -1064,6 +1439,31 @@
 
     if (option.action === "none") {
       addOptions(defaultOptions());
+      return;
+    }
+
+    if (option.action === "startOccultAdmission") {
+      startOccultAdmission();
+      return;
+    }
+
+    if (option.action === "occultTopic") {
+      answerOccultTopic(option.value);
+      return;
+    }
+
+    if (option.action === "occultLibrary") {
+      answerOccultLibraryOverview();
+      return;
+    }
+
+    if (option.action === "occultAdmissionChoice") {
+      const occultStep = currentOccultStep();
+      if (!occultStep) return;
+      addUserMessage(option.label);
+      state.admissionAnswers[occultStep.id] = option.value;
+      state.admissionStep += 1;
+      askOccultQuestion();
       return;
     }
 
@@ -1172,15 +1572,57 @@
     });
   }
 
+  function handleOccultAdmissionFreeText(text) {
+    const step = currentOccultStep();
+    if (!step) return;
+    const normalizedText = normalize(text);
+
+    const matched = step.options.find(function (option) {
+      return (
+        normalize(option.label).indexOf(normalizedText) !== -1 ||
+        normalizedText.indexOf(normalize(option.label)) !== -1 ||
+        (option.aliases || []).some(function (alias) {
+          return normalizedText.indexOf(alias) !== -1;
+        })
+      );
+    });
+
+    if (!matched) {
+      addBotMessage("<p>Para que la lectura de admision sea util, respondeme con una de las puertas visibles o con algo equivalente.</p>");
+      addOptions(
+        step.options.map(function (option) {
+          return {
+            label: option.label,
+            action: "occultAdmissionChoice",
+            value: option.value
+          };
+        })
+      );
+      return;
+    }
+
+    handleOption({
+      label: matched.label,
+      action: "occultAdmissionChoice",
+      value: matched.value
+    });
+  }
+
   function handleLocalFreeText(text) {
     const normalizedText = normalize(text);
 
     if (containsOccultKey(text)) {
       setOccultMode(true);
       addBotMessage(
-        "<p><strong>La formula ha sido reconocida.</strong></p><p>La camara velada ya esta marcada para esta sesion, pero sin Gemini activo no puedo desplegar la capa ocultista completa.</p>"
+        "<p><strong>La formula ha sido reconocida.</strong></p><p>La camara velada ya esta abierta para esta sesion. Aunque Gemini falle o no este disponible, puedo seguir operando en local con biblioteca hermetica, alquimica, iniciatica y simbolica.</p>"
       );
-      setStatus("Camara velada lista. Falta activar la IA en Vercel.", "fallback");
+      addOptions(occultDefaultOptions());
+      setStatus("Camara velada activa en modo local.", "fallback");
+      return;
+    }
+
+    if (state.mode === "occult-admission") {
+      handleOccultAdmissionFreeText(text);
       return;
     }
 
@@ -1194,11 +1636,13 @@
       normalizedText.indexOf("camara") !== -1 ||
       normalizedText.indexOf("pista") !== -1
     ) {
-      addBotMessage(
-        "<p>Hay una segunda camara para ese tipo de preguntas. No se abre con un boton.</p><p>Puedo darte una pista: <strong>un profeta, un numero maestro repetido y un versiculo ternario</strong>. Otra mas: <strong>11 x 3 = 33; el tercer sello queda solo</strong>.</p>"
-      );
-      addOptions(defaultOptions());
-      return;
+      if (!state.occultMode) {
+        addBotMessage(
+          "<p>Hay una segunda camara para ese tipo de preguntas. No se abre con un boton.</p><p>Puedo darte una pista: <strong>un profeta, un numero maestro repetido y un versiculo ternario</strong>. Otra mas: <strong>11 x 3 = 33; el tercer sello queda solo</strong>.</p>"
+        );
+        addOptions(defaultOptions());
+        return;
+      }
     }
 
     if (
@@ -1223,9 +1667,9 @@
 
     if (
       normalizedText.indexOf("motivacion") !== -1 ||
-      normalizedText.indexOf("por que") !== -1 ||
-      normalizedText.indexOf("porque") !== -1 ||
-      normalizedText.indexOf("origen") !== -1
+      normalizedText.indexOf("origen de archon") !== -1 ||
+      normalizedText.indexOf("por que archon") !== -1 ||
+      normalizedText.indexOf("porque archon") !== -1
     ) {
       addBotMessage("<p><strong>Motivacion de Archon</strong></p><p>" + escapeHtml(profile.motivation) + "</p>");
       addOptions(defaultOptions());
@@ -1254,7 +1698,8 @@
       normalizedText.indexOf("que haceis") !== -1 ||
       normalizedText.indexOf("que haces") !== -1 ||
       normalizedText.indexOf("servicios") !== -1 ||
-      normalizedText.indexOf("archon") !== -1
+      normalizedText.indexOf("consultoria") !== -1 ||
+      normalizedText.indexOf("automatizacion") !== -1
     ) {
       answerServices();
       return;
@@ -1269,6 +1714,46 @@
       return;
     }
 
+    if (state.occultMode) {
+      if (
+        normalizedText.indexOf("admision") !== -1 ||
+        normalizedText.indexOf("admis") !== -1 ||
+        normalizedText.indexOf("iniciacion") !== -1 ||
+        normalizedText.indexOf("umbral") !== -1 ||
+        normalizedText.indexOf("puerta") !== -1
+      ) {
+        startOccultAdmission();
+        return;
+      }
+
+      if (
+        normalizedText.indexOf("biblioteca") !== -1 ||
+        normalizedText.indexOf("fuentes") !== -1 ||
+        normalizedText.indexOf("libros") !== -1 ||
+        normalizedText.indexOf("corpus") !== -1
+      ) {
+        answerOccultLibraryOverview();
+        return;
+      }
+
+      const topic = findOccultTopic(normalizedText);
+      if (topic) {
+        answerOccultTopic(topic.id);
+        return;
+      }
+
+      addBotMessage(
+        "<p><strong>La camara velada sigue abierta.</strong></p><p>En modo local puedo trabajar contigo desde hermetismo, alquimia, via iniciatica, arquetipos, meditacion, runas, grimorios o cosmologia simbolica. Si me haces una pregunta muy concreta, la leo desde esa biblioteca local sin depender de Gemini.</p>"
+      );
+      addOptions([
+        { label: "Proceso de admision", action: "startOccultAdmission" },
+        { label: "Biblioteca local", action: "occultLibrary" },
+        { label: "Grimorios y Clavicula", action: "occultTopic", value: "grimorios" },
+        { label: "Cosmologia oculta", action: "occultTopic", value: "cosmologia" }
+      ]);
+      return;
+    }
+
     addBotMessage(
       "<p>Puedo ayudarte con cuatro rutas rapidas: diagnosticar la empresa, explicar quien esta detras de Archon, resumir mision y valores o aterrizar precios orientativos.</p>"
     );
@@ -1278,6 +1763,11 @@
   async function handleFreeText(text) {
     if (state.mode === "diagnosis") {
       handleDiagnosisFreeText(text);
+      return;
+    }
+
+    if (state.mode === "occult-admission") {
+      handleOccultAdmissionFreeText(text);
       return;
     }
 
@@ -1297,7 +1787,16 @@
     }
 
     handleLocalFreeText(text);
-    setStatus("Modo local activo. La IA se activara cuando GEMINI_API_KEY este configurada.", "fallback");
+    setStatus(
+      loadSession().configured === false
+        ? "Modo local activo. Gemini no esta configurado en Vercel, pero la camara velada puede seguir funcionando en local."
+        : state.aiLastError
+          ? (state.occultMode
+              ? "Gemini ha fallado en este turno. La camara velada sigue operativa en local."
+              : "Gemini no ha respondido en este turno. Sigo contigo en modo local.")
+          : "Modo local activo. Sigo contigo sin perder contexto.",
+      "fallback"
+    );
   }
 
   async function submitInput(event) {
