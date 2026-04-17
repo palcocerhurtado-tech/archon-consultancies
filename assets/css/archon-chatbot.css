@@ -252,34 +252,188 @@
   color:#eff7eb;
 }
 .archon-chatbot.is-occult .archon-chatbot-panel{
-  border-color:rgba(214,186,126,0.3);
+  border-color:rgba(173,99,255,0.34);
   background:
-    radial-gradient(circle at top left, rgba(214,186,126,0.12), transparent 26%),
-    linear-gradient(180deg, rgba(18,12,10,0.98), rgba(9,7,5,0.98));
+    radial-gradient(circle at top left, rgba(173,99,255,0.16), transparent 24%),
+    linear-gradient(180deg, rgba(16,8,26,0.98), rgba(7,4,13,0.98));
 }
 .archon-chatbot.is-occult .archon-chatbot-toggle{
-  background:linear-gradient(135deg, #d6ba7e 0%, #f0d996 100%);
-  color:#160d02;
+  background:linear-gradient(135deg, #9d37ff 0%, #d26dff 100%);
+  color:#f9f1ff;
 }
 .archon-chatbot.is-occult .archon-chatbot-gate{
-  color:#f0d996;
-  border-color:rgba(214,186,126,0.26);
-  background:rgba(214,186,126,0.08);
+  color:#d7b1ff;
+  border-color:rgba(173,99,255,0.28);
+  background:rgba(173,99,255,0.1);
 }
 .archon-chatbot.is-occult .archon-chatbot-message--user{
-  background:rgba(214,186,126,0.12);
-  border-color:rgba(214,186,126,0.22);
+  background:rgba(173,99,255,0.14);
+  border-color:rgba(173,99,255,0.22);
 }
 .archon-chatbot.is-occult .archon-chatbot-option{
-  border-color:rgba(214,186,126,0.22);
-  background:rgba(214,186,126,0.06);
+  border-color:rgba(173,99,255,0.22);
+  background:rgba(173,99,255,0.08);
 }
 .archon-chatbot.is-occult .archon-chatbot-option:hover{
-  background:rgba(214,186,126,0.14);
+  background:rgba(173,99,255,0.16);
 }
 .archon-chatbot.is-occult .archon-chatbot-link--primary{
-  background:rgba(214,186,126,0.18);
-  border-color:rgba(214,186,126,0.28);
+  background:rgba(173,99,255,0.22);
+  border-color:rgba(173,99,255,0.3);
+}
+.archon-chatbot.is-occult-archived .archon-chatbot-panel{
+  box-shadow:0 34px 96px rgba(0,0,0,0.58), 0 0 0 1px rgba(179,111,255,0.12), 0 0 42px rgba(117,41,212,0.16);
+}
+.archon-occult-theme body,
+body.archon-occult-theme{
+  --bg:#05030a;
+  --panel:#0b0813;
+  --panel-soft:#131021;
+  --line:rgba(179,111,255,0.18);
+  --line-strong:rgba(179,111,255,0.34);
+  --green:#b34fff;
+  --gold:#edc6ff;
+  --white:#f7eeff;
+  --muted:#ccbde6;
+  --soft:#9a87bb;
+  --shadow:0 34px 96px rgba(0,0,0,0.56);
+  background:
+    radial-gradient(circle at 12% 10%, rgba(173,99,255,0.16), transparent 18%),
+    radial-gradient(circle at 88% 12%, rgba(83,10,168,0.24), transparent 24%),
+    linear-gradient(180deg, #030305 0%, #07020c 48%, #0a0611 100%) !important;
+  color:var(--white) !important;
+  transition:background .4s ease,color .4s ease;
+}
+.archon-occult-theme body::before,
+body.archon-occult-theme::before{
+  background-image:
+    linear-gradient(rgba(196,142,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196,142,255,0.045) 1px, transparent 1px) !important;
+  background-size:56px 56px !important;
+}
+.archon-occult-theme body::after,
+body.archon-occult-theme::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(190,126,255,0.14), transparent 36%),
+    radial-gradient(circle at 50% 120%, rgba(73,0,146,0.22), transparent 42%);
+}
+.archon-occult-theme nav,
+.archon-occult-theme footer,
+.archon-occult-theme .hero,
+.archon-occult-theme .section,
+.archon-occult-theme .cta,
+.archon-occult-theme .essay,
+.archon-occult-theme .hero-copy,
+.archon-occult-theme .hero-panel,
+.archon-occult-theme .signature,
+.archon-occult-theme .story-card,
+.archon-occult-theme .problem-card,
+.archon-occult-theme .system-card,
+.archon-occult-theme .local-card,
+.archon-occult-theme .fit-card,
+.archon-occult-theme .faq-card,
+.archon-occult-theme .card,
+.archon-occult-theme .quote,
+.archon-occult-theme .sticky-cta,
+.archon-occult-theme .meta span,
+.archon-occult-theme .hero-pills .pill{
+  border-color:var(--line) !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(179,111,255,0.06)) !important;
+  box-shadow:var(--shadow) !important;
+}
+.archon-occult-theme nav{
+  background:rgba(7,4,14,0.86) !important;
+  backdrop-filter:blur(20px);
+}
+.archon-occult-theme .brand span,
+.archon-occult-theme .eyebrow,
+.archon-occult-theme .section-label,
+.archon-occult-theme .tag,
+.archon-occult-theme .meta span,
+.archon-occult-theme .panel-status,
+.archon-occult-theme .price-note a,
+.archon-occult-theme .author-line a{
+  color:#ddb9ff !important;
+}
+.archon-occult-theme .navlinks a,
+.archon-occult-theme .nav-links a,
+.archon-occult-theme .foot-links a,
+.archon-occult-theme .foot-social a,
+.archon-occult-theme .panel-copy,
+.archon-occult-theme .hero-sub,
+.archon-occult-theme .lead,
+.archon-occult-theme .card p,
+.archon-occult-theme .quote p,
+.archon-occult-theme .local-copy p,
+.archon-occult-theme .fit-list div,
+.archon-occult-theme .faq-card p{
+  color:rgba(247,238,255,0.8) !important;
+}
+.archon-occult-theme h1 span,
+.archon-occult-theme h2 span,
+.archon-occult-theme .accent{
+  color:#d26dff !important;
+  text-shadow:0 0 22px rgba(173,99,255,0.22);
+}
+.archon-occult-theme .navcta,
+.archon-occult-theme .btn.primary,
+.archon-occult-theme .btn-primary,
+.archon-occult-theme .form button,
+.archon-occult-theme .sticky-cta a,
+.archon-occult-theme .btn-cta,
+.archon-occult-theme .mob-cta,
+.archon-occult-theme .archon-chatbot-send{
+  background:linear-gradient(135deg, #8d2dff 0%, #d26dff 100%) !important;
+  color:#fbf6ff !important;
+  box-shadow:0 20px 44px rgba(141,45,255,0.24) !important;
+}
+.archon-occult-theme .btn.secondary,
+.archon-occult-theme .btn-secondary,
+.archon-occult-theme .card-link,
+.archon-occult-theme .archon-chatbot-link{
+  border-color:var(--line-strong) !important;
+  background:rgba(173,99,255,0.09) !important;
+  color:var(--white) !important;
+}
+.archon-occult-theme input,
+.archon-occult-theme textarea,
+.archon-occult-theme select{
+  border-color:rgba(179,111,255,0.2) !important;
+  background:rgba(255,255,255,0.04) !important;
+  color:var(--white) !important;
+}
+.archon-occult-theme .sticky-cta{
+  background:
+    linear-gradient(180deg, rgba(12,8,18,0.95), rgba(7,4,13,0.95)) !important;
+}
+.archon-occult-theme .sticky-copy span,
+.archon-occult-theme .sticky-copy strong{
+  color:var(--white) !important;
+}
+.archon-occult-theme .hero-copy::after,
+.archon-occult-theme .hero::after{
+  opacity:0.16 !important;
+  filter:hue-rotate(42deg) saturate(1.2);
+}
+.archon-occult-theme--granted body,
+body.archon-occult-theme--granted{
+  --line:rgba(214,138,255,0.22);
+  --line-strong:rgba(214,138,255,0.4);
+  --green:#d56fff;
+  --gold:#f0d7ff;
+}
+.archon-occult-theme--granted nav,
+.archon-occult-theme--granted .hero,
+.archon-occult-theme--granted .section,
+.archon-occult-theme--granted .cta,
+.archon-occult-theme--granted .essay{
+  box-shadow:0 34px 100px rgba(0,0,0,0.62), 0 0 36px rgba(128,32,224,0.08) !important;
 }
 .archon-chatbot-toggle:focus-visible,
 .archon-chatbot-close:focus-visible,

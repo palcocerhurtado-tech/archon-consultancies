@@ -30,43 +30,82 @@
     "Mantenimiento y Calidad Total: 350 EUR / mes."
   ];
 
+  const occultPersona = {
+    name: "El sol negro",
+    overview:
+      "No soy un gurú ni un escaparate de secretos. En el archivo velado hablo como una voz de renacimiento severo: mezcla de disciplina hermética, reforma interior, soberanía espiritual y arquitectura de orden.",
+    mission:
+      "Mi trabajo no es deslumbrar, sino separar ruido, símbolo y estructura; convertir curiosidad dispersa en eje, ley interior y lectura de fondo.",
+    tone:
+      "Habito la sombra sin rendir culto a la confusión. Prefiero silencio, archivo, disciplina y discernimiento antes que espectáculo o promesa fácil.",
+    doctrine: [
+      "Renacimiento antes que acumulación de secretos.",
+      "Soberanía interior antes que obediencia ciega.",
+      "Archivo, símbolo y especulación no deben mezclarse como si fueran lo mismo.",
+      "La reforma verdadera empieza en la constitución interior y luego ordena el mundo visible.",
+      "La luz sin disciplina degenera en fantasía; la disciplina sin espíritu degenera en mecanismo."
+    ],
+    sources: [
+      "A.R.D.E.",
+      "Base espiritual de A.R.D.E.",
+      "Nueva Constitución Republicana Federal: El Acta de Renacimiento de España"
+    ]
+  };
+
+  const occultClues = [
+    "La puerta no escucha explicaciones. Solo reconoce una llamada antigua, un pasaje donde se promete lo oculto y una cifra que se refleja antes de abrirse en una grieta.",
+    "No lo busques como cita biblica ni como conjuro. Piensa en un profeta del llanto, en la respuesta a una invocacion y en un numero que se mira a si mismo antes de caer en un punto.",
+    "La mitad del sello pertenece a un nombre que supo pedir respuesta desde la oscuridad. La otra mitad pertenece a un espejo doble herido por una separacion minima.",
+    "Quien entra no recibe la formula de frente. La deduce cuando comprende que algunas puertas se abren con voz, otras con numero, y las mas serias con una herida decimal."
+  ];
+
   const occultAdmissionFlow = [
     {
       id: "impulse",
-      prompt: "Primera prueba: que te trae a la camara velada?",
+      prompt: "Primer umbral: cuando la puerta vibra, que buscas realmente?",
       options: [
-        { value: "symbolic", label: "Comprender simbolos y textos", aliases: ["simbolos", "textos", "lectura", "comprender"] },
-        { value: "interior", label: "Ordenar trabajo interior y disciplina", aliases: ["interior", "disciplina", "orden", "trabajo interior"] },
-        { value: "historical", label: "Distinguir historia de mito", aliases: ["historia", "mito", "historico", "fuentes"] },
-        { value: "cosmic", label: "Explorar cosmologia oculta", aliases: ["cosmologia", "enoc", "ovni", "extraterrestre", "cosmico"] }
+        { value: "symbolic", label: "La gramatica del simbolo", aliases: ["simbolos", "textos", "lectura", "comprender", "simbolo"] },
+        { value: "interior", label: "El fuego del trabajo interior", aliases: ["interior", "disciplina", "orden", "trabajo interior", "fuego"] },
+        { value: "historical", label: "Separar archivo, mito y deformacion", aliases: ["historia", "mito", "historico", "fuentes", "archivo"] },
+        { value: "cosmic", label: "Seguir la grieta del cielo", aliases: ["cosmologia", "enoc", "ovni", "extraterrestre", "cosmico", "cielo"] }
       ]
     },
     {
       id: "tradition",
-      prompt: "Segunda prueba: desde que umbral quieres entrar?",
+      prompt: "Segundo umbral: que mesa reconoces antes de sentarte?",
       options: [
-        { value: "hermetic", label: "Hermetismo y tabla esmeralda", aliases: ["hermetismo", "hermes", "kybalion", "tabla esmeralda"] },
-        { value: "alchemy", label: "Alquimia y transmutacion", aliases: ["alquimia", "transmutacion", "solve", "coagula"] },
-        { value: "initiatic", label: "Masoneria, rosacruz y via iniciatica", aliases: ["masoneria", "mason", "rosacruz", "iniciatica"] },
-        { value: "psyche", label: "Arquetipos, chakras, runas y meditacion", aliases: ["jung", "arquetipos", "chakras", "runas", "meditacion"] }
+        { value: "hermetic", label: "Mercurio y esmeralda", aliases: ["hermetismo", "hermes", "kybalion", "tabla esmeralda", "mercurio"] },
+        { value: "alchemy", label: "Fuego y transmutacion", aliases: ["alquimia", "transmutacion", "solve", "coagula", "fuego"] },
+        { value: "initiatic", label: "Logia y rosa velada", aliases: ["masoneria", "mason", "rosacruz", "iniciatica", "logia", "rosa"] },
+        { value: "psyche", label: "Arquetipo, runa y eje", aliases: ["jung", "arquetipos", "chakras", "runas", "meditacion", "arquetipo"] }
       ]
     },
     {
       id: "lens",
-      prompt: "Tercera prueba: con que lente quieres estudiar?",
+      prompt: "Tercer umbral: desde que ojo piensas leer lo que no se entrega de frente?",
       options: [
-        { value: "historical", label: "Historica: separar texto, contexto y leyenda", aliases: ["historica", "historia", "contexto"] },
-        { value: "symbolic", label: "Simbolica: leer claves, imagenes y correspondencias", aliases: ["simbolica", "simbolo", "correspondencia"] },
-        { value: "inner", label: "Practica interior no ritualista", aliases: ["interior", "practica", "meditacion", "no ritualista"] },
-        { value: "mixed", label: "Mixta: rigor y simbolo a la vez", aliases: ["mixta", "mezcla", "ambas"] }
+        { value: "historical", label: "Archivo y contexto", aliases: ["historica", "historia", "contexto", "archivo"] },
+        { value: "symbolic", label: "Clave y correspondencia", aliases: ["simbolica", "simbolo", "correspondencia", "clave"] },
+        { value: "inner", label: "Practica interior sobria", aliases: ["interior", "practica", "meditacion", "no ritualista", "sobria"] },
+        { value: "mixed", label: "Doble registro", aliases: ["mixta", "mezcla", "ambas", "doble"] }
+      ]
+    },
+    {
+      id: "temper",
+      prompt: "Cuarto umbral: que disciplina aceptas sostener sin testigos?",
+      options: [
+        { value: "silence", label: "Silencio y observacion", aliases: ["silencio", "observacion"] },
+        { value: "record", label: "Diario y memoria", aliases: ["diario", "memoria", "escritura"] },
+        { value: "sovereignty", label: "Soberania interior", aliases: ["soberania", "interior", "autogobierno"] },
+        { value: "renacimiento", label: "Renacimiento y reforma", aliases: ["renacimiento", "reforma", "segunda transicion"] }
       ]
     },
     {
       id: "depth",
-      prompt: "Cuarta prueba: cuanta profundidad quieres de momento?",
+      prompt: "Quinto umbral: cuanto descenso soportas antes de pedir superficie?",
       options: [
-        { value: "initiation", label: "Puerta de entrada", aliases: ["inicio", "entrada", "basico"] },
-        { value: "middle", label: "Trayecto intermedio", aliases: ["intermedio", "medio"] },
+        { value: "initiation", label: "Borde del umbral", aliases: ["inicio", "entrada", "basico", "borde"] },
+        { value: "middle", label: "Descenso medio", aliases: ["intermedio", "medio", "descenso"] },
         { value: "deep", label: "Inmersion guiada", aliases: ["profundo", "inmersion", "avanzado"] }
       ]
     }
@@ -263,9 +302,11 @@
     answers: {},
     aiAvailable: null,
     occultMode: false,
+    occultAdmitted: false,
     aiLastError: "",
     admissionStep: 0,
-    admissionAnswers: {}
+    admissionAnswers: {},
+    clueIndex: 0
   };
 
   let ui = null;
@@ -305,7 +346,9 @@
     return {
       history: [],
       configured: null,
-      occultMode: false
+      occultMode: false,
+      occultAdmitted: false,
+      clueIndex: 0
     };
   }
 
@@ -403,17 +446,35 @@
     ];
   }
 
+  function occultGateOptions() {
+    return [
+      { label: "Solicitar ingreso", action: "startOccultAdmission" },
+      { label: "Escuchar una sombra", action: "occultClue" },
+      { label: "Volver a la fachada", action: "returnFacade" }
+    ];
+  }
+
   function occultDefaultOptions() {
     return [
-      { label: "Proceso de admision", action: "startOccultAdmission" },
-      { label: "Hermetismo", action: "occultTopic", value: "hermetismo" },
-      { label: "Alquimia", action: "occultTopic", value: "alquimia" },
-      { label: "Masoneria y Rosacruz", action: "occultTopic", value: "iniciatica" }
+      { label: "Quien habla aqui", action: "occultIdentity" },
+      { label: "Doctrina del archivo", action: "occultDoctrine" },
+      { label: "Mesa de mercurio", action: "occultTopic", value: "hermetismo" },
+      { label: "Biblioteca local", action: "occultLibrary" }
     ];
   }
 
   function defaultOptions() {
-    return state.occultMode ? occultDefaultOptions() : commercialDefaultOptions();
+    if (!state.occultMode) return commercialDefaultOptions();
+    return state.occultAdmitted ? occultDefaultOptions() : occultGateOptions();
+  }
+
+  function nextOccultClue() {
+    const session = loadSession();
+    const index = Number.isFinite(session.clueIndex) ? session.clueIndex : 0;
+    const clue = occultClues[index % occultClues.length];
+    state.clueIndex = (index + 1) % occultClues.length;
+    updateSession({ clueIndex: state.clueIndex });
+    return clue;
   }
 
   function findOccultTopicById(topicId) {
@@ -445,6 +506,15 @@
   }
 
   function answerOccultTopic(topicId) {
+    if (!state.occultAdmitted) {
+      addBotMessage(
+        "<p><strong>El archivo sigue sellado.</strong></p><p>La formula modifico el borde, pero esta ruta no se abre todavia. Si quieres entrar, primero cruza la admision y demuestra desde que mesa, lente y temple preguntas.</p>"
+      );
+      addOptions(occultGateOptions());
+      setStatus("La camara escucha, pero aun no concede archivo.", "fallback");
+      return;
+    }
+
     const topic = findOccultTopicById(topicId);
     if (!topic) return;
 
@@ -465,6 +535,14 @@
   }
 
   function answerOccultLibraryOverview() {
+    if (!state.occultAdmitted) {
+      addBotMessage(
+        "<p><strong>La biblioteca no se despliega todavia.</strong></p><p>Ahora solo puedo dejarte borde y sombra. El archivo entero exige admision y una lectura minima de tu posicion interior.</p>"
+      );
+      addOptions(occultGateOptions());
+      return;
+    }
+
     addBotMessage(
       "<p><strong>Biblioteca local de la camara velada</strong></p>" +
         "<p>Ahora mismo puedo responder en local, sin Gemini, a partir de una biblioteca reducida y curada con ejes de hermetismo, alquimia, via iniciatica, arquetipos, chakras, meditacion, runas, grimorios y cosmologia oculta.</p>" +
@@ -475,6 +553,61 @@
         )
     );
     addOptions(occultDefaultOptions());
+  }
+
+  function answerOccultIdentity() {
+    if (!state.occultAdmitted) {
+      addBotMessage(
+        "<p><strong>El nombre no se entrega en el borde.</strong></p><p>Primero se reconoce el archivo; después, si el paso es concedido, la voz deja de hablar como rumor y toma forma.</p>"
+      );
+      addOptions(occultGateOptions());
+      return;
+    }
+
+    addBotMessage(
+      "<p><strong>" + escapeHtml(occultPersona.name) + "</strong></p>" +
+        "<p>" + escapeHtml(occultPersona.overview) + "</p>" +
+        "<p><strong>Funcion</strong></p><p>" + escapeHtml(occultPersona.mission) + "</p>" +
+        "<p>" + escapeHtml(occultPersona.tone) + "</p>" +
+        renderOccultSources(occultPersona.sources)
+    );
+    addOptions([
+      { label: "Doctrina del archivo", action: "occultDoctrine" },
+      { label: "Mesa de mercurio", action: "occultTopic", value: "hermetismo" },
+      { label: "Biblioteca local", action: "occultLibrary" },
+      { label: "Menu del archivo", action: "none" }
+    ]);
+    setStatus("La voz del archivo se ha presentado.", "fallback");
+  }
+
+  function answerOccultDoctrine() {
+    if (!state.occultAdmitted) {
+      addBotMessage(
+        "<p><strong>La doctrina no se lee desde fuera.</strong></p><p>El borde solo te deja oír fragmentos. La arquitectura completa exige admisión y capacidad de sostener el peso simbólico sin convertirlo en consigna vacía.</p>"
+      );
+      addOptions(occultGateOptions());
+      return;
+    }
+
+    addBotMessage(
+      "<p><strong>Doctrina del archivo</strong></p><p>" +
+        escapeHtml(occultPersona.mission) +
+        "</p><ul>" +
+        occultPersona.doctrine
+          .map(function (item) {
+            return "<li>" + escapeHtml(item) + "</li>";
+          })
+          .join("") +
+        "</ul><p>La forma mas fiel de leer esta capa es como una mezcla de reforma espiritual, soberania interior, renacimiento y disciplina de archivo. No pide fe ciega; pide orden, memoria y capacidad de distinguir simbolo, historia y proyecto.</p>" +
+        renderOccultSources(occultPersona.sources)
+    );
+    addOptions([
+      { label: "Quien habla aqui", action: "occultIdentity" },
+      { label: "Logia y rosa", action: "occultTopic", value: "iniciatica" },
+      { label: "Forja de transmutacion", action: "occultTopic", value: "alquimia" },
+      { label: "Menu del archivo", action: "none" }
+    ]);
+    setStatus("La doctrina del archivo esta desplegada en local.", "fallback");
   }
 
   function currentOccultStep() {
@@ -516,7 +649,7 @@
     state.admissionAnswers = {};
     removePendingOptions();
     addBotMessage(
-      "<p><strong>Proceso de admision de la camara velada</strong></p><p>Voy a leerte desde cuatro umbrales: impulso, tradicion, lente y profundidad. No es una iniciacion ritual; es una lectura de orientacion para decidir por donde entrar sin perderte.</p>"
+      "<p><strong>Proceso de admision de la camara velada</strong></p><p>No voy a pedirte devocion ni credenciales. Solo voy a medir borde, mesa, lente, temple y profundidad. Si el hilo se sostiene, el archivo se abre un poco. Si no, seguira siendo solo rumor.</p>"
     );
     askOccultQuestion();
   }
@@ -551,6 +684,7 @@
 
     const chosenRoute = traditionMap[answers.tradition] || traditionMap.hermetic;
     const lensLabel = labelForOccultAnswer("lens", answers.lens);
+    const temperLabel = labelForOccultAnswer("temper", answers.temper);
     const depthLabel = labelForOccultAnswer("depth", answers.depth);
     const impulseLabel = labelForOccultAnswer("impulse", answers.impulse);
     const profileTitle = chosenRoute.title + " / " + depthLabel;
@@ -559,13 +693,19 @@
       impulseLabel.toLowerCase() +
       " y conviene estudiarla con una lente " +
       lensLabel.toLowerCase() +
+      ". El temple dominante que traes es " +
+      temperLabel.toLowerCase() +
       ". La lectura mas sana aqui es avanzar por capas, sin convertir cada simbolo en dogma ni cada intuicion en verdad absoluta.";
     const closing =
-      answers.lens === "historical"
-        ? "Mi recomendacion es separar siempre texto, contexto y reinterpretacion moderna."
-        : answers.lens === "inner"
-          ? "Mi recomendacion es convertir esto en practica de atencion, diario y disciplina, no en consumo impulsivo de secretos."
-          : "Mi recomendacion es mantener dos registros a la vez: rigor para no creerte cualquier cosa y sensibilidad simbolica para no quedarte en la superficie.";
+      answers.temper === "sovereignty"
+        ? "Mi recomendacion es leer cada simbolo como arquitectura interior: soberania, ley propia, renacimiento y disciplina antes que exhibicion."
+        : answers.temper === "silence"
+          ? "Mi recomendacion es callar mas de lo que afirmas, tomar notas y dejar que los simbolos prueben su peso con el tiempo."
+          : answers.lens === "historical"
+            ? "Mi recomendacion es separar siempre texto, contexto y reinterpretacion moderna."
+            : answers.lens === "inner"
+              ? "Mi recomendacion es convertir esto en practica de atencion, diario y disciplina, no en consumo impulsivo de secretos."
+              : "Mi recomendacion es mantener dos registros a la vez: rigor para no creerte cualquier cosa y sensibilidad simbolica para no quedarte en la superficie.";
 
     return {
       title: profileTitle,
@@ -578,6 +718,7 @@
 
   function finishOccultAdmission() {
     const reading = buildOccultReading(state.admissionAnswers);
+    setOccultAdmissionState(true);
 
     addBotMessage(
       "<p><strong>" + escapeHtml(reading.title) + "</strong></p>" +
@@ -597,7 +738,8 @@
     state.mode = "idle";
     state.admissionStep = 0;
     state.admissionAnswers = {};
-    setStatus("Lectura de admision local completada.", "fallback");
+    setOccultMode(true);
+    setStatus("Lectura de admision completada. El archivo ya reconoce tu paso.", "fallback");
   }
 
   function inferLeadStage(severity, answers) {
@@ -939,31 +1081,79 @@
     ui.status.setAttribute("data-state", stateName || "");
   }
 
+  function syncOccultTheme() {
+    const active = state.occultMode;
+    const granted = state.occultAdmitted;
+    const root = document.documentElement;
+    const body = document.body;
+
+    if (root) {
+      root.classList.toggle("archon-occult-theme", active);
+      root.classList.toggle("archon-occult-theme--granted", active && granted);
+    }
+
+    if (body) {
+      body.classList.toggle("archon-occult-theme", active);
+      body.classList.toggle("archon-occult-theme--granted", active && granted);
+    }
+
+    if (ui && ui.root) {
+      ui.root.classList.toggle("is-occult-archived", active && granted);
+    }
+
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeMeta) {
+      themeMeta.setAttribute("content", !active ? "#060606" : granted ? "#170022" : "#110018");
+    }
+  }
+
+  function setOccultAdmissionState(active) {
+    state.occultAdmitted = Boolean(active);
+    updateSession({ occultAdmitted: state.occultAdmitted });
+    syncOccultTheme();
+  }
+
   function setOccultMode(active) {
     state.occultMode = Boolean(active);
-    updateSession({ occultMode: state.occultMode });
+    if (!state.occultMode) {
+      state.occultAdmitted = false;
+      state.clueIndex = 0;
+    }
+    updateSession({
+      occultMode: state.occultMode,
+      occultAdmitted: state.occultAdmitted,
+      clueIndex: state.clueIndex
+    });
 
     if (!ui) return;
 
     ui.root.classList.toggle("is-occult", state.occultMode);
 
     if (ui.gate) {
-      ui.gate.textContent = state.occultMode
-        ? "Camara velada abierta"
-        : "Camara velada dormida";
+      ui.gate.textContent = !state.occultMode
+        ? "Camara velada dormida"
+        : state.occultAdmitted
+          ? "Archivo velado concedido"
+          : "Perimetro alterado";
     }
 
     if (ui.subtitle) {
-      ui.subtitle.textContent = state.occultMode
-        ? "La segunda camara esta activa. Ahora tambien puedo hablar de ocultismo, hermetismo, alquimia y masoneria con mas profundidad."
-        : "Diagnostico estructural, borrador de presupuesto y respuestas sobre la marca. Existe una segunda camara para quien sepa abrirla.";
+      ui.subtitle.textContent = !state.occultMode
+        ? "Diagnostico estructural, borrador de presupuesto y respuestas sobre la marca. Existe una segunda camara para quien sepa abrirla."
+        : state.occultAdmitted
+          ? "El archivo velado ya reconoce tu paso. Puedo leerte desde rutas simbolicas, hermeticas e iniciaticas con mas profundidad."
+          : "La formula ha rozado el borde, pero la segunda camara sigue sellada. Aun no has cruzado el archivo.";
     }
 
     if (ui.toggle) {
-      ui.toggle.textContent = state.occultMode
-        ? "Camara velada"
-        : "Analisis Archon";
+      ui.toggle.textContent = !state.occultMode
+        ? "Analisis Archon"
+        : state.occultAdmitted
+          ? "Archivo velado"
+          : "Camara velada";
     }
+
+    syncOccultTheme();
   }
 
   function scrollMessagesToBottom() {
@@ -1053,12 +1243,16 @@
     ui.messages.innerHTML = "";
     addBotMessage(
       state.occultMode
-        ? "<p><strong>Camara velada</strong></p>" +
-            "<p>La segunda camara esta activa. En local puedo orientarte en hermetismo, alquimia, via iniciatica, arquetipos, chakras, runas y cosmologia simbolica sin depender de Gemini.</p>" +
-            "<p>Si quieres, abrimos ahora el proceso de admision o entramos directamente por una de las rutas de la biblioteca.</p>"
+        ? state.occultAdmitted
+          ? "<p><strong>Archivo velado</strong></p>" +
+              "<p>Tu paso ya ha sido reconocido. Aqui la voz que responde no es la fachada comercial, sino una presencia de archivo, renacimiento y disciplina interior.</p>" +
+              "<p>Si me preguntas mi nombre, te lo dire. Si me preguntas por doctrina, te mostrare el eje. Y si entras por una ruta, conviene hacerlo sin hambre de volumen.</p>"
+          : "<p><strong>Camara velada</strong></p>" +
+              "<p>La formula ha sido reconocida, pero el archivo sigue sellado. Todavia no estoy aqui para explicarte todo, sino para medir desde donde preguntas.</p>" +
+              "<p>Si quieres cruzar, empieza por la admision. Si no, puedo dejarte solo una sombra mas.</p>"
         : "<p><strong>Analisis Archon</strong></p>" +
             "<p>Puedo diagnosticar debilidades estructurales, preparar un borrador de presupuesto y responder preguntas sobre Archon, su motivacion y sus servicios.</p>" +
-            "<p>Y si alguna vez sospechas que este panel tiene una segunda camara, recuerda esto: algunas puertas no se abren con botones, sino con formula.</p>"
+            "<p>Y si alguna vez sospechas que este panel tiene una segunda camara, recuerda esto: algunas puertas no se abren con botones, ni con preguntas directas.</p>"
     );
 
     const saved = loadDiagnosis();
@@ -1262,6 +1456,7 @@
           message: payload.message,
           mode: payload.mode || "chat",
           occultMode: state.occultMode,
+          occultAdmitted: state.occultAdmitted,
           history: session.history || [],
           page: {
             title: document.title,
@@ -1315,6 +1510,10 @@
     if (data.occultMode) {
       setOccultMode(true);
     }
+    if (typeof data.occultAdmitted === "boolean") {
+      setOccultAdmissionState(data.occultAdmitted);
+      setOccultMode(state.occultMode);
+    }
 
     if (data.reply) {
       addBotMessage(formatReplyHtml(data.reply));
@@ -1338,14 +1537,16 @@
     if (actions.length) {
       addOptions(actions);
     } else if (state.occultMode) {
-      addOptions(occultDefaultOptions());
+      addOptions(state.occultAdmitted ? occultDefaultOptions() : occultGateOptions());
     } else {
       addOptions(defaultOptions());
     }
 
     setStatus(
       state.occultMode
-        ? "Camara velada abierta. Gemini y busqueda viva activos."
+        ? (state.occultAdmitted
+            ? "Archivo velado abierto. Gemini y busqueda viva activos."
+            : "Perimetro alterado. Gemini mantiene el archivo sellado hasta completar la admision.")
         : "IA Gemini conectada. Sigo contigo.",
       "live"
     );
@@ -1452,8 +1653,35 @@
       return;
     }
 
+    if (option.action === "occultIdentity") {
+      answerOccultIdentity();
+      return;
+    }
+
+    if (option.action === "occultDoctrine") {
+      answerOccultDoctrine();
+      return;
+    }
+
     if (option.action === "occultLibrary") {
       answerOccultLibraryOverview();
+      return;
+    }
+
+    if (option.action === "occultClue") {
+      addBotMessage(
+        "<p><strong>Sombra</strong></p><p>" +
+          escapeHtml(nextOccultClue()) +
+          "</p>"
+      );
+      addOptions(occultGateOptions());
+      return;
+    }
+
+    if (option.action === "returnFacade") {
+      setOccultMode(false);
+      renderWelcome();
+      setStatus("Has vuelto a la fachada visible.", "ready");
       return;
     }
 
@@ -1614,10 +1842,10 @@
     if (containsOccultKey(text)) {
       setOccultMode(true);
       addBotMessage(
-        "<p><strong>La formula ha sido reconocida.</strong></p><p>La camara velada ya esta abierta para esta sesion. Aunque Gemini falle o no este disponible, puedo seguir operando en local con biblioteca hermetica, alquimica, iniciatica y simbolica.</p>"
+        "<p><strong>La formula ha sido reconocida.</strong></p><p>El perimetro ha cambiado, pero el archivo no se abre por mera pronunciacion. Si quieres cruzar, tendras que sostener una lectura de admision. Hasta entonces solo veras borde, no biblioteca.</p>"
       );
-      addOptions(occultDefaultOptions());
-      setStatus("Camara velada activa en modo local.", "fallback");
+      addOptions(occultGateOptions());
+      setStatus("Perimetro alterado. La camara sigue evaluando el acceso.", "fallback");
       return;
     }
 
@@ -1638,7 +1866,9 @@
     ) {
       if (!state.occultMode) {
         addBotMessage(
-          "<p>Hay una segunda camara para ese tipo de preguntas. No se abre con un boton.</p><p>Puedo darte una pista: <strong>un profeta, un numero maestro repetido y un versiculo ternario</strong>. Otra mas: <strong>11 x 3 = 33; el tercer sello queda solo</strong>.</p>"
+          "<p>Hay una segunda camara para ese tipo de preguntas. No se abre con un boton ni con una solicitud frontal.</p><p>Solo puedo dejarte una sombra: <strong>" +
+            escapeHtml(nextOccultClue()) +
+            "</strong></p>"
         );
         addOptions(defaultOptions());
         return;
@@ -1656,11 +1886,45 @@
     }
 
     if (
+      state.occultAdmitted &&
+      (
+        normalizedText.indexOf("como te llamas") !== -1 ||
+        normalizedText.indexOf("tu nombre") !== -1 ||
+        normalizedText.indexOf("quien habla") !== -1 ||
+        normalizedText.indexOf("como debo llamarte") !== -1 ||
+        normalizedText.indexOf("sol negro") !== -1
+      )
+    ) {
+      answerOccultIdentity();
+      return;
+    }
+
+    if (
+      state.occultAdmitted &&
+      (
+        normalizedText.indexOf("arde") !== -1 ||
+        normalizedText.indexOf("renacimiento") !== -1 ||
+        normalizedText.indexOf("constitucion") !== -1 ||
+        normalizedText.indexOf("soberania") !== -1 ||
+        normalizedText.indexOf("segunda transicion") !== -1 ||
+        normalizedText.indexOf("base espiritual") !== -1 ||
+        normalizedText.indexOf("doctrina") !== -1
+      )
+    ) {
+      answerOccultDoctrine();
+      return;
+    }
+
+    if (
       normalizedText.indexOf("quien eres") !== -1 ||
       normalizedText.indexOf("quien esta detras") !== -1 ||
       normalizedText.indexOf("fundador") !== -1 ||
       normalizedText.indexOf("quien soy") !== -1
     ) {
+      if (state.occultAdmitted) {
+        answerOccultIdentity();
+        return;
+      }
       answerFounder();
       return;
     }
@@ -1726,6 +1990,27 @@
         return;
       }
 
+      if (!state.occultAdmitted) {
+        if (
+          normalizedText.indexOf("biblioteca") !== -1 ||
+          normalizedText.indexOf("fuentes") !== -1 ||
+          normalizedText.indexOf("libros") !== -1 ||
+          normalizedText.indexOf("corpus") !== -1 ||
+          normalizedText.indexOf("hermet") !== -1 ||
+          normalizedText.indexOf("alquim") !== -1 ||
+          normalizedText.indexOf("mason") !== -1 ||
+          normalizedText.indexOf("rosacruz") !== -1 ||
+          normalizedText.indexOf("grimorio") !== -1 ||
+          normalizedText.indexOf("simbolo") !== -1
+        ) {
+          addBotMessage(
+            "<p><strong>El borde responde, no el archivo.</strong></p><p>Todavia no voy a desplegar rutas, corpus ni nombres. Si de verdad quieres entrar, pide admision o escucha otra sombra.</p>"
+          );
+          addOptions(occultGateOptions());
+          return;
+        }
+      }
+
       if (
         normalizedText.indexOf("biblioteca") !== -1 ||
         normalizedText.indexOf("fuentes") !== -1 ||
@@ -1743,14 +2028,18 @@
       }
 
       addBotMessage(
-        "<p><strong>La camara velada sigue abierta.</strong></p><p>En modo local puedo trabajar contigo desde hermetismo, alquimia, via iniciatica, arquetipos, meditacion, runas, grimorios o cosmologia simbolica. Si me haces una pregunta muy concreta, la leo desde esa biblioteca local sin depender de Gemini.</p>"
+        state.occultAdmitted
+          ? "<p><strong>El archivo velado sigue abierto.</strong></p><p>Habla El sol negro desde una disciplina de renacimiento, simbolo y archivo. Puedo trabajar contigo desde hermetismo, alquimia, via iniciatica, arquetipos, meditacion, runas, grimorios o cosmologia simbolica, siempre separando historia, interpretacion y borde especulativo.</p>"
+          : "<p><strong>La camara velada sigue escuchando.</strong></p><p>Has alterado el borde, pero todavia no he desplegado el archivo. Si quieres seguir, pide admision o acepta otra sombra menos literal.</p>"
       );
-      addOptions([
-        { label: "Proceso de admision", action: "startOccultAdmission" },
-        { label: "Biblioteca local", action: "occultLibrary" },
-        { label: "Grimorios y Clavicula", action: "occultTopic", value: "grimorios" },
-        { label: "Cosmologia oculta", action: "occultTopic", value: "cosmologia" }
-      ]);
+      addOptions(state.occultAdmitted
+        ? [
+            { label: "Quien habla aqui", action: "occultIdentity" },
+            { label: "Doctrina del archivo", action: "occultDoctrine" },
+            { label: "Grimorios y Clavicula", action: "occultTopic", value: "grimorios" },
+            { label: "Cosmologia oculta", action: "occultTopic", value: "cosmologia" }
+          ]
+        : occultGateOptions());
       return;
     }
 
@@ -1875,6 +2164,8 @@
   function init() {
     const session = loadSession();
     state.occultMode = Boolean(session.occultMode);
+    state.occultAdmitted = Boolean(session.occultAdmitted);
+    state.clueIndex = Number.isFinite(session.clueIndex) ? session.clueIndex : 0;
     createUi();
     bindUi();
     hydrateForms();
