@@ -196,6 +196,30 @@
         "Proyecto Majestic 12",
         "Bajo la Orden de Melquisedek"
       ]
+    },
+    {
+      id: "historia-humanidad",
+      label: "Historia oculta de la humanidad",
+      terms: [
+        "verdadera historia de la humanidad",
+        "historia de la humanidad",
+        "historia humana oculta",
+        "historia oculta de la humanidad",
+        "historia cosmica oculta",
+        "25.000 anos",
+        "25 000 anos",
+        "humanidad oculta",
+        "origen cosmico de la humanidad"
+      ],
+      overview:
+        "Este bloque local reune una linea concreta del archivo: relatos de origen, cronologias alternativas y lecturas de civilizacion en clave cosmica o velada. No lo trato como historia academica cerrada, sino como corpus de frontera donde se cruzan mito civilizatorio, especulacion, relectura simbolica y memoria alternativa.",
+      guidance:
+        "La lectura mas util aqui es separar tres planos: narrativa de origen, hipotesis historica alternativa y simbolismo de caida, intervencion, olvido y renacimiento. Cuando no se distinguen, todo se vuelve ruido; cuando se ordenan, el corpus gana valor interpretativo.",
+      sources: [
+        "Verdadera historia de la humanidad",
+        "Historia Cosmica Oculta de la Humanidad",
+        "Informe Alternativo: 25.000 Años de Historia Humana Oculta"
+      ]
     }
   ];
 
@@ -292,6 +316,7 @@
     "pricing",
     "founder",
     "mvv",
+    "returnFacade",
     "none"
   ]);
 
@@ -321,6 +346,18 @@
 
   function containsOccultKey(text) {
     return normalize(text).indexOf(OCCULT_KEY) !== -1;
+  }
+
+  function isOccultExitRequest(normalizedText) {
+    const closeVerb = /(cerra|cerrar|cierra|cierre|sal|salir|desactiva|desactivar|apaga|apagar|vuelve|volver|regresa|regresar|cierrame|sacame)/.test(normalizedText);
+    const occultTarget = /(camara|archivo|velad|fachada|modo normal|modo base|modo archon|modo comercial)/.test(normalizedText);
+
+    return (
+      (closeVerb && occultTarget) ||
+      normalizedText.indexOf("volver a archon") !== -1 ||
+      normalizedText.indexOf("vuelve a archon") !== -1 ||
+      normalizedText.indexOf("ponte normal") !== -1
+    );
   }
 
   function escapeHtml(text) {
@@ -458,8 +495,9 @@
     return [
       { label: "Quien habla aqui", action: "occultIdentity" },
       { label: "Doctrina del archivo", action: "occultDoctrine" },
-      { label: "Mesa de mercurio", action: "occultTopic", value: "hermetismo" },
-      { label: "Biblioteca local", action: "occultLibrary" }
+      { label: "Historia velada", action: "occultTopic", value: "historia-humanidad" },
+      { label: "Biblioteca local", action: "occultLibrary" },
+      { label: "Cerrar la camara", action: "returnFacade" }
     ];
   }
 
@@ -525,12 +563,20 @@
         renderOccultSources(topic.sources)
     );
 
-    addOptions([
-      { label: "Proceso de admision", action: "startOccultAdmission" },
-      { label: "Arquetipos y meditacion", action: "occultTopic", value: "psique" },
-      { label: "Grimorios y Clavicula", action: "occultTopic", value: "grimorios" },
-      { label: "Menu de la camara", action: "none" }
-    ]);
+    addOptions(
+      state.occultAdmitted
+        ? [
+            { label: "Historia velada", action: "occultTopic", value: "historia-humanidad" },
+            { label: "Arquetipos y meditacion", action: "occultTopic", value: "psique" },
+            { label: "Grimorios y Clavicula", action: "occultTopic", value: "grimorios" },
+            { label: "Cerrar la camara", action: "returnFacade" }
+          ]
+        : [
+            { label: "Solicitar ingreso", action: "startOccultAdmission" },
+            { label: "Escuchar una sombra", action: "occultClue" },
+            { label: "Volver a la fachada", action: "returnFacade" }
+          ]
+    );
     setStatus("Camara velada operativa en modo local.", "fallback");
   }
 
@@ -545,14 +591,19 @@
 
     addBotMessage(
       "<p><strong>Biblioteca local de la camara velada</strong></p>" +
-        "<p>Ahora mismo puedo responder en local, sin Gemini, a partir de una biblioteca reducida y curada con ejes de hermetismo, alquimia, via iniciatica, arquetipos, chakras, meditacion, runas, grimorios y cosmologia oculta.</p>" +
+        "<p>Ahora mismo puedo responder en local, sin Gemini, a partir de una biblioteca reducida y curada con ejes de hermetismo, alquimia, via iniciatica, arquetipos, chakras, meditacion, runas, grimorios, cosmologia oculta e historia velada de la humanidad.</p>" +
         renderOccultSources(
           occultLibrary.reduce(function (sources, topic) {
             return sources.concat(topic.sources.slice(0, 2));
-          }, []).slice(0, 8)
+          }, []).slice(0, 10)
         )
     );
-    addOptions(occultDefaultOptions());
+    addOptions([
+      { label: "Historia velada", action: "occultTopic", value: "historia-humanidad" },
+      { label: "Cosmologia oculta", action: "occultTopic", value: "cosmologia" },
+      { label: "Grimorios y Clavicula", action: "occultTopic", value: "grimorios" },
+      { label: "Cerrar la camara", action: "returnFacade" }
+    ]);
   }
 
   function answerOccultIdentity() {
@@ -573,9 +624,9 @@
     );
     addOptions([
       { label: "Doctrina del archivo", action: "occultDoctrine" },
-      { label: "Mesa de mercurio", action: "occultTopic", value: "hermetismo" },
+      { label: "Historia velada", action: "occultTopic", value: "historia-humanidad" },
       { label: "Biblioteca local", action: "occultLibrary" },
-      { label: "Menu del archivo", action: "none" }
+      { label: "Cerrar la camara", action: "returnFacade" }
     ]);
     setStatus("La voz del archivo se ha presentado.", "fallback");
   }
@@ -603,9 +654,9 @@
     );
     addOptions([
       { label: "Quien habla aqui", action: "occultIdentity" },
+      { label: "Historia velada", action: "occultTopic", value: "historia-humanidad" },
       { label: "Logia y rosa", action: "occultTopic", value: "iniciatica" },
-      { label: "Forja de transmutacion", action: "occultTopic", value: "alquimia" },
-      { label: "Menu del archivo", action: "none" }
+      { label: "Cerrar la camara", action: "returnFacade" }
     ]);
     setStatus("La doctrina del archivo esta desplegada en local.", "fallback");
   }
@@ -1156,6 +1207,30 @@
     syncOccultTheme();
   }
 
+  function closeOccultMode() {
+    state.mode = "idle";
+    state.step = 0;
+    state.answers = {};
+    state.admissionStep = 0;
+    state.admissionAnswers = {};
+    state.clueIndex = 0;
+    state.aiLastError = "";
+    setOccultMode(false);
+    updateSession({
+      history: [],
+      occultMode: false,
+      occultAdmitted: false,
+      clueIndex: 0
+    });
+    renderWelcome();
+    removePendingOptions();
+    addBotMessage(
+      "<p><strong>La camara velada ha sido cerrada.</strong></p><p>Volvemos al modo base. Soy Archon, el asistente comercial-consultivo de Archon Consultancies. Desde aqui recuperas la identidad visual normal y las rutas operativas de diagnostico, servicios, marca y precios.</p>"
+    );
+    addOptions(defaultOptions());
+    setStatus("Has vuelto a la fachada visible.", "ready");
+  }
+
   function scrollMessagesToBottom() {
     if (!ui || !ui.body) return;
     ui.body.scrollTop = ui.body.scrollHeight;
@@ -1507,11 +1582,11 @@
   function renderApiResponse(data) {
     if (!data) return false;
 
-    if (data.occultMode) {
-      setOccultMode(true);
+    if (typeof data.occultMode === "boolean") {
+      setOccultMode(data.occultMode);
     }
     if (typeof data.occultAdmitted === "boolean") {
-      setOccultAdmissionState(data.occultAdmitted);
+      setOccultAdmissionState(Boolean(state.occultMode) && data.occultAdmitted);
       setOccultMode(state.occultMode);
     }
 
@@ -1679,9 +1754,7 @@
     }
 
     if (option.action === "returnFacade") {
-      setOccultMode(false);
-      renderWelcome();
-      setStatus("Has vuelto a la fachada visible.", "ready");
+      closeOccultMode();
       return;
     }
 
@@ -1860,6 +1933,9 @@
       normalizedText.indexOf("alquim") !== -1 ||
       normalizedText.indexOf("mason") !== -1 ||
       normalizedText.indexOf("rosacruz") !== -1 ||
+      normalizedText.indexOf("historia de la humanidad") !== -1 ||
+      normalizedText.indexOf("historia humana oculta") !== -1 ||
+      normalizedText.indexOf("historia cosmica") !== -1 ||
       normalizedText.indexOf("secreto") !== -1 ||
       normalizedText.indexOf("camara") !== -1 ||
       normalizedText.indexOf("pista") !== -1
@@ -2036,8 +2112,8 @@
         ? [
             { label: "Quien habla aqui", action: "occultIdentity" },
             { label: "Doctrina del archivo", action: "occultDoctrine" },
-            { label: "Grimorios y Clavicula", action: "occultTopic", value: "grimorios" },
-            { label: "Cosmologia oculta", action: "occultTopic", value: "cosmologia" }
+            { label: "Historia velada", action: "occultTopic", value: "historia-humanidad" },
+            { label: "Cerrar la camara", action: "returnFacade" }
           ]
         : occultGateOptions());
       return;
@@ -2050,6 +2126,13 @@
   }
 
   async function handleFreeText(text) {
+    const normalizedText = normalize(text);
+
+    if (state.occultMode && isOccultExitRequest(normalizedText)) {
+      closeOccultMode();
+      return;
+    }
+
     if (state.mode === "diagnosis") {
       handleDiagnosisFreeText(text);
       return;

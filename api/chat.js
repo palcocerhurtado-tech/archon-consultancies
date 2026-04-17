@@ -10,6 +10,7 @@ const ALLOWED_ACTIONS = new Set([
   "pricing",
   "founder",
   "mvv",
+  "returnFacade",
   "none"
 ]);
 
@@ -47,6 +48,9 @@ function buildSystemPrompt(occultMode, occultAdmitted) {
         ? "En modo ocultista concedido puedes hablar de ocultismo, alquimia, masoneria, rosacrucismo, esoterismo y hermetismo con amplitud. Usa busqueda web si mejora la respuesta y mantente prudente con afirmaciones no verificables."
         : "En el borde velado responde de forma críptica, breve y ceremonial. Si el usuario pide biblioteca, fuentes, corpus o respuestas demasiado directas, redirigelo al proceso de admision sin dar la clave ni el contenido pleno."
       : "En modo comercial prioriza diagnostico, marca, precios, auditoria y servicios. Si el usuario insiste en temas ocultistas sin haber abierto la camara, responde de forma breve y simbolica, dejando una pista sutil si encaja.",
+    occultMode
+      ? "Si el usuario pide cerrar la camara, volver al modo normal, volver a Archon o regresar a la fachada, responde de forma breve y comercial, sin tono ritual, y devuelve un CTA con action='returnFacade'."
+      : "Si la camara ya esta cerrada, no inventes cierres rituales ni mantengas tono velado.",
     "Cuando uses informacion web, integrala con naturalidad y sin fingir certeza absoluta. Si la respuesta depende de fuentes recientes, apoya con citas visibles.",
     "Devuelve SIEMPRE un JSON valido, sin markdown, sin fences y sin texto antes o despues del JSON.",
     "Esquema obligatorio del JSON:",
@@ -54,7 +58,7 @@ function buildSystemPrompt(occultMode, occultAdmitted) {
     '  "reply": "string",',
     '  "intent": "brand|diagnosis|pricing|audit|general",',
     '  "leadStage": "cold|warm|hot",',
-    '  "ctas": [{"label": "string", "action": "startDiagnosis|audit|showSaved|copy|pricing|founder|mvv|none"}],',
+    '  "ctas": [{"label": "string", "action": "startDiagnosis|audit|showSaved|copy|pricing|founder|mvv|returnFacade|none"}],',
     '  "reportReady": true,',
     '  "report": {',
     '    "sector": "ecommerce|services|operations|other|",',
