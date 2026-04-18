@@ -331,7 +331,8 @@
     aiLastError: "",
     admissionStep: 0,
     admissionAnswers: {},
-    clueIndex: 0
+    clueIndex: 0,
+    requestNonce: 0
   };
 
   let ui = null;
@@ -410,6 +411,15 @@
     const session = Object.assign({}, defaultSession(), loadSession(), patch);
     saveSession(session);
     return session;
+  }
+
+  function nextRequestNonce() {
+    state.requestNonce += 1;
+    return state.requestNonce;
+  }
+
+  function isRequestCurrent(requestNonce) {
+    return requestNonce === state.requestNonce;
   }
 
   function pushHistory(role, content) {
@@ -1208,6 +1218,7 @@
   }
 
   function closeOccultMode() {
+    nextRequestNonce();
     state.mode = "idle";
     state.step = 0;
     state.answers = {};
@@ -1664,6 +1675,7 @@
   async function finishDiagnosis() {
     const localReport = buildDiagnosisReport(state.answers);
     let finalReport = localReport;
+    const requestNonce = nextRequestNonce();
 
     removePendingOptions();
     setStatus("Construyendo borrador con Gemini 2.5 Flash...", "thinking");
@@ -1673,6 +1685,10 @@
       mode: "diagnosis_enrichment",
       diagnosisReport: localReport
     });
+
+    if (!isRequestCurrent(requestNonce)) {
+      return;
+    }
 
     if (apiResponse && apiResponse.reportReady && apiResponse.report) {
       finalReport = normalizeAiReport(
@@ -2148,11 +2164,16 @@
     }
 
     setStatus("Pensando la mejor siguiente jugada...", "thinking");
+    const requestNonce = nextRequestNonce();
 
     const apiResponse = await askGemini({
       message: text,
       mode: "chat"
     });
+
+    if (!isRequestCurrent(requestNonce)) {
+      return;
+    }
 
     if (renderApiResponse(apiResponse)) {
       return;
