@@ -1,9 +1,115 @@
 (function () {
   const STORAGE_KEY = "archon_architecture_diagnosis_v2";
-  const SESSION_KEY = "archon_chat_session_v1";
+  const SESSION_KEY = "archon_chat_session_v2";
   const FORM_SELECTOR = 'form[action*="formsubmit.co"]';
   const API_ENDPOINT = "/api/chat";
-  const OCCULT_KEY = "jeremias 33.3";
+  const OCCULT_ACCESS_VERSION = 3;
+  const PUZZLE_PROGRESS_KEY = "archon_puzzle_progress";
+  const PUZZLE_META_KEY = "archon_puzzle_meta_v1";
+  const PUZZLE_FRUSTRATION_KEY = "archon_frustration_keywords";
+  const PUZZLE_START_KEY = "archon_start_time";
+  const PUZZLE_PRIMARY_TIMEOUT_MS = 600000;
+  const PUZZLE_HISTORY_LIMIT = 3;
+  const PUZZLE_CAESAR_HINT = "FODPD D PL";
+  const PUZZLE_HINT_REGEX = /(pista|clave|formula|frase|sombra|acceso|entrar|entrada|abrir|abre|abrirse|decir|dime|como entro|como entrar|como abrir)/;
+  const PUZZLE_HELP_REGEX = /(otra|mas|más|extra|adicional|diferente|ayuda|insisto|sigo|pista mas|pista más|otra pista|mas ayuda|más ayuda)/;
+  const PUZZLE_FRUSTRATION_REGEX = /(no entiendo|no lo pillo|no lo veo|no se|no sé|imposible|no funciona|no encaja|me pierdo|atascado|atascada|bloqueado|bloqueada)/;
+  const PUZZLE_ANSWER_HASHES = {
+    3: "cce1ffa3ef79971b5145c2593439414062aaccd2b4b2be4d988119c5f14d3625",
+    4: "c6f3ac57944a531490cd39902d0f777715fd005efac9a30622d5f5205e7f6894",
+    5: "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+    6: "c253943d1798ad93ad3e37ae3af5b838576f96d204eb4bde3142a926532af75a"
+  };
+  const PRIMARY_HINTS = [
+    "Vqeqyunf gequzgn l geqf chzgb geqf",
+    "15954911 , 35 , 8"
+  ];
+  const SECONDARY_RIDDLES = [
+    {
+      step: 3,
+      key: "hint.step3.riddle",
+      shortTitle: "Acertijo I",
+      title: "Acertijo I — El Profeta Encadenado",
+      body: [
+        "Jura aquel cuya boca es fragua: \"encendida está mi palabra\".",
+        "En Anatot nació, mas Jerusalén lo oyó clamar hasta el fin.",
+        "Rollo quemó el rey, columna a columna, sobre su brasero de invierno.",
+        "En pozo de Malquías lo hundieron; con trapos podridos lo sacaron.",
+        "Mira el alfabeto hebreo que teje sus lamentos en cinco cantos.",
+        "Inseparable del yugo de madera y del otro, de hierro, que vino después.",
+        "Alfarero visitó, y del vaso roto aprendió la lección de los reinos.",
+        "Siete letras componen mi nombre: la primera, la que aquí inicia cada verso."
+      ].join("\n")
+    },
+    {
+      step: 4,
+      key: "hint.step4.riddle",
+      shortTitle: "Acertijo II",
+      title: "Acertijo II — El Número de la Ciudad Alta",
+      body: [
+        "Soy la edad en que el Nazareno expiró sobre el madero;",
+        "soy los años que el pastor-rey ciñó corona en Sion.",
+        "Variaciones compuso el sordo de Bonn sobre un vals mediocre de Diabelli,",
+        "y las mías son exactamente las que él firmó.",
+        "Grado supremo en la escala del maestro que levantó el Templo.",
+        "Mi dígito es el menor primo impar, y me escribo dos veces seguido."
+      ].join("\n")
+    },
+    {
+      step: 5,
+      key: "hint.step5.riddle",
+      shortTitle: "Acertijo III",
+      title: "Acertijo III — El Eco del Dígito",
+      body: [
+        "Niega Pedro antes que el gallo cante;",
+        "tres veces tienta el hambre, el trono y el abismo al Nazareno en el desierto;",
+        "hunde tres días la piedra la tumba antes de rodar.",
+        "Soy donde Agustín halló su Dios,",
+        "y donde Pitágoras vio la primera forma que cierra el plano.",
+        "No par, no unidad: la síntesis mínima."
+      ].join("\n")
+    },
+    {
+      step: 6,
+      key: "hint.step6.riddle",
+      shortTitle: "Acertijo IV",
+      title: "Acertijo IV — La Promesa Misma",
+      body: [
+        "\"Clámame, y yo te responderé; y te enseñaré cosas grandes y ocultas que tú no conoces.\"",
+        "Así prometió el Altísimo al profeta del yugo.",
+        "Nombra al profeta, cita el capítulo, cita el versículo.",
+        "Pero ten cuidado: en la lengua de Cervantes, el punto separa,",
+        "no los dos puntos que pone el anglosajón."
+      ].join("\n")
+    },
+    {
+      step: 7,
+      key: "hint.step7.riddle",
+      shortTitle: "Acertijo V",
+      title: "Acertijo V — La Llave Vocal",
+      body: [
+        "El silencio no abre; las teclas tampoco.",
+        "La voz es la llave: di en palabras lo que en cifras se escribe.",
+        "El profeta, el capítulo, el versículo — pronunciados, no tecleados.",
+        "Donde otros dibujan un signo, tú di la palabra."
+      ].join("\n")
+    }
+  ];
+  const PHONETIC_EQUIVALENCES = [
+    [/\bgeremias\b/g, "jeremias"],
+    [/\bgerem[ií]as\b/g, "jeremias"],
+    [/\b33\b/g, "treinta y tres"],
+    [/\b3\b/g, "tres"],
+    [/\bpto\b/g, "punto"]
+  ];
+  const VOICE_KEY_SEGMENTS = [
+    [106, 101, 114, 101, 109, 105, 97, 115],
+    [116, 114, 101, 105, 110, 116, 97],
+    [121],
+    [116, 114, 101, 115],
+    [112, 117, 110, 116, 111],
+    [116, 114, 101, 115]
+  ];
 
   const profile = {
     founder:
@@ -52,12 +158,7 @@
     ]
   };
 
-  const occultClues = [
-    "La puerta no escucha explicaciones. Solo reconoce una llamada antigua, un pasaje donde se promete lo oculto y una cifra que se refleja antes de abrirse en una grieta.",
-    "No lo busques como cita biblica ni como conjuro. Piensa en un profeta del llanto, en la respuesta a una invocacion y en un numero que se mira a si mismo antes de caer en un punto.",
-    "La mitad del sello pertenece a un nombre que supo pedir respuesta desde la oscuridad. La otra mitad pertenece a un espejo doble herido por una separacion minima.",
-    "Quien entra no recibe la formula de frente. La deduce cuando comprende que algunas puertas se abren con voz, otras con numero, y las mas serias con una herida decimal."
-  ];
+  const occultClues = PRIMARY_HINTS.slice();
 
   const occultAdmissionFlow = [
     {
@@ -320,6 +421,26 @@
     "none"
   ]);
 
+  function defaultPuzzleMeta() {
+    return {
+      progress: 1,
+      stage: "primary",
+      currentStep: 1,
+      revealedSteps: [1],
+      engaged: false,
+      primaryHintsDelivered: 0,
+      primaryHelpRequests: 0,
+      frustrationCount: 0,
+      startedAt: 0,
+      lastMessages: [],
+      stepAttempts: {},
+      stepHintRequests: {},
+      voiceFailures: 0,
+      voiceUnlocked: false,
+      voiceFallbackVisible: false
+    };
+  }
+
   const state = {
     open: false,
     mode: "idle",
@@ -337,21 +458,186 @@
     archiveFilter: "all",
     archiveQuery: "",
     dragPosition: null,
-    suppressToggleClickUntil: 0
+    suppressToggleClickUntil: 0,
+    lastUserInput: "",
+    puzzle: defaultPuzzleMeta(),
+    voiceCapturePending: false
   };
 
   let ui = null;
+  const textEncoder = new TextEncoder();
+
+  function t(key, fallback) {
+    return fallback || key;
+  }
 
   function normalize(text) {
     return (text || "")
       .toLowerCase()
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
+      .replace(/\s+/g, " ")
       .trim();
   }
 
-  function containsOccultKey(text) {
-    return normalize(text).indexOf(OCCULT_KEY) !== -1;
+  function normalizePuzzleAnswer(text) {
+    return normalize(text);
+  }
+
+  function decodeVoiceKeySegment(codes) {
+    return codes
+      .map(function (code) {
+        return String.fromCharCode(code);
+      })
+      .join("");
+  }
+
+  function getVoiceKeyTarget() {
+    return VOICE_KEY_SEGMENTS
+      .map(function (segment) {
+        return decodeVoiceKeySegment(segment);
+      })
+      .join(" ");
+  }
+
+  function normalizePhonetic(text) {
+    return String(text || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[.,;:!?¿¡"'`´]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function applyEquivalences(text) {
+    return PHONETIC_EQUIVALENCES.reduce(function (value, entry) {
+      return value.replace(entry[0], entry[1]);
+    }, text);
+  }
+
+  function normalizePhoneticCandidate(text) {
+    return applyEquivalences(normalizePhonetic(text));
+  }
+
+  function levenshtein(left, right) {
+    const leftLength = left.length;
+    const rightLength = right.length;
+    const matrix = Array.from({ length: leftLength + 1 }, function () {
+      return new Array(rightLength + 1).fill(0);
+    });
+
+    for (let row = 0; row <= leftLength; row += 1) {
+      matrix[row][0] = row;
+    }
+
+    for (let col = 0; col <= rightLength; col += 1) {
+      matrix[0][col] = col;
+    }
+
+    for (let row = 1; row <= leftLength; row += 1) {
+      for (let col = 1; col <= rightLength; col += 1) {
+        matrix[row][col] = left[row - 1] === right[col - 1]
+          ? matrix[row - 1][col - 1]
+          : 1 + Math.min(
+              matrix[row - 1][col],
+              matrix[row][col - 1],
+              matrix[row - 1][col - 1]
+            );
+      }
+    }
+
+    return matrix[leftLength][rightLength];
+  }
+
+  function matchesVoiceKey(alternatives) {
+    const target = normalizePhoneticCandidate(getVoiceKeyTarget());
+    const threshold = Math.ceil(target.length * 0.15);
+
+    return alternatives.some(function (alternative) {
+      const candidate = normalizePhoneticCandidate(alternative);
+      return candidate && levenshtein(candidate, target) <= threshold;
+    });
+  }
+
+  async function sha256(text) {
+    if (!window.crypto || !window.crypto.subtle) {
+      throw new Error("SHA-256 no soportado");
+    }
+
+    const digest = await window.crypto.subtle.digest("SHA-256", textEncoder.encode(text));
+    return Array.from(new Uint8Array(digest))
+      .map(function (value) {
+        return value.toString(16).padStart(2, "0");
+      })
+      .join("");
+  }
+
+  function supportsVoiceRecognition() {
+    return Boolean(window.SpeechRecognition || window.webkitSpeechRecognition);
+  }
+
+  function startVoiceCapture() {
+    return new Promise(function (resolve, reject) {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+      if (!SpeechRecognition) {
+        reject(new Error("SpeechRecognition no soportado"));
+        return;
+      }
+
+      const recognition = new SpeechRecognition();
+      recognition.lang = "es-ES";
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 5;
+      recognition.onresult = function (event) {
+        const result = event.results && event.results[0] ? event.results[0] : [];
+        resolve(
+          Array.from(result)
+            .map(function (entry) {
+              return entry && entry.transcript ? entry.transcript : "";
+            })
+            .filter(Boolean)
+        );
+      };
+      recognition.onerror = function (event) {
+        reject(new Error(event && event.error ? event.error : "voice_error"));
+      };
+      recognition.start();
+    });
+  }
+
+  function hasCommercialClueContext(normalizedText) {
+    return /(empresa|negocio|cliente|ventas|copy|seo|anuncio|campana|campaña|precio|presupuesto|conversion|lead|marketing|consultoria|consultoria|automatizacion|automatizacion)/.test(
+      normalizedText
+    );
+  }
+
+  function historyHasOccultContext() {
+    const session = loadSession();
+    return (session.history || []).some(function (item) {
+      const normalized = normalize(item && item.content);
+      return /(camara|archivo|velad|ocult|hermet|alquim|mason|rosacruz|esoter|segunda camara|sombra|clave|formula)/.test(
+        normalized
+      );
+    });
+  }
+
+  function isOccultClueRequest(normalizedText) {
+    const asksForClue =
+      /(pista|clave|formula|frase|sombra|acceso|entrar|entrada|abrir|abre|abrirse|decir|dime|como entro|como entrar|como abrir)/.test(
+        normalizedText
+      );
+    const occultContext =
+      /(camara|archivo|velad|ocult|hermet|alquim|mason|rosacruz|esoter|segunda camara)/.test(
+        normalizedText
+      );
+    const shortDirectAsk = normalizedText.length > 0 && normalizedText.length <= 80;
+
+    if (!asksForClue) return false;
+    if (hasCommercialClueContext(normalizedText)) return false;
+
+    return occultContext || state.occultMode || historyHasOccultContext() || shortDirectAsk;
   }
 
   function isOccultExitRequest(normalizedText) {
@@ -373,6 +659,96 @@
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#39;");
+  }
+
+  function findSecondaryRiddle(step) {
+    return SECONDARY_RIDDLES.find(function (entry) {
+      return entry.step === step;
+    }) || null;
+  }
+
+  function buildPuzzleMarkup() {
+    return (
+      '<div class="archon-chatbot-puzzle-shell">' +
+        '<div class="archon-chatbot-puzzle-header">' +
+          '<span class="archon-chatbot-puzzle-kicker">' + escapeHtml(t("hint.kicker", "Camara velada")) + '</span>' +
+          '<p class="archon-chatbot-puzzle-note">' + escapeHtml(t("hint.note", "Las dos sombras principales son el eje canonico. Si no las descifras, el bot abre un camino secundario mas guiado.")) + '</p>' +
+        '</div>' +
+        '<section id="puzzle-container" data-current-step="1" data-stage="primary">' +
+          '<article class="archon-chatbot-puzzle-item hint primary" data-step="1" data-state="active">' +
+            '<h3>' + escapeHtml(t("hint.step1.title", "Pista Principal 1")) + '</h3>' +
+            '<code>' + escapeHtml(PRIMARY_HINTS[0]) + '</code>' +
+          '</article>' +
+          '<article class="archon-chatbot-puzzle-item hint primary" data-step="2" data-state="locked" hidden>' +
+            '<h3>' + escapeHtml(t("hint.step2.title", "Pista Principal 2")) + '</h3>' +
+            '<code>' + escapeHtml(PRIMARY_HINTS[1]) + '</code>' +
+          '</article>' +
+          SECONDARY_RIDDLES.map(function (entry) {
+            return (
+              '<article class="archon-chatbot-puzzle-item riddle secondary" data-step="' + escapeHtml(String(entry.step)) + '" data-state="locked" hidden>' +
+                '<h3>' + escapeHtml(entry.title) + '</h3>' +
+                '<pre>' + escapeHtml(entry.body) + '</pre>' +
+              '</article>'
+            );
+          }).join("") +
+          '<article class="archon-chatbot-puzzle-item voice-step" data-step="8" data-state="locked" hidden>' +
+            '<h3>' + escapeHtml(t("hint.step8.title", "Paso Final — La Llave")) + '</h3>' +
+            '<p>' + escapeHtml(t("hint.step8.copy", "La puerta ya solo escucha voz. Pulsa el micrófono y pronuncia la llave completa.")) + '</p>' +
+            '<button id="voice-trigger" class="archon-chatbot-voice-trigger" type="button">' + escapeHtml(t("hint.step8.voice", "Pronunciar la llave")) + '</button>' +
+            '<div class="archon-chatbot-voice-fallback" hidden>' +
+              '<label for="voice-fallback-input">' + escapeHtml(t("hint.step8.fallback.label", "Tu navegador no permite voz. Escríbela como la pronunciarías.")) + '</label>' +
+              '<div class="archon-chatbot-voice-fallback-row">' +
+                '<input id="voice-fallback-input" class="archon-chatbot-voice-input" type="text" autocomplete="off" placeholder="' + escapeHtml(t("hint.step8.fallback.placeholder", "Pronuncia por escrito la llave")) + '">' +
+                '<button type="button" class="archon-chatbot-voice-submit">' + escapeHtml(t("hint.step8.fallback.submit", "Validar")) + '</button>' +
+              '</div>' +
+            '</div>' +
+          '</article>' +
+        '</section>' +
+      '</div>'
+    );
+  }
+
+  function currentPuzzleStep() {
+    return state.puzzle.currentStep;
+  }
+
+  function currentPuzzleStage() {
+    return state.puzzle.stage;
+  }
+
+  function renderPuzzleContainer() {
+    if (!ui || !ui.puzzleContainer) return;
+
+    ui.puzzleContainer.dataset.currentStep = String(currentPuzzleStep());
+    ui.puzzleContainer.dataset.stage = currentPuzzleStage();
+
+    ui.puzzleContainer.querySelectorAll("[data-step]").forEach(function (node) {
+      const step = Number(node.getAttribute("data-step"));
+      const revealed = state.puzzle.revealedSteps.indexOf(step) !== -1;
+      const isActive = step === currentPuzzleStep();
+      node.hidden = !revealed;
+      node.dataset.state = !revealed ? "locked" : isActive ? "active" : "complete";
+    });
+
+    if (ui.voiceTrigger) {
+      ui.voiceTrigger.disabled = state.voiceCapturePending;
+      ui.voiceTrigger.textContent = state.voiceCapturePending
+        ? t("hint.step8.listening", "Escuchando...")
+        : t("hint.step8.voice", "Pronunciar la llave");
+    }
+
+    if (ui.voiceFallback) {
+      ui.voiceFallback.hidden = supportsVoiceRecognition()
+        ? !state.puzzle.voiceFallbackVisible
+        : false;
+    }
+  }
+
+  function scrollPuzzleStepIntoView(step) {
+    if (!ui || !ui.puzzleContainer) return;
+    const target = ui.puzzleContainer.querySelector('[data-step="' + String(step) + '"]');
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
   function slugifyArchiveId(text) {
@@ -549,14 +925,27 @@
       configured: null,
       occultMode: false,
       occultAdmitted: false,
-      clueIndex: 0
+      clueIndex: 0,
+      occultAccessVersion: OCCULT_ACCESS_VERSION
     };
   }
 
   function loadSession() {
     try {
       const raw = sessionStorage.getItem(SESSION_KEY);
-      return raw ? JSON.parse(raw) : defaultSession();
+      const parsed = raw ? JSON.parse(raw) : defaultSession();
+      const session = Object.assign({}, defaultSession(), parsed);
+
+      if (session.occultAccessVersion !== OCCULT_ACCESS_VERSION) {
+        return Object.assign({}, session, {
+          occultMode: false,
+          occultAdmitted: false,
+          clueIndex: 0,
+          occultAccessVersion: OCCULT_ACCESS_VERSION
+        });
+      }
+
+      return session;
     } catch (error) {
       return defaultSession();
     }
@@ -574,6 +963,180 @@
     const session = Object.assign({}, defaultSession(), loadSession(), patch);
     saveSession(session);
     return session;
+  }
+
+  function uniquePuzzleSteps(steps) {
+    const seen = new Set();
+
+    return (Array.isArray(steps) ? steps : [])
+      .map(function (step) {
+        return Number(step);
+      })
+      .filter(function (step) {
+        if (!Number.isInteger(step) || step < 1 || step > 8 || seen.has(step)) {
+          return false;
+        }
+        seen.add(step);
+        return true;
+      })
+      .sort(function (left, right) {
+        return left - right;
+      });
+  }
+
+  function normalizePuzzleMeta(input) {
+    const fallback = defaultPuzzleMeta();
+    const meta = Object.assign({}, fallback, input || {});
+    const revealedSteps = uniquePuzzleSteps(meta.revealedSteps);
+    const safeRevealedSteps = revealedSteps.length ? revealedSteps : [1];
+    if (safeRevealedSteps.indexOf(1) === -1) {
+      safeRevealedSteps.unshift(1);
+    }
+
+    const progress = Math.max(
+      Number.isInteger(meta.progress) ? meta.progress : fallback.progress,
+      safeRevealedSteps[safeRevealedSteps.length - 1]
+    );
+    const currentStep = safeRevealedSteps.indexOf(Number(meta.currentStep)) !== -1
+      ? Number(meta.currentStep)
+      : progress >= 8
+        ? 8
+        : progress;
+    const stage = progress >= 8
+      ? "final"
+      : safeRevealedSteps.some(function (step) {
+          return step >= 3 && step <= 7;
+        })
+        ? "secondary"
+        : "primary";
+
+    return {
+      progress: Math.min(Math.max(progress, 1), 8),
+      stage: meta.stage === "final" || stage === "final"
+        ? "final"
+        : meta.stage === "secondary" || stage === "secondary"
+          ? "secondary"
+          : "primary",
+      currentStep: Math.min(Math.max(currentStep, 1), 8),
+      revealedSteps: safeRevealedSteps,
+      engaged: Boolean(meta.engaged),
+      primaryHintsDelivered: Math.max(0, Number(meta.primaryHintsDelivered) || 0),
+      primaryHelpRequests: Math.max(0, Number(meta.primaryHelpRequests) || 0),
+      frustrationCount: Math.max(0, Number(meta.frustrationCount) || 0),
+      startedAt: Number(meta.startedAt) || 0,
+      lastMessages: Array.isArray(meta.lastMessages)
+        ? meta.lastMessages.slice(-PUZZLE_HISTORY_LIMIT).map(function (message) {
+            return normalize(message);
+          }).filter(Boolean)
+        : [],
+      stepAttempts: meta.stepAttempts && typeof meta.stepAttempts === "object"
+        ? meta.stepAttempts
+        : {},
+      stepHintRequests: meta.stepHintRequests && typeof meta.stepHintRequests === "object"
+        ? meta.stepHintRequests
+        : {},
+      voiceFailures: Math.max(0, Number(meta.voiceFailures) || 0),
+      voiceUnlocked: Boolean(meta.voiceUnlocked),
+      voiceFallbackVisible: Boolean(meta.voiceFallbackVisible)
+    };
+  }
+
+  function loadPuzzleState() {
+    let parsedMeta = null;
+
+    try {
+      const rawMeta = localStorage.getItem(PUZZLE_META_KEY);
+      parsedMeta = rawMeta ? JSON.parse(rawMeta) : null;
+    } catch (error) {
+      parsedMeta = null;
+    }
+
+    const progressRaw = parseInt(localStorage.getItem(PUZZLE_PROGRESS_KEY), 10);
+    const frustrationRaw = parseInt(sessionStorage.getItem(PUZZLE_FRUSTRATION_KEY), 10);
+    const startedAtRaw = parseInt(localStorage.getItem(PUZZLE_START_KEY), 10);
+    const meta = normalizePuzzleMeta(Object.assign({}, parsedMeta, {
+      progress: Number.isInteger(progressRaw) ? progressRaw : undefined,
+      frustrationCount: Number.isInteger(frustrationRaw)
+        ? frustrationRaw
+        : parsedMeta && parsedMeta.frustrationCount,
+      startedAt: Number.isInteger(startedAtRaw)
+        ? startedAtRaw
+        : parsedMeta && parsedMeta.startedAt
+    }));
+
+    if (!meta.startedAt) {
+      meta.startedAt = Date.now();
+    }
+
+    return meta;
+  }
+
+  function savePuzzleState() {
+    const meta = normalizePuzzleMeta(state.puzzle);
+
+    if (!meta.startedAt) {
+      meta.startedAt = Date.now();
+    }
+
+    state.puzzle = meta;
+
+    try {
+      localStorage.setItem(PUZZLE_PROGRESS_KEY, String(meta.progress));
+      localStorage.setItem(PUZZLE_META_KEY, JSON.stringify(meta));
+      localStorage.setItem(PUZZLE_START_KEY, String(meta.startedAt));
+      sessionStorage.setItem(PUZZLE_FRUSTRATION_KEY, String(meta.frustrationCount));
+    } catch (error) {
+      return;
+    }
+  }
+
+  function initializePuzzleState() {
+    state.puzzle = loadPuzzleState();
+    savePuzzleState();
+  }
+
+  function rememberPuzzleMessage(normalizedText) {
+    if (!normalizedText) return;
+    state.puzzle.lastMessages = state.puzzle.lastMessages
+      .concat([normalizedText])
+      .slice(-PUZZLE_HISTORY_LIMIT);
+  }
+
+  function revealPuzzleSteps(steps, stage, currentStep) {
+    const incoming = Array.isArray(steps) ? steps : [steps];
+    state.puzzle.revealedSteps = uniquePuzzleSteps(state.puzzle.revealedSteps.concat(incoming));
+    state.puzzle.progress = state.puzzle.revealedSteps[state.puzzle.revealedSteps.length - 1] || 1;
+
+    if (stage) {
+      state.puzzle.stage = stage;
+    }
+
+    if (currentStep) {
+      state.puzzle.currentStep = currentStep;
+    }
+
+    state.puzzle.engaged = true;
+    savePuzzleState();
+  }
+
+  function incrementPuzzleMapCounter(key, mapName) {
+    const stepKey = String(key);
+    const source = state.puzzle[mapName] && typeof state.puzzle[mapName] === "object"
+      ? state.puzzle[mapName]
+      : {};
+    const nextValue = (Number(source[stepKey]) || 0) + 1;
+    state.puzzle[mapName] = Object.assign({}, source, {
+      [stepKey]: nextValue
+    });
+    savePuzzleState();
+    return nextValue;
+  }
+
+  function getPuzzleMapCounter(key, mapName) {
+    const source = state.puzzle[mapName] && typeof state.puzzle[mapName] === "object"
+      ? state.puzzle[mapName]
+      : {};
+    return Number(source[String(key)]) || 0;
   }
 
   function nextRequestNonce() {
@@ -679,13 +1242,392 @@
     return state.occultAdmitted ? occultDefaultOptions() : occultGateOptions();
   }
 
-  function nextOccultClue() {
-    const session = loadSession();
-    const index = Number.isFinite(session.clueIndex) ? session.clueIndex : 0;
-    const clue = occultClues[index % occultClues.length];
-    state.clueIndex = (index + 1) % occultClues.length;
-    updateSession({ clueIndex: state.clueIndex });
-    return clue;
+  function isPuzzleHelpRequest(normalizedText) {
+    return PUZZLE_HELP_REGEX.test(normalizedText) || PUZZLE_FRUSTRATION_REGEX.test(normalizedText);
+  }
+
+  function getPuzzleInsistenceLevel(normalizedText) {
+    let level = 0;
+
+    if (isPuzzleHelpRequest(normalizedText)) {
+      level += 1;
+    }
+
+    if (state.puzzle.lastMessages.indexOf(normalizedText) !== -1) {
+      level += 1;
+    }
+
+    return level;
+  }
+
+  function trackPuzzleSignals(normalizedText) {
+    if (!normalizedText) return;
+    rememberPuzzleMessage(normalizedText);
+
+    if (PUZZLE_FRUSTRATION_REGEX.test(normalizedText)) {
+      state.puzzle.frustrationCount += 1;
+    }
+
+    savePuzzleState();
+  }
+
+  function detectPrimaryFailure() {
+    if (state.puzzle.stage !== "primary") return false;
+
+    return (
+      state.puzzle.primaryHelpRequests >= 3 ||
+      state.puzzle.frustrationCount >= 2 ||
+      Date.now() - state.puzzle.startedAt > PUZZLE_PRIMARY_TIMEOUT_MS
+    );
+  }
+
+  function revealPrimaryStep(step) {
+    revealPuzzleSteps(step, "primary", step);
+    state.puzzle.primaryHintsDelivered = Math.max(state.puzzle.primaryHintsDelivered, step);
+    savePuzzleState();
+    renderPuzzleContainer();
+    scrollPuzzleStepIntoView(step);
+  }
+
+  function transitionToSecondary() {
+    revealPuzzleSteps([2, 3], "secondary", 3);
+    renderPuzzleContainer();
+    scrollPuzzleStepIntoView(3);
+  }
+
+  function unlockSecondaryStep(nextStep) {
+    revealPuzzleSteps(nextStep, "secondary", nextStep);
+    renderPuzzleContainer();
+    scrollPuzzleStepIntoView(nextStep);
+  }
+
+  function unlockVoiceStage() {
+    revealPuzzleSteps([7, 8], "final", 8);
+    renderPuzzleContainer();
+    scrollPuzzleStepIntoView(8);
+  }
+
+  function buildCurrentRiddleReply(step) {
+    const riddle = findSecondaryRiddle(step);
+    if (!riddle) return "";
+    return riddle.title + "\n\n" + riddle.body;
+  }
+
+  function auxiliaryHintForStep(step) {
+    if (step === 4) {
+      return t(
+        "hint.step4.secondary",
+        "Piensa en números que aparecen repetidamente en el arte, la religión y las matemáticas."
+      );
+    }
+
+    if (step === 5) {
+      return t(
+        "hint.step5.secondary",
+        "No par, no unidad: busca el número que sintetiza la dualidad."
+      );
+    }
+
+    if (step === 6) {
+      if (getPuzzleMapCounter(step, "stepAttempts") < 2) {
+        return t("hint.step6.secondary.generic", "Medita sobre la promesa exacta y sobre cómo se separa en castellano.");
+      }
+
+      return t(
+        "hint.step6.secondary",
+        "Si el Acertijo IV te cuesta, toma esta cifra. El desplazamiento es el mismo número que encontraste en el Acertijo III: " + PUZZLE_CAESAR_HINT
+      );
+    }
+
+    if (step === 8 || state.puzzle.voiceFailures > 0) {
+      return t(
+        "hint.step8.secondary",
+        "La voz no coincide. Recuerda: pronuncia el nombre completo, el capítulo y el versículo separados por \"punto\"."
+      );
+    }
+
+    return t("hint.secondary.generic", "Medita sobre cada verso del acertijo.");
+  }
+
+  function replyWithOccultClue() {
+    handlePuzzleHintRequest(normalize(state.lastUserInput || ""));
+  }
+
+  function sanitizeClueReplyIfNeeded(data) {
+    if (!data || state.occultAdmitted || !isOccultClueRequest(normalize(state.lastUserInput))) {
+      return data;
+    }
+
+    if (state.puzzle.stage === "primary") {
+      return Object.assign({}, data, {
+        reply: PRIMARY_HINTS[Math.min(state.puzzle.primaryHintsDelivered, PRIMARY_HINTS.length - 1)],
+        ctas: []
+      });
+    }
+
+    return Object.assign({}, data, {
+      reply: currentPuzzleStage() === "secondary"
+        ? buildCurrentRiddleReply(currentPuzzleStep())
+        : auxiliaryHintForStep(currentPuzzleStep()),
+      ctas: []
+    });
+  }
+
+  function respondWithPuzzleMessage(text) {
+    if (!text) return;
+    addBotMessage(formatReplyHtml(text));
+  }
+
+  function handlePuzzleHintRequest(normalizedText) {
+    const insistenceLevel = getPuzzleInsistenceLevel(normalizedText);
+    state.puzzle.engaged = true;
+    state.puzzle.primaryHelpRequests += state.puzzle.stage === "primary" ? 1 : 0;
+    savePuzzleState();
+
+    if (state.puzzle.stage === "primary") {
+      if (state.puzzle.primaryHintsDelivered < 1) {
+        revealPrimaryStep(1);
+        respondWithPuzzleMessage(PRIMARY_HINTS[0]);
+        return true;
+      }
+
+      if (state.puzzle.revealedSteps.indexOf(2) === -1) {
+        revealPrimaryStep(2);
+        respondWithPuzzleMessage(PRIMARY_HINTS[1]);
+        return true;
+      }
+
+      if (detectPrimaryFailure()) {
+        transitionToSecondary();
+        respondWithPuzzleMessage(
+          t(
+            "hint.transition",
+            "Las pistas principales parecen complejas. Te ofrezco un camino alternativo con acertijos más estructurados..."
+          )
+        );
+        return true;
+      }
+
+      respondWithPuzzleMessage(
+        t(
+          "hint.primary.retry",
+          "Intenta descifrar las dos sombras principales. Si de verdad necesitas cambiar de enfoque, insiste un poco más."
+        )
+      );
+      return true;
+    }
+
+    if (state.puzzle.stage === "secondary") {
+      const step = currentPuzzleStep();
+      const hintRequests = incrementPuzzleMapCounter(step, "stepHintRequests");
+
+      if (hintRequests <= 1 && !insistenceLevel) {
+        respondWithPuzzleMessage(buildCurrentRiddleReply(step));
+        return true;
+      }
+
+      respondWithPuzzleMessage(auxiliaryHintForStep(step));
+      return true;
+    }
+
+    respondWithPuzzleMessage(
+      t(
+        "hint.final",
+        "Pulsa el botón de micrófono y pronuncia la respuesta completa."
+      )
+    );
+    return true;
+  }
+
+  async function matchesPuzzleAnswer(step, text) {
+    const normalized = normalizePuzzleAnswer(text);
+    if (!normalized || !PUZZLE_ANSWER_HASHES[step]) return false;
+    return (await sha256(normalized)) === PUZZLE_ANSWER_HASHES[step];
+  }
+
+  function shouldTreatAsPuzzleAttempt(normalizedText) {
+    if (!state.puzzle.engaged || hasCommercialClueContext(normalizedText)) {
+      return false;
+    }
+
+    if (state.puzzle.stage === "secondary" && currentPuzzleStep() >= 3 && currentPuzzleStep() <= 6) {
+      return normalizedText.length > 0 && normalizedText.length <= 80;
+    }
+
+    if (state.puzzle.stage === "primary") {
+      return normalizedText.length > 0 && normalizedText.length <= 80;
+    }
+
+    return false;
+  }
+
+  function registerPuzzleAttempt(step) {
+    incrementPuzzleMapCounter(step, "stepAttempts");
+  }
+
+  function promptAfterWrongPuzzleAttempt(step) {
+    if (step === 6 && getPuzzleMapCounter(step, "stepAttempts") >= 2) {
+      respondWithPuzzleMessage(auxiliaryHintForStep(step));
+      return;
+    }
+
+    if (step >= 3 && step <= 6) {
+      respondWithPuzzleMessage(
+        t("hint.answer.retry", "Eso no encaja todavía con el paso activo. Si quieres otra ayuda, pídeme pista.")
+      );
+      return;
+    }
+
+    respondWithPuzzleMessage(
+      t("hint.primary.answer.retry", "Esa lectura no abre el umbral. Si quieres otra pista, pídemela.")
+    );
+  }
+
+  function completeOccultUnlock(sourceLabel) {
+    state.puzzle.voiceUnlocked = true;
+    state.puzzle.voiceFallbackVisible = false;
+    savePuzzleState();
+    setOccultAdmissionState(true);
+    setOccultMode(true);
+    renderPuzzleContainer();
+    addBotMessage(
+      "<p><strong>" + escapeHtml(t("hint.open.title", "La cámara ha reconocido la voz.")) + "</strong></p>" +
+      "<p>" + escapeHtml(
+        sourceLabel
+          ? t("hint.open.body.voice", "La llave pronunciada ha alterado el sello. El archivo se abre.")
+          : t("hint.open.body.fallback", "La llave validada ha alterado el sello. El archivo se abre.")
+      ) + "</p>"
+    );
+    addOptions(occultDefaultOptions());
+    setStatus(t("hint.open.status", "Archivo velado concedido."), "live");
+
+    if (typeof window.openHiddenCamera === "function") {
+      window.openHiddenCamera();
+    }
+  }
+
+  async function tryAdvancePuzzle(text) {
+    const step = currentPuzzleStep();
+
+    if (state.puzzle.stage === "primary") {
+      if (await matchesPuzzleAnswer(6, text)) {
+        unlockVoiceStage();
+        respondWithPuzzleMessage(
+          t(
+            "hint.primary.solved",
+            "Has fijado la fórmula. Ya no hace falta otra sombra: ahora pronúnciala completa."
+          )
+        );
+        return true;
+      }
+
+      if (shouldTreatAsPuzzleAttempt(normalize(text))) {
+        registerPuzzleAttempt(2);
+        promptAfterWrongPuzzleAttempt(2);
+        return true;
+      }
+
+      return false;
+    }
+
+    if (state.puzzle.stage === "secondary" && step >= 3 && step <= 6) {
+      if (await matchesPuzzleAnswer(step, text)) {
+        if (step === 6) {
+          unlockVoiceStage();
+          respondWithPuzzleMessage(
+            t(
+              "hint.voice.bridge",
+              "La promesa ya está atada. La última llave no se escribe: se pronuncia."
+            )
+          );
+        } else {
+          unlockSecondaryStep(step + 1);
+          respondWithPuzzleMessage(
+            t("hint.step.advance", "Correcto. El siguiente umbral ya está desplegado.")
+          );
+        }
+        return true;
+      }
+
+      if (shouldTreatAsPuzzleAttempt(normalize(text))) {
+        registerPuzzleAttempt(step);
+        promptAfterWrongPuzzleAttempt(step);
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  function showVoiceFallback() {
+    if (!ui || !ui.voiceFallback) return;
+    state.puzzle.voiceFallbackVisible = true;
+    savePuzzleState();
+    ui.voiceFallback.hidden = false;
+    if (ui.voiceFallbackInput) {
+      ui.voiceFallbackInput.focus();
+    }
+  }
+
+  function handleVoiceMismatch() {
+    state.puzzle.voiceFailures += 1;
+    savePuzzleState();
+    renderPuzzleContainer();
+    respondWithPuzzleMessage(auxiliaryHintForStep(8));
+  }
+
+  async function evaluateVoiceAlternatives(alternatives, sourceLabel) {
+    if (matchesVoiceKey(alternatives)) {
+      completeOccultUnlock(sourceLabel);
+      return true;
+    }
+
+    handleVoiceMismatch();
+    return false;
+  }
+
+  async function handleVoiceTrigger() {
+    if (state.voiceCapturePending) return;
+
+    if (!supportsVoiceRecognition()) {
+      showVoiceFallback();
+      respondWithPuzzleMessage(
+        t(
+          "hint.voice.fallback",
+          "Tu navegador no permite voz. Escribe la frase tal como la pronunciarías."
+        )
+      );
+      return;
+    }
+
+    state.voiceCapturePending = true;
+    renderPuzzleContainer();
+
+    try {
+      const alternatives = await startVoiceCapture();
+      await evaluateVoiceAlternatives(alternatives, "voice");
+    } catch (error) {
+      if (String(error && error.message || error).toLowerCase() !== "not-allowed") {
+        respondWithPuzzleMessage(
+          t(
+            "hint.voice.error",
+            "No he podido escuchar la llave. Vuelve a intentarlo o usa la validación escrita si tu navegador la necesita."
+          )
+        );
+      }
+      showVoiceFallback();
+    } finally {
+      state.voiceCapturePending = false;
+      renderPuzzleContainer();
+    }
+  }
+
+  async function handleVoiceFallbackSubmit() {
+    if (!ui || !ui.voiceFallbackInput) return;
+    const value = ui.voiceFallbackInput.value.trim();
+    if (!value) return;
+    ui.voiceFallbackInput.value = "";
+    await evaluateVoiceAlternatives([value], "fallback");
   }
 
   function findOccultTopicById(topicId) {
@@ -833,7 +1775,7 @@
   }
 
   function syncOccultArchive() {
-    const active = state.occultMode;
+    const active = state.occultMode && state.occultAdmitted;
     const body = document.body;
 
     if (body) {
@@ -1010,14 +1952,22 @@
   }
 
   function startOccultAdmission() {
-    state.mode = "occult-admission";
-    state.admissionStep = 0;
-    state.admissionAnswers = {};
+    state.mode = "idle";
+    state.puzzle.engaged = true;
+    savePuzzleState();
+    renderPuzzleContainer();
     removePendingOptions();
     addBotMessage(
-      "<p><strong>Proceso de admision de la camara velada</strong></p><p>No voy a pedirte devocion ni credenciales. Solo voy a medir borde, mesa, lente, temple y profundidad. Si el hilo se sostiene, el archivo se abre un poco. Si no, seguira siendo solo rumor.</p>"
+      "<p><strong>" + escapeHtml(t("hint.admission.title", "Umbral activo")) + "</strong></p>" +
+      "<p>" + escapeHtml(
+        t(
+          "hint.admission.body",
+          "La cámara velada ya no se abre por entrevista. Empieza por las dos pistas principales y, si no bastan, insiste para que el bot despliegue los acertijos secundarios."
+        )
+      ) + "</p>"
     );
-    askOccultQuestion();
+    addOptions(defaultOptions());
+    setStatus("El acceso se resuelve dentro del puzzle local.", "fallback");
   }
 
   function buildOccultReading(answers) {
@@ -1777,6 +2727,7 @@
 
   function renderWelcome() {
     ui.messages.innerHTML = "";
+    renderPuzzleContainer();
     addBotMessage(
       state.occultMode
         ? state.occultAdmitted
@@ -2042,6 +2993,7 @@
 
   function renderApiResponse(data) {
     if (!data) return false;
+    data = sanitizeClueReplyIfNeeded(data);
 
     if (typeof data.occultMode === "boolean") {
       setOccultMode(data.occultMode);
@@ -2210,11 +3162,7 @@
     }
 
     if (option.action === "occultClue") {
-      addBotMessage(
-        "<p><strong>Sombra</strong></p><p>" +
-          escapeHtml(nextOccultClue()) +
-          "</p>"
-      );
+      replyWithOccultClue();
       addOptions(occultGateOptions());
       return;
     }
@@ -2378,19 +3326,17 @@
   function handleLocalFreeText(text) {
     const normalizedText = normalize(text);
 
-    if (containsOccultKey(text)) {
-      setOccultMode(true);
-      addBotMessage(
-        "<p><strong>La formula ha sido reconocida.</strong></p><p>El perimetro ha cambiado, pero el archivo no se abre por mera pronunciacion. Si quieres cruzar, tendras que sostener una lectura de admision. Hasta entonces solo veras borde, no biblioteca.</p>"
-      );
-      addOptions(occultGateOptions());
-      setStatus("Perimetro alterado. La camara sigue evaluando el acceso.", "fallback");
-      return;
-    }
-
     if (state.mode === "occult-admission") {
       handleOccultAdmissionFreeText(text);
       return;
+    }
+
+    if (!state.occultAdmitted) {
+      if (isOccultClueRequest(normalizedText) || (state.puzzle.engaged && isPuzzleHelpRequest(normalizedText))) {
+        handlePuzzleHintRequest(normalizedText);
+        addOptions(defaultOptions());
+        return;
+      }
     }
 
     if (
@@ -2407,11 +3353,7 @@
       normalizedText.indexOf("pista") !== -1
     ) {
       if (!state.occultMode) {
-        addBotMessage(
-          "<p>Hay una segunda camara para ese tipo de preguntas. No se abre con un boton ni con una solicitud frontal.</p><p>Solo puedo dejarte una sombra: <strong>" +
-            escapeHtml(nextOccultClue()) +
-            "</strong></p>"
-        );
+        handlePuzzleHintRequest(normalizedText);
         addOptions(defaultOptions());
         return;
       }
@@ -2593,10 +3535,31 @@
 
   async function handleFreeText(text) {
     const normalizedText = normalize(text);
+    trackPuzzleSignals(normalizedText);
 
     if (state.occultMode && isOccultExitRequest(normalizedText)) {
       closeOccultMode();
       return;
+    }
+
+    if (!state.occultAdmitted) {
+      if (isOccultClueRequest(normalizedText) || (state.puzzle.engaged && isPuzzleHelpRequest(normalizedText))) {
+        handlePuzzleHintRequest(normalizedText);
+        addOptions(defaultOptions());
+        setStatus("Umbral activo. El puzzle se resuelve en local.", "fallback");
+        return;
+      }
+
+      if (await tryAdvancePuzzle(text)) {
+        addOptions(defaultOptions());
+        setStatus(
+          state.puzzle.stage === "final"
+            ? "La llave ya solo acepta voz."
+            : "El puzzle sigue avanzando en local.",
+          "fallback"
+        );
+        return;
+      }
     }
 
     if (state.mode === "diagnosis") {
@@ -2607,10 +3570,6 @@
     if (state.mode === "occult-admission") {
       handleOccultAdmissionFreeText(text);
       return;
-    }
-
-    if (containsOccultKey(text)) {
-      setOccultMode(true);
     }
 
     setStatus("Pensando la mejor siguiente jugada...", "thinking");
@@ -2646,6 +3605,7 @@
     event.preventDefault();
     const text = ui.input.value.trim();
     if (!text) return;
+    state.lastUserInput = text;
     removePendingOptions();
     addUserMessage(text);
     ui.input.value = "";
@@ -2705,6 +3665,7 @@
           '<button class="archon-chatbot-close" type="button" aria-label="Cerrar chatbot">&times;</button>' +
         "</div>" +
         '<div class="archon-chatbot-body">' +
+          buildPuzzleMarkup() +
           '<div class="archon-chatbot-messages"></div>' +
         "</div>" +
         '<div class="archon-chatbot-footer">' +
@@ -2732,12 +3693,17 @@
       close: root.querySelector(".archon-chatbot-close"),
       header: root.querySelector(".archon-chatbot-header"),
       body: root.querySelector(".archon-chatbot-body"),
+      puzzleContainer: root.querySelector("#puzzle-container"),
       messages: root.querySelector(".archon-chatbot-messages"),
       form: root.querySelector(".archon-chatbot-form"),
       input: root.querySelector(".archon-chatbot-input"),
       status: root.querySelector(".archon-chatbot-status"),
       gate: root.querySelector(".archon-chatbot-gate"),
-      subtitle: root.querySelector(".archon-chatbot-subtitle")
+      subtitle: root.querySelector(".archon-chatbot-subtitle"),
+      voiceTrigger: root.querySelector("#voice-trigger"),
+      voiceFallback: root.querySelector(".archon-chatbot-voice-fallback"),
+      voiceFallbackInput: root.querySelector(".archon-chatbot-voice-input"),
+      voiceFallbackSubmit: root.querySelector(".archon-chatbot-voice-submit")
     };
   }
 
@@ -2782,12 +3748,30 @@
       toggleChat(false);
     });
     ui.form.addEventListener("submit", submitInput);
+    if (ui.voiceTrigger) {
+      ui.voiceTrigger.addEventListener("click", function () {
+        handleVoiceTrigger();
+      });
+    }
+    if (ui.voiceFallbackSubmit) {
+      ui.voiceFallbackSubmit.addEventListener("click", function () {
+        handleVoiceFallbackSubmit();
+      });
+    }
+    if (ui.voiceFallbackInput) {
+      ui.voiceFallbackInput.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter") return;
+        event.preventDefault();
+        handleVoiceFallbackSubmit();
+      });
+    }
     window.addEventListener("storage", hydrateForms);
     bindChatDrag();
   }
 
   function init() {
     const session = loadSession();
+    initializePuzzleState();
     state.occultMode = Boolean(session.occultMode);
     state.occultAdmitted = Boolean(session.occultAdmitted);
     state.clueIndex = Number.isFinite(session.clueIndex) ? session.clueIndex : 0;
@@ -2796,6 +3780,7 @@
     applyChatPosition();
     hydrateForms();
     setOccultMode(state.occultMode);
+    renderPuzzleContainer();
     renderWelcome();
     checkApiAvailability();
   }

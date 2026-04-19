@@ -95,9 +95,14 @@
 .archon-chatbot.is-mobile-sheet .archon-chatbot-form{
   grid-template-columns:1fr;
 }
+.archon-chatbot.is-mobile-sheet .archon-chatbot-voice-fallback-row{
+  grid-template-columns:1fr;
+}
 .archon-chatbot.is-mobile-sheet .archon-chatbot-toggle,
 .archon-chatbot.is-mobile-sheet .archon-chatbot-send,
-.archon-chatbot.is-mobile-sheet .archon-chatbot-gate{
+.archon-chatbot.is-mobile-sheet .archon-chatbot-gate,
+.archon-chatbot.is-mobile-sheet .archon-chatbot-voice-trigger,
+.archon-chatbot.is-mobile-sheet .archon-chatbot-voice-submit{
   width:100%;
   justify-content:center;
 }
@@ -165,11 +170,127 @@
   cursor:pointer;
 }
 .archon-chatbot-body{
+  display:grid;
+  align-content:start;
+  gap:10px;
   flex:1 1 auto;
   min-height:0;
   max-height:min(38dvh, 300px);
   overflow:auto;
   padding:10px 10px 6px;
+}
+.archon-chatbot-puzzle-shell{
+  display:grid;
+  gap:10px;
+  padding:12px;
+  border:1px solid rgba(122,255,93,0.12);
+  border-radius:18px;
+  background:rgba(122,255,93,0.035);
+}
+.archon-chatbot-puzzle-header{
+  display:grid;
+  gap:6px;
+}
+.archon-chatbot-puzzle-kicker{
+  color:#d8ff82;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.archon-chatbot-puzzle-note{
+  margin:0;
+  color:#bfc8bb;
+  font-size:11px;
+  line-height:1.55;
+}
+#puzzle-container{
+  display:grid;
+  gap:8px;
+}
+.archon-chatbot-puzzle-item{
+  display:grid;
+  gap:8px;
+  padding:10px 10px 11px;
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;
+  background:rgba(255,255,255,0.03);
+}
+.archon-chatbot-puzzle-item[data-state="active"]{
+  border-color:rgba(122,255,93,0.28);
+  box-shadow:0 0 0 1px rgba(122,255,93,0.08);
+}
+.archon-chatbot-puzzle-item[data-state="complete"]{
+  opacity:.92;
+}
+.archon-chatbot-puzzle-item h3{
+  margin:0;
+  font-family:"Fraunces",serif;
+  font-size:14px;
+  line-height:1.15;
+}
+.archon-chatbot-puzzle-item p{
+  margin:0;
+  font-size:11px;
+  line-height:1.6;
+}
+.archon-chatbot-puzzle-item code,
+.archon-chatbot-puzzle-item pre{
+  margin:0;
+  padding:10px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.06);
+  background:rgba(0,0,0,0.22);
+  color:#f4f6ef;
+  font:inherit;
+  font-size:11px;
+  line-height:1.65;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+.archon-chatbot-puzzle-item code{
+  font-family:"IBM Plex Mono","SFMono-Regular","SF Mono",monospace;
+}
+.archon-chatbot-voice-trigger,
+.archon-chatbot-voice-submit{
+  min-height:42px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(135deg, #7aff5d 0%, #d8ff82 100%);
+  color:#041004;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+.archon-chatbot-voice-trigger:disabled{
+  opacity:.72;
+  cursor:progress;
+}
+.archon-chatbot-voice-fallback{
+  display:grid;
+  gap:8px;
+}
+.archon-chatbot-voice-fallback label{
+  color:#bfc8bb;
+  font-size:10px;
+  line-height:1.5;
+}
+.archon-chatbot-voice-fallback-row{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:8px;
+}
+.archon-chatbot-voice-input{
+  min-height:42px;
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px;
+  background:rgba(255,255,255,0.05);
+  color:#f4f6ef;
+  padding:0 10px;
+  font-size:12px;
+  outline:none;
 }
 .archon-chatbot-messages{
   display:grid;
@@ -316,6 +437,22 @@
   background:
     radial-gradient(circle at top left, rgba(173,99,255,0.16), transparent 24%),
     linear-gradient(180deg, rgba(16,8,26,0.98), rgba(7,4,13,0.98));
+}
+.archon-chatbot.is-occult .archon-chatbot-puzzle-shell{
+  border-color:rgba(173,99,255,0.18);
+  background:rgba(173,99,255,0.05);
+}
+.archon-chatbot.is-occult .archon-chatbot-puzzle-item[data-state="active"]{
+  border-color:rgba(173,99,255,0.34);
+  box-shadow:0 0 0 1px rgba(173,99,255,0.12);
+}
+.archon-chatbot.is-occult .archon-chatbot-puzzle-kicker{
+  color:#ddb9ff;
+}
+.archon-chatbot.is-occult .archon-chatbot-voice-trigger,
+.archon-chatbot.is-occult .archon-chatbot-voice-submit{
+  background:linear-gradient(135deg, #9d37ff 0%, #d26dff 100%);
+  color:#fbf6ff;
 }
 .archon-chatbot.is-occult .archon-chatbot-toggle{
   background:linear-gradient(135deg, #9d37ff 0%, #d26dff 100%);
