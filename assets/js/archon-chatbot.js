@@ -335,6 +335,7 @@
     requestNonce: 0,
     archiveFocusId: "blog-33",
     archiveFilter: "all",
+    archiveQuery: "",
     dragPosition: null
   };
 
@@ -513,11 +514,27 @@
   }
 
   function getFilteredOccultArchiveEntries() {
-    const entries = getOccultArchiveEntries();
-    if (state.archiveFilter === "all") return entries;
+    const entries = getOccultArchiveEntries()
+      .filter(function (entry) {
+        return state.archiveFilter === "all" || entry.route === state.archiveFilter;
+      });
+
+    const query = normalize(state.archiveQuery);
+    if (!query) return entries;
 
     return entries.filter(function (entry) {
-      return entry.route === state.archiveFilter;
+      const haystack = [
+        entry.title,
+        entry.theme,
+        entry.eyebrow,
+        entry.excerpt,
+        entry.detail,
+        entry.route
+      ]
+        .concat(entry.relatedSources || [])
+        .join(" ");
+
+      return normalize(haystack).indexOf(query) !== -1;
     });
   }
 
@@ -709,6 +726,15 @@
 
     const entries = getFilteredOccultArchiveEntries();
 
+    if (!entries.length) {
+      ui.archiveGrid.innerHTML =
+        '<div class="archon-occult-archive-empty">' +
+          '<strong>Sin coincidencias en el archivo</strong>' +
+          '<p>Prueba otra ruta o cambia el termino de busqueda. El corpus visible sigue limitado a 33, 777 y los documentos ya integrados en memoria local.</p>' +
+        '</div>';
+      return;
+    }
+
     ui.archiveGrid.innerHTML = entries
       .map(function (entry) {
         const isActive = entry.id === state.archiveFocusId;
@@ -755,14 +781,23 @@
 
     ui.archiveSummary.innerHTML =
       "<strong>" + escapeHtml(String(filteredEntries.length)) + " piezas visibles</strong>" +
-      "<span>Solo se muestran 33, 777 y el corpus ya integrado en la memoria local del archivo.</span>";
+      "<span>Solo se muestran 33, 777 y el corpus ya integrado en la memoria local del archivo." +
+      (state.archiveQuery ? " Busqueda activa: “" + escapeHtml(state.archiveQuery) + "”." : "") +
+      "</span>";
   }
 
   function renderOccultArchiveFeature() {
     if (!ui || !ui.archiveFeature) return;
 
     const entry = findOccultArchiveEntry(state.archiveFocusId);
-    if (!entry) return;
+    if (!entry || !getFilteredOccultArchiveEntries().some(function (item) { return item.id === entry.id; })) {
+      ui.archiveFeature.innerHTML =
+        '<div class="archon-occult-archive-empty archon-occult-archive-empty--feature">' +
+          '<strong>Archivo a la espera</strong>' +
+          '<p>Ajusta filtros o busqueda para recuperar una pieza visible del corpus.</p>' +
+        '</div>';
+      return;
+    }
 
     ui.archiveFeature.innerHTML =
       '<div class="archon-occult-archive-feature-meta">' +
@@ -788,6 +823,9 @@
   function renderOccultArchive() {
     if (!ui || !ui.archiveRoot) return;
     if (!state.archiveFocusId) state.archiveFocusId = "blog-33";
+    if (ui.archiveSearch) {
+      ui.archiveSearch.value = state.archiveQuery || "";
+    }
     renderOccultArchiveFilters();
     renderOccultArchiveFeature();
     renderOccultArchiveGrid();
@@ -1495,6 +1533,7 @@
     state.clueIndex = 0;
     state.archiveFocusId = "blog-33";
     state.archiveFilter = "all";
+    state.archiveQuery = "";
     state.aiLastError = "";
     setOccultMode(false);
     updateSession({
@@ -1513,7 +1552,23 @@
   }
 
   function isDesktopDraggableViewport() {
-    return window.innerWidth > 720;
+    if (window.innerWidth < 1120) return false;
+    if (!window.matchMedia) return true;
+    return window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  }
+
+  function isMobileSheetViewport() {
+    return window.innerWidth <= 860;
+  }
+
+  function isTabletSheetViewport() {
+    return window.innerWidth > 860 && window.innerWidth < 1120;
+  }
+
+  function syncChatViewportMode() {
+    if (!ui || !ui.root) return;
+    ui.root.classList.toggle("is-mobile-sheet", isMobileSheetViewport());
+    ui.root.classList.toggle("is-tablet-sheet", isTabletSheetViewport());
   }
 
   function clamp(value, min, max) {
@@ -1522,6 +1577,7 @@
 
   function applyChatPosition() {
     if (!ui || !ui.root) return;
+    syncChatViewportMode();
 
     if (!isDesktopDraggableViewport() || !state.dragPosition) {
       ui.root.classList.remove("is-positioned");
@@ -2593,6 +2649,10 @@
         '</div>' +
         '<div class="archon-occult-archive-toolbar">' +
           '<div class="archon-occult-archive-filters"></div>' +
+          '<label class="archon-occult-archive-search">' +
+            '<span>Buscar en el archivo</span>' +
+            '<input class="archon-occult-archive-search-input" type="search" placeholder="Busca por titulo, ruta o documento..." autocomplete="off">' +
+          '</label>' +
           '<div class="archon-occult-archive-summary"></div>' +
         '</div>' +
         '<div class="archon-occult-archive-layout">' +
@@ -2634,6 +2694,7 @@
       archiveFeature: archive.querySelector(".archon-occult-archive-feature"),
       archiveGrid: archive.querySelector(".archon-occult-archive-grid"),
       archiveFilters: archive.querySelector(".archon-occult-archive-filters"),
+      archiveSearch: archive.querySelector(".archon-occult-archive-search-input"),
       archiveSummary: archive.querySelector(".archon-occult-archive-summary"),
       archiveClose: archive.querySelector(".archon-occult-archive-close"),
       root: root,
@@ -2658,6 +2719,10 @@
       const target = event.target.closest("[data-archive-filter]");
       if (!target) return;
       state.archiveFilter = target.getAttribute("data-archive-filter") || "all";
+      renderOccultArchive();
+    });
+    ui.archiveSearch.addEventListener("input", function () {
+      state.archiveQuery = ui.archiveSearch.value || "";
       renderOccultArchive();
     });
     ui.archiveGrid.addEventListener("click", function (event) {
@@ -2695,6 +2760,7 @@
     state.clueIndex = Number.isFinite(session.clueIndex) ? session.clueIndex : 0;
     createUi();
     bindUi();
+    applyChatPosition();
     hydrateForms();
     setOccultMode(state.occultMode);
     renderWelcome();
