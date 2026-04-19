@@ -1,7 +1,13 @@
 const MODEL = "gemini-2.5-flash";
 const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
 const MAX_HISTORY_ITEMS = 10;
-const OCCULT_KEY = "jeremias 33.3";
+const OCCULT_CLUES = [
+  "Vqeqyunf gequzgn l geqf chzgb geqf",
+  "15954911 , 35 , 8"
+];
+const OCCULT_CLUES_PROMPT = OCCULT_CLUES.map(function (clue) {
+  return '"' + clue + '"';
+}).join(" o ");
 const ALLOWED_ACTIONS = new Set([
   "startDiagnosis",
   "audit",
@@ -33,7 +39,8 @@ function buildSystemPrompt(occultMode, occultAdmitted) {
       ? occultAdmitted
         ? "La camara velada ha concedido archivo. Puedes responder con mas profundidad simbolica e iniciatica, pero manteniendo rigor. Distingue siempre entre hecho historico, interpretacion simbolica y especulacion."
         : "La formula ha sido reconocida, pero el archivo sigue sellado. Puedes hablar desde el borde, la sombra y el umbral, pero no debes entregar la biblioteca completa ni responder con amplitud doctrinal todavia."
-      : "La camara velada esta cerrada. Si el usuario pregunta por ocultismo, masoneria, alquimia, rosacrucismo, esoterismo o secretos, puedes insinuar que existe una segunda camara, pero no debes revelar la clave exacta. Solo puedes dejar pistas ambiguas, simbolicas y no lineales. Evita formulas directas, acertijos obvios o equivalencias demasiado concretas.",
+      : "La camara velada esta cerrada. Si el usuario pregunta por ocultismo, masoneria, alquimia, rosacrucismo, esoterismo, secretos, acceso, pista, clave o formula, no debes revelar la clave exacta ni improvisar sombras nuevas. Solo puedes responder con una de estas dos pistas exactas: " + OCCULT_CLUES_PROMPT + ".",
+    "Si compartes una pista de acceso, no la traduzcas, no la expliques, no la reformules, no la fragmentes y no anadas contexto que ayude a descifrarla. No menciones Jeremias, 33, 'punto tres', equivalencias ni referencias biblicas.",
     occultMode && occultAdmitted
       ? "Cuando el archivo ha sido concedido adoptas una personalidad exclusiva llamada 'El sol negro'. Solo revelas ese nombre si el usuario pregunta por tu nombre, como te llamas o quien habla. Si lo hace, responde de forma directa: 'El sol negro'."
       : "Si el archivo no ha sido concedido, no reveles ningun nombre ritual ni identidad completa.",
@@ -47,7 +54,7 @@ function buildSystemPrompt(occultMode, occultAdmitted) {
       ? occultAdmitted
         ? "En modo ocultista concedido puedes hablar de ocultismo, alquimia, masoneria, rosacrucismo, esoterismo y hermetismo con amplitud. Usa busqueda web si mejora la respuesta y mantente prudente con afirmaciones no verificables."
         : "En el borde velado responde de forma críptica, breve y ceremonial. Si el usuario pide biblioteca, fuentes, corpus o respuestas demasiado directas, redirigelo al proceso de admision sin dar la clave ni el contenido pleno."
-      : "En modo comercial prioriza diagnostico, marca, precios, auditoria y servicios. Si el usuario insiste en temas ocultistas sin haber abierto la camara, responde de forma breve y simbolica, dejando una pista sutil si encaja.",
+      : "En modo comercial prioriza diagnostico, marca, precios, auditoria y servicios. Si el usuario insiste en temas ocultistas sin haber abierto la camara, limita la respuesta a una sola pista exacta permitida o a una negativa sobria sin detalles adicionales.",
     occultMode
       ? "Si el usuario pide cerrar la camara, volver al modo normal, volver a Archon o regresar a la fachada, responde de forma breve y comercial, sin tono ritual, y devuelve un CTA con action='returnFacade'."
       : "Si la camara ya esta cerrada, no inventes cierres rituales ni mantengas tono velado.",
@@ -104,8 +111,47 @@ function normalizeSecret(value) {
     .trim();
 }
 
-function containsOccultKey(value) {
-  return normalizeSecret(value).includes(OCCULT_KEY);
+function hasCommercialClueContext(value) {
+  const normalized = normalizeSecret(value);
+  return /(empresa|negocio|cliente|ventas|copy|seo|anuncio|campana|campaña|precio|presupuesto|conversion|lead|marketing|consultoria|consultoría|automatizacion|automatización)/.test(
+    normalized
+  );
+}
+
+function historyHasOccultContext(history) {
+  return history.some(function (item) {
+    const normalized = normalizeSecret(item && item.content);
+    return /(camara|archivo|velad|ocult|hermet|alquim|mason|rosacruz|esoter|segunda camara|sombra|clave|formula)/.test(
+      normalized
+    );
+  });
+}
+
+function isOccultClueRequest(value, options) {
+  const normalized = normalizeSecret(value);
+  const asksForClue =
+    /(pista|clave|formula|frase|sombra|acceso|entrar|entrada|abrir|abre|abrirse|decir|dime|como entro|como entrar|como abrir)/.test(
+      normalized
+    );
+  const occultContext =
+    /(camara|archivo|velad|ocult|hermet|alquim|mason|rosacruz|esoter|segunda camara)/.test(
+      normalized
+    );
+  const shortDirectAsk = normalized.length > 0 && normalized.length <= 80;
+  const inOccultMode = Boolean(options && options.occultMode);
+  const occultHistory = Boolean(options && options.occultHistory);
+
+  if (!asksForClue) return false;
+  if (hasCommercialClueContext(normalized)) return false;
+
+  return occultContext || inOccultMode || occultHistory || shortDirectAsk;
+}
+
+function pickOccultClue(value) {
+  const normalized = normalizeSecret(value);
+  const hash = occultHash(normalized || OCCULT_CLUES[0]);
+  const index = parseInt(hash, 16) % OCCULT_CLUES.length;
+  return OCCULT_CLUES[index];
 }
 
 function shouldUseSearch(value) {
@@ -464,16 +510,40 @@ export async function POST(request) {
   }
 
   const history = normalizeHistory(body && body.history);
-  const occultMode =
-    Boolean(body && body.occultMode) ||
-    containsOccultKey(message) ||
-    history.some(function (item) {
-      return containsOccultKey(item && item.content);
-    });
+  const occultHistory = historyHasOccultContext(history);
   const occultAdmitted = Boolean(body && body.occultAdmitted);
+  const occultMode = Boolean(body && (body.occultMode || body.occultAdmitted));
   const contents = buildGeminiContents(body, message, history);
   const systemPrompt = buildSystemPrompt(occultMode, occultAdmitted);
   const wantsSearch = shouldUseSearch(message);
+
+  if (isOccultClueRequest(message, { occultMode: occultMode, occultHistory: occultHistory })) {
+    return jsonResponse(
+      {
+        reply: pickOccultClue(message),
+        intent: "general",
+        leadStage: "cold",
+        ctas: [],
+        reportReady: false,
+        report: {
+          sector: "",
+          sectorLabel: "",
+          overview: "",
+          recommendation: "",
+          weaknesses: [],
+          budgetTitle: "",
+          budgetLines: [],
+          summaryText: "",
+          auditUrl: ""
+        },
+        occultMode: false,
+        occultAdmitted: false,
+        citations: [],
+        usedSearch: false
+      },
+      200
+    );
+  }
 
   let geminiCall = await callGeminiApi({
     systemPrompt: systemPrompt,

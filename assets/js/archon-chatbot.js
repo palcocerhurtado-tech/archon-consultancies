@@ -1488,6 +1488,7 @@
 
   function completeOccultUnlock(sourceLabel) {
     state.puzzle.voiceUnlocked = true;
+    state.puzzle.voiceFailures = 0;
     state.puzzle.voiceFallbackVisible = false;
     savePuzzleState();
     setOccultAdmissionState(true);
