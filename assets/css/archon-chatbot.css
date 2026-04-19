@@ -69,6 +69,50 @@
 .archon-chatbot.is-draggable .archon-chatbot-panel{
   box-shadow:0 34px 92px rgba(0,0,0,0.48);
 }
+.archon-chatbot.is-mobile-sheet{
+  left:10px;
+  right:10px;
+  bottom:max(10px, env(safe-area-inset-bottom));
+  width:auto;
+  max-width:none;
+}
+.archon-chatbot.is-mobile-sheet .archon-chatbot-header{
+  cursor:default;
+}
+.archon-chatbot.is-mobile-sheet .archon-chatbot-panel{
+  border-radius:22px;
+  max-height:min(calc(100dvh - 108px), 78dvh);
+}
+.archon-chatbot.is-mobile-sheet .archon-chatbot-body{
+  max-height:min(44dvh, 340px);
+}
+.archon-chatbot.is-mobile-sheet .archon-chatbot-form{
+  grid-template-columns:1fr;
+}
+.archon-chatbot.is-mobile-sheet .archon-chatbot-toggle,
+.archon-chatbot.is-mobile-sheet .archon-chatbot-send,
+.archon-chatbot.is-mobile-sheet .archon-chatbot-gate{
+  width:100%;
+  justify-content:center;
+}
+.archon-chatbot.is-mobile-sheet .archon-chatbot-gate{
+  text-align:center;
+}
+.archon-chatbot.is-tablet-sheet{
+  right:14px;
+  bottom:18px;
+  width:min(380px, calc(100vw - 28px));
+}
+.archon-chatbot.is-tablet-sheet .archon-chatbot-header{
+  cursor:default;
+}
+.archon-chatbot.is-tablet-sheet .archon-chatbot-panel{
+  border-radius:24px;
+  max-height:min(calc(100dvh - 120px), 72dvh);
+}
+.archon-chatbot.is-tablet-sheet .archon-chatbot-body{
+  max-height:min(40dvh, 340px);
+}
 .archon-chatbot-header > div:first-child{
   min-width:0;
   flex:1 1 100%;
@@ -876,7 +920,7 @@ body.archon-occult-theme--granted{
     padding:8px 8px 10px;
   }
 }
-@media (max-width: 1120px){
+@media (min-width: 721px) and (max-width: 1120px){
   .archon-occult-archive-toolbar{
     grid-template-columns:1fr;
   }
@@ -884,20 +928,6 @@ body.archon-occult-theme--granted{
     right:14px;
     bottom:18px;
     width:min(360px, calc(100vw - 28px));
-  }
-  .archon-chatbot.is-tablet-sheet{
-    left:14px;
-    width:auto;
-  }
-  .archon-chatbot.is-tablet-sheet .archon-chatbot-header{
-    cursor:default;
-  }
-  .archon-chatbot.is-tablet-sheet .archon-chatbot-panel{
-    max-height:min(calc(100dvh - 120px), 72dvh);
-    border-radius:24px;
-  }
-  .archon-chatbot.is-tablet-sheet .archon-chatbot-body{
-    max-height:min(40dvh, 340px);
   }
 }
 @media (prefers-reduced-motion: reduce){
