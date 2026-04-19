@@ -336,7 +336,8 @@
     archiveFocusId: "blog-33",
     archiveFilter: "all",
     archiveQuery: "",
-    dragPosition: null
+    dragPosition: null,
+    suppressToggleClickUntil: 0
   };
 
   let ui = null;
@@ -380,6 +381,19 @@
       .replace(/^-+|-+$/g, "") || "archivo";
   }
 
+  function isHiddenOccultSource(source) {
+    const normalized = normalize(source);
+    if (!normalized) return false;
+
+    if (normalized.indexOf("pablo") !== -1 || normalized.indexOf("alcocer") !== -1) {
+      return true;
+    }
+
+    return occultPersona.sources.some(function (item) {
+      return normalize(item) === normalized;
+    });
+  }
+
   function buildOccultArchiveEntries() {
     const entries = [
       {
@@ -416,27 +430,10 @@
 
     const seen = new Set(["33", "777"]);
 
-    occultPersona.sources.forEach(function (source) {
-      if (seen.has(source)) return;
-      seen.add(source);
-      entries.push({
-        id: "doc-" + slugifyArchiveId(source),
-        kind: "documento",
-        route: "doctrina",
-        eyebrow: "Documento base",
-        title: source,
-        theme: "Doctrina del archivo",
-        excerpt: occultPersona.mission,
-        detail: occultPersona.tone,
-        relatedSources: occultPersona.sources,
-        prompt:
-          "Quiero trabajar el documento " + source + " dentro de la camara velada."
-      });
-    });
-
     occultLibrary.forEach(function (topic) {
       topic.sources.forEach(function (source) {
         if (seen.has(source)) return;
+        if (isHiddenOccultSource(source)) return;
         seen.add(source);
         entries.push({
           id: "doc-" + slugifyArchiveId(source),
@@ -472,7 +469,6 @@
     const labels = {
       all: "Todo el archivo",
       pilares: "Pilares",
-      doctrina: "Doctrina",
       "historia-humanidad": "Historia velada",
       hermetismo: "Hermetismo",
       alquimia: "Alquimia",
@@ -484,7 +480,6 @@
     const order = [
       "all",
       "pilares",
-      "doctrina",
       "historia-humanidad",
       "hermetismo",
       "alquimia",
@@ -710,9 +705,15 @@
   function renderOccultSources(sources) {
     if (!Array.isArray(sources) || !sources.length) return "";
 
+    const visibleSources = sources.filter(function (source) {
+      return !isHiddenOccultSource(source);
+    });
+
+    if (!visibleSources.length) return "";
+
     return (
       "<p><strong>Base local usada</strong></p><ul>" +
-      sources
+      visibleSources
         .map(function (source) {
           return "<li>" + escapeHtml(source) + "</li>";
         })
@@ -781,7 +782,7 @@
 
     ui.archiveSummary.innerHTML =
       "<strong>" + escapeHtml(String(filteredEntries.length)) + " piezas visibles</strong>" +
-      "<span>Solo se muestran 33, 777 y el corpus ya integrado en la memoria local del archivo." +
+      "<span>Solo se muestran 33, 777 y el corpus visible ya destilado dentro de la memoria local del archivo." +
       (state.archiveQuery ? " Busqueda activa: “" + escapeHtml(state.archiveQuery) + "”." : "") +
       "</span>";
   }
@@ -934,7 +935,7 @@
         "<p>" + escapeHtml(occultPersona.overview) + "</p>" +
         "<p><strong>Funcion</strong></p><p>" + escapeHtml(occultPersona.mission) + "</p>" +
         "<p>" + escapeHtml(occultPersona.tone) + "</p>" +
-        renderOccultSources(occultPersona.sources)
+        "<p><strong>Archivo interno</strong></p><p>Esta voz se sostiene sobre documentos doctrinales no visibles para usuarios. En la camara solo aparece la lectura ya filtrada por el archivo.</p>"
     );
     addOptions([
       { label: "Doctrina del archivo", action: "occultDoctrine" },
@@ -964,7 +965,7 @@
           })
           .join("") +
         "</ul><p>La forma mas fiel de leer esta capa es como una mezcla de reforma espiritual, soberania interior, renacimiento y disciplina de archivo. No pide fe ciega; pide orden, memoria y capacidad de distinguir simbolo, historia y proyecto.</p>" +
-        renderOccultSources(occultPersona.sources)
+        "<p><strong>Nota</strong></p><p>Los documentos doctrinales que sostienen esta personalidad no forman parte del archivo visible. El usuario solo recibe la voz ya destilada.</p>"
     );
     addOptions([
       { label: "Quien habla aqui", action: "occultIdentity" },
@@ -1090,6 +1091,7 @@
         "<p>" + escapeHtml(reading.summary) + "</p>" +
         "<p><strong>Ruta sugerida</strong></p><p>" + escapeHtml(reading.route) + "</p>" +
         renderOccultSources(reading.sources) +
+        "<p><strong>Fondo interno</strong></p><p>La personalidad del archivo se apoya en una doctrina no visible para usuarios. Solo se muestra la lectura ya decantada.</p>" +
         "<p>" + escapeHtml(reading.closing) + "</p>"
     );
 
@@ -1610,11 +1612,14 @@
   }
 
   function bindChatDrag() {
-    if (!ui || !ui.header) return;
+    if (!ui || !ui.header || !ui.toggle) return;
 
     let dragState = null;
 
     function stopDrag() {
+      if (dragState && dragState.dragged && dragState.handle === "toggle") {
+        state.suppressToggleClickUntil = Date.now() + 300;
+      }
       dragState = null;
       ui.root.classList.remove("is-dragging");
       window.removeEventListener("pointermove", onMove);
@@ -1625,6 +1630,18 @@
     function onMove(event) {
       if (!dragState) return;
 
+      const deltaX = Math.abs(event.clientX - dragState.startX);
+      const deltaY = Math.abs(event.clientY - dragState.startY);
+
+      if (!dragState.dragged && deltaX + deltaY < 6) {
+        return;
+      }
+
+      if (!dragState.dragged) {
+        dragState.dragged = true;
+        ui.root.classList.add("is-dragging");
+      }
+
       state.dragPosition = {
         left: event.clientX - dragState.offsetX,
         top: event.clientY - dragState.offsetY
@@ -1632,24 +1649,37 @@
       applyChatPosition();
     }
 
-    ui.header.addEventListener("pointerdown", function (event) {
+    function startDrag(event, handle) {
       if (!isDesktopDraggableViewport()) return;
       if (event.button !== undefined && event.button !== 0) return;
-      if (event.target.closest(".archon-chatbot-close")) return;
-      if (event.target.closest("button, input, textarea, a, form")) return;
+      if (handle === "header") {
+        if (event.target.closest(".archon-chatbot-close")) return;
+        if (event.target.closest("button, input, textarea, a, form")) return;
+      }
 
       const rect = ui.root.getBoundingClientRect();
       dragState = {
+        handle: handle,
         offsetX: event.clientX - rect.left,
-        offsetY: event.clientY - rect.top
+        offsetY: event.clientY - rect.top,
+        startX: event.clientX,
+        startY: event.clientY,
+        dragged: false
       };
 
       state.dragPosition = { left: rect.left, top: rect.top };
-      ui.root.classList.add("is-dragging");
       window.addEventListener("pointermove", onMove);
       window.addEventListener("pointerup", stopDrag);
       window.addEventListener("pointercancel", stopDrag);
       event.preventDefault();
+    }
+
+    ui.header.addEventListener("pointerdown", function (event) {
+      startDrag(event, "header");
+    });
+
+    ui.toggle.addEventListener("pointerdown", function (event) {
+      startDrag(event, "toggle");
     });
 
     window.addEventListener("resize", function () {
@@ -2743,6 +2773,9 @@
       }
     });
     ui.toggle.addEventListener("click", function () {
+      if (Date.now() < state.suppressToggleClickUntil) {
+        return;
+      }
       toggleChat();
     });
     ui.close.addEventListener("click", function () {

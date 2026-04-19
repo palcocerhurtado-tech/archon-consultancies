@@ -69,6 +69,12 @@
 .archon-chatbot.is-draggable .archon-chatbot-panel{
   box-shadow:0 34px 92px rgba(0,0,0,0.48);
 }
+.archon-chatbot.is-draggable .archon-chatbot-toggle{
+  cursor:grab;
+}
+.archon-chatbot.is-dragging .archon-chatbot-toggle{
+  cursor:grabbing;
+}
 .archon-chatbot.is-mobile-sheet{
   left:10px;
   right:10px;
@@ -346,6 +352,9 @@ body.archon-occult-archive-open{
   inset:0;
   z-index:180;
   display:none;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
   background:
     radial-gradient(circle at 14% 10%, rgba(173,99,255,0.12), transparent 18%),
     radial-gradient(circle at 86% 12%, rgba(82,16,154,0.22), transparent 26%),
@@ -357,10 +366,11 @@ body.archon-occult-archive-open{
 }
 .archon-occult-archive-shell{
   width:min(1380px, calc(100vw - 48px));
-  height:min(calc(100vh - 40px), 980px);
+  min-height:min(calc(100vh - 40px), 980px);
+  height:auto;
   margin:20px auto;
   display:grid;
-  grid-template-rows:auto 1fr;
+  grid-template-rows:auto auto minmax(0, 1fr);
   gap:20px;
 }
 .archon-occult-archive-header{
