@@ -332,7 +332,10 @@
     admissionStep: 0,
     admissionAnswers: {},
     clueIndex: 0,
-    requestNonce: 0
+    requestNonce: 0,
+    archiveFocusId: "blog-33",
+    archiveFilter: "all",
+    dragPosition: null
   };
 
   let ui = null;
@@ -368,6 +371,154 @@
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#39;");
+  }
+
+  function slugifyArchiveId(text) {
+    return normalize(text)
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "archivo";
+  }
+
+  function buildOccultArchiveEntries() {
+    const entries = [
+      {
+        id: "blog-33",
+        kind: "blog",
+        route: "pilares",
+        eyebrow: "Blog velado",
+        title: "33",
+        theme: "Umbral, símbolo y sospecha",
+        excerpt:
+          "Pieza editorial de acceso al universo simbólico de Archon: lectura de umbral, capas de sentido, sospecha disciplinada y apertura de la segunda cámara.",
+        detail:
+          "Es uno de los dos blogs visibles del archivo. Funciona como puerta de entrada al tono velado y al lenguaje iniciático del proyecto.",
+        relatedSources: ["33"],
+        href: "33.html",
+        ctaLabel: "Abrir 33"
+      },
+      {
+        id: "blog-777",
+        kind: "blog",
+        route: "pilares",
+        eyebrow: "Pilar del archivo",
+        title: "777",
+        theme: "Jerarquía, límite y clavícula",
+        excerpt:
+          "Pieza central del archivo velado, con una lectura más densa, ritual y arquitectónica sobre estructura, poder, límite y tradición.",
+        detail:
+          "Es el núcleo editorial más grave del archivo. Desde aquí se ordena el tono más oscuro, simbólico y doctrinal de la cámara velada.",
+        relatedSources: ["777", "Clavicula de Salomon"],
+        href: "777.html",
+        ctaLabel: "Abrir 777"
+      }
+    ];
+
+    const seen = new Set(["33", "777"]);
+
+    occultPersona.sources.forEach(function (source) {
+      if (seen.has(source)) return;
+      seen.add(source);
+      entries.push({
+        id: "doc-" + slugifyArchiveId(source),
+        kind: "documento",
+        route: "doctrina",
+        eyebrow: "Documento base",
+        title: source,
+        theme: "Doctrina del archivo",
+        excerpt: occultPersona.mission,
+        detail: occultPersona.tone,
+        relatedSources: occultPersona.sources,
+        prompt:
+          "Quiero trabajar el documento " + source + " dentro de la camara velada."
+      });
+    });
+
+    occultLibrary.forEach(function (topic) {
+      topic.sources.forEach(function (source) {
+        if (seen.has(source)) return;
+        seen.add(source);
+        entries.push({
+          id: "doc-" + slugifyArchiveId(source),
+          kind: "documento",
+          route: topic.id,
+          eyebrow: topic.label,
+          title: source,
+          theme: topic.label,
+          excerpt: topic.overview,
+          detail: topic.guidance,
+          relatedSources: topic.sources,
+          prompt:
+            "Quiero una lectura del documento " + source + " desde la ruta " + topic.label + "."
+        });
+      });
+    });
+
+    return entries;
+  }
+
+  function getOccultArchiveEntries() {
+    return buildOccultArchiveEntries();
+  }
+
+  function findOccultArchiveEntry(entryId) {
+    return getOccultArchiveEntries().find(function (entry) {
+      return entry.id === entryId;
+    }) || getOccultArchiveEntries()[0];
+  }
+
+  function buildOccultArchiveFilters() {
+    const entries = getOccultArchiveEntries();
+    const labels = {
+      all: "Todo el archivo",
+      pilares: "Pilares",
+      doctrina: "Doctrina",
+      "historia-humanidad": "Historia velada",
+      hermetismo: "Hermetismo",
+      alquimia: "Alquimia",
+      iniciatica: "Masoneria y Rosacruz",
+      psique: "Psique y meditacion",
+      grimorios: "Grimorios",
+      cosmologia: "Cosmologia"
+    };
+    const order = [
+      "all",
+      "pilares",
+      "doctrina",
+      "historia-humanidad",
+      "hermetismo",
+      "alquimia",
+      "iniciatica",
+      "psique",
+      "grimorios",
+      "cosmologia"
+    ];
+
+    return order
+      .map(function (filterId) {
+        const count = filterId === "all"
+          ? entries.length
+          : entries.filter(function (entry) {
+              return entry.route === filterId;
+            }).length;
+
+        if (!count) return null;
+
+        return {
+          id: filterId,
+          label: labels[filterId] || filterId,
+          count: count
+        };
+      })
+      .filter(Boolean);
+  }
+
+  function getFilteredOccultArchiveEntries() {
+    const entries = getOccultArchiveEntries();
+    if (state.archiveFilter === "all") return entries;
+
+    return entries.filter(function (entry) {
+      return entry.route === state.archiveFilter;
+    });
   }
 
   function formatReplyHtml(text) {
@@ -551,6 +702,121 @@
         .join("") +
       "</ul>"
     );
+  }
+
+  function renderOccultArchiveGrid() {
+    if (!ui || !ui.archiveGrid) return;
+
+    const entries = getFilteredOccultArchiveEntries();
+
+    ui.archiveGrid.innerHTML = entries
+      .map(function (entry) {
+        const isActive = entry.id === state.archiveFocusId;
+        return (
+          '<button type="button" class="archon-occult-archive-card' +
+          (isActive ? " is-active" : "") +
+          '" data-archive-entry="' + escapeHtml(entry.id) + '">' +
+            '<span class="archon-occult-archive-card-eyebrow">' + escapeHtml(entry.eyebrow) + '</span>' +
+            '<strong>' + escapeHtml(entry.title) + '</strong>' +
+            '<span class="archon-occult-archive-card-theme">' + escapeHtml(entry.theme) + '</span>' +
+            '<p>' + escapeHtml(entry.excerpt) + '</p>' +
+          '</button>'
+        );
+      })
+      .join("");
+  }
+
+  function renderOccultArchiveFilters() {
+    if (!ui || !ui.archiveFilters || !ui.archiveSummary) return;
+
+    const filters = buildOccultArchiveFilters();
+    if (!filters.some(function (item) { return item.id === state.archiveFilter; })) {
+      state.archiveFilter = "all";
+    }
+
+    const filteredEntries = getFilteredOccultArchiveEntries();
+    if (!filteredEntries.some(function (entry) { return entry.id === state.archiveFocusId; })) {
+      state.archiveFocusId = (filteredEntries[0] && filteredEntries[0].id) || "blog-33";
+    }
+
+    ui.archiveFilters.innerHTML = filters
+      .map(function (filter) {
+        const isActive = filter.id === state.archiveFilter;
+        return (
+          '<button type="button" class="archon-occult-archive-filter' +
+          (isActive ? " is-active" : "") +
+          '" data-archive-filter="' + escapeHtml(filter.id) + '">' +
+            '<span>' + escapeHtml(filter.label) + '</span>' +
+            '<strong>' + escapeHtml(String(filter.count)) + '</strong>' +
+          '</button>'
+        );
+      })
+      .join("");
+
+    ui.archiveSummary.innerHTML =
+      "<strong>" + escapeHtml(String(filteredEntries.length)) + " piezas visibles</strong>" +
+      "<span>Solo se muestran 33, 777 y el corpus ya integrado en la memoria local del archivo.</span>";
+  }
+
+  function renderOccultArchiveFeature() {
+    if (!ui || !ui.archiveFeature) return;
+
+    const entry = findOccultArchiveEntry(state.archiveFocusId);
+    if (!entry) return;
+
+    ui.archiveFeature.innerHTML =
+      '<div class="archon-occult-archive-feature-meta">' +
+        '<span>' + escapeHtml(state.occultAdmitted ? "Archivo concedido" : "Perimetro alterado") + '</span>' +
+        '<span>' + escapeHtml(entry.kind === "blog" ? "Blog visible" : "Documento del corpus") + '</span>' +
+      '</div>' +
+      '<span class="archon-occult-archive-feature-eyebrow">' + escapeHtml(entry.eyebrow) + '</span>' +
+      '<h2>' + escapeHtml(entry.title) + '</h2>' +
+      '<p class="archon-occult-archive-feature-theme">' + escapeHtml(entry.theme) + '</p>' +
+      '<p>' + escapeHtml(entry.excerpt) + '</p>' +
+      '<p>' + escapeHtml(entry.detail) + '</p>' +
+      renderOccultSources(entry.relatedSources || []) +
+      '<div class="archon-occult-archive-feature-actions">' +
+        (
+          entry.href
+            ? '<a class="archon-occult-archive-link" href="' + escapeHtml(entry.href) + '">' + escapeHtml(entry.ctaLabel || "Abrir") + '</a>'
+            : '<button type="button" class="archon-occult-archive-link archon-occult-archive-link--button" data-archive-chat="' + escapeHtml(entry.id) + '">Consultar con el bot</button>'
+        ) +
+        '<button type="button" class="archon-occult-archive-link archon-occult-archive-link--ghost" data-archive-close="true">Cerrar archivo</button>' +
+      '</div>';
+  }
+
+  function renderOccultArchive() {
+    if (!ui || !ui.archiveRoot) return;
+    if (!state.archiveFocusId) state.archiveFocusId = "blog-33";
+    renderOccultArchiveFilters();
+    renderOccultArchiveFeature();
+    renderOccultArchiveGrid();
+  }
+
+  function syncOccultArchive() {
+    const active = state.occultMode;
+    const body = document.body;
+
+    if (body) {
+      body.classList.toggle("archon-occult-archive-open", active);
+    }
+
+    if (!ui || !ui.archiveRoot) return;
+
+    ui.archiveRoot.classList.toggle("is-visible", active);
+    ui.archiveRoot.setAttribute("aria-hidden", active ? "false" : "true");
+
+    if (active) {
+      renderOccultArchive();
+    }
+  }
+
+  function primeArchivePrompt(entryId) {
+    const entry = findOccultArchiveEntry(entryId);
+    if (!entry || !ui || !ui.input) return;
+    ui.input.value = entry.prompt || ("Quiero trabajar " + entry.title + " dentro del archivo velado.");
+    toggleChat(true);
+    ui.input.focus();
   }
 
   function answerOccultTopic(topicId) {
@@ -1166,6 +1432,8 @@
     if (themeMeta) {
       themeMeta.setAttribute("content", !active ? "#060606" : granted ? "#170022" : "#110018");
     }
+
+    syncOccultArchive();
   }
 
   function setOccultAdmissionState(active) {
@@ -1225,6 +1493,8 @@
     state.admissionStep = 0;
     state.admissionAnswers = {};
     state.clueIndex = 0;
+    state.archiveFocusId = "blog-33";
+    state.archiveFilter = "all";
     state.aiLastError = "";
     setOccultMode(false);
     updateSession({
@@ -1240,6 +1510,100 @@
     );
     addOptions(defaultOptions());
     setStatus("Has vuelto a la fachada visible.", "ready");
+  }
+
+  function isDesktopDraggableViewport() {
+    return window.innerWidth > 720;
+  }
+
+  function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  function applyChatPosition() {
+    if (!ui || !ui.root) return;
+
+    if (!isDesktopDraggableViewport() || !state.dragPosition) {
+      ui.root.classList.remove("is-positioned");
+      ui.root.classList.remove("is-draggable");
+      ui.root.style.removeProperty("left");
+      ui.root.style.removeProperty("top");
+      ui.root.style.removeProperty("right");
+      ui.root.style.removeProperty("bottom");
+      return;
+    }
+
+    const margin = 12;
+    const width = ui.root.offsetWidth || 316;
+    const height = ui.root.offsetHeight || 420;
+    const left = clamp(state.dragPosition.left, margin, Math.max(margin, window.innerWidth - width - margin));
+    const top = clamp(state.dragPosition.top, margin, Math.max(margin, window.innerHeight - height - margin));
+
+    state.dragPosition = { left: left, top: top };
+    ui.root.classList.add("is-positioned");
+    ui.root.classList.add("is-draggable");
+    ui.root.style.left = left + "px";
+    ui.root.style.top = top + "px";
+    ui.root.style.right = "auto";
+    ui.root.style.bottom = "auto";
+  }
+
+  function resetChatPosition() {
+    state.dragPosition = null;
+    applyChatPosition();
+  }
+
+  function bindChatDrag() {
+    if (!ui || !ui.header) return;
+
+    let dragState = null;
+
+    function stopDrag() {
+      dragState = null;
+      ui.root.classList.remove("is-dragging");
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", stopDrag);
+      window.removeEventListener("pointercancel", stopDrag);
+    }
+
+    function onMove(event) {
+      if (!dragState) return;
+
+      state.dragPosition = {
+        left: event.clientX - dragState.offsetX,
+        top: event.clientY - dragState.offsetY
+      };
+      applyChatPosition();
+    }
+
+    ui.header.addEventListener("pointerdown", function (event) {
+      if (!isDesktopDraggableViewport()) return;
+      if (event.button !== undefined && event.button !== 0) return;
+      if (event.target.closest(".archon-chatbot-close")) return;
+      if (event.target.closest("button, input, textarea, a, form")) return;
+
+      const rect = ui.root.getBoundingClientRect();
+      dragState = {
+        offsetX: event.clientX - rect.left,
+        offsetY: event.clientY - rect.top
+      };
+
+      state.dragPosition = { left: rect.left, top: rect.top };
+      ui.root.classList.add("is-dragging");
+      window.addEventListener("pointermove", onMove);
+      window.addEventListener("pointerup", stopDrag);
+      window.addEventListener("pointercancel", stopDrag);
+      event.preventDefault();
+    });
+
+    window.addEventListener("resize", function () {
+      if (!isDesktopDraggableViewport()) {
+        resetChatPosition();
+        return;
+      }
+
+      applyChatPosition();
+    });
   }
 
   function scrollMessagesToBottom() {
@@ -2210,9 +2574,33 @@
       ui.input.focus();
       scrollMessagesToBottom();
     }
+    requestAnimationFrame(applyChatPosition);
   }
 
   function createUi() {
+    const archive = document.createElement("section");
+    archive.className = "archon-occult-archive";
+    archive.setAttribute("aria-hidden", "true");
+    archive.innerHTML =
+      '<div class="archon-occult-archive-shell">' +
+        '<div class="archon-occult-archive-header">' +
+          '<div class="archon-occult-archive-brand">' +
+            '<span class="archon-occult-archive-kicker">Archivo velado</span>' +
+            '<strong>Camara de lectura</strong>' +
+            '<p>En este modo desaparece la fachada comercial. Solo quedan 33, 777 y el corpus documental integrado en el bot.</p>' +
+          '</div>' +
+          '<button class="archon-occult-archive-close" type="button" aria-label="Cerrar archivo velado">Cerrar archivo</button>' +
+        '</div>' +
+        '<div class="archon-occult-archive-toolbar">' +
+          '<div class="archon-occult-archive-filters"></div>' +
+          '<div class="archon-occult-archive-summary"></div>' +
+        '</div>' +
+        '<div class="archon-occult-archive-layout">' +
+          '<article class="archon-occult-archive-feature"></article>' +
+          '<div class="archon-occult-archive-grid"></div>' +
+        '</div>' +
+      '</div>';
+
     const root = document.createElement("div");
     root.className = "archon-chatbot";
     root.innerHTML =
@@ -2238,12 +2626,20 @@
         "</div>" +
       "</section>";
 
+    document.body.appendChild(archive);
     document.body.appendChild(root);
 
     ui = {
+      archiveRoot: archive,
+      archiveFeature: archive.querySelector(".archon-occult-archive-feature"),
+      archiveGrid: archive.querySelector(".archon-occult-archive-grid"),
+      archiveFilters: archive.querySelector(".archon-occult-archive-filters"),
+      archiveSummary: archive.querySelector(".archon-occult-archive-summary"),
+      archiveClose: archive.querySelector(".archon-occult-archive-close"),
       root: root,
       toggle: root.querySelector(".archon-chatbot-toggle"),
       close: root.querySelector(".archon-chatbot-close"),
+      header: root.querySelector(".archon-chatbot-header"),
       body: root.querySelector(".archon-chatbot-body"),
       messages: root.querySelector(".archon-chatbot-messages"),
       form: root.querySelector(".archon-chatbot-form"),
@@ -2255,6 +2651,32 @@
   }
 
   function bindUi() {
+    ui.archiveClose.addEventListener("click", function () {
+      closeOccultMode();
+    });
+    ui.archiveFilters.addEventListener("click", function (event) {
+      const target = event.target.closest("[data-archive-filter]");
+      if (!target) return;
+      state.archiveFilter = target.getAttribute("data-archive-filter") || "all";
+      renderOccultArchive();
+    });
+    ui.archiveGrid.addEventListener("click", function (event) {
+      const target = event.target.closest("[data-archive-entry]");
+      if (!target) return;
+      state.archiveFocusId = target.getAttribute("data-archive-entry") || "blog-33";
+      renderOccultArchive();
+    });
+    ui.archiveFeature.addEventListener("click", function (event) {
+      const closeTarget = event.target.closest("[data-archive-close]");
+      if (closeTarget) {
+        closeOccultMode();
+        return;
+      }
+      const chatTarget = event.target.closest("[data-archive-chat]");
+      if (chatTarget) {
+        primeArchivePrompt(chatTarget.getAttribute("data-archive-chat"));
+      }
+    });
     ui.toggle.addEventListener("click", function () {
       toggleChat();
     });
@@ -2263,6 +2685,7 @@
     });
     ui.form.addEventListener("submit", submitInput);
     window.addEventListener("storage", hydrateForms);
+    bindChatDrag();
   }
 
   function init() {
