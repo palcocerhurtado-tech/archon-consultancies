@@ -501,6 +501,40 @@ nav.scrolled{
   gap:10px;
   margin-top:26px;
 }
+.hero-offer-strip{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+}
+.hero-offer-item{
+  padding:14px 16px;
+  border:1px solid rgba(221,208,158,0.16);
+  background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(221,208,158,0.03));
+  box-shadow:0 16px 36px rgba(0,0,0,0.18);
+}
+.hero-offer-item strong{
+  display:block;
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.hero-offer-item span{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-size:30px;
+  line-height:0.95;
+  color:var(--white);
+}
+.hero-offer-item small{
+  display:block;
+  margin-top:8px;
+  color:#d7d7cf;
+  font-size:12px;
+  line-height:1.55;
+}
 .pill{
   min-height:40px;
   padding:10px 14px;
@@ -1398,6 +1432,7 @@ footer{
   .nav-cta{display:none}
   .lang-toggle{min-height:40px;padding:0 12px;letter-spacing:1.8px}
   .hamburger{display:flex}
+  .hero-offer-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
   .hero-story,
   .sector-flow,
   .roadmap-tabs,
@@ -1413,6 +1448,7 @@ footer{
   .sector-switch{grid-template-columns:1fr}
   .hero-copy,
   .hero-panel,
+  .hero-offer-item,
   .sector-panel,
   .roadmap-shell,
   .calc-box,
@@ -2291,7 +2327,7 @@ footer{
         <div class="hero-copy">
           <p class="eyebrow">Base operativa: Zaragoza | ejecución en toda España</p>
           <h1>Tu empresa no necesita más herramientas. <span>Necesita sistema.</span></h1>
-          <p class="hero-sub">Archon Consultancies es una consultoría de IA en Zaragoza que diseña Digital Brain Infrastructure para pymes, ecommerce y empresas de servicios que quieren reducir fricción operativa y escalar con sistema.</p>
+          <p class="hero-sub">Archon Consultancies diseña sistemas de IA y automatización para empresas que ya venden, ya tienen complejidad y ya notan el coste de operar con memoria humana, parches y fricción. Entramos para dar <strong>orden, criterio y una secuencia comprable</strong>.</p>
           <div class="hero-actions">
             <a class="btn-primary" href="#auditoria">Reservar auditoría de 33 min</a>
             <a class="btn-secondary" href="#roi">Calcular fuga operativa</a>
@@ -2300,6 +2336,28 @@ footer{
             <span class="pill">Presencial en Zaragoza</span>
             <span class="pill">Roadmap inicial en 72h</span>
             <span class="pill">Sin humo ni capas innecesarias</span>
+          </div>
+          <div class="hero-offer-strip">
+            <article class="hero-offer-item">
+              <strong>Entrada</strong>
+              <span>0 EUR</span>
+              <small>Auditoría inicial de 33 minutos para decidir si hay retorno real.</small>
+            </article>
+            <article class="hero-offer-item">
+              <strong>Diagnóstico</strong>
+              <span>250</span>
+              <small>Radiografía Pro en 72h con mapa, prioridades y siguiente paso.</small>
+            </article>
+            <article class="hero-offer-item">
+              <strong>Ejecución</strong>
+              <span>950+</span>
+              <small>Proyecto por hitos cuando ya toca construir y validar por fases.</small>
+            </article>
+            <article class="hero-offer-item">
+              <strong>Continuidad</strong>
+              <span>350/mes</span>
+              <small>Retainer para que el sistema no se enfríe entre incidencias y cambios.</small>
+            </article>
           </div>
           <div class="hero-story">
             <article class="story-card">
@@ -2379,7 +2437,7 @@ footer{
       <div class="section-header reveal">
         <p class="eyebrow">Rutas de entrada</p>
         <h2 class="section-title">Tres puertas de entrada. <span>Una misma tesis.</span></h2>
-        <p class="section-copy">Si vienes buscando consultoría de IA, una agencia de IA o automatización para tu empresa, la promesa es la misma: menos fricción, mejor criterio y una operativa que no se cae cuando sube el volumen.</p>
+        <p class="section-copy">Si vienes buscando consultoría de IA, una agencia de IA o automatización para tu empresa, la promesa es la misma: menos fricción, mejor criterio y una operativa que no se cae cuando sube el volumen. Cambia la puerta de entrada, no la tesis de valor.</p>
       </div>
       <div class="lanes-grid">
         <article class="lane-card reveal">
@@ -2595,7 +2653,7 @@ footer{
           <div class="modelo-lead-copy">
             <p class="modelo-kicker">De entrada a continuidad</p>
             <h3 class="modelo-title">Primero una lectura. <span>Después una decisión. Luego un sistema.</span></h3>
-            <p class="modelo-copy">Archon gana claridad y el cliente también. La secuencia es simple: primero una auditoría gratuita de 33 minutos para detectar si hay retorno real, luego una Radiografía Pro si merece la pena profundizar, después proyecto por hitos si toca construir, retainer mensual si conviene mantener y packs verticales si prefieres entrar por una puerta concreta.</p>
+            <p class="modelo-copy">Archon gana claridad y el cliente también. La secuencia es simple: primero una auditoría gratuita de 33 minutos para detectar si hay retorno real, luego una Radiografía Pro si merece la pena profundizar, después proyecto por hitos si toca construir, retainer mensual si conviene mantener y packs verticales si prefieres entrar por una puerta concreta. Así la venta deja de ser difusa y el cliente sabe exactamente qué compra en cada nivel.</p>
             <div class="modelo-actions">
               <a class="modelo-btn modelo-btn--primary" href="#auditoria">Empezar por 33 min</a>
               <a class="modelo-btn" href="#precios">Ver inversión real</a>
@@ -2604,15 +2662,15 @@ footer{
           <div class="modelo-summary">
             <article class="modelo-signal">
               <strong>Entrada limpia</strong>
-              <p>No todo lead tiene que comprar un sistema entero. La auditoría gratuita filtra sin fricción y evita propuestas antes de tiempo.</p>
+              <p>No todo lead tiene que comprar un sistema entero. La auditoría gratuita filtra sin fricción, eleva confianza y evita propuestas antes de tiempo.</p>
             </article>
             <article class="modelo-signal">
               <strong>Diagnóstico cobrable</strong>
-              <p>La Radiografía Pro convierte el conocimiento inicial en un entregable real: mapa, prioridades, riesgos y siguiente paso.</p>
+              <p>La Radiografía Pro convierte el conocimiento inicial en un entregable real: mapa, prioridades, riesgos, foco comercial y siguiente paso.</p>
             </article>
             <article class="modelo-signal">
               <strong>Recurrencia útil</strong>
-              <p>Cuando el sistema ya existe, el negocio mejora más si no se abandona. Ahí entra el retainer mensual y el trabajo por capas.</p>
+              <p>Cuando el sistema ya existe, el negocio mejora más si no se abandona. Ahí entra el retainer mensual y el trabajo por capas para sostener rendimiento.</p>
             </article>
           </div>
         </div>
@@ -3007,7 +3065,7 @@ footer{
         <div class="price-entry-copy">
           <strong>Puerta de entrada</strong>
           <h3>Radiografía gratuita de 33 minutos</h3>
-          <p>La primera conversación no se cobra. Sirve para detectar si existe fricción real, si hay retorno suficiente y si merece la pena pasar a una Radiografía Pro o ir directamente a proyecto por hitos.</p>
+          <p>La primera conversación no se cobra. Sirve para detectar si existe fricción real, si hay retorno suficiente y si merece la pena pasar a una Radiografía Pro o ir directamente a proyecto por hitos. Es una puerta de entrada diseñada para bajar riesgo, no para venderte a ciegas.</p>
         </div>
         <div class="price-entry-price">
           <span>0 EUR</span>
@@ -3058,7 +3116,7 @@ footer{
         </article>
 
       </div>
-      <p class="price-note">Todos los precios son orientativos. El alcance real se define primero en la <a href="#auditoria">auditoría gratuita de 33 minutos</a> y, si compensa, se concreta después en la <a href="#precios">Radiografía Pro</a> o en un proyecto por hitos. Sin compromiso.</p>
+      <p class="price-note">Todos los precios son orientativos. El alcance real se define primero en la <a href="#auditoria">auditoría gratuita de 33 minutos</a> y, si compensa, se concreta después en la <a href="#precios">Radiografía Pro</a> o en un proyecto por hitos. La idea es que sepas antes de comprar qué nivel de profundidad tiene sentido para ti.</p>
     </div>
   </section>
 
@@ -3145,7 +3203,7 @@ footer{
           <a href="#precios">Ver inversión</a>
         </article>
       </div>
-      <p class="packs-note">Todos los packs pueden arrancar desde la auditoría gratuita de 33 minutos o, si ya sabes que hay fricción real, desde una Radiografía Pro.</p>
+      <p class="packs-note">Todos los packs pueden arrancar desde la auditoría gratuita de 33 minutos o, si ya sabes que hay fricción real, desde una Radiografía Pro. Son puertas de entrada cerrables para quien prefiere producto claro antes que propuesta abierta.</p>
     </div>
   </section>
 
@@ -3220,11 +3278,11 @@ footer{
       <div class="cta-layout">
         <div class="cta-panel reveal">
           <p class="eyebrow">CTA</p>
-          <h2 class="cta-title">Reserva una auditoría gratuita de 33 minutos y te diremos qué automatizar primero.</h2>
-          <p class="cta-copy">Sin humo. Sin promesas infladas. Revisamos tu contexto, vemos si hay retorno y marcamos la primera jugada que de verdad te acerque a una operativa más limpia y más rápida.</p>
+          <h2 class="cta-title">Reserva una auditoría gratuita de 33 minutos y te diremos qué merece tu dinero, qué merece espera y qué no merece tocar todavía.</h2>
+          <p class="cta-copy">Sin humo. Sin promesas infladas. Revisamos tu contexto, vemos si hay retorno y marcamos la primera jugada que de verdad te acerque a una operativa más limpia, más rápida y mejor gobernada.</p>
           <div class="cta-points">
-            <div class="cta-point">Detectamos cuellos de botella, dependencias humanas y puntos donde la información llega tarde.</div>
-            <div class="cta-point">Te damos un orden: qué atacar primero, qué dejar para después y qué no merece tocar todavía.</div>
+            <div class="cta-point">Detectamos cuellos de botella, dependencias humanas y puntos donde la información llega tarde o llega mal.</div>
+            <div class="cta-point">Te damos un orden de compra: entrada, diagnóstico, hitos, continuidad o pack, según el momento real del negocio.</div>
             <div class="cta-point">Si estás en Zaragoza, podemos trabajar discovery con una lectura más cercana del negocio. Si no, remoto sin problema.</div>
           </div>
         </div>
@@ -3263,7 +3321,7 @@ footer{
             <button type="submit">Quiero mi auditoría</button>
           </form>
           <p class="form-note">Recibimos la solicitud real, con el sector y la estimación de fuga operativa que hayas visto en la página.</p>
-          <p class="disclaimer">33 minutos. Sin compromiso. Respuesta humana.</p>
+          <p class="disclaimer">33 minutos. Sin compromiso. Respuesta humana y siguiente paso claro.</p>
         </div>
       </div>
     </div>
