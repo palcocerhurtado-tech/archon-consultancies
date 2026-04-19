@@ -1329,7 +1329,10 @@
     }
 
     if (step === 6) {
-      if (getPuzzleMapCounter(step, "stepAttempts") < 2) {
+      if (
+        getPuzzleMapCounter(step, "stepAttempts") < 2 ||
+        getPuzzleMapCounter(step, "stepHintRequests") < 2
+      ) {
         return t("hint.step6.secondary.generic", "Medita sobre la promesa exacta y sobre cómo se separa en castellano.");
       }
 
