@@ -449,29 +449,7 @@ export function GET() {
   );
 }
 
-export async function POST(request) {
-  if (!process.env.GEMINI_API_KEY) {
-    return jsonResponse(
-      {
-        error: "GEMINI_API_KEY is missing.",
-        configured: false
-      },
-      503
-    );
-  }
-
-  let body;
-  try {
-    body = await request.json();
-  } catch (error) {
-    return jsonResponse({ error: "Invalid JSON body." }, 400);
-  }
-
-  const message = normalizeString(body && body.message);
-  if (!message) {
-    return jsonResponse({ error: "Message is required." }, 400);
-  }
-
+async function processChat(body, message) {
   const history = normalizeHistory(body && body.history);
   const occultMode =
     Boolean(body && body.occultMode) ||
@@ -501,7 +479,7 @@ export async function POST(request) {
   }
 
   if (!geminiCall.ok) {
-    return jsonResponse({ error: geminiCall.errorMessage }, geminiCall.status || 502);
+    return { error: geminiCall.errorMessage };
   }
 
   let assistantPayload = extractAssistantPayload(geminiCall.payload);
@@ -516,7 +494,7 @@ export async function POST(request) {
     });
 
     if (!geminiCall.ok) {
-      return jsonResponse({ error: geminiCall.errorMessage }, geminiCall.status || 502);
+      return { error: geminiCall.errorMessage };
     }
 
     assistantPayload = extractAssistantPayload(geminiCall.payload);
@@ -524,22 +502,62 @@ export async function POST(request) {
   }
 
   if (!parsed) {
-    return jsonResponse(
-      {
-        error: "The model did not return valid JSON.",
-        raw: assistantPayload.text
-      },
-      502
-    );
+    return { error: "The model did not return valid JSON." };
   }
 
-  return jsonResponse(
-    Object.assign({}, sanitizeModelResponse(parsed), {
-      occultMode: occultMode,
-      occultAdmitted: occultAdmitted,
-      citations: assistantPayload.citations,
-      usedSearch: wantsSearch
-    }),
-    200
-  );
+  return Object.assign({}, sanitizeModelResponse(parsed), {
+    occultMode: occultMode,
+    occultAdmitted: occultAdmitted,
+    citations: assistantPayload.citations,
+    usedSearch: wantsSearch
+  });
+}
+
+export async function POST(request) {
+  if (!process.env.GEMINI_API_KEY) {
+    return jsonResponse({ error: "GEMINI_API_KEY is missing.", configured: false }, 503);
+  }
+
+  let body;
+  try {
+    body = await request.json();
+  } catch (error) {
+    return jsonResponse({ error: "Invalid JSON body." }, 400);
+  }
+
+  const message = normalizeString(body && body.message);
+  if (!message) {
+    return jsonResponse({ error: "Message is required." }, 400);
+  }
+
+  const encoder = new TextEncoder();
+  const { readable, writable } = new TransformStream();
+  const writer = writable.getWriter();
+
+  (async () => {
+    const heartbeat = setInterval(function () {
+      writer.write(encoder.encode(": ping\n\n")).catch(function () {});
+    }, 2500);
+
+    try {
+      const result = await processChat(body, message);
+      clearInterval(heartbeat);
+      await writer.write(encoder.encode("data: " + JSON.stringify(result) + "\n\n"));
+    } catch (err) {
+      clearInterval(heartbeat);
+      const msg = err && err.message ? err.message : "Internal server error";
+      await writer.write(encoder.encode("data: " + JSON.stringify({ error: msg }) + "\n\n"));
+    } finally {
+      writer.close().catch(function () {});
+    }
+  })();
+
+  return new Response(readable, {
+    status: 200,
+    headers: {
+      "content-type": "text/event-stream",
+      "cache-control": "no-store",
+      "x-accel-buffering": "no"
+    }
+  });
 }

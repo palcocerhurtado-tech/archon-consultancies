@@ -2016,9 +2016,7 @@
           errorPayload && errorPayload.error
             ? errorPayload.error
             : "Gemini no ha respondido correctamente en este turno.";
-
         state.aiLastError = errorMessage;
-
         if (response.status === 503 && /gemini_api_key/i.test(errorMessage)) {
           updateSession({ configured: false });
           state.aiAvailable = false;
@@ -2028,7 +2026,41 @@
         return null;
       }
 
-      const data = await response.json();
+      // Parse SSE stream — keeps connection alive via server heartbeats
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+      let data = null;
+      while (true) {
+        const chunk = await reader.read();
+        if (chunk.done) break;
+        buffer += decoder.decode(chunk.value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop();
+        for (let i = 0; i < lines.length; i++) {
+          if (lines[i].indexOf("data: ") === 0) {
+            try { data = JSON.parse(lines[i].slice(6)); } catch (_) {}
+          }
+        }
+      }
+
+      if (!data) {
+        state.aiLastError = "Respuesta vacía del servidor.";
+        state.aiAvailable = wasConfigured !== false;
+        return null;
+      }
+
+      if (data.error) {
+        state.aiLastError = data.error;
+        if (/gemini_api_key/i.test(data.error)) {
+          updateSession({ configured: false });
+          state.aiAvailable = false;
+        } else {
+          state.aiAvailable = wasConfigured !== false;
+        }
+        return null;
+      }
+
       state.aiLastError = "";
       updateSession({ configured: true });
       state.aiAvailable = true;
