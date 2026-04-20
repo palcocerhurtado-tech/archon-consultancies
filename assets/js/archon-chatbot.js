@@ -1983,6 +1983,8 @@
     const wasConfigured = session.configured;
 
     try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 30000);
       const response = await fetch(API_ENDPOINT, {
         method: "POST",
         headers: {
@@ -2001,8 +2003,10 @@
           },
           diagnosisReport: payload.diagnosisReport || null,
           savedDiagnosis: loadDiagnosis()
-        })
+        }),
+        signal: controller.signal
       });
+      clearTimeout(timer);
 
       if (!response.ok) {
         const errorPayload = await response.json().catch(function () {

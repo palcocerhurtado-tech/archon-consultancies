@@ -1,3 +1,5 @@
+export const maxDuration = 30;
+
 const MODEL = "gemini-2.5-flash";
 const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
 const MAX_HISTORY_ITEMS = 10;
@@ -281,19 +283,26 @@ async function callGeminiApi(params) {
 
   let upstreamResponse;
   try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 25000);
     upstreamResponse = await fetch(GEMINI_API_URL, {
       method: "POST",
       headers: {
         "content-type": "application/json",
         "x-goog-api-key": process.env.GEMINI_API_KEY
       },
-      body: JSON.stringify(requestBody)
+      body: JSON.stringify(requestBody),
+      signal: controller.signal
     });
+    clearTimeout(timer);
   } catch (error) {
+    const isTimeout = error && (error.name === "AbortError" || error.name === "TimeoutError");
     return {
       ok: false,
-      status: 502,
-      errorMessage: "Could not reach Gemini API."
+      status: 504,
+      errorMessage: isTimeout
+        ? "La respuesta de Gemini ha tardado demasiado. Inténtalo de nuevo."
+        : "Could not reach Gemini API."
     };
   }
 
