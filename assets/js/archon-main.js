@@ -314,8 +314,12 @@ function initCounters(){
 
 function initStickyCta(){
   const sticky = document.getElementById("stickyCta");
+  const footer = document.querySelector("footer");
   function onScroll(){
-    if (window.scrollY > 760){
+    const pastHero = window.scrollY > 760;
+    const footerRect = footer ? footer.getBoundingClientRect() : null;
+    const footerVisible = footerRect && footerRect.top < window.innerHeight - 20;
+    if (pastHero && !footerVisible){
       sticky.classList.add("visible");
     } else {
       sticky.classList.remove("visible");
