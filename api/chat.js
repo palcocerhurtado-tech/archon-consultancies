@@ -2,7 +2,7 @@ export const maxDuration = 30;
 
 const MODEL = "gemini-2.5-flash";
 const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
-const MAX_HISTORY_ITEMS = 10;
+const MAX_HISTORY_ITEMS = 6;
 const OCCULT_KEY = "jeremias 33.3";
 const ALLOWED_ACTIONS = new Set([
   "startDiagnosis",
@@ -270,9 +270,9 @@ async function callGeminiApi(params) {
     },
     contents: params.contents,
     generationConfig: {
-      temperature: params.occultMode ? 0.45 : 0.2,
+      temperature: params.occultMode ? 0.4 : 0.15,
       topP: 0.9,
-      maxOutputTokens: params.occultMode ? 1400 : 900,
+      maxOutputTokens: params.occultMode ? 900 : 600,
       responseMimeType: "application/json"
     }
   };
@@ -284,7 +284,7 @@ async function callGeminiApi(params) {
   let upstreamResponse;
   try {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 25000);
+    const timer = setTimeout(() => controller.abort(), 9000);
     upstreamResponse = await fetch(GEMINI_API_URL, {
       method: "POST",
       headers: {
