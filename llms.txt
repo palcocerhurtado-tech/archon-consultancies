@@ -38,12 +38,20 @@ Precios: https://archonconsultancies.com/#precios — Todos los precios de los s
 Consultoría de IA: https://archonconsultancies.com/consultoria-ia.html — Servicio de consultoría de IA para empresas y pymes en España.
 Agencia de IA: https://archonconsultancies.com/agencia-ia.html — Servicio de implementación de IA, agentes y automatizaciones.
 Automatización con IA: https://archonconsultancies.com/automatizacion-ia-empresas.html — Automatización de procesos con IA para empresas.
+Consultora de IA en Zaragoza: https://archonconsultancies.com/consultora-ia-zaragoza.html — Página local para empresas de Zaragoza que buscan diagnóstico, automatización y ejecución con IA.
+Precio de consultoría de IA para empresas: https://archonconsultancies.com/precio-consultoria-ia-empresas.html — Rangos de inversión, auditoría gratuita, Radiografía Pro y proyectos por hitos.
+Radiografía Operativa de IA: https://archonconsultancies.com/radiografia-operativa-ia.html — Diagnóstico de procesos, fricción, prioridades y hoja de ruta antes de automatizar.
 Sobre Archon: https://archonconsultancies.com/sobre-archon.html — Historia, misión y valores de la empresa.
 Pablo Alcocer Hurtado: https://archonconsultancies.com/pablo-alcocer-hurtado.html — Perfil profesional del fundador.
 Blog: https://archonconsultancies.com/blog.html — Artículos sobre IA, automatización, ecommerce y operaciones.
 
 Artículos del blog
 
+Automatización con n8n para empresas: Cómo diseñar workflows empresariales con n8n, IA, reglas de negocio, logs, control de errores y escalado humano.
+Chatbots IA vs chatbots tradicionales: Diferencias reales entre bots rígidos y agentes conversacionales con IA para empresas.
+Integrar IA en CRM y ERP: Cómo conectar modelos de IA con sistemas críticos sin romper datos, procesos ni supervisión.
+Futuro de la automatización empresarial en España 2026: Tendencias reales sobre agentes, workflows, pymes, riesgos y oportunidades.
+Automatización de atención al cliente con IA: Clasificación de tickets, respuestas asistidas, base de conocimiento y derivación humana.
 Consultoría de IA para pymes: Cuándo tiene sentido una consultoría de IA para una pyme, qué procesos revisar primero y cómo evitar automatizar caos.
 Agencia de IA para ecommerce: Cómo una agencia de IA puede resolver los cuellos de botella típicos de un ecommerce.
 Agentes de IA para soporte al cliente: Qué hace un agente de IA en soporte, cuándo conviene y qué errores evitar.
