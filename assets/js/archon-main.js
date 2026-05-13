@@ -266,7 +266,7 @@ function updateRoadmap(stageKey){
 }
 
 function initReveal(){
-  const nodes = document.querySelectorAll(".reveal");
+  const nodes = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale");
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting){
@@ -274,9 +274,45 @@ function initReveal(){
         observer.unobserve(entry.target);
       }
     });
-  }, {threshold: 0.14});
+  }, {threshold: 0.08, rootMargin:"0px 0px -48px 0px"});
 
   nodes.forEach((node) => observer.observe(node));
+}
+
+function initScrollProgress(){
+  const bar = document.createElement("div");
+  bar.id = "scroll-progress";
+  document.body.prepend(bar);
+  function update(){
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + "%";
+  }
+  window.addEventListener("scroll", update, {passive:true});
+  update();
+}
+
+function initHeroParallax(){
+  const hero = document.querySelector(".hero");
+  if (!hero) return;
+  function onScroll(){
+    const y = window.scrollY;
+    if (y < window.innerHeight){
+      hero.style.setProperty("--parallax-y", (y * 0.18) + "px");
+    }
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+}
+
+function initSectionStagger(){
+  document.querySelectorAll("section").forEach((section) => {
+    const children = Array.from(section.querySelectorAll(":scope > .shell > *, :scope > .shell > * > .reveal, :scope > .reveal"));
+    children.forEach((el, i) => {
+      if (!el.style.transitionDelay){
+        el.style.transitionDelay = (i * 45) + "ms";
+      }
+    });
+  });
 }
 
 function initCounters(){
@@ -353,6 +389,8 @@ initReveal();
 initCounters();
 initStickyCta();
 initNavScroll();
+initScrollProgress();
+initHeroParallax();
 
 // Hamburger menu
 const hamburgerBtn = document.getElementById("hamburgerBtn");

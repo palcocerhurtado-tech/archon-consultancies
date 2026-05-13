@@ -412,6 +412,9 @@ nav.scrolled{
     url("assets/archon/isotipo-arch-star.png") center/50% auto no-repeat;
   opacity:0.04;
   pointer-events:none;
+  transform:translateY(var(--parallax-y,0px));
+  transition:transform 0.05s linear;
+  will-change:transform;
 }
 .hero-grid{
   position:relative;
@@ -1278,12 +1281,53 @@ footer{
 }
 .reveal{
   opacity:0;
-  transform:translateY(26px);
-  transition:opacity .7s ease, transform .7s ease;
+  transform:translateY(44px);
+  transition:opacity .85s cubic-bezier(0.16,1,0.3,1), transform .85s cubic-bezier(0.16,1,0.3,1);
+  will-change:opacity,transform;
 }
 .reveal.visible{
   opacity:1;
   transform:translateY(0);
+}
+.reveal-left{
+  opacity:0;
+  transform:translateX(-44px);
+  transition:opacity .85s cubic-bezier(0.16,1,0.3,1), transform .85s cubic-bezier(0.16,1,0.3,1);
+  will-change:opacity,transform;
+}
+.reveal-left.visible{
+  opacity:1;
+  transform:translateX(0);
+}
+.reveal-right{
+  opacity:0;
+  transform:translateX(44px);
+  transition:opacity .85s cubic-bezier(0.16,1,0.3,1), transform .85s cubic-bezier(0.16,1,0.3,1);
+  will-change:opacity,transform;
+}
+.reveal-right.visible{
+  opacity:1;
+  transform:translateX(0);
+}
+.reveal-scale{
+  opacity:0;
+  transform:scale(0.94);
+  transition:opacity .75s cubic-bezier(0.16,1,0.3,1), transform .75s cubic-bezier(0.16,1,0.3,1);
+  will-change:opacity,transform;
+}
+.reveal-scale.visible{
+  opacity:1;
+  transform:scale(1);
+}
+#scroll-progress{
+  position:fixed;
+  top:0;left:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--gold),#E8C85A);
+  z-index:999;
+  width:0%;
+  pointer-events:none;
+  transform-origin:left;
 }
 
 /* ── Hero entrance sequence ─────────────────────────── */
@@ -2329,7 +2373,7 @@ footer{
   <section class="hero">
     <div class="shell">
       <div class="hero-grid">
-        <div class="hero-copy">
+        <div class="hero-copy reveal-left">
           <p class="eyebrow">Base operativa: Zaragoza | ejecución en toda España</p>
           <h1>Consultoría de inteligencia artificial en Zaragoza para empresas que necesitan sistema. <span>No más herramientas sueltas.</span></h1>
           <p class="hero-sub">Archon Consultancies diseña sistemas de IA y automatización para empresas que ya venden, ya tienen complejidad y ya notan el coste de operar con memoria humana, parches y fricción. Entramos como consultoría de IA para empresas para dar <strong>orden, criterio y una secuencia comprable</strong>.</p>
@@ -2380,7 +2424,7 @@ footer{
           </div>
         </div>
 
-        <aside class="hero-panel reveal">
+        <aside class="hero-panel reveal-right">
           <div class="panel-top">
             <div>
               <p class="eyebrow alt">Modo de lectura</p>
@@ -2412,7 +2456,7 @@ footer{
         </aside>
       </div>
 
-      <div class="metric-grid reveal">
+      <div class="metric-grid reveal-scale">
         <article class="stat-card">
           <strong>Tiempo a roadmap</strong>
           <span class="counter" data-target="72" data-suffix="h">0h</span>
