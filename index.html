@@ -664,95 +664,142 @@ nav.scrolled{
   letter-spacing:2px;
   text-transform:uppercase;
 }
-.hero-spline-card{
+.hero-animated-card{
   position:relative;
   z-index:1;
   margin-top:22px;
+  padding:28px;
   min-height:280px;
   overflow:hidden;
   border:1px solid rgba(201,162,39,0.22);
-  background:#050505;
+  background:
+    radial-gradient(circle at 76% 18%, rgba(201,162,39,0.18), transparent 34%),
+    linear-gradient(135deg, #050505 0%, #10100d 52%, #050505 100%);
   color:#f7f7f4;
   box-shadow:0 24px 70px rgba(0,0,0,0.34);
 }
-.hero-spline-card::before{
+.hero-animated-card::before{
   content:"";
   position:absolute;
-  width:118%;
-  height:118%;
-  left:-16%;
-  top:-58%;
+  width:240px;
+  height:240px;
+  right:-80px;
+  top:-70px;
+  border-radius:50%;
   pointer-events:none;
-  background:radial-gradient(ellipse at center, rgba(255,255,255,0.20), rgba(201,162,39,0.08) 28%, transparent 64%);
-  filter:blur(40px);
-  opacity:0.76;
+  background:radial-gradient(circle, rgba(201,162,39,0.26), transparent 68%);
+  filter:blur(8px);
 }
-.hero-spline-card::after{
+.hero-animated-card::after{
   content:"";
   position:absolute;
-  inset:0;
+  right:26px;
+  bottom:24px;
+  width:132px;
+  height:132px;
   pointer-events:none;
-  background:
-    linear-gradient(180deg, rgba(5,5,5,0.22), rgba(5,5,5,0.72)),
-    radial-gradient(circle at 72% 42%, rgba(201,162,39,0.12), transparent 38%);
+  border:1px solid rgba(201,162,39,0.24);
+  transform:rotate(45deg);
+  opacity:0.44;
 }
-.spline-meta{
+.animated-kicker{
+  position:relative;
+  z-index:2;
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:10px;
+}
+.animated-title{
+  position:relative;
+  z-index:2;
+  margin-top:20px;
+  font-family:"Libre Baskerville",serif;
+  font-size:clamp(30px, 4vw, 48px);
+  line-height:0.98;
+  letter-spacing:-0.02em;
+}
+.animated-title span:first-child{
+  display:block;
+  color:#f7f7f4;
+}
+.rotating-words{
+  position:relative;
+  display:block;
+  height:1.08em;
+  margin-top:4px;
+  overflow:hidden;
+  color:var(--gold);
+}
+.rotating-words span{
+  position:absolute;
+  inset:0 auto auto 0;
+  opacity:0;
+  transform:translateY(110%);
+  animation:archonWordCycle 6s infinite;
+}
+.rotating-words span:nth-child(2){animation-delay:2s}
+.rotating-words span:nth-child(3){animation-delay:4s}
+.animated-copy{
+  position:relative;
+  z-index:2;
+  margin-top:18px;
+  color:#d8d8d2;
+  font-size:14px;
+  line-height:1.8;
+}
+.animated-actions{
+  position:relative;
+  z-index:2;
   display:flex;
   flex-wrap:wrap;
   gap:10px;
-  margin-top:26px;
+  margin-top:24px;
 }
-.spline-meta span{
-  min-height:38px;
+.animated-actions a{
+  min-height:46px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:10px 12px;
+  padding:0 16px;
+  border:1px solid rgba(201,162,39,0.28);
+  color:#f7f7f4;
+  text-decoration:none;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:10px;
+  font-weight:700;
+}
+.animated-actions a:first-child{
+  color:#1A0E00;
+  background:linear-gradient(135deg, var(--gold), #E8C85A);
+}
+.animated-meta{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:18px;
+}
+.animated-meta span{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:32px;
+  padding:8px 10px;
   border:1px solid rgba(201,162,39,0.24);
   color:#ded8bd;
   background:rgba(255,255,255,0.04);
-  font-size:10px;
+  font-size:9px;
   letter-spacing:2px;
   text-transform:uppercase;
 }
-.hero-spline-stage{
-  position:relative;
-  z-index:2;
-  min-height:280px;
-  isolation:isolate;
+@keyframes archonWordCycle{
+  0%{opacity:0;transform:translateY(110%)}
+  10%,28%{opacity:1;transform:translateY(0)}
+  38%,100%{opacity:0;transform:translateY(-120%)}
 }
-.hero-spline-stage spline-viewer{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-}
-.spline-loader{
-  position:absolute;
-  inset:0;
-  z-index:0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:14px;
-  background:radial-gradient(circle at 50% 50%, rgba(201,162,39,0.12), transparent 42%);
-}
-.spline-loader span{
-  width:36px;
-  height:36px;
-  border-radius:50%;
-  border:2px solid rgba(255,255,255,0.14);
-  border-top-color:var(--gold);
-  animation:splineSpin 1s linear infinite;
-}
-.spline-loader small{
-  color:#ded8bd;
-  font-size:10px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-}
-@keyframes splineSpin{to{transform:rotate(360deg)}}
 .metric-grid{
   position:relative;
   z-index:1;
@@ -1471,8 +1518,7 @@ footer{
   .local-grid{grid-template-columns:1fr}
   .system-card h3{font-size:clamp(18px, 3vw, 26px)}
   .sector-panel h3{font-size:clamp(22px, 4vw, 36px)}
-  .hero-spline-card,
-  .hero-spline-stage{min-height:360px}
+  .hero-animated-card{min-height:300px}
 }
 .hamburger{
   display:none;
@@ -1594,8 +1640,7 @@ footer{
     flex-direction:column;
     align-items:stretch;
   }
-  .hero-spline-card,
-  .hero-spline-stage{min-height:300px}
+  .hero-animated-card{min-height:auto}
 }
 @media (max-width: 560px){
   .shell,
@@ -1603,11 +1648,12 @@ footer{
   .hero{padding-top:46px}
   .hero h1{font-size:clamp(34px, 11vw, 62px)}
   .section-title{font-size:clamp(30px, 10vw, 54px)}
-  .spline-meta{display:grid}
+  .animated-meta,
+  .animated-actions{display:grid}
 }
 @media (prefers-reduced-motion: reduce){
-  .hero-spline-card::before{filter:none;opacity:0.26}
-  .spline-loader span{animation:none}
+  .rotating-words span{animation:none}
+  .rotating-words span:first-child{opacity:1;transform:none}
 }
 
 /* ── Modelo Archon ───────────────────────────────────── */
@@ -2531,10 +2577,25 @@ footer{
             <span class="panel-status">Activo · Zaragoza</span>
           </div>
           <p class="panel-copy" id="sectorNarrative">Cuando la tienda vende, el problema ya no es vender más. El problema es que pagos, stock, envíos y soporte cruzan demasiadas manos antes de resolverse bien.</p>
-          <div class="hero-spline-card" aria-label="Escena 3D interactiva de arquitectura operativa Archon">
-            <div class="hero-spline-stage">
-              <div class="spline-loader" aria-hidden="true"><span></span><small>Escena 3D</small></div>
-              <spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"></spline-viewer>
+          <div class="hero-animated-card" aria-label="Mensaje animado de Archon Consultancies">
+            <p class="animated-kicker">Sistema Archon</p>
+            <h3 class="animated-title">
+              <span>Tu empresa necesita</span>
+              <span class="rotating-words" aria-label="precisión, control y arquitectura">
+                <span>precisión.</span>
+                <span>control.</span>
+                <span>arquitectura.</span>
+              </span>
+            </h3>
+            <p class="animated-copy">Diseñamos IA operativa para que ventas, soporte, datos y decisiones funcionen bajo una misma lógica.</p>
+            <div class="animated-actions">
+              <a href="#auditoria">Reservar auditoría 33 min</a>
+              <a href="#modelo">Ver método Archon</a>
+            </div>
+            <div class="animated-meta" aria-label="Pilares del sistema Archon">
+              <span>Diagnóstico</span>
+              <span>Automatización</span>
+              <span>Ejecución</span>
             </div>
           </div>
           <div class="sector-switch" aria-label="Selección de sector">
@@ -3530,6 +3591,5 @@ footer{
 <script src="assets/js/archon-i18n.js" defer></script>
 <script src="assets/js/archon-main.js" defer></script>
 <script src="assets/js/archon-chatbot.js?v=20260419e" defer></script>
-<script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
 </body>
 </html>
