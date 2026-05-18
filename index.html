@@ -664,6 +664,95 @@ nav.scrolled{
   letter-spacing:2px;
   text-transform:uppercase;
 }
+.hero-spline-card{
+  position:relative;
+  z-index:1;
+  margin-top:22px;
+  min-height:280px;
+  overflow:hidden;
+  border:1px solid rgba(201,162,39,0.22);
+  background:#050505;
+  color:#f7f7f4;
+  box-shadow:0 24px 70px rgba(0,0,0,0.34);
+}
+.hero-spline-card::before{
+  content:"";
+  position:absolute;
+  width:118%;
+  height:118%;
+  left:-16%;
+  top:-58%;
+  pointer-events:none;
+  background:radial-gradient(ellipse at center, rgba(255,255,255,0.20), rgba(201,162,39,0.08) 28%, transparent 64%);
+  filter:blur(40px);
+  opacity:0.76;
+}
+.hero-spline-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(5,5,5,0.22), rgba(5,5,5,0.72)),
+    radial-gradient(circle at 72% 42%, rgba(201,162,39,0.12), transparent 38%);
+}
+.spline-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:26px;
+}
+.spline-meta span{
+  min-height:38px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 12px;
+  border:1px solid rgba(201,162,39,0.24);
+  color:#ded8bd;
+  background:rgba(255,255,255,0.04);
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+.hero-spline-stage{
+  position:relative;
+  z-index:2;
+  min-height:280px;
+  isolation:isolate;
+}
+.hero-spline-stage spline-viewer{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
+.spline-loader{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  background:radial-gradient(circle at 50% 50%, rgba(201,162,39,0.12), transparent 42%);
+}
+.spline-loader span{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,0.14);
+  border-top-color:var(--gold);
+  animation:splineSpin 1s linear infinite;
+}
+.spline-loader small{
+  color:#ded8bd;
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+@keyframes splineSpin{to{transform:rotate(360deg)}}
 .metric-grid{
   position:relative;
   z-index:1;
@@ -1382,6 +1471,8 @@ footer{
   .local-grid{grid-template-columns:1fr}
   .system-card h3{font-size:clamp(18px, 3vw, 26px)}
   .sector-panel h3{font-size:clamp(22px, 4vw, 36px)}
+  .hero-spline-card,
+  .hero-spline-stage{min-height:360px}
 }
 .hamburger{
   display:none;
@@ -1503,6 +1594,8 @@ footer{
     flex-direction:column;
     align-items:stretch;
   }
+  .hero-spline-card,
+  .hero-spline-stage{min-height:300px}
 }
 @media (max-width: 560px){
   .shell,
@@ -1510,6 +1603,11 @@ footer{
   .hero{padding-top:46px}
   .hero h1{font-size:clamp(34px, 11vw, 62px)}
   .section-title{font-size:clamp(30px, 10vw, 54px)}
+  .spline-meta{display:grid}
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-spline-card::before{filter:none;opacity:0.26}
+  .spline-loader span{animation:none}
 }
 
 /* ── Modelo Archon ───────────────────────────────────── */
@@ -2433,6 +2531,12 @@ footer{
             <span class="panel-status">Activo · Zaragoza</span>
           </div>
           <p class="panel-copy" id="sectorNarrative">Cuando la tienda vende, el problema ya no es vender más. El problema es que pagos, stock, envíos y soporte cruzan demasiadas manos antes de resolverse bien.</p>
+          <div class="hero-spline-card" aria-label="Escena 3D interactiva de arquitectura operativa Archon">
+            <div class="hero-spline-stage">
+              <div class="spline-loader" aria-hidden="true"><span></span><small>Escena 3D</small></div>
+              <spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"></spline-viewer>
+            </div>
+          </div>
           <div class="sector-switch" aria-label="Selección de sector">
             <button class="sector-btn active" type="button" data-sector="ecommerce">E-commerce</button>
             <button class="sector-btn" type="button" data-sector="services">Servicios</button>
@@ -3426,5 +3530,6 @@ footer{
 <script src="assets/js/archon-i18n.js" defer></script>
 <script src="assets/js/archon-main.js" defer></script>
 <script src="assets/js/archon-chatbot.js?v=20260419e" defer></script>
+<script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
 </body>
 </html>
