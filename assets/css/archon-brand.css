@@ -73,14 +73,18 @@ body.archon-rebrand::before{
 .brand-logo{
   display:inline-flex;
   align-items:center;
-  gap:16px;
+  gap:clamp(18px, 2vw, 26px);
   color:var(--color-text);
   text-decoration:none;
+  flex:0 0 auto;
 }
 
 .brand-logo-mark{
-  width:clamp(70px, 7vw, 92px);
-  height:62px;
+  width:clamp(88px, 7.4vw, 118px);
+  height:auto;
+  aspect-ratio:5778 / 4058;
+  display:block;
+  flex:0 0 auto;
   object-fit:contain;
 }
 
@@ -276,6 +280,44 @@ body.archon-rebrand::before{
   padding:clamp(72px, 9vw, 132px) 0;
 }
 
+.brand-section--logo{
+  position:relative;
+  overflow:hidden;
+}
+
+.brand-section--logo .brand-shell{
+  position:relative;
+}
+
+.brand-section--logo .brand-shell > :not(.brand-section-logo){
+  position:relative;
+  z-index:1;
+}
+
+.brand-section-logo{
+  position:absolute;
+  top:clamp(2px, 1.5vw, 20px);
+  right:clamp(-16px, -1vw, 0px);
+  z-index:0;
+  width:clamp(300px, 28vw, 470px);
+  height:auto;
+  aspect-ratio:6671 / 6195;
+  object-fit:contain;
+  opacity:0.26;
+  pointer-events:none;
+  user-select:none;
+}
+
+@media (min-width: 901px){
+  .brand-section--logo .brand-title{
+    max-width:min(850px, 68%);
+  }
+
+  .brand-section--logo .brand-lead{
+    max-width:min(720px, 58%);
+  }
+}
+
 .brand-section--compact{
   padding:clamp(52px, 7vw, 88px) 0;
 }
@@ -348,9 +390,26 @@ body.archon-rebrand::before{
   right:18px;
   bottom:18px;
   width:min(34%, 180px);
+  height:auto;
+  aspect-ratio:6671 / 6195;
   opacity:0.045;
   pointer-events:none;
   user-select:none;
+}
+
+.brand-card-logo--large{
+  right:clamp(18px, 3vw, 38px);
+  bottom:clamp(18px, 3vw, 38px);
+  width:min(58%, 360px);
+  height:auto;
+  aspect-ratio:5778 / 4058;
+  object-fit:contain;
+  opacity:0.13;
+}
+
+.brand-card--logo-space{
+  min-height:100%;
+  padding-bottom:clamp(190px, 16vw, 280px);
 }
 
 .brand-card--accent{
@@ -744,10 +803,32 @@ body.archon-rebrand::before{
   .brand-card-logo{
     width:min(48%, 220px);
   }
+
+  .brand-section-logo{
+    position:relative;
+    right:auto;
+    top:auto;
+    display:block;
+    width:min(72vw, 320px);
+    margin:0 0 24px auto;
+    opacity:0.18;
+  }
+
+  .brand-card-logo--large{
+    width:min(60%, 260px);
+  }
 }
 
 @media (max-width: 560px){
   :root{--space-shell:min(100% - 28px, 1180px)}
+
+  .brand-logo{
+    gap:14px;
+  }
+
+  .brand-logo-mark{
+    width:82px;
+  }
 
   .brand-btn-row,
   .brand-btn{
@@ -770,5 +851,18 @@ body.archon-rebrand::before{
   .brand-contact-row a,
   .brand-contact-row span:last-child{
     text-align:left;
+  }
+
+  .brand-section-logo{
+    width:min(78vw, 260px);
+    margin-left:0;
+  }
+
+  .brand-card--logo-space{
+    padding-bottom:170px;
+  }
+
+  .brand-card-logo--large{
+    width:min(68%, 220px);
   }
 }
