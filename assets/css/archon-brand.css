@@ -619,9 +619,29 @@ body.archon-rebrand::before{
 
 .brand-team-card{
   display:grid;
-  grid-template-columns:96px minmax(0,1fr);
+  grid-template-columns:118px minmax(0,1fr);
   gap:22px;
   align-items:start;
+}
+
+.brand-person-photo{
+  width:100%;
+  aspect-ratio:3 / 4;
+  height:auto;
+  display:block;
+  border:1px solid var(--color-line);
+  background:linear-gradient(135deg, #FFFFFF, #E6E0D6);
+  object-fit:cover;
+  object-position:center center;
+  box-shadow:var(--shadow-card);
+}
+
+.brand-person-photo--pablo{
+  object-position:center top;
+}
+
+.brand-person-photo--evelyn{
+  object-position:center 42%;
 }
 
 .brand-avatar{
@@ -649,7 +669,7 @@ body.archon-rebrand::before{
 
 .brand-profile-card{
   display:grid;
-  grid-template-columns:120px minmax(0,1fr);
+  grid-template-columns:minmax(160px, 190px) minmax(0,1fr);
   gap:28px;
   align-items:start;
 }
@@ -657,6 +677,11 @@ body.archon-rebrand::before{
 .brand-profile-card .brand-avatar{
   width:120px;
   height:120px;
+}
+
+.brand-profile-card .brand-person-photo{
+  max-width:190px;
+  height:auto;
 }
 
 .brand-profile-list{
