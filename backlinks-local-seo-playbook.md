@@ -34,7 +34,7 @@ First photo set to upload:
 
 - Logo
 - Hero screenshot of the homepage
-- Screenshot of `consultoria-ia.html`
+- Screenshot of `consultoria-ia-zaragoza.html`
 - Screenshot of `agencia-ia.html`
 - Screenshot of `automatizacion-ia-empresas.html`
 
@@ -140,7 +140,7 @@ Publish one new page or article every 2 weeks around:
 Always route links like this:
 
 - Broad brand or mixed intent -> home
-- Strategy and diagnosis intent -> `consultoria-ia.html`
+- Strategy and diagnosis intent -> `consultoria-ia-zaragoza.html`
 - Execution and implementation intent -> `agencia-ia.html`
 - Process optimization intent -> `automatizacion-ia-empresas.html`
 

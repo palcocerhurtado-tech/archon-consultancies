@@ -15,7 +15,7 @@ Name: `ES - Search - Consultoria IA`
 
 Landing page:
 
-- `https://archonconsultancies.com/consultoria-ia.html`
+- `https://archonconsultancies.com/consultoria-ia-zaragoza.html`
 
 Core keywords:
 

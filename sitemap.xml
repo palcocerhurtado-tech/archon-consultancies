@@ -1,160 +1,321 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ═══════════════════════════════════════════
+       PÁGINAS PRINCIPALES — Prioridad alta
+  ════════════════════════════════════════════ -->
   <url>
     <loc>https://archonconsultancies.com/</loc>
-    <lastmod>2026-04-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://archonconsultancies.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archonconsultancies.com/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/"/>
+    <lastmod>2026-05-27</lastmod>
     <priority>1.0</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/blog.html</loc>
+    <loc>https://archonconsultancies.com/intelligence</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://archonconsultancies.com/intelligence"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archonconsultancies.com/intelligence?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/intelligence"/>
+    <lastmod>2026-05-27</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://archonconsultancies.com/atelier</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://archonconsultancies.com/atelier"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archonconsultancies.com/atelier?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/atelier"/>
+    <lastmod>2026-05-27</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://archonconsultancies.com/casos</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://archonconsultancies.com/casos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archonconsultancies.com/casos?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/casos"/>
+    <lastmod>2026-05-27</lastmod>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════
+       LANDINGS SEO LOCAL Y SERVICIOS — Zaragoza
+  ════════════════════════════════════════════ -->
+  <url>
+    <loc>https://archonconsultancies.com/consultoria-ia-zaragoza</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://archonconsultancies.com/consultoria-ia-zaragoza"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archonconsultancies.com/consultoria-ia-zaragoza?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/consultoria-ia-zaragoza"/>
+    <lastmod>2026-05-27</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://archonconsultancies.com/automatizacion-procesos-ia-zaragoza</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://archonconsultancies.com/automatizacion-procesos-ia-zaragoza"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archonconsultancies.com/automatizacion-procesos-ia-zaragoza?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/automatizacion-procesos-ia-zaragoza"/>
+    <lastmod>2026-05-27</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://archonconsultancies.com/crm-marketing-automation-zaragoza</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://archonconsultancies.com/crm-marketing-automation-zaragoza"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archonconsultancies.com/crm-marketing-automation-zaragoza?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/crm-marketing-automation-zaragoza"/>
+    <lastmod>2026-05-27</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://archonconsultancies.com/chatbots-agentes-ia-zaragoza</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://archonconsultancies.com/chatbots-agentes-ia-zaragoza"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archonconsultancies.com/chatbots-agentes-ia-zaragoza?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/chatbots-agentes-ia-zaragoza"/>
+    <lastmod>2026-05-27</lastmod>
+    <priority>0.82</priority>
+  </url>
+
+  <url>
+    <loc>https://archonconsultancies.com/digital-brain-infrastructure</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://archonconsultancies.com/digital-brain-infrastructure"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archonconsultancies.com/digital-brain-infrastructure?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/digital-brain-infrastructure"/>
+    <lastmod>2026-05-27</lastmod>
+    <priority>0.82</priority>
+  </url>
+
+  <url>
+    <loc>https://archonconsultancies.com/gestion-digital-integral-zaragoza</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://archonconsultancies.com/gestion-digital-integral-zaragoza"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archonconsultancies.com/gestion-digital-integral-zaragoza?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/gestion-digital-integral-zaragoza"/>
+    <lastmod>2026-05-27</lastmod>
+    <priority>0.82</priority>
+  </url>
+
+  <url>
+    <loc>https://archonconsultancies.com/marketing-estrategico-zaragoza</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://archonconsultancies.com/marketing-estrategico-zaragoza"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archonconsultancies.com/marketing-estrategico-zaragoza?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/marketing-estrategico-zaragoza"/>
+    <lastmod>2026-05-27</lastmod>
+    <priority>0.82</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════
+       PÁGINAS DE SERVICIO INTELLIGENCE — Legacy
+  ════════════════════════════════════════════ -->
+  <url>
+    <loc>https://archonconsultancies.com/agencia-ia</loc>
     <lastmod>2026-04-25</lastmod>
     <priority>0.85</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/consultoria-ia.html</loc>
+    <loc>https://archonconsultancies.com/automatizacion-ia-empresas</loc>
     <lastmod>2026-04-25</lastmod>
-    <priority>0.9</priority>
+    <priority>0.82</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/agencia-ia.html</loc>
-    <lastmod>2026-04-25</lastmod>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://archonconsultancies.com/automatizacion-ia-empresas.html</loc>
-    <lastmod>2026-04-25</lastmod>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://archonconsultancies.com/consultora-ia-zaragoza.html</loc>
-    <lastmod>2026-04-25</lastmod>
-    <priority>0.86</priority>
-  </url>
-  <url>
-    <loc>https://archonconsultancies.com/precio-consultoria-ia-empresas.html</loc>
+    <loc>https://archonconsultancies.com/consultora-ia-zaragoza</loc>
     <lastmod>2026-04-25</lastmod>
     <priority>0.84</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/radiografia-operativa-ia.html</loc>
+    <loc>https://archonconsultancies.com/precio-consultoria-ia-empresas</loc>
     <lastmod>2026-04-25</lastmod>
-    <priority>0.84</priority>
+    <priority>0.82</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/sobre-archon.html</loc>
-    <lastmod>2026-04-12</lastmod>
-    <priority>0.8</priority>
+    <loc>https://archonconsultancies.com/radiografia-operativa-ia</loc>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.82</priority>
   </url>
+
+  <!-- ═══════════════════════════════════════════
+       ABOUT & EQUIPO
+  ════════════════════════════════════════════ -->
   <url>
-    <loc>https://archonconsultancies.com/pablo-alcocer-hurtado.html</loc>
-    <lastmod>2026-04-12</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://archonconsultancies.com/consultoria-ia-para-pymes.html</loc>
-    <lastmod>2026-04-12</lastmod>
+    <loc>https://archonconsultancies.com/equipo</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://archonconsultancies.com/equipo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archonconsultancies.com/equipo?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/equipo"/>
+    <lastmod>2026-05-27</lastmod>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/agencia-ia-para-ecommerce.html</loc>
-    <lastmod>2026-04-12</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://archonconsultancies.com/agentes-ia-soporte-cliente.html</loc>
-    <lastmod>2026-04-12</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://archonconsultancies.com/cuanto-cuesta-automatizar-ecommerce.html</loc>
-    <lastmod>2026-04-12</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://archonconsultancies.com/consultoria-ia-vs-agencia-ia.html</loc>
-    <lastmod>2026-04-12</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <!-- Pillar page esotérica -->
-  <url>
-    <loc>https://archonconsultancies.com/777.html</loc>
+    <loc>https://archonconsultancies.com/sobre-archon</loc>
     <lastmod>2026-04-12</lastmod>
     <priority>0.65</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/33.html</loc>
-    <lastmod>2026-04-12</lastmod>
-    <priority>0.65</priority>
+    <loc>https://archonconsultancies.com/pablo-alcocer-hurtado</loc>
+    <lastmod>2026-05-27</lastmod>
+    <priority>0.7</priority>
   </url>
-  <!-- Artículos blog SEO nuevos -->
+
+  <!-- ═══════════════════════════════════════════
+       BLOG
+  ════════════════════════════════════════════ -->
   <url>
-    <loc>https://archonconsultancies.com/que-es-automatizacion-ia.html</loc>
+    <loc>https://archonconsultancies.com/blog</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://archonconsultancies.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archonconsultancies.com/blog?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/blog"/>
+    <lastmod>2026-05-27</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Artículos de blog SEO — Intelligence cluster -->
+  <url>
+    <loc>https://archonconsultancies.com/que-es-automatizacion-ia</loc>
     <lastmod>2026-04-12</lastmod>
     <priority>0.75</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/herramientas-automatizacion-ia-2026.html</loc>
+    <loc>https://archonconsultancies.com/herramientas-automatizacion-ia-2026</loc>
     <lastmod>2026-04-12</lastmod>
     <priority>0.75</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/como-elegir-consultora-ia-zaragoza.html</loc>
+    <loc>https://archonconsultancies.com/como-elegir-consultora-ia-zaragoza</loc>
     <lastmod>2026-04-12</lastmod>
     <priority>0.75</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/automatizacion-n8n-empresas.html</loc>
+    <loc>https://archonconsultancies.com/automatizacion-n8n-empresas</loc>
     <lastmod>2026-04-25</lastmod>
     <priority>0.75</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/agentes-ia-para-empresas.html</loc>
+    <loc>https://archonconsultancies.com/agentes-ia-para-empresas</loc>
     <lastmod>2026-04-12</lastmod>
     <priority>0.75</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/chatbots-ia-vs-tradicionales.html</loc>
+    <loc>https://archonconsultancies.com/chatbots-ia-vs-tradicionales</loc>
     <lastmod>2026-04-25</lastmod>
     <priority>0.75</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/roi-automatizacion-ia.html</loc>
+    <loc>https://archonconsultancies.com/roi-automatizacion-ia</loc>
     <lastmod>2026-04-12</lastmod>
     <priority>0.75</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/casos-uso-ia-pymes-espana.html</loc>
+    <loc>https://archonconsultancies.com/casos-uso-ia-pymes-espana</loc>
     <lastmod>2026-04-12</lastmod>
     <priority>0.75</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/integrar-ia-crm-erp.html</loc>
+    <loc>https://archonconsultancies.com/integrar-ia-crm-erp</loc>
     <lastmod>2026-04-25</lastmod>
     <priority>0.75</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/futuro-automatizacion-espana-2026.html</loc>
+    <loc>https://archonconsultancies.com/futuro-automatizacion-espana-2026</loc>
     <lastmod>2026-04-25</lastmod>
     <priority>0.75</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/automatizacion-atencion-cliente-ia.html</loc>
+    <loc>https://archonconsultancies.com/automatizacion-atencion-cliente-ia</loc>
     <lastmod>2026-04-25</lastmod>
     <priority>0.75</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/errores-implementar-ia-empresas.html</loc>
+    <loc>https://archonconsultancies.com/errores-implementar-ia-empresas</loc>
     <lastmod>2026-04-12</lastmod>
     <priority>0.75</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/llms.txt</loc>
+    <loc>https://archonconsultancies.com/consultoria-ia-para-pymes</loc>
     <lastmod>2026-04-12</lastmod>
-    <priority>0.5</priority>
+    <priority>0.72</priority>
   </url>
+
   <url>
-    <loc>https://archonconsultancies.com/como-construi-bot-trading-cripto.html</loc>
+    <loc>https://archonconsultancies.com/agencia-ia-para-ecommerce</loc>
+    <lastmod>2026-04-12</lastmod>
+    <priority>0.72</priority>
+  </url>
+
+  <url>
+    <loc>https://archonconsultancies.com/agentes-ia-soporte-cliente</loc>
+    <lastmod>2026-04-12</lastmod>
+    <priority>0.72</priority>
+  </url>
+
+  <url>
+    <loc>https://archonconsultancies.com/cuanto-cuesta-automatizar-ecommerce</loc>
+    <lastmod>2026-04-12</lastmod>
+    <priority>0.72</priority>
+  </url>
+
+  <url>
+    <loc>https://archonconsultancies.com/consultoria-ia-vs-agencia-ia</loc>
+    <lastmod>2026-04-12</lastmod>
+    <priority>0.72</priority>
+  </url>
+
+  <url>
+    <loc>https://archonconsultancies.com/como-construi-bot-trading-cripto</loc>
     <lastmod>2026-04-14</lastmod>
-    <priority>0.74</priority>
+    <priority>0.7</priority>
   </url>
+
+  <!-- ═══════════════════════════════════════════
+       RECURSOS Y GLOSARIO
+  ════════════════════════════════════════════ -->
+  <url>
+    <loc>https://archonconsultancies.com/glosario</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://archonconsultancies.com/glosario"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://archonconsultancies.com/glosario?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/glosario"/>
+    <lastmod>2026-05-27</lastmod>
+    <priority>0.65</priority>
+  </url>
+
+  <url>
+    <loc>https://archonconsultancies.com/contacto</loc>
+    <lastmod>2026-05-27</lastmod>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════
+       PÁGINAS LEGALES
+  ════════════════════════════════════════════ -->
+  <url>
+    <loc>https://archonconsultancies.com/aviso-legal</loc>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://archonconsultancies.com/privacidad</loc>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>

@@ -40,4 +40,15 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://archonconsultancies.com/sitemap.xml
+
+# Ficheros para motores generativos de IA (GEO)
+# Referencia: https://llmstxt.org
+# llms.txt: resumen ejecutivo
+# llms-full.txt: contenido completo consolidado

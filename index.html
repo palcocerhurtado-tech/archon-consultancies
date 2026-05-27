@@ -12,7 +12,7 @@ gtag("config", "G-1DEHH0QHZ5");
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="MD0MtiYe9We5JQqG_ZiAK8qcA6-PZyUIP-LVGOFcgAM">
-<meta name="description" content="Archon Consultancies une IA, automatización, operaciones y marketing estratégico bajo una misma arquitectura. Intelligence para sistemas. Atelier para crecimiento medible.">
+<meta name="description" content="Archon: IA y automatización con Intelligence; marketing estratégico con Atelier. Dos disciplinas, una arquitectura. Zaragoza, servicio en toda España.">
 <meta name="author" content="Archon Consultancies">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -38,10 +38,10 @@ gtag("config", "G-1DEHH0QHZ5");
 <meta name="twitter:description" content="Automatizamos lo que te frena. Comunicamos lo que te hace crecer.">
 <meta name="twitter:image" content="https://archonconsultancies.com/assets/archon/banner.jpg">
 <meta name="theme-color" content="#F4F1EC">
-<title>Archon Consultancies | IA, operaciones y marketing estratégico</title>
+<title>Archon Consultancies | IA, automatización y marketing</title>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/archon-brand.css">
 <link rel="stylesheet" href="assets/css/archon-chatbot.css?v=20260419e">
 <script type="application/ld+json">
@@ -52,8 +52,14 @@ gtag("config", "G-1DEHH0QHZ5");
       "@type": ["LocalBusiness", "ProfessionalService"],
       "@id": "https://archonconsultancies.com/#org",
       "name": "Archon Consultancies",
+      "legalName": "Archon Consultancies",
       "url": "https://archonconsultancies.com",
-      "logo": "https://archonconsultancies.com/assets/archon/archon-ac-solid-gold.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://archonconsultancies.com/assets/archon/archon-ac-solid-gold.png",
+        "width": 512,
+        "height": 512
+      },
       "image": "https://archonconsultancies.com/assets/archon/banner.jpg",
       "description": "Consultora con dos líneas de negocio: Archon Intelligence para IA, automatización y optimización operativa; Archon Atelier para marketing estratégico con enfoque tecnológico.",
       "slogan": "Automatizamos lo que te frena. Comunicamos lo que te hace crecer.",
@@ -64,29 +70,68 @@ gtag("config", "G-1DEHH0QHZ5");
         "streetAddress": "Centro de Zaragoza",
         "addressLocality": "Zaragoza",
         "addressRegion": "Aragón",
+        "postalCode": "50001",
         "addressCountry": "ES"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.6488,
+        "longitude": -0.8891
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
       "areaServed": [
         {"@type": "City", "name": "Zaragoza"},
+        {"@type": "AdministrativeArea", "name": "Aragón"},
         {"@type": "Country", "name": "España"}
       ],
+      "priceRange": "€€",
       "founder": {
         "@type": "Person",
+        "@id": "https://archonconsultancies.com/equipo#pablo",
         "name": "Pablo Alcocer Hurtado",
         "jobTitle": "Fundador · Dirección técnica e IA",
-        "url": "https://archonconsultancies.com/equipo"
+        "url": "https://archonconsultancies.com/pablo-alcocer-hurtado",
+        "sameAs": [
+          "https://www.linkedin.com/in/pablo-alcocer-hurtado-a0bb573b6",
+          "https://github.com/palcocerhurtado-tech"
+        ]
       },
       "employee": {
         "@type": "Person",
+        "@id": "https://archonconsultancies.com/equipo#evelyn",
         "name": "Evelyn González Pérez",
         "jobTitle": "Socia · Dirección de marketing estratégico",
         "url": "https://archonconsultancies.com/equipo"
       },
       "sameAs": [
+        "https://www.instagram.com/archon.consultancies/",
         "https://www.linkedin.com/in/pablo-alcocer-hurtado-a0bb573b6",
-        "https://www.instagram.com/pabloalcoceroficial33/"
-      ],
-      "priceRange": "0€ – 5.650€"
+        "https://github.com/palcocerhurtado-tech"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://archonconsultancies.com/#website",
+      "url": "https://archonconsultancies.com",
+      "name": "Archon Consultancies",
+      "description": "IA, automatización y marketing estratégico para empresas.",
+      "publisher": {"@id": "https://archonconsultancies.com/#org"},
+      "inLanguage": ["es", "en"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://archonconsultancies.com/blog?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
     },
     {
       "@type": "Service",
@@ -95,36 +140,99 @@ gtag("config", "G-1DEHH0QHZ5");
       "serviceType": "Consultoría de IA, automatización y optimización operativa",
       "description": "Automatización de procesos internos, implementación de IA en pymes, Digital Brain Infrastructure, integración de herramientas, trazabilidad y supervisión humana sobre sistemas automatizados.",
       "provider": {"@id": "https://archonconsultancies.com/#org"},
-      "areaServed": {"@type": "Country", "name": "España"}
-    },
-    {
-      "@type": "Service",
-      "@id": "https://archonconsultancies.com/#atelier-gestion-digital",
-      "name": "Gestión Digital Integral",
-      "serviceType": "Marketing estratégico con enfoque tecnológico",
-      "description": "Servicio modular de Archon Atelier: web y SEO técnico, contenido y redes sociales, blog orgánico, Meta Ads, CRM, fidelización y reporting.",
-      "provider": {"@id": "https://archonconsultancies.com/#org"},
-      "areaServed": {"@type": "Country", "name": "España"},
-      "offers": {
-        "@type": "Offer",
-        "price": "850",
-        "priceCurrency": "EUR",
-        "category": "monthly",
-        "availability": "https://schema.org/InStock",
-        "url": "https://archonconsultancies.com/atelier"
+      "areaServed": [
+        {"@type": "Country", "name": "España"}
+      ],
+      "url": "https://archonconsultancies.com/intelligence",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios Archon Intelligence",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Radiografía Pro",
+            "description": "Auditoría operativa completa con mapa de fricciones, cuellos de botella y hoja de ruta priorizada. Entregable en 72 horas.",
+            "price": "250",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Proyecto por hitos",
+            "description": "Implantación completa de automatizaciones e IA. Alcance definido tras auditoría.",
+            "price": "950",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Mantenimiento y Calidad Total",
+            "description": "Monitorización continua, mejoras mensuales y soporte prioritario. Sin permanencia.",
+            "price": "350",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
       }
     },
     {
       "@type": "Service",
-      "@id": "https://archonconsultancies.com/#atelier-setup",
-      "name": "Setup inicial Atelier",
-      "description": "Auditoría web técnica, SEO, keyword research, Core Web Vitals y configuración de analítica con GA4, Tag Manager, Search Console, Meta Business y píxel.",
+      "@id": "https://archonconsultancies.com/#atelier",
+      "name": "Archon Atelier",
+      "serviceType": "Marketing estratégico con enfoque tecnológico",
+      "description": "Marketing diseñado como sistema: web, SEO técnico, contenido, redes sociales, blog orgánico, Meta Ads, CRM, fidelización y reporting mensual.",
       "provider": {"@id": "https://archonconsultancies.com/#org"},
-      "offers": {
-        "@type": "Offer",
-        "price": "550",
-        "priceCurrency": "EUR",
-        "url": "https://archonconsultancies.com/atelier"
+      "areaServed": [{"@type": "Country", "name": "España"}],
+      "url": "https://archonconsultancies.com/atelier",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios Archon Atelier",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Gestión Digital Integral",
+            "description": "Servicio flagship de Archon Atelier: web, SEO, redes, blog, Meta Ads, CRM y reporting. Setup inicial incluido.",
+            "price": "850",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Setup inicial Atelier",
+            "description": "Auditoría web, SEO técnico, keyword research, Core Web Vitals, GA4, Tag Manager, Search Console, Meta Business y píxel.",
+            "price": "550",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Mantenimiento web + SEO",
+            "price": "300",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Gestión de redes sociales",
+            "price": "280",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Blog SEO",
+            "price": "150",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Gestión Meta Ads",
+            "price": "100",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
       }
     },
     {
@@ -132,18 +240,42 @@ gtag("config", "G-1DEHH0QHZ5");
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "¿Qué es Archon Consultancies?",
+          "name": "¿Qué diferencia hay entre Archon Intelligence y Archon Atelier?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Archon Consultancies es una consultora con dos líneas: Intelligence para IA, automatización y sistemas operativos; Atelier para marketing estratégico, contenido, SEO, Meta Ads y crecimiento medible."
+            "text": "Archon Intelligence se centra en IA aplicada, automatización de procesos y optimización operativa interna: reduce trabajo manual, fricciones y dependencia de personas clave. Archon Atelier se centra en marketing estratégico con enfoque tecnológico: web, SEO, contenido, redes, Meta Ads, CRM y crecimiento medible. Ambas líneas operan bajo la misma arquitectura y pueden contratarse juntas o por separado."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Qué diferencia a Archon Atelier de una agencia de marketing genérica?",
+          "name": "¿Cuánto cuesta automatizar procesos con IA en una pyme?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Atelier diseña marketing como sistema: planificación semanal, datos, creatividad, SEO, redes, campañas, CRM y reporting bajo una misma arquitectura."
+            "text": "El punto de entrada es la Radiografía Pro de Archon Intelligence a 250 €, que entrega un mapa completo de fricciones y hoja de ruta en 72 horas. Los proyectos de implantación por hitos parten de 950 €. El mantenimiento continuo cuesta 350 €/mes sin permanencia. La auditoría inicial de 33 minutos es gratuita."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué incluye la Gestión Digital Integral de Archon Atelier?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La Gestión Digital Integral cuesta 850 €/mes (más setup único de 550 €) e incluye: mantenimiento web y SEO técnico, creación y gestión de redes sociales, blog orgánico con SEO, gestión de Meta Ads (inversión publicitaria no incluida), configuración de CRM y estrategia de fidelización, y reporting mensual de resultados."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Trabajáis solo en Zaragoza o en toda España?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Archon Consultancies tiene base en Zaragoza y presta servicio en toda España. Las reuniones de diagnóstico, seguimiento y presentación de resultados se realizan en remoto para cualquier ubicación. Los clientes de Zaragoza y Aragón pueden optar también por reuniones presenciales."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo contratar solo una de las dos líneas de servicio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Archon Intelligence y Archon Atelier se pueden contratar de forma independiente. No es obligatorio combinarlas, aunque muchos clientes se benefician de trabajar ambas verticales bajo una misma arquitectura de datos y criterio."
           }
         }
       ]
@@ -151,12 +283,13 @@ gtag("config", "G-1DEHH0QHZ5");
   ]
 }
 </script>
+<link rel="preload" as="image" type="image/webp" href="assets/archon/archon-ac-solid-gold.webp" fetchpriority="high">
 </head>
 <body class="archon-rebrand">
 <header class="brand-topbar">
   <div class="brand-shell brand-nav">
     <a class="brand-logo" href="#top" aria-label="Archon Consultancies">
-      <img class="brand-logo-mark" src="assets/archon/archon-ac-solid-gold.png" alt="Isotipo de Archon Consultancies" width="88" height="62">
+      <picture><source srcset="assets/archon/archon-ac-solid-gold.webp" type="image/webp"><img class="brand-logo-mark" src="assets/archon/archon-ac-solid-gold.png" alt="Isotipo de Archon Consultancies" width="88" height="62" loading="eager" fetchpriority="high"></picture>
       <span>
         <strong>Archon</strong>
         <span>Consultancies</span>
@@ -199,7 +332,7 @@ gtag("config", "G-1DEHH0QHZ5");
         </div>
       </div>
       <aside class="brand-hero-panel" aria-label="Líneas de negocio Archon">
-        <img class="brand-logo-watermark" src="assets/archon/archon-ac-outline-gold.png" alt="" aria-hidden="true" loading="lazy" width="6671" height="6195">
+        <picture><source srcset="assets/archon/archon-ac-outline-gold.webp" type="image/webp"><img class="brand-logo-watermark" src="assets/archon/archon-ac-outline-gold.png" alt="" aria-hidden="true" loading="lazy" width="600" height="557"></picture>
         <p class="brand-eyebrow" data-es="Nueva etapa" data-en="New chapter">Nueva etapa</p>
         <div class="brand-micro-grid">
           <article class="brand-micro-card">
@@ -222,7 +355,7 @@ gtag("config", "G-1DEHH0QHZ5");
       <p class="brand-eyebrow" data-es="Una firma, dos disciplinas" data-en="One firm, two disciplines">Una firma, dos disciplinas</p>
       <div class="brand-grid brand-grid--two">
         <article class="brand-card brand-card--accent">
-          <img class="brand-card-logo" src="assets/archon/archon-ac-outline-gold.png" alt="" aria-hidden="true" loading="lazy" width="6671" height="6195">
+          <picture><source srcset="assets/archon/archon-ac-outline-gold.webp" type="image/webp"><img class="brand-card-logo" src="assets/archon/archon-ac-outline-gold.png" alt="" aria-hidden="true" loading="lazy" width="600" height="557"></picture>
           <span class="brand-card-label">Intelligence</span>
           <h2 data-es="Procesos claros antes que más herramientas." data-en="Clear processes before more tools.">Procesos claros antes que más herramientas.</h2>
           <p data-es="Diseñamos infraestructuras de IA para que ventas, soporte, datos, operaciones y decisiones no dependan de memoria humana ni tareas repetitivas." data-en="We design AI infrastructures so sales, support, data, operations and decisions do not depend on human memory or repetitive tasks.">Diseñamos infraestructuras de IA para que ventas, soporte, datos, operaciones y decisiones no dependan de memoria humana ni tareas repetitivas.</p>
@@ -238,9 +371,42 @@ gtag("config", "G-1DEHH0QHZ5");
     </div>
   </section>
 
+  <section class="brand-section" id="verticales">
+    <div class="brand-shell">
+      <p class="brand-eyebrow">Verticales</p>
+      <h2 class="brand-title">Dónde suele romperse una pyme.</h2>
+      <div class="brand-grid brand-grid--two">
+        <article class="brand-card">
+          <span class="brand-card-label">Ecommerce</span>
+          <h3>Pedidos, stock y soporte que no acompañan a las ventas.</h3>
+          <p>Pedidos, stock, devoluciones, soporte, incidencias y reporting cuando la tienda vende pero la operativa no acompaña.</p>
+          <a class="brand-link" href="/agencia-ia-para-ecommerce">Ver solución ecommerce</a>
+        </article>
+        <article class="brand-card">
+          <span class="brand-card-label">Servicios profesionales</span>
+          <h3>Leads, presupuestos y seguimiento que dependen de memoria.</h3>
+          <p>Leads, presupuestos, agenda, propuestas, seguimiento comercial y tareas administrativas que no deberían depender de memoria humana.</p>
+          <a class="brand-link" href="/crm-marketing-automation-zaragoza">Ver solución servicios</a>
+        </article>
+        <article class="brand-card">
+          <span class="brand-card-label">Negocios locales premium</span>
+          <h3>Captación y fidelización sin sistema ni constancia.</h3>
+          <p>Captación, reseñas, CRM, fidelización, campañas y reporting para marcas que necesitan comunicar con constancia.</p>
+          <a class="brand-link" href="/gestion-digital-integral-zaragoza">Ver solución local</a>
+        </article>
+        <article class="brand-card">
+          <span class="brand-card-label">Equipos internos</span>
+          <h3>Documentación, informes y traspasos que consumen criterio.</h3>
+          <p>Documentación, onboarding, informes, validaciones, traspaso de información y tareas repetitivas que consumen criterio.</p>
+          <a class="brand-link" href="/automatizacion-procesos-ia-zaragoza">Ver solución operativa</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="brand-section brand-section--compact brand-section--logo" id="intelligence">
     <div class="brand-shell">
-      <img class="brand-section-logo" src="assets/archon/archon-ac-outline-gold.png" alt="" aria-hidden="true" loading="lazy" width="6671" height="6195">
+      <picture><source srcset="assets/archon/archon-ac-outline-gold.webp" type="image/webp"><img class="brand-section-logo" src="assets/archon/archon-ac-outline-gold.png" alt="" aria-hidden="true" loading="lazy" width="600" height="557"></picture>
       <p class="brand-eyebrow">Archon · Intelligence</p>
       <h2 class="brand-title" data-es="Automatización, IA y control operativo." data-en="Automation, AI and operational control.">Automatización, IA y control operativo.</h2>
       <p class="brand-lead" data-es="No se trata de meter IA por moda. Se trata de detectar fricción, ordenar datos, automatizar decisiones repetibles y mantener supervisión humana sobre lo importante." data-en="This is not about adding AI because it is fashionable. It is about finding friction, ordering data, automating repeatable decisions and keeping human supervision over what matters.">No se trata de meter IA por moda. Se trata de detectar fricción, ordenar datos, automatizar decisiones repetibles y mantener supervisión humana sobre lo importante.</p>
@@ -301,6 +467,55 @@ gtag("config", "G-1DEHH0QHZ5");
     </div>
   </section>
 
+  <section class="brand-section brand-section--compact" id="precios">
+    <div class="brand-shell">
+      <p class="brand-eyebrow">Precios</p>
+      <h2 class="brand-title">Empieza por claridad. Escala solo si tiene sentido.</h2>
+      <div class="brand-grid brand-grid--three">
+        <article class="brand-card">
+          <span class="brand-card-label">Diagnóstico</span>
+          <h3>Auditoría 33 minutos</h3>
+          <div class="brand-price">0 EUR<small>Sin compromiso</small></div>
+          <p>Una conversación corta para detectar si hay retorno real antes de invertir nada.</p>
+        </article>
+        <article class="brand-card brand-card--accent">
+          <span class="brand-card-label">Más contratado</span>
+          <h3>Radiografía Pro</h3>
+          <div class="brand-price">250 EUR<small>Pago único</small></div>
+          <p>Mapa de procesos, fricción, stack, riesgo, prioridades y hoja de ruta en 72h.</p>
+        </article>
+        <article class="brand-card">
+          <span class="brand-card-label">Ejecución</span>
+          <h3>Proyecto por hitos</h3>
+          <div class="brand-price">950+ EUR<small>Según alcance</small></div>
+          <p>Automatizaciones, integraciones y agentes desplegados por fases con entregables.</p>
+        </article>
+        <article class="brand-card">
+          <span class="brand-card-label">Sistema completo</span>
+          <h3>Full Stack Cerebro Archon</h3>
+          <div class="brand-price">2.500+ EUR<small>Pago por hitos</small></div>
+          <p>Fuente única de verdad, automatización, IA aplicada y supervisión integrada.</p>
+        </article>
+        <article class="brand-card">
+          <span class="brand-card-label">Continuidad Intelligence</span>
+          <h3>Mantenimiento y Calidad Total</h3>
+          <div class="brand-price">350 EUR<small>/ mes · sin permanencia</small></div>
+          <p>Monitorización, ajustes, soporte y mejora continua del sistema.</p>
+        </article>
+        <article class="brand-card">
+          <span class="brand-card-label">Continuidad Atelier</span>
+          <h3>Gestión Digital Integral</h3>
+          <div class="brand-price">850 EUR<small>/ mes + 550 EUR setup</small></div>
+          <p>Web, SEO, contenido, redes, blog, Meta Ads, CRM, fidelización y reporting.</p>
+        </article>
+      </div>
+      <div class="brand-btn-row">
+        <a class="brand-btn brand-btn--accent" href="/contacto">Reservar auditoría gratuita</a>
+        <a class="brand-btn brand-btn--ghost" href="/precio-consultoria-ia-empresas">Ver precios detallados</a>
+      </div>
+    </div>
+  </section>
+
   <section class="brand-section" id="manifiesto">
     <div class="brand-shell">
       <p class="brand-eyebrow" data-es="Manifiesto" data-en="Manifesto">Manifiesto</p>
@@ -320,7 +535,7 @@ gtag("config", "G-1DEHH0QHZ5");
       <p class="brand-lead" data-es="Sistemas y narrativa, IA y marca, datos y oficio. Dos direcciones, una arquitectura." data-en="Systems and narrative, AI and brand, data and craft. Two directions, one architecture.">Sistemas y narrativa, IA y marca, datos y oficio. Dos direcciones, una arquitectura.</p>
       <div class="brand-grid brand-grid--two" style="margin-top:34px">
         <article class="brand-card brand-team-card">
-          <img class="brand-person-photo brand-person-photo--pablo" src="assets/archon/pablo-alcocer-profile.png" alt="Pablo Alcocer Hurtado" loading="lazy" width="720" height="960">
+          <picture><source srcset="assets/archon/pablo-alcocer-profile.webp" type="image/webp"><img class="brand-person-photo brand-person-photo--pablo" src="assets/archon/pablo-alcocer-profile.jpg" alt="Pablo Alcocer Hurtado" loading="lazy" width="800" height="600"></picture>
           <div>
             <h3>Pablo Alcocer Hurtado</h3>
             <p class="brand-role" data-es="Fundador · Dirección técnica e IA" data-en="Founder · Technical and AI direction">Fundador · Dirección técnica e IA</p>
@@ -328,7 +543,7 @@ gtag("config", "G-1DEHH0QHZ5");
           </div>
         </article>
         <article class="brand-card brand-team-card">
-          <img class="brand-person-photo brand-person-photo--evelyn" src="assets/archon/evelyn-gonzalez-profile.jpg" alt="Evelyn González Pérez" loading="lazy" width="900" height="1200">
+          <picture><source srcset="assets/archon/evelyn-gonzalez-profile.webp" type="image/webp"><img class="brand-person-photo brand-person-photo--evelyn" src="assets/archon/evelyn-gonzalez-profile.jpg" alt="Evelyn González Pérez" loading="lazy" width="900" height="1200"></picture>
           <div>
             <h3>Evelyn González Pérez</h3>
             <p class="brand-role" data-es="Socia · Dirección de marketing estratégico" data-en="Partner · Strategic marketing direction">Socia · Dirección de marketing estratégico</p>
@@ -344,11 +559,50 @@ gtag("config", "G-1DEHH0QHZ5");
 
   <section class="brand-section brand-section--compact" id="casos">
     <div class="brand-shell">
-      <div class="brand-card brand-card--accent">
-        <img class="brand-card-logo" src="assets/archon/archon-ac-outline-gold.png" alt="" aria-hidden="true" loading="lazy" width="6671" height="6195">
-        <span class="brand-card-label" data-es="Casos" data-en="Cases">Casos</span>
-        <h2 data-es="Próximos casos publicados en Q3 2026." data-en="Upcoming cases published in Q3 2026.">Próximos casos publicados en Q3 2026.</h2>
-        <p data-es="Los casos se publicarán cuando puedan enseñarse con contexto, resultados y límites claros. Sin maquillaje de métricas. Sin relatos incompletos." data-en="Cases will be published when they can be shown with context, results and clear limits. No cosmetic metrics. No incomplete stories.">Los casos se publicarán cuando puedan enseñarse con contexto, resultados y límites claros. Sin maquillaje de métricas. Sin relatos incompletos.</p>
+      <p class="brand-eyebrow">Builds y demos</p>
+      <h2 class="brand-title">Sistemas diseñados para enseñar cómo piensa Archon.</h2>
+      <p class="brand-lead">Diagnóstico, arquitectura, automatización, medición y límites claros.</p>
+      <div class="brand-grid brand-grid--three" style="margin-top:34px">
+        <article class="brand-card">
+          <span class="brand-card-label">Demo · CRM</span>
+          <h3>CRM + seguimiento comercial automatizado</h3>
+          <p>Formulario web, cualificación de lead, asignación de prioridad, email de seguimiento y registro en CRM con trazabilidad completa.</p>
+          <a class="brand-link" href="/contacto">Solicitar Radiografía Pro</a>
+        </article>
+        <article class="brand-card brand-card--accent">
+          <span class="brand-card-label">Demo · IA</span>
+          <h3>Soporte + base de conocimiento con IA</h3>
+          <p>Asistente entrenado con documentación interna, límites de respuesta, escalado humano y resumen de incidencias por semana.</p>
+          <a class="brand-link" href="/chatbots-agentes-ia-zaragoza">Ver chatbots y agentes IA</a>
+        </article>
+        <article class="brand-card">
+          <span class="brand-card-label">Demo · Reporting</span>
+          <h3>Reporting ejecutivo automatizado</h3>
+          <p>Extracción de datos, resumen semanal, alertas de desviación y lectura ejecutiva para tomar decisiones sin revisar Excel.</p>
+          <a class="brand-link" href="/contacto">Solicitar Radiografía Pro</a>
+        </article>
+      </div>
+      <div class="brand-btn-row">
+        <a class="brand-btn brand-btn--ghost" href="/casos">Ver casos y demos operativas</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="brand-section" id="diferencial">
+    <div class="brand-shell">
+      <p class="brand-eyebrow">Posicionamiento</p>
+      <h2 class="brand-title">Contra quién no competimos.</h2>
+      <div class="brand-grid brand-grid--two">
+        <div class="brand-card">
+          <p>No somos una agencia de posts. No somos una consultora que vende PDFs eternos. No somos una empresa de software a medida sin foco. No somos un proveedor que mete IA donde no hace falta.</p>
+          <p>Archon trabaja como una capa de sistema: procesos, IA, automatización, CRM, marketing y reporting bajo una arquitectura común.</p>
+        </div>
+        <div class="brand-card brand-card--accent">
+          <span class="brand-card-label">Lo que sí somos</span>
+          <h3>Una boutique de sistemas empresariales.</h3>
+          <p>Dos disciplinas bajo una misma arquitectura. Intelligence reduce fricción operativa. Atelier convierte esa claridad en comunicación medible.</p>
+          <a class="brand-btn brand-btn--accent" href="/intelligence">Ver cómo trabajamos</a>
+        </div>
       </div>
     </div>
   </section>
@@ -395,8 +649,9 @@ gtag("config", "G-1DEHH0QHZ5");
       <a href="/equipo" data-es="Equipo" data-en="Team">Equipo</a>
       <a href="/blog">Blog</a>
       <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
-      <a href="https://www.linkedin.com/in/pablo-alcocer-hurtado-a0bb573b6" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://www.instagram.com/pabloalcoceroficial33/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/in/pablo-alcocer-hurtado-a0bb573b6" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Pablo Alcocer Hurtado, fundador de Archon Consultancies">LinkedIn</a>
+      <a href="https://www.instagram.com/archon.consultancies/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Archon Consultancies">Instagram</a>
+      <a href="https://github.com/palcocerhurtado-tech" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Pablo Alcocer Hurtado — proyectos técnicos de Archon Intelligence">GitHub</a>
       <a href="/aviso-legal" data-es="Aviso legal" data-en="Legal notice">Aviso legal</a>
       <a href="/privacidad" data-es="Privacidad" data-en="Privacy">Privacidad</a>
     </nav>

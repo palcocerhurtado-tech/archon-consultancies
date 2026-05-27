@@ -63,6 +63,7 @@ body.archon-rebrand::before{
 }
 
 .brand-nav{
+  position:relative;
   min-height:96px;
   display:flex;
   align-items:center;
@@ -797,9 +798,15 @@ body.archon-rebrand::before{
     flex-wrap:wrap;
   }
 
+  .brand-service-nav{
+    position:static;
+  }
+
   .brand-service-menu{
     left:0;
-    right:auto;
+    right:0;
+    width:100%;
+    max-width:none;
     grid-template-columns:1fr;
   }
 
