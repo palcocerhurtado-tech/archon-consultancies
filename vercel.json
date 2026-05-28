@@ -114,7 +114,7 @@
       ]
     },
     {
-      "source": "/assets/archon/(.*)\\.(?:jpg|jpeg|png|webp|avif|svg|gif)",
+      "source": "/assets/archon/(.*\\.(jpg|jpeg|png|webp|avif|svg|gif))",
       "headers": [
         {
           "key": "Cache-Control",
