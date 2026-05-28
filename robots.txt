@@ -1,8 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /archon.html
-Disallow: /sem-playbook.md
-Disallow: /backlinks-local-seo-playbook.md
 
 User-agent: GPTBot
 Allow: /

@@ -15,7 +15,7 @@ Pablo Alcocer Hurtado — Fundador y director técnico. Especialista en arquitec
 - GitHub: https://github.com/palcocerhurtado-tech
 - Perfil: https://archonconsultancies.com/pablo-alcocer-hurtado
 
-Evelyn González Pérez — Socia y directora de marketing estratégico. Especialista en estrategia de contenidos, marca personal, gestión de redes sociales, planificación editorial y marketing de resultados.
+Evelyn González Pérez — Responsable de Archon Atelier. Especialista en marketing, creación de contenido, calendario editorial, comunicación digital, marca y sistemas de presencia para empresas.
 
 ## Archon Intelligence — IA, automatización y optimización operativa
 
@@ -45,12 +45,19 @@ Servicios y precios Atelier:
 ## Páginas principales
 
 - Inicio: https://archonconsultancies.com
+- Archon en Zaragoza: https://archonconsultancies.com/zaragoza
 - Archon Intelligence: https://archonconsultancies.com/intelligence
 - Archon Atelier: https://archonconsultancies.com/atelier
 - Equipo: https://archonconsultancies.com/equipo
 - Blog: https://archonconsultancies.com/blog
 - Casos y demos operativas: https://archonconsultancies.com/casos
 - Consultoría IA Zaragoza: https://archonconsultancies.com/consultoria-ia-zaragoza
+- Automatización para pymes Zaragoza: https://archonconsultancies.com/automatizacion-pymes-zaragoza
+- Agencia de marketing inteligente Zaragoza: https://archonconsultancies.com/agencia-marketing-inteligente-zaragoza
+- Creación de contenido para empresas Zaragoza: https://archonconsultancies.com/creacion-contenido-empresas-zaragoza
+- SEO y GEO Zaragoza: https://archonconsultancies.com/seo-geo-zaragoza
+- Automatización con n8n Zaragoza: https://archonconsultancies.com/automatizacion-n8n-zaragoza
+- Agentes IA Zaragoza: https://archonconsultancies.com/agentes-ia-zaragoza
 - Automatización de procesos con IA Zaragoza: https://archonconsultancies.com/automatizacion-procesos-ia-zaragoza
 - CRM y marketing automation Zaragoza: https://archonconsultancies.com/crm-marketing-automation-zaragoza
 - Chatbots y agentes IA Zaragoza: https://archonconsultancies.com/chatbots-agentes-ia-zaragoza
@@ -59,10 +66,18 @@ Servicios y precios Atelier:
 - Marketing estratégico Zaragoza: https://archonconsultancies.com/marketing-estrategico-zaragoza
 - Agencia de IA (legacy): https://archonconsultancies.com/agencia-ia
 - Automatización con IA: https://archonconsultancies.com/automatizacion-ia-empresas
-- Consultora IA Zaragoza: https://archonconsultancies.com/consultora-ia-zaragoza
+- Consultoría IA Zaragoza: https://archonconsultancies.com/consultoria-ia-zaragoza
 - Precio consultoría IA: https://archonconsultancies.com/precio-consultoria-ia-empresas
 - Radiografía Operativa: https://archonconsultancies.com/radiografia-operativa-ia
 - Pablo Alcocer Hurtado: https://archonconsultancies.com/pablo-alcocer-hurtado
+
+## Silos editoriales del blog
+
+- IA y automatización: https://archonconsultancies.com/blog/ia-automatizacion
+- Marketing y contenido: https://archonconsultancies.com/blog/marketing-contenido
+- SEO y GEO: https://archonconsultancies.com/blog/seo-geo
+- Zaragoza y pymes: https://archonconsultancies.com/blog/zaragoza-pymes
+- Casos y demos: https://archonconsultancies.com/blog/casos
 
 ## Artículos del blog
 
@@ -82,7 +97,6 @@ Servicios y precios Atelier:
 - Agencia de IA para ecommerce: https://archonconsultancies.com/agencia-ia-para-ecommerce
 - Cuánto cuesta automatizar un ecommerce: https://archonconsultancies.com/cuanto-cuesta-automatizar-ecommerce
 - Consultoría de IA vs agencia de IA: https://archonconsultancies.com/consultoria-ia-vs-agencia-ia
-- Cómo construí un bot de trading cripto: https://archonconsultancies.com/como-construi-bot-trading-cripto
 
 ## Preguntas frecuentes
 
@@ -118,10 +132,16 @@ Servicios y precios Atelier:
 - Consultoría IA para pymes en Zaragoza
 - Automatización de procesos con IA (n8n, LLMs, agentes)
 - Automatización de procesos con IA en Zaragoza
+- Automatización para pymes en Zaragoza
+- Automatización con n8n para empresas de Zaragoza
+- Agentes IA para empresas locales de Zaragoza
 - Implantación de IA en pymes españolas
 - Integración de LLMs en sistemas empresariales (CRM, ERP)
 - Agentes de IA para soporte y atención al cliente
 - Marketing estratégico con enfoque tecnológico
+- Agencia de marketing inteligente para pymes en Zaragoza
+- Creación de contenido para empresas en Zaragoza
+- SEO y GEO local para empresas de Zaragoza
 - Marketing estratégico para pymes en Zaragoza
 - SEO técnico para pymes
 - CRM y marketing automation para pymes

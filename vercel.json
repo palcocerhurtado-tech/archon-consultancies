@@ -11,6 +11,76 @@
       "source": "/consultoria-ia.html",
       "destination": "/consultoria-ia-zaragoza",
       "permanent": true
+    },
+    {
+      "source": "/consultora-ia-zaragoza",
+      "destination": "/consultoria-ia-zaragoza",
+      "permanent": true
+    },
+    {
+      "source": "/consultora-ia-zaragoza.html",
+      "destination": "/consultoria-ia-zaragoza",
+      "permanent": true
+    },
+    {
+      "source": "/atelier.html",
+      "destination": "/atelier",
+      "permanent": true
+    },
+    {
+      "source": "/intelligence.html",
+      "destination": "/intelligence",
+      "permanent": true
+    },
+    {
+      "source": "/blog.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/equipo.html",
+      "destination": "/equipo",
+      "permanent": true
+    },
+    {
+      "source": "/contacto.html",
+      "destination": "/contacto",
+      "permanent": true
+    },
+    {
+      "source": "/zaragoza.html",
+      "destination": "/zaragoza",
+      "permanent": true
+    },
+    {
+      "source": "/automatizacion-pymes-zaragoza.html",
+      "destination": "/automatizacion-pymes-zaragoza",
+      "permanent": true
+    },
+    {
+      "source": "/agencia-marketing-inteligente-zaragoza.html",
+      "destination": "/agencia-marketing-inteligente-zaragoza",
+      "permanent": true
+    },
+    {
+      "source": "/creacion-contenido-empresas-zaragoza.html",
+      "destination": "/creacion-contenido-empresas-zaragoza",
+      "permanent": true
+    },
+    {
+      "source": "/seo-geo-zaragoza.html",
+      "destination": "/seo-geo-zaragoza",
+      "permanent": true
+    },
+    {
+      "source": "/automatizacion-n8n-zaragoza.html",
+      "destination": "/automatizacion-n8n-zaragoza",
+      "permanent": true
+    },
+    {
+      "source": "/agentes-ia-zaragoza.html",
+      "destination": "/agentes-ia-zaragoza",
+      "permanent": true
     }
   ],
   "headers": [
