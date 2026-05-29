@@ -892,6 +892,44 @@ body.archon-rebrand::before{
   color:#FFFFFF;
 }
 
+.brand-footer-logo{
+  display:block;
+  width:72px;
+  height:auto;
+  margin-bottom:16px;
+  opacity:0.80;
+  filter:brightness(0) invert(1);
+}
+
+.brand-article-sig{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-top:40px;
+  padding-top:32px;
+  border-top:1px solid var(--color-line);
+}
+
+.brand-article-sig img{
+  width:48px;
+  height:auto;
+  flex-shrink:0;
+  opacity:0.75;
+}
+
+.brand-article-sig p{
+  margin:0;
+  font-size:13px;
+  color:var(--color-text-muted);
+  line-height:1.5;
+}
+
+.brand-article-sig strong{
+  display:block;
+  color:var(--color-text);
+  font-size:14px;
+}
+
 .brand-footer a{
   color:#FFFFFF;
   text-decoration-color:var(--color-accent);

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1DEHH0QHZ5"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-1DEHH0QHZ5');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Prompt engineering para empresas: cómo diseñar instrucciones que hacen que los modelos de IA trabajen con criterio operativo real, no con respuestas genéricas.">
+<meta name="author" content="Archon Consultancies">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://archonconsultancies.com/prompt-engineering-empresas">
+<link rel="alternate" hreflang="es" href="https://archonconsultancies.com/prompt-engineering-empresas">
+<link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/prompt-engineering-empresas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Archon Consultancies">
+<meta property="og:locale" content="es_ES">
+<meta property="og:url" content="https://archonconsultancies.com/prompt-engineering-empresas">
+<meta property="og:title" content="Prompt engineering para empresas | Archon Consultancies">
+<meta property="og:description" content="Cómo diseñar prompts que hacen que la IA trabaje con criterio real en procesos de negocio: soporte, ventas, reporting y operaciones.">
+<meta property="og:image" content="https://archonconsultancies.com/assets/archon/banner.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="400">
+<meta property="og:image:alt" content="Prompt engineering para empresas — Archon Consultancies">
+<meta property="article:published_time" content="2026-05-29">
+<meta property="article:modified_time" content="2026-05-29">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Prompt engineering para empresas | Archon Consultancies">
+<meta name="twitter:description" content="Diseñar instrucciones para que la IA trabaje con criterio real en tu empresa. Guía práctica sin teoría vacía.">
+<meta name="twitter:image" content="https://archonconsultancies.com/assets/archon/banner.jpg">
+<meta name="theme-color" content="#070707">
+<title>Prompt engineering para empresas | Archon Intelligence</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;500;600;700;800&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;500;600;700;800&display=optional"></noscript>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Archon Consultancies",
+      "url": "https://archonconsultancies.com/",
+      "logo": "https://archonconsultancies.com/favicon-192.png"
+    },
+    {
+      "@type": "Article",
+      "headline": "Prompt engineering para empresas",
+      "description": "Cómo diseñar instrucciones que hacen que los modelos de IA trabajen con criterio operativo real en procesos de negocio.",
+      "author": {"@type": "Person", "name": "Pablo Alcocer Hurtado"},
+      "publisher": {
+        "@type": "Organization",
+        "name": "Archon Consultancies",
+        "logo": {"@type": "ImageObject", "url": "https://archonconsultancies.com/favicon-192.png"}
+      },
+      "datePublished": "2026-05-29",
+      "dateModified": "2026-05-29",
+      "mainEntityOfPage": "https://archonconsultancies.com/prompt-engineering-empresas"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://archonconsultancies.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://archonconsultancies.com/blog"},
+        {"@type": "ListItem", "position": 3, "name": "Prompt engineering para empresas", "item": "https://archonconsultancies.com/prompt-engineering-empresas"}
+      ]
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es el prompt engineering para empresas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es la práctica de diseñar instrucciones precisas para modelos de IA (como GPT-4, Claude o Gemini) de forma que se adapten al contexto, tono y restricciones operativas reales de un negocio. Va más allá de «hacer preguntas»: define rol, formato, límites y criterios de escalado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué fallan los prompts en entornos empresariales?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque se copian de internet sin adaptar el contexto. Un prompt genérico produce respuestas genéricas. En empresa hay que incluir: rol específico, datos de contexto, restricciones del negocio, formato de salida y qué hacer cuando la IA no sabe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito saber programar para hacer prompt engineering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No para los casos básicos. Sí cuando el prompt forma parte de un sistema automatizado (n8n, API, agente). La diferencia está en si el prompt se usa manualmente o si es una pieza de una cadena de procesos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto mejora el resultado con un buen prompt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La diferencia puede ser radical. Un prompt mal diseñado en soporte al cliente produce respuestas que parecen correctas pero son imprecisas o fuera de tono. Un prompt bien estructurado reduce revisiones manuales y errores de escalado."
+      }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="assets/css/archon-article.css">
+<link rel="stylesheet" href="assets/css/archon-typography.css">
+</head>
+<body>
+<nav>
+  <div class="navin">
+    <a class="brand" href="/"><strong>Archon</strong><span>Consultancies</span></a>
+    <a class="navcta" href="/intelligence">Ver Intelligence</a>
+  </div>
+</nav>
+<main>
+  <div class="shell">
+    <article class="hero">
+      <p class="eyebrow">Archon Intelligence · Blog</p>
+      <h1>Prompt engineering para <span>empresas</span></h1>
+      <div class="quick-answer" style="padding:20px 24px;border-left:3px solid #7aff5d;background:rgba(122,255,93,0.06);margin:18px 0 28px;font-size:15px;line-height:1.8;color:#e0e0e0;">
+        <strong style="color:#7aff5d;text-transform:uppercase;letter-spacing:2px;font-size:11px;display:block;margin-bottom:10px;">Respuesta rápida</strong>
+        El prompt engineering para empresas es diseñar instrucciones específicas para que los modelos de IA produzcan resultados útiles dentro de un proceso real. No se trata de hacer «buenas preguntas», sino de construir contexto, restricciones y criterios de escalado que hagan el sistema fiable.
+      </div>
+      <p class="updated" style="color:#8e8e8e;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;">Publicado: mayo 2026</p>
+      <p class="lead">La mayoría de empresas que «prueban IA» y se decepcionan han cometido el mismo error: pegar un prompt de Twitter en ChatGPT y esperar resultados de producción. El prompt engineering no es un truco de redacción. Es diseño de sistemas.</p>
+      <div class="meta">
+        <span>Lectura 8 min</span>
+        <span>IA aplicada</span>
+        <span>Operaciones</span>
+      </div>
+    </article>
+
+    <section class="section body">
+
+      <div>
+        <h2>Por qué los prompts genéricos no funcionan en empresa</h2>
+        <p>Un modelo de IA no sabe cuál es tu producto, tu tono de comunicación, qué no puede decir a un cliente ni cuándo debe escalar a un humano. Si no se lo dices, lo inventa. Y lo que inventa suena plausible pero es incorrecto para tu contexto.</p>
+        <p>Los errores más comunes en empresas que implementan IA sin diseño de prompts:</p>
+        <ul>
+          <li>Respuestas correctas en abstracto pero equivocadas para el negocio específico.</li>
+          <li>Tono inadecuado (demasiado informal, demasiado técnico, demasiado extenso).</li>
+          <li>La IA responde cuando no debería (sin saber que no tiene datos suficientes).</li>
+          <li>Formato de salida incompatible con el sistema que recibe la respuesta.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Los cinco elementos de un prompt empresarial</h2>
+        <p>Un prompt de producción en empresa no es una frase. Es una estructura con cinco capas:</p>
+        <div class="grid">
+          <div class="card">
+            <h3>1. Rol</h3>
+            <p>Qué función tiene el modelo. No «eres un asistente», sino «eres el agente de soporte técnico de [Empresa], con acceso a la base de conocimiento interna».</p>
+          </div>
+          <div class="card">
+            <h3>2. Contexto</h3>
+            <p>Los datos relevantes para esa tarea concreta: nombre del cliente, historial de conversación, producto afectado, última acción registrada.</p>
+          </div>
+          <div class="card">
+            <h3>3. Restricciones</h3>
+            <p>Lo que el modelo no puede hacer: no dar precios sin consultar tarifa actualizada, no comprometer plazos, no mencionar a la competencia, no responder fuera del tema.</p>
+          </div>
+          <div class="card">
+            <h3>4. Formato de salida</h3>
+            <p>Cómo debe venir la respuesta: JSON con campos concretos, texto plano de máximo 200 palabras, lista de acciones, resumen ejecutivo de 3 líneas.</p>
+          </div>
+          <div class="card">
+            <h3>5. Criterio de escalado</h3>
+            <p>Cuándo debe reconocer que no puede responder y derivar a un humano. Este punto es el más ignorado y el que genera más problemas en producción.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2>Ejemplo real: prompt de soporte al cliente sin diseño vs con diseño</h2>
+        <p><strong>Sin diseño:</strong></p>
+        <blockquote style="border-left:3px solid #444;padding:12px 20px;margin:16px 0;color:#bbb;font-style:italic;background:rgba(255,255,255,0.03)">"Eres un asistente de soporte. Ayuda al cliente con su problema."</blockquote>
+        <p>Resultado: respuestas largas, genéricas, que suenen bien pero no resuelven nada específico del producto.</p>
+        <p><strong>Con diseño:</strong></p>
+        <blockquote style="border-left:3px solid #7aff5d;padding:12px 20px;margin:16px 0;color:#d0d0d0;background:rgba(122,255,93,0.04)">
+          "Eres el agente de soporte de [Empresa], especializado en [producto]. Tienes acceso al historial de pedidos del cliente. Tu objetivo es resolver incidencias de envío y facturación. No puedes autorizar devoluciones superiores a 50€ sin aprobación del equipo. Si el cliente pregunta algo fuera de tu alcance, responde exactamente: 'Voy a derivar tu consulta al equipo para que te contacten en menos de 24 horas.' Responde siempre en menos de 150 palabras y en tono profesional pero directo."
+        </blockquote>
+        <p>Resultado: respuestas acotadas, en tono correcto, con criterio de escalado claro. Revisable y mejorable.</p>
+      </div>
+
+      <div>
+        <h2>Prompt engineering en flujos automatizados</h2>
+        <p>Cuando el prompt deja de usarse manualmente y pasa a formar parte de un flujo automatizado (n8n, Make, API directa), el diseño se vuelve más crítico. Un error en el prompt se multiplica por el número de ejecuciones.</p>
+        <p>En automatizaciones, los prompts deben:</p>
+        <ul>
+          <li>Recibir datos de contexto dinámicos (inyección de variables desde el flujo).</li>
+          <li>Producir salidas estructuradas y parseable (JSON, markdown controlado).</li>
+          <li>Gestionar errores: qué devolver si los datos de entrada están incompletos.</li>
+          <li>Tener versión y fecha: un prompt cambiado sin control rompe flujos en producción.</li>
+        </ul>
+        <p>En Archon trabajamos con prompts versionados y testeados antes de desplegar cualquier automatización. El prompt es código.</p>
+      </div>
+
+      <div>
+        <h2>Dónde aplicar prompt engineering en una pyme</h2>
+        <ul>
+          <li><strong>Soporte al cliente:</strong> clasificación de incidencias, respuestas asistidas, resúmenes de conversación.</li>
+          <li><strong>Ventas:</strong> cualificación de leads, generación de propuestas, seguimiento personalizado.</li>
+          <li><strong>Reporting:</strong> interpretación de datos, generación de resúmenes ejecutivos, alertas de desviación.</li>
+          <li><strong>Contenido:</strong> briefings estructurados, adaptación de tono, revisión de piezas con criterio de marca.</li>
+          <li><strong>Operaciones internas:</strong> extracción de información de documentos, clasificación de solicitudes, asignación de tareas.</li>
+        </ul>
+        <p>En todos estos casos, el prompt es la diferencia entre una herramienta que parece inteligente y una que realmente funciona en producción.</p>
+      </div>
+
+      <div>
+        <h2>El error de tratar el prompt como texto, no como sistema</h2>
+        <p>El prompt engineering empresarial fracasa cuando se trata como redacción creativa. No es cuestión de «escribir mejor». Es diseño de interfaz entre tu proceso y el modelo. Eso implica iterar, probar casos límite, documentar cambios y mantener versiones.</p>
+        <p>Si en tu empresa alguien usa un prompt distinto cada semana «porque el de la semana pasada ya no funciona», el problema no es el modelo. Es que no hay sistema.</p>
+      </div>
+
+    </section>
+
+    <section class="related">
+      <p class="eyebrow">Lecturas relacionadas</p>
+      <div class="related-grid">
+        <div class="card">
+          <h3>Agentes de IA para empresas</h3>
+          <p>Los prompts son la base de los agentes. Cómo se diseñan sistemas de IA con múltiples pasos y criterio operativo.</p>
+          <div class="links"><a href="/agentes-ia-para-empresas">Leer artículo</a></div>
+        </div>
+        <div class="card">
+          <h3>Automatización de ventas con IA</h3>
+          <p>Prompt engineering aplicado a flujos de ventas: cualificación, seguimiento y propuestas asistidas.</p>
+          <div class="links"><a href="/automatizacion-ventas-ia">Leer artículo</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="related geo-related">
+      <h2>Servicios relacionados en Zaragoza</h2>
+      <div class="grid two">
+        <div class="card"><h3>Agentes IA Zaragoza</h3><p>Diseño e implementación de agentes con prompts de producción, trazabilidad y control humano.</p><div class="links"><a href="/agentes-ia-zaragoza">Ver agentes IA Zaragoza</a></div></div>
+        <div class="card"><h3>Consultoría IA Zaragoza</h3><p>Diagnóstico del uso actual de IA en tu empresa y propuesta de mejora con criterio real.</p><div class="links"><a href="/consultoria-ia-zaragoza">Ver consultoría IA Zaragoza</a></div></div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <p class="eyebrow">CTA</p>
+      <h2>Si tu equipo usa IA pero los resultados son inconsistentes, el problema probablemente está en el diseño de los prompts.</h2>
+      <p>Una auditoría operativa detecta dónde están los cuellos de botella y qué conviene rediseñar primero.</p>
+      <div class="cta-actions">
+        <a class="btn primary" href="/contacto">Hablar con el equipo</a>
+        <a class="btn secondary" href="/intelligence">Ver Archon Intelligence</a>
+      </div>
+    </section>
+
+    <div class="brand-article-sig" style="display:flex;align-items:center;gap:14px;margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.1)">
+      <img src="assets/archon/logo-ac-star-white.png" loading="lazy" width="48" height="48" alt="Archon Consultancies" style="width:48px;height:auto;opacity:0.75">
+      <p style="margin:0;font-size:13px;color:#8e8e8e;line-height:1.5"><strong style="display:block;color:#e0e0e0;font-size:14px">Pablo Alcocer Hurtado</strong>Fundador de Archon Intelligence · IA aplicada y automatización de procesos desde Zaragoza.</p>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="shell foot">
+    <div>
+      <img src="assets/archon/logo-ac-star-white.png" class="brand-footer-logo" alt="Archon Consultancies" loading="lazy" width="160" height="160">
+      <strong>Archon Consultancies</strong><span>IA · Automatización · Marketing estratégico · Zaragoza</span>
+    </div>
+    <a href="/">Inicio</a>
+    <a href="/servicios">Servicios</a>
+    <a href="/blog">Blog</a>
+    <a href="/contacto">Contacto</a>
+  </div>
+</footer>
+</body>
+</html>

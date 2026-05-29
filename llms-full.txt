@@ -314,6 +314,18 @@ Guía de precios y alcances para proyectos de automatización en ecommerce. Desd
 URL: https://archonconsultancies.com/consultoria-ia-vs-agencia-ia
 Diferencias clave entre una consultora de IA (estrategia + implantación) y una agencia de IA (producción de outputs). Cuándo contratar cada perfil.
 
+**Prompt engineering para empresas**
+URL: https://archonconsultancies.com/prompt-engineering-empresas
+Cómo diseñar instrucciones precisas (prompts) para que los modelos de IA trabajen con criterio real en procesos de negocio. Los cinco elementos de un prompt empresarial, ejemplos de soporte y ventas, y cómo integrarlos en flujos automatizados.
+
+**IA para recursos humanos en pymes**
+URL: https://archonconsultancies.com/ia-para-recursos-humanos
+Qué procesos de RRHH puede automatizar la IA con criterio: cribado de candidaturas, onboarding, solicitudes internas, FAQ de empleados y reporting. Qué no debe automatizarse sin supervisión humana. Guía práctica para pymes de 10 a 50 personas.
+
+**Automatización de ventas con IA**
+URL: https://archonconsultancies.com/automatizacion-ventas-ia
+Cómo automatizar el proceso comercial con IA: captura de leads, cualificación automática, seguimiento garantizado, propuestas asistidas y reporting de pipeline. Stack típico para pymes y orden de implementación recomendado.
+
 ## 9. Páginas principales del sitio
 
 - Inicio: https://archonconsultancies.com
@@ -344,6 +356,9 @@ Diferencias clave entre una consultora de IA (estrategia + implantación) y una 
 - Radiografía Operativa IA: https://archonconsultancies.com/radiografia-operativa-ia
 - Automatización con IA: https://archonconsultancies.com/automatizacion-ia-empresas
 - Agentes IA para empresas: https://archonconsultancies.com/agentes-ia-para-empresas
+- Prompt engineering para empresas: https://archonconsultancies.com/prompt-engineering-empresas
+- IA para recursos humanos: https://archonconsultancies.com/ia-para-recursos-humanos
+- Automatización de ventas con IA: https://archonconsultancies.com/automatizacion-ventas-ia
 - Aviso legal: https://archonconsultancies.com/aviso-legal
 - Política de privacidad: https://archonconsultancies.com/privacidad
 
