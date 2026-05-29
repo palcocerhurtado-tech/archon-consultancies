@@ -260,6 +260,11 @@ Slug: ia-generativa-para-pymes-servicios — IA generativa para pymes de servici
 URL: https://archonconsultancies.com/ia-generativa-para-pymes-servicios
 Guía práctica sobre qué puede hacer realmente la IA generativa en una pyme de servicios: propuestas, soporte, reuniones, contenido, documentación, límites y coste real.
 
+**ROI de automatización para pymes**
+Slug: roi-automatizacion-pymes-espana — Cómo calcular el ROI de automatizar procesos en tu pyme
+URL: https://archonconsultancies.com/roi-automatizacion-pymes-espana
+Guía práctica para calcular retorno de automatizaciones en pymes: fórmula de tiempo ahorrado, coste/hora, volumen mensual, errores evitados, amortización y ejemplos por sector.
+
 **Cómo crear un agente de IA para atención al cliente**
 Slug: como-crear-agente-ia-atencion-cliente — Cómo crear un agente de IA para atención al cliente paso a paso
 URL: https://archonconsultancies.com/como-crear-agente-ia-atencion-cliente
