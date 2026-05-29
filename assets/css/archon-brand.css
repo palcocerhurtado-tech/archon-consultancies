@@ -352,6 +352,7 @@ body.archon-rebrand::before{
 
 .brand-title{
   margin:0;
+  padding-bottom:0.1em;
   max-width:980px;
   color:var(--color-text);
   font-family:var(--font-brand);
@@ -359,6 +360,9 @@ body.archon-rebrand::before{
   font-weight:700;
   line-height:0.95;
   letter-spacing:-0.065em;
+}
+.brand-title + .brand-grid{
+  margin-top:clamp(28px, 4vw, 44px);
 }
 
 .brand-title span,
