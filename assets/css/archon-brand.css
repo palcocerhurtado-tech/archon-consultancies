@@ -98,9 +98,9 @@ body.archon-rebrand::before{
 }
 
 .brand-logo-mark{
-  width:clamp(88px, 7.4vw, 118px);
-  height:auto;
-  aspect-ratio:5778 / 4058;
+  height:clamp(52px, 5.6vw, 72px);
+  width:auto;
+  max-width:200px;
   display:block;
   flex:0 0 auto;
   object-fit:contain;
@@ -223,6 +223,19 @@ body.archon-rebrand::before{
   background:
     linear-gradient(115deg, rgba(168,136,75,0.22), transparent 36%),
     radial-gradient(circle at 82% 16%, rgba(11,11,11,0.18), transparent 22%);
+}
+
+.brand-hero::after{
+  content:"";
+  position:absolute;
+  left:-80px;
+  bottom:-60px;
+  width:340px;
+  height:340px;
+  background:url('../archon/logo-ac-star.png') no-repeat center/contain;
+  opacity:0.05;
+  pointer-events:none;
+  z-index:0;
 }
 
 .brand-hero-grid{
@@ -443,6 +456,19 @@ body.archon-rebrand::before{
 .brand-card--accent{
   border-color:var(--color-line-accent);
   background:linear-gradient(135deg, rgba(255,255,255,0.86), rgba(238,233,225,0.74));
+}
+
+.brand-card--accent::after{
+  content:"";
+  position:absolute;
+  right:-20px;
+  bottom:-20px;
+  width:160px;
+  height:160px;
+  background:url('../archon/logo-ac-star.png') no-repeat center/contain;
+  opacity:0.07;
+  pointer-events:none;
+  z-index:0;
 }
 
 .brand-card-label{
@@ -887,18 +913,32 @@ body.archon-rebrand::before{
 }
 
 .brand-footer{
+  position:relative;
+  overflow:hidden;
   padding:48px 0;
   background:var(--color-footer);
   color:#FFFFFF;
 }
 
+.brand-footer::after{
+  content:"";
+  position:absolute;
+  right:-40px;
+  top:50%;
+  transform:translateY(-50%);
+  width:280px;
+  height:280px;
+  background:url('../archon/logo-ac-star-white.png') no-repeat center/contain;
+  opacity:0.06;
+  pointer-events:none;
+}
+
 .brand-footer-logo{
   display:block;
-  width:72px;
+  width:120px;
   height:auto;
-  margin-bottom:16px;
-  opacity:0.80;
-  filter:brightness(0) invert(1);
+  margin-bottom:20px;
+  opacity:0.90;
 }
 
 .brand-article-sig{
@@ -1020,7 +1060,9 @@ body.archon-rebrand::before{
   }
 
   .brand-logo-mark{
-    width:82px;
+    height:44px;
+    width:auto;
+    max-width:160px;
   }
 
   .brand-btn-row,
