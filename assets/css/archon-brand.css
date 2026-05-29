@@ -249,10 +249,12 @@ body.archon-rebrand::before{
 
 .brand-logo-watermark{
   position:absolute;
-  right:clamp(18px, 4vw, 44px);
-  bottom:clamp(18px, 4vw, 44px);
-  width:min(42%, 280px);
-  max-height:260px;
+  right:clamp(24px, 4.5vw, 52px);
+  bottom:clamp(24px, 4.5vw, 52px);
+  width:min(38%, 252px);
+  max-width:calc(100% - clamp(48px, 9vw, 96px));
+  max-height:min(240px, calc(100% - clamp(48px, 9vw, 96px)));
+  height:auto;
   object-fit:contain;
   opacity:0.055;
   pointer-events:none;
@@ -951,6 +953,10 @@ body.archon-rebrand::before{
   .brand-logo-watermark,
   .brand-card-logo{
     width:min(48%, 220px);
+  }
+
+  .brand-logo-watermark{
+    width:min(42%, 200px);
   }
 
   .brand-section-logo{
