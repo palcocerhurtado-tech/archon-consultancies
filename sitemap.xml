@@ -84,6 +84,13 @@
   </url>
 
   <url>
+    <loc>https://archonconsultancies.com/servicios</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://archonconsultancies.com/automatizacion-n8n-zaragoza</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://archonconsultancies.com/automatizacion-n8n-zaragoza"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://archonconsultancies.com/automatizacion-n8n-zaragoza?lang=en"/>
@@ -432,6 +439,13 @@
 
   <url>
     <loc>https://archonconsultancies.com/como-crear-agente-ia-atencion-cliente</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://archonconsultancies.com/ia-generativa-para-pymes-servicios</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

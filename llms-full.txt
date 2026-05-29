@@ -255,6 +255,11 @@ Comparativa honesta entre n8n y Zapier para pymes españolas: precios, flexibili
 URL: https://archonconsultancies.com/agentes-ia-para-empresas
 Qué son los agentes de IA, cómo difieren de los chatbots simples y en qué casos de negocio aportan valor real. Criterios de implantación para pymes.
 
+**IA generativa para pymes de servicios**
+Slug: ia-generativa-para-pymes-servicios — IA generativa para pymes de servicios: casos reales y sin humo
+URL: https://archonconsultancies.com/ia-generativa-para-pymes-servicios
+Guía práctica sobre qué puede hacer realmente la IA generativa en una pyme de servicios: propuestas, soporte, reuniones, contenido, documentación, límites y coste real.
+
 **Cómo crear un agente de IA para atención al cliente**
 Slug: como-crear-agente-ia-atencion-cliente — Cómo crear un agente de IA para atención al cliente paso a paso
 URL: https://archonconsultancies.com/como-crear-agente-ia-atencion-cliente
@@ -312,6 +317,7 @@ Diferencias clave entre una consultora de IA (estrategia + implantación) y una 
 - Archon Atelier: https://archonconsultancies.com/atelier
 - Equipo: https://archonconsultancies.com/equipo
 - Blog: https://archonconsultancies.com/blog
+- Servicios: https://archonconsultancies.com/servicios
 - Contacto: https://archonconsultancies.com/contacto
 - Casos y demos operativas: https://archonconsultancies.com/casos
 - Glosario IA y marketing: https://archonconsultancies.com/glosario
