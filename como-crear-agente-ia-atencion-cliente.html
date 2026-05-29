@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1DEHH0QHZ5"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-1DEHH0QHZ5');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Guía práctica para implementar un agente de IA en soporte al cliente: herramientas, pasos, costes, supervisión humana y errores que evitar.">
+<meta name="author" content="Pablo Alcocer Hurtado, Archon Consultancies">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://archonconsultancies.com/como-crear-agente-ia-atencion-cliente">
+<link rel="alternate" hreflang="es" href="https://archonconsultancies.com/como-crear-agente-ia-atencion-cliente">
+<link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/como-crear-agente-ia-atencion-cliente">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Archon Consultancies">
+<meta property="og:locale" content="es_ES">
+<meta property="og:url" content="https://archonconsultancies.com/como-crear-agente-ia-atencion-cliente">
+<meta property="og:title" content="Cómo crear un agente de IA para atención al cliente">
+<meta property="og:description" content="Guía práctica para implementar un agente de IA en soporte al cliente: herramientas, pasos, costes, supervisión humana y errores que evitar.">
+<meta property="og:image" content="https://archonconsultancies.com/assets/archon/banner.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="400">
+<meta property="og:image:alt" content="Agente de IA para atención al cliente paso a paso">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cómo crear un agente de IA para soporte">
+<meta name="twitter:description" content="Pasos, herramientas, costes y límites humanos para implantar un agente de IA de atención al cliente.">
+<meta name="twitter:image" content="https://archonconsultancies.com/assets/archon/banner.jpg">
+<meta name="theme-color" content="#060606">
+<title>Cómo crear un agente IA de atención al cliente | Archon</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;500;600;700;800&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;500;600;700;800&display=optional"></noscript>
+<link rel="preload" href="assets/css/archon-chatbot.css?v=20260419e" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="assets/css/archon-chatbot.css?v=20260419e"></noscript>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://archonconsultancies.com/como-crear-agente-ia-atencion-cliente#article",
+      "headline": "Cómo crear un agente de IA para atención al cliente paso a paso",
+      "description": "Guía práctica para implementar un agente de IA en soporte al cliente: herramientas, pasos, costes, supervisión humana y errores que evitar.",
+      "url": "https://archonconsultancies.com/como-crear-agente-ia-atencion-cliente",
+      "datePublished": "2026-05-29",
+      "dateModified": "2026-05-29",
+      "inLanguage": "es",
+      "image": "https://archonconsultancies.com/assets/archon/banner.jpg",
+      "author": {
+        "@type": "Person",
+        "name": "Pablo Alcocer Hurtado",
+        "url": "https://archonconsultancies.com/pablo-alcocer-hurtado"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Archon Consultancies",
+        "url": "https://archonconsultancies.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://archonconsultancies.com/favicon-192.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://archonconsultancies.com/como-crear-agente-ia-atencion-cliente"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://archonconsultancies.com/como-crear-agente-ia-atencion-cliente#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué necesita una empresa antes de crear un agente de IA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Necesita un alcance claro, documentación fiable, ejemplos de conversaciones, política de escalado y criterios sobre lo que el agente puede o no puede responder. Sin base de conocimiento y límites, un agente de IA puede generar más ruido que ahorro."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre chatbot y agente de IA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un chatbot básico responde preguntas o sigue reglas simples. Un agente de IA puede consultar fuentes, recordar contexto, clasificar tickets, activar herramientas y escalar casos. La diferencia real está en memoria, herramientas, permisos, trazabilidad y supervisión humana."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta crear un agente de IA de soporte?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El coste depende de canales, volumen, fuentes de datos, integraciones, pruebas y mantenimiento. Una prueba acotada puede empezar por un diagnóstico y un prototipo; un agente conectado a CRM, tickets y documentación interna requiere más trabajo y debe presupuestarse por fases."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puede responder sin supervisión humana?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Puede responder consultas de bajo riesgo si el alcance está bien definido. No debería cerrar reclamaciones sensibles, prometer compensaciones, modificar datos críticos o tomar decisiones comerciales sin reglas claras. La supervisión humana no es un extra; es parte del diseño."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://archonconsultancies.com/como-crear-agente-ia-atencion-cliente#breadcrumb",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://archonconsultancies.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://archonconsultancies.com/blog"},
+        {"@type": "ListItem", "position": 3, "name": "Agente IA atención cliente", "item": "https://archonconsultancies.com/como-crear-agente-ia-atencion-cliente"}
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="assets/css/archon-editorial.css">
+<link rel="stylesheet" href="assets/css/archon-typography.css">
+<style>
+.skip-link{position:absolute;top:-44px;left:18px;z-index:9999;background:#0B0B0B;color:#F4F1EC;padding:10px 14px;text-decoration:none;font-weight:700}
+.skip-link:focus{top:18px}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+<nav>
+  <div class="navin">
+    <a class="brand" href="/"><strong>Archon</strong><span>Consultancies</span></a>
+    <div class="navlinks">
+      <a href="/">Inicio</a>
+      <a href="/blog">Blog</a>
+      <a href="/sobre-archon">Archon</a>
+      <a href="/pablo-alcocer-hurtado">Pablo</a>
+    </div>
+    <a class="navcta" href="/contacto">Auditoría 33 min</a>
+  </div>
+</nav>
+
+<main id="main-content">
+  <div class="shell">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Agentes IA / Soporte / Pymes</p>
+          <h1>Cómo crear un agente de IA para atención al cliente paso a paso</h1>
+          <p class="updated" style="color:#8e8e8e;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;">Última actualización: mayo 2026</p>
+          <p class="lead">Un agente de IA para atención al cliente no es un chatbot con un nombre nuevo. Es un sistema que entiende contexto, consulta fuentes, clasifica casos, usa herramientas y sabe cuándo escalar a una persona. Bien diseñado, reduce carga repetitiva. Mal diseñado, automatiza confusión.</p>
+          <div class="meta">
+            <span>Soporte</span>
+            <span>Agentes IA</span>
+            <span>n8n</span>
+            <span>LLM</span>
+          </div>
+        </div>
+        <aside class="signature">
+          <span>Respuesta rápida</span>
+          <strong>Empieza por alcance y base de conocimiento, no por la herramienta.</strong>
+          <p>Antes de elegir Claude, GPT-4o, n8n o LangChain, define qué puede responder el agente, qué datos puede consultar y cuándo debe pasar el caso al equipo humano.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Función</p>
+      <h2>¿Qué puede hacer un agente de IA en atención al cliente?</h2>
+      <p>Un agente de IA puede responder preguntas frecuentes, resumir conversaciones, clasificar tickets, proponer respuestas, buscar información en documentación interna, detectar urgencias, enrutar incidencias y escalar casos al equipo humano. La clave es que no trabaja solo con una respuesta predefinida: interpreta el contexto y decide el siguiente paso dentro de límites configurados.</p>
+      <p>En una pyme, el impacto suele estar en el primer nivel de soporte. Preguntas sobre horarios, estado de pedidos, documentación, políticas, pasos de onboarding o incidencias recurrentes no siempre necesitan que una persona empiece desde cero. El agente puede preparar contexto y reducir tiempo de lectura.</p>
+      <p>Eso no significa que deba sustituir al equipo. Un buen agente aumenta la capacidad del soporte humano. Filtra, organiza, propone y avisa. La empresa gana velocidad sin perder control si el sistema sabe reconocer incertidumbre y escalar.</p>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Diferencia real</p>
+      <h2>Diferencia entre chatbot básico y agente de IA con memoria y herramientas</h2>
+      <div class="split">
+        <div>
+          <p>Un chatbot básico suele funcionar con reglas, intents o respuestas prediseñadas. Puede servir para FAQs simples, pero falla cuando el usuario pregunta de forma distinta, mezcla temas o necesita una acción real. El problema no es el chatbot: es usarlo para trabajos que requieren contexto.</p>
+          <p>Un agente de IA usa un modelo de lenguaje, una base de conocimiento y, si procede, herramientas conectadas. Puede recuperar documentos, consultar estado de un ticket, generar un resumen, etiquetar prioridad o preparar una respuesta para revisión. También puede tener memoria de conversación, aunque conviene limitarla y auditarla.</p>
+          <p>La diferencia importante no está en que parezca más humano. Está en que el agente puede trabajar sobre información actualizada y actuar dentro de un sistema. Por eso necesita permisos, logs, límites y política de escalado.</p>
+        </div>
+        <div class="quote">
+          <strong>Un agente sin límites no es inteligencia. Es riesgo operativo.</strong>
+          <p>El objetivo no es que responda siempre. El objetivo es que responda cuando tiene base suficiente y escale cuando la respuesta exige criterio humano.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Proceso</p>
+      <h2>Paso a paso: definir alcance, elegir LLM, conectar fuentes de datos y test</h2>
+      <div class="points">
+        <div><strong>1. Define alcance.</strong> Lista qué preguntas puede responder, qué procesos puede iniciar y qué temas deben escalarse. No empieces con "que atienda todo". Empieza con un flujo acotado y medible.</div>
+        <div><strong>2. Reúne fuentes.</strong> Documentación, FAQs, políticas, manuales, respuestas históricas, estado de pedidos, CRM o tickets. Si la fuente está desordenada, el agente heredará ese desorden.</div>
+        <div><strong>3. Elige LLM.</strong> Claude, GPT-4o o Gemini pueden funcionar. La decisión depende de idioma, longitud de contexto, coste, latencia, privacidad, integraciones y calidad de respuesta en tu caso real.</div>
+        <div><strong>4. Conecta herramientas.</strong> Puede ser n8n para orquestar flujos, LangChain para lógica más técnica, un helpdesk como Zendesk o Freshdesk, o una integración propia con CRM y base de conocimiento.</div>
+        <div><strong>5. Prueba con casos reales.</strong> Usa conversaciones históricas, preguntas difíciles, errores conocidos y casos límite. Mide aciertos, errores, escalados, tiempo ahorrado y calidad percibida por el equipo.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Herramientas</p>
+      <h2>Herramientas recomendadas: n8n, LangChain, Anthropic Claude y GPT-4o</h2>
+      <p>n8n encaja cuando necesitas conectar formularios, tickets, CRM, email, bases de conocimiento y modelos de IA sin construir todo desde cero. Es útil para clasificar mensajes, lanzar flujos de escalado, crear registros y generar resúmenes.</p>
+      <p>LangChain o LangGraph tienen sentido cuando el agente necesita una arquitectura más técnica: herramientas, recuperación de información, memoria controlada, evaluación y pasos más complejos. No son la opción más rápida para una pyme no técnica, pero sí una base potente si el caso lo justifica.</p>
+      <p>Anthropic Claude suele funcionar bien en análisis de texto largo, seguimiento de instrucciones y respuestas estructuradas. GPT-4o destaca por versatilidad, velocidad y ecosistema. La elección real debe probarse con tus conversaciones, no con una demo perfecta. Un agente de soporte debe rendir con preguntas incompletas, clientes frustrados y documentación imperfecta.</p>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Límites</p>
+      <h2>Qué NO debe hacer el agente sin supervisión humana</h2>
+      <p>Un agente no debería prometer compensaciones, cerrar reclamaciones sensibles, modificar datos críticos, borrar información, aceptar condiciones contractuales, cambiar precios, diagnosticar problemas fuera de su documentación o responder cuando no tiene certeza. Tampoco debería inventar políticas por quedar bien.</p>
+      <p>La supervisión humana puede tomar varias formas: revisión previa de respuestas, escalado por baja confianza, límites por tipo de cliente, logs auditables, respuestas de solo borrador o autorización antes de ejecutar acciones. No todos los casos requieren el mismo nivel de control, pero todos necesitan una regla explícita.</p>
+      <p>El diseño serio de agentes no se mide por cuántas cosas puede hacer, sino por cuántas sabe no hacer. En soporte, una mala respuesta puede costar confianza. Por eso el agente debe tener humildad operativa: si no sabe, pregunta o escala.</p>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Coste</p>
+      <h2>Cuánto cuesta implementarlo en una pyme</h2>
+      <p>El coste depende del alcance. Un prototipo que responde FAQs desde una base de conocimiento simple puede ser relativamente rápido. Un agente conectado a CRM, tickets, estado de pedidos, documentación interna, logs y escalado humano requiere más diseño, pruebas y mantenimiento.</p>
+      <p>En Archon solemos separar diagnóstico, prototipo y despliegue por fases. Primero se revisan canales, volumen, preguntas repetidas, documentación y riesgos. Después se define un caso acotado: por ejemplo, clasificar tickets y proponer respuestas, no resolver todo el soporte. Solo cuando el sistema demuestra utilidad se amplía.</p>
+      <p>Además del coste de construcción, hay costes de operación: uso del modelo, herramienta de automatización, hosting si aplica, mantenimiento, revisión de errores y actualización de documentación. Un agente con datos antiguos es peor que no tener agente: responde con seguridad sobre información que ya no es cierta.</p>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Preguntas frecuentes</p>
+      <h2>FAQ sobre agentes de IA para soporte</h2>
+      <div class="split">
+        <div>
+          <p><strong>¿Qué necesita una empresa antes de crear un agente?</strong><br>Alcance claro, documentación fiable, ejemplos reales, política de escalado y límites de respuesta.</p>
+          <p><strong>¿Qué diferencia hay entre chatbot y agente?</strong><br>El agente puede consultar fuentes, usar herramientas, recordar contexto controlado y escalar casos.</p>
+        </div>
+        <div>
+          <p><strong>¿Cuánto cuesta implementarlo?</strong><br>Depende de canales, integraciones y volumen. Lo prudente es empezar con diagnóstico y prototipo acotado.</p>
+          <p><strong>¿Puede responder sin supervisión?</strong><br>Solo en casos de bajo riesgo. Para decisiones sensibles debe escalar o pedir validación humana.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <p class="eyebrow">Siguiente paso</p>
+      <h2>Antes de crear un agente, define <span>qué no debe tocar.</span></h2>
+      <p>En Archon diseñamos agentes IA para empresas con límites, trazabilidad y supervisión. Si quieres valorar un agente de soporte sin convertirlo en una caja negra, empieza por una auditoría del flujo actual.</p>
+      <div class="cta-actions">
+        <a class="btn primary" href="/agentes-ia-zaragoza">Ver agentes IA Zaragoza</a>
+        <a class="btn secondary" href="/contacto">Solicitar auditoría</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="shell foot">
+    <div>
+      <strong>Agente IA para atención al cliente</strong>
+      <span>Archon Consultancies · Zaragoza</span>
+    </div>
+    <div class="foot-nav">
+      <a href="/">Inicio</a>
+      <a href="/blog">Blog</a>
+      <a href="/agentes-ia-zaragoza">Agentes IA Zaragoza</a>
+      <a href="/pablo-alcocer-hurtado">Pablo</a>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/archon-chatbot.js?v=20260419e" defer></script>
+</body>
+</html>

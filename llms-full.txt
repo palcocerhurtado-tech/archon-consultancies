@@ -246,9 +246,19 @@ Guía práctica para empresas de Zaragoza y Aragón que evalúan proveedores de 
 URL: https://archonconsultancies.com/automatizacion-n8n-empresas
 Guía de uso de n8n como plataforma de automatización empresarial. Casos de uso reales, comparación con Zapier y Make, y guía de implantación.
 
+**n8n vs Zapier para automatizar pymes**
+Slug: n8n-vs-zapier-automatizacion-pymes — n8n vs Zapier: cuál elegir para automatizar tu pyme en 2026
+URL: https://archonconsultancies.com/n8n-vs-zapier-automatizacion-pymes
+Comparativa honesta entre n8n y Zapier para pymes españolas: precios, flexibilidad, privacidad de datos, complejidad técnica y cuándo elegir cada herramienta.
+
 **Agentes de IA para empresas**
 URL: https://archonconsultancies.com/agentes-ia-para-empresas
 Qué son los agentes de IA, cómo difieren de los chatbots simples y en qué casos de negocio aportan valor real. Criterios de implantación para pymes.
+
+**Cómo crear un agente de IA para atención al cliente**
+Slug: como-crear-agente-ia-atencion-cliente — Cómo crear un agente de IA para atención al cliente paso a paso
+URL: https://archonconsultancies.com/como-crear-agente-ia-atencion-cliente
+Guía paso a paso para implementar un agente de IA en soporte: alcance, fuentes de datos, LLM, herramientas, supervisión humana, costes y errores que evitar.
 
 **Chatbots IA vs chatbots tradicionales**
 URL: https://archonconsultancies.com/chatbots-ia-vs-tradicionales
