@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1DEHH0QHZ5"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag("js", new Date());
-gtag("config", "G-1DEHH0QHZ5");
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Habla con Archon Consultancies: auditoría gratuita de 33 minutos sobre IA, automatización o marketing estratégico en Zaragoza. Sin compromiso.">
@@ -154,7 +146,10 @@ gtag("config", "G-1DEHH0QHZ5");
   ]
 }
 </script>
+<link rel="stylesheet" href="/assets/css/archon-contact.css?v=20260908">
+  <link rel="stylesheet" href="/assets/css/archon-consent.css?v=20260908">
 </head>
+<!-- Confirmed contact submission; the native form remains available without JavaScript. -->
 <body class="archon-rebrand">
 <a href="#top" class="skip-link">Saltar al contenido principal</a>
 <header class="brand-topbar">
@@ -185,8 +180,8 @@ gtag("config", "G-1DEHH0QHZ5");
     <div class="brand-shell brand-hero-grid">
       <div class="brand-hero-panel">
         <p class="brand-eyebrow">Contacto</p>
-        <h1 class="brand-title">Cuéntanos dónde hay fricción.</h1>
-        <p class="brand-lead">No necesitamos una presentación perfecta. Necesitamos entender qué estás intentando ordenar: operaciones, IA, marketing, datos o todo a la vez.</p>
+        <h1 class="brand-title">Hablar con Archon</h1>
+        <p class="brand-lead">Primera conversación gratuita de 33 minutos para revisar qué te frena y decidir el siguiente paso. Sin compromiso.</p>
       </div>
       <aside class="brand-hero-panel brand-contact-panel">
         <picture><source srcset="assets/archon/archon-ac-outline-gold.webp" type="image/webp"><img class="brand-logo-watermark" src="assets/archon/archon-ac-outline-gold.png" alt="" aria-hidden="true" loading="lazy" width="600" height="557"></picture>
@@ -198,16 +193,17 @@ gtag("config", "G-1DEHH0QHZ5");
     </div>
   </section>
 
-  <section class="brand-section">
+  <section class="brand-section" id="formulario">
     <div class="brand-shell brand-grid brand-grid--two">
       <div class="brand-card">
         <span class="brand-card-label">Formulario</span>
         <h2>Primer diagnóstico</h2>
-        <p>Selecciona el tipo de proyecto. Así llegamos a la primera llamada con el enfoque correcto.</p>
+        <p>Cuéntanos qué necesitas. Pablo revisará tu solicitud y te responderá por email para acordar la conversación y confirmar disponibilidad.</p>
         <form class="brand-form" action="https://formsubmit.co/archon.consultancies@hotmail.com" method="POST" aria-label="Formulario de contacto — primer diagnóstico">
           <input type="hidden" name="_subject" value="Nuevo contacto desde Archon Consultancies">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_next" value="https://archonconsultancies.com/gracias">
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
           <label for="contacto-nombre" class="brand-label">Nombre</label>
           <input id="contacto-nombre" class="brand-field" type="text" name="nombre" placeholder="Tu nombre" autocomplete="name" required aria-required="true">
           <label for="contacto-email" class="brand-label">Email</label>
@@ -224,7 +220,8 @@ gtag("config", "G-1DEHH0QHZ5");
           </select>
           <label for="contacto-mensaje" class="brand-label">Mensaje</label>
           <textarea id="contacto-mensaje" name="mensaje" placeholder="Qué quieres ordenar, automatizar o comunicar" required aria-required="true"></textarea>
-          <button class="brand-btn brand-btn--accent" type="submit">Enviar diagnóstico</button>
+          <p class="contact-privacy">Usaremos tus datos para atender esta solicitud. <a class="brand-link" href="/privacidad">Privacidad</a>.</p>
+          <button class="brand-btn brand-btn--accent" type="submit">Hablar con Archon</button>
         </form>
       </div>
       <div class="brand-card brand-card--accent brand-card--logo-space">
@@ -267,5 +264,7 @@ gtag("config", "G-1DEHH0QHZ5");
   </div>
 </footer>
 <script src="assets/js/archon-chatbot.js?v=20260419e" defer></script>
+<script src="/assets/js/archon-contact.js?v=20260908" defer></script>
+  <script src="/assets/js/archon-consent.js?v=20260908" defer></script>
 </body>
 </html>

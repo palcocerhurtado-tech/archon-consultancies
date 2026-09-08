@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1DEHH0QHZ5"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag("js", new Date());
-gtag("config", "G-1DEHH0QHZ5");
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="MD0MtiYe9We5JQqG_ZiAK8qcA6-PZyUIP-LVGOFcgAM">
@@ -44,6 +36,7 @@ gtag("config", "G-1DEHH0QHZ5");
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&amp;family=Inter:wght@400;700;800&amp;display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&amp;family=Inter:wght@400;700;800&amp;display=optional"></noscript>
 <link rel="stylesheet" href="assets/css/archon-brand.css">
+<link rel="stylesheet" href="assets/css/archon-home.css?v=20260908">
 <link rel="preload" href="assets/css/archon-chatbot.css?v=20260419e" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="assets/css/archon-chatbot.css?v=20260419e"></noscript>
 <script type="application/ld+json">
@@ -199,7 +192,7 @@ gtag("config", "G-1DEHH0QHZ5");
           {
             "@type": "Offer",
             "name": "Gestión Digital Integral",
-            "description": "Servicio flagship de Archon Atelier: web, SEO, redes, blog, Meta Ads, CRM y reporting. Setup inicial incluido.",
+            "description": "Gestión Digital Integral: web, SEO, redes, blog, Meta Ads, CRM y reporting por 850 EUR/mes. Setup inicial único de 550 EUR e inversión publicitaria aparte. Alcance detallado en la página de Atelier.",
             "price": "850",
             "priceCurrency": "EUR",
             "availability": "https://schema.org/InStock"
@@ -292,8 +285,11 @@ gtag("config", "G-1DEHH0QHZ5");
 }
 </script>
 <link rel="preload" as="image" type="image/webp" href="assets/archon/archon-ac-solid-gold.webp" fetchpriority="high">
+<link rel="stylesheet" href="/assets/css/archon-contact.css?v=20260908">
+  <link rel="stylesheet" href="/assets/css/archon-consent.css?v=20260908">
 </head>
-<body class="archon-rebrand">
+<!-- Confirmed contact submission; the native form remains available without JavaScript. -->
+<body class="archon-rebrand brand-home">
 <a href="#top" class="skip-link">Saltar al contenido principal</a>
 <header class="brand-topbar">
   <div class="brand-shell brand-nav">
@@ -326,369 +322,165 @@ gtag("config", "G-1DEHH0QHZ5");
 </header>
 
 <main id="top">
-  <section class="brand-hero">
-    <div class="brand-shell brand-hero-grid">
-      <div>
-        <p class="brand-eyebrow" data-es="Dos fuerzas. Una arquitectura." data-en="Two forces. One architecture.">Dos fuerzas. Una arquitectura.</p>
-        <h1 class="brand-title" data-es="IA, automatización y marketing inteligente <span>para pymes en Zaragoza.</span>" data-en="AI, automation and intelligent marketing <span>for SMEs in Zaragoza.</span>">IA, automatización y marketing inteligente <span>para pymes en Zaragoza.</span></h1>
-        <p class="brand-lead" data-es="Dirigida por Pablo Alcocer Hurtado, Archon Consultancies equilibra dos fuerzas complementarias: Intelligence ordena dentro — infraestructura, datos, automatización y control — y Atelier proyecta fuera — expresión, posicionamiento, comunicación y crecimiento." data-en="Led by Pablo Alcocer Hurtado, Archon Consultancies balances two complementary forces: Intelligence orders the inside — infrastructure, data, automation and control — while Atelier projects outward — expression, positioning, communication and growth.">Dirigida por Pablo Alcocer Hurtado, Archon Consultancies equilibra dos fuerzas complementarias: Intelligence ordena dentro — infraestructura, datos, automatización y control — y Atelier proyecta fuera — expresión, posicionamiento, comunicación y crecimiento.</p>
-        <div class="brand-btn-row">
-          <a class="brand-btn brand-btn--accent" href="/intelligence" data-es="Ver Intelligence" data-en="View Intelligence">Ver Intelligence</a>
-          <a class="brand-btn brand-btn--ghost" href="/atelier" data-es="Ver Atelier" data-en="View Atelier">Ver Atelier</a>
-        </div>
+  <section class="brand-hero home-hero">
+    <div class="brand-shell">
+      <p class="brand-eyebrow" data-es="Dos fuerzas. Una arquitectura." data-en="Two forces. One architecture.">Dos fuerzas. Una arquitectura.</p>
+      <h1 class="brand-title">Archon Consultancies</h1>
+      <p class="home-offer" data-es="IA, automatización y marketing para pymes en Zaragoza y toda España." data-en="AI, automation and marketing for SMEs in Zaragoza and across Spain.">IA, automatización y marketing para pymes en Zaragoza y toda España.</p>
+      <p class="brand-lead" data-es="Ordenamos lo que ocurre dentro de tu empresa y conectamos esa claridad con lo que comunicas fuera." data-en="We organise what happens inside your business and connect that clarity with how you communicate outside.">Ordenamos lo que ocurre dentro de tu empresa y conectamos esa claridad con lo que comunicas fuera.</p>
+      <div class="brand-btn-row">
+        <a class="brand-btn brand-btn--accent" data-es="Hablar con Archon" data-en="Talk to Archon" href="#contacto" data-contact-cta="hero">Hablar con Archon</a>
+        <a class="brand-btn brand-btn--ghost" data-es="Conocer las dos fuerzas" data-en="Explore the two forces" href="#servicios">Conocer las dos fuerzas</a>
       </div>
-      <aside class="brand-hero-panel" aria-label="Líneas de negocio Archon">
-        <picture><source srcset="assets/archon/archon-ac-outline-gold.webp" type="image/webp"><img class="brand-logo-watermark" src="assets/archon/archon-ac-outline-gold.png" alt="" aria-hidden="true" loading="lazy" width="600" height="557"></picture>
-        <p class="brand-eyebrow" data-es="Nueva etapa" data-en="New chapter">Nueva etapa</p>
-        <div class="brand-micro-grid">
-          <article class="brand-micro-card">
-            <p class="brand-division-kicker">Archon · Intelligence</p>
-            <strong data-es="Dentro · Agua · Control." data-en="Inside · Water · Control.">Dentro · Agua · Control.</strong>
-            <span data-es="Infraestructura, datos, automatización, agentes internos, n8n, CRM, ERP, reporting y trazabilidad para que la operación respire." data-en="Infrastructure, data, automation, internal agents, n8n, CRM, ERP, reporting and traceability so operations can breathe.">Infraestructura, datos, automatización, agentes internos, n8n, CRM, ERP, reporting y trazabilidad para que la operación respire.</span>
-          </article>
-          <article class="brand-micro-card">
-            <p class="brand-division-kicker">Archon · Atelier</p>
-            <strong data-es="Fuera · Fuego · Movimiento." data-en="Outside · Fire · Movement.">Fuera · Fuego · Movimiento.</strong>
-            <span data-es="Expresión, posicionamiento, contenido, web, SEO/GEO, redes sociales, blog, campañas Meta Ads, CRM y fidelización para crecer con dirección." data-en="Expression, positioning, content, web, SEO/GEO, social media, blog, Meta Ads campaigns, CRM and retention to grow with direction.">Expresión, posicionamiento, contenido, web, SEO/GEO, redes sociales, blog, campañas Meta Ads, CRM y fidelización para crecer con dirección.</span>
-          </article>
-        </div>
-      </aside>
+      <p class="home-note" data-es="Primera conversación gratuita de 33 minutos: revisamos tu bloqueo principal y acordamos el siguiente paso. Sin compromiso." data-en="A free 33-minute first conversation: we review your main bottleneck and agree on the next step. No obligation.">Primera conversación gratuita de 33 minutos: revisamos tu bloqueo principal y acordamos el siguiente paso. Sin compromiso.</p>
+      <p class="home-founder-line" data-es="Dirigida por Pablo Alcocer Hurtado · Fundador" data-en="Led by Pablo Alcocer Hurtado · Founder">Dirigida por Pablo Alcocer Hurtado · Fundador</p>
     </div>
   </section>
 
   <section class="brand-section" id="servicios">
     <div class="brand-shell">
-      <p class="brand-eyebrow" data-es="Una firma, dos fuerzas" data-en="One firm, two forces">Una firma, dos fuerzas</p>
-      <div class="brand-grid brand-grid--two">
-        <article class="brand-card brand-card--accent">
-          <picture><source srcset="assets/archon/archon-ac-outline-gold.webp" type="image/webp"><img class="brand-card-logo" src="assets/archon/archon-ac-outline-gold.png" alt="" aria-hidden="true" loading="lazy" width="600" height="557"></picture>
-          <span class="brand-card-label">Intelligence</span>
-          <h2 data-es="El dentro: infraestructura, datos y control." data-en="The inside: infrastructure, data and control.">El dentro: infraestructura, datos y control.</h2>
-          <p data-es="Diseñamos infraestructuras de IA para que ventas, soporte, datos, operaciones y decisiones no dependan de memoria humana ni tareas repetitivas." data-en="We design AI infrastructures so sales, support, data, operations and decisions do not depend on human memory or repetitive tasks.">Diseñamos infraestructuras de IA para que ventas, soporte, datos, operaciones y decisiones no dependan de memoria humana ni tareas repetitivas.</p>
-          <a class="brand-link" href="/intelligence" data-es="Ver servicios de Intelligence" data-en="View Intelligence services">Ver servicios de Intelligence</a>
+      <p class="brand-eyebrow" data-es="01 · Dos fuerzas" data-en="01 · Two forces">01 · Dos fuerzas</p>
+      <h2 class="brand-title" data-es="Dentro ↔ Fuera." data-en="Inside ↔ Outside.">Dentro ↔ Fuera.</h2>
+      <div class="brand-grid brand-grid--two home-forces">
+        <article class="home-force home-force--water" id="intelligence">
+          <p class="brand-card-label" data-es="Dentro · Agua · Estructura · Control" data-en="Inside · Water · Structure · Control">Dentro · Agua · Estructura · Control</p>
+          <h3>Archon Intelligence</h3>
+          <p data-es="Infraestructura, datos y automatización para conectar herramientas, reducir tareas repetitivas y mantener el control de la operación." data-en="Infrastructure, data and automation to connect tools, reduce repetitive work and keep operations under control.">Infraestructura, datos y automatización para conectar herramientas, reducir tareas repetitivas y mantener el control de la operación.</p>
+          <a class="brand-link" data-es="Ver Intelligence" data-en="Explore Intelligence" href="/intelligence">Ver Intelligence</a>
         </article>
-        <article class="brand-card">
-          <span class="brand-card-label">Atelier</span>
-          <h2 data-es="El fuera: expresión, posicionamiento y crecimiento." data-en="The outside: expression, positioning and growth.">El fuera: expresión, posicionamiento y crecimiento.</h2>
-          <p data-es="Atelier convierte web, SEO, contenido, campañas, analítica y fidelización en una cadencia de crecimiento documentada, constante y medible." data-en="Atelier turns web, SEO, content, campaigns, analytics and retention into a documented, consistent and measurable growth rhythm.">Atelier convierte web, SEO, contenido, campañas, analítica y fidelización en una cadencia de crecimiento documentada, constante y medible.</p>
-          <a class="brand-link" href="/atelier" data-es="Ver servicios de Atelier" data-en="View Atelier services">Ver servicios de Atelier</a>
+        <article class="home-force home-force--fire" id="atelier">
+          <p class="brand-card-label" data-es="Fuera · Fuego · Expresión · Movimiento" data-en="Outside · Fire · Expression · Movement">Fuera · Fuego · Expresión · Movimiento</p>
+          <h3>Archon Atelier</h3>
+          <p data-es="Posicionamiento, web, contenido y campañas para expresar lo que hace valiosa a tu empresa y convertirlo en oportunidades de crecimiento." data-en="Positioning, websites, content and campaigns to express what makes your business valuable and turn it into growth opportunities.">Posicionamiento, web, contenido y campañas para expresar lo que hace valiosa a tu empresa y convertirlo en oportunidades de crecimiento.</p>
+          <a class="brand-link" data-es="Ver Atelier" data-en="Explore Atelier" href="/atelier">Ver Atelier</a>
         </article>
       </div>
+      <div class="home-example" id="verticales">
+        <h3 data-es="De una consulta a una venta." data-en="From an enquiry to a sale.">De una consulta a una venta.</h3>
+        <p data-es="Atelier atrae una consulta; Intelligence la registra, organiza el seguimiento y permite medir qué termina en venta. Ese aprendizaje vuelve a Atelier para mejorar la comunicación." data-en="Atelier attracts an enquiry; Intelligence records it, organises follow-up and helps measure what becomes a sale. That learning feeds back into Atelier to improve communication.">Atelier atrae una consulta; Intelligence la registra, organiza el seguimiento y permite medir qué termina en venta. Ese aprendizaje vuelve a Atelier para mejorar la comunicación.</p>
+        <p class="home-note" data-es="Dentro sostiene; fuera impulsa. La estructura de abajo permite la expresión de arriba. Ambas fuerzas comparten datos y dirección." data-en="The inside supports; the outside drives. The structure below enables the expression above. Both forces share data and direction.">Dentro sostiene; fuera impulsa. La estructura de abajo permite la expresión de arriba. Ambas fuerzas comparten datos y dirección.</p>
+      </div>
+      <nav class="home-service-links" id="servicios-zaragoza" aria-label="Servicios especializados">
+        <a class="brand-link" data-es="Automatización" data-en="Automation" href="/automatizacion-pymes-zaragoza">Automatización</a>
+        <a class="brand-link" data-es="Consultoría IA" data-en="AI consulting" href="/consultoria-ia-zaragoza">Consultoría IA</a>
+        <a class="brand-link" data-es="Marketing" data-en="Marketing" href="/agencia-marketing-inteligente-zaragoza">Marketing</a>
+        <a class="brand-link" data-es="Contenido" data-en="Content" href="/creacion-contenido-empresas-zaragoza">Contenido</a>
+        <a class="brand-link" data-es="SEO y GEO" data-en="SEO and GEO" href="/seo-geo-zaragoza">SEO y GEO</a>
+        <a class="brand-link" data-es="Agentes IA" data-en="AI agents" href="/agentes-ia-zaragoza">Agentes IA</a>
+      </nav>
     </div>
   </section>
 
-  <section class="brand-section brand-section--compact" id="servicios-zaragoza">
+  <section class="brand-section home-band" id="casos">
     <div class="brand-shell">
-      <p class="brand-eyebrow">Servicios principales en Zaragoza</p>
-      <h2 class="brand-title">IA, automatización, contenido y marketing como sistema.</h2>
-      <div class="brand-grid brand-grid--three" style="margin-top:34px">
-        <article class="brand-card">
-          <span class="brand-card-label">Operaciones</span>
-          <h3>Automatización para pymes en Zaragoza</h3>
-          <p>Procesos repetitivos, CRM, ERP, formularios, email, reporting y herramientas internas conectadas con criterio.</p>
-          <a class="brand-link" href="/automatizacion-pymes-zaragoza">Ver automatización para pymes</a>
-        </article>
-        <article class="brand-card brand-card--accent">
-          <span class="brand-card-label">IA aplicada</span>
-          <h3>Consultoría IA para empresas</h3>
-          <p>Diagnóstico, roadmap, agentes IA, n8n, datos y arquitectura operativa antes de construir nada que no aporte retorno.</p>
-          <a class="brand-link" href="/consultoria-ia-zaragoza">Ver consultoría IA Zaragoza</a>
-        </article>
-        <article class="brand-card">
-          <span class="brand-card-label">Atelier</span>
-          <h3>Agencia de marketing inteligente</h3>
-          <p>Estrategia, web, contenido, redes, Meta Ads, CRM y fidelización bajo una dirección medible.</p>
-          <a class="brand-link" href="/agencia-marketing-inteligente-zaragoza">Ver marketing inteligente</a>
-        </article>
-        <article class="brand-card">
-          <span class="brand-card-label">Contenido</span>
-          <h3>Creación de contenido empresarial</h3>
-          <p>Artículos, páginas comerciales, guiones, redes, newsletters y materiales de marca para explicar mejor lo que haces.</p>
-          <a class="brand-link" href="/creacion-contenido-empresas-zaragoza">Ver creación de contenido</a>
-        </article>
-        <article class="brand-card">
-          <span class="brand-card-label">SEO/GEO</span>
-          <h3>SEO y GEO local</h3>
-          <p>SEO técnico, datos estructurados, llms.txt, páginas locales y contenido preparado para buscadores y motores generativos.</p>
-          <a class="brand-link" href="/seo-geo-zaragoza">Ver SEO/GEO Zaragoza</a>
-        </article>
-        <article class="brand-card">
-          <span class="brand-card-label">Sistemas</span>
-          <h3>CRM, ERP, n8n y agentes IA</h3>
-          <p>Integración de CRM, ERP, email, formularios y herramientas internas con agentes IA y chatbots supervisados.</p>
-          <a class="brand-link" href="/agentes-ia-zaragoza">Ver agentes IA Zaragoza</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="brand-section" id="verticales">
-    <div class="brand-shell">
-      <p class="brand-eyebrow">Verticales</p>
-      <h2 class="brand-title">Dónde suele romperse una pyme.</h2>
-      <div class="brand-grid brand-grid--two">
-        <article class="brand-card">
-          <span class="brand-card-label">Ecommerce</span>
-          <h3>Pedidos, stock y soporte que no acompañan a las ventas.</h3>
-          <p>Pedidos, stock, devoluciones, soporte, incidencias y reporting cuando la tienda vende pero la operativa no acompaña.</p>
-          <a class="brand-link" href="/agencia-ia-para-ecommerce">Ver solución ecommerce</a>
-        </article>
-        <article class="brand-card">
-          <span class="brand-card-label">Servicios profesionales</span>
-          <h3>Leads, presupuestos y seguimiento que dependen de memoria.</h3>
-          <p>Leads, presupuestos, agenda, propuestas, seguimiento comercial y tareas administrativas que no deberían depender de memoria humana.</p>
-          <a class="brand-link" href="/crm-marketing-automation-zaragoza">Ver solución servicios</a>
-        </article>
-        <article class="brand-card">
-          <span class="brand-card-label">Negocios locales premium</span>
-          <h3>Captación y fidelización sin sistema ni constancia.</h3>
-          <p>Captación, reseñas, CRM, fidelización, campañas y reporting para marcas que necesitan comunicar con constancia.</p>
-          <a class="brand-link" href="/gestion-digital-integral-zaragoza">Ver solución local</a>
-        </article>
-        <article class="brand-card">
-          <span class="brand-card-label">Equipos internos</span>
-          <h3>Documentación, informes y traspasos que consumen criterio.</h3>
-          <p>Documentación, onboarding, informes, validaciones, traspaso de información y tareas repetitivas que consumen criterio.</p>
-          <a class="brand-link" href="/automatizacion-procesos-ia-zaragoza">Ver solución operativa</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="brand-section brand-section--compact brand-section--logo" id="intelligence">
-    <div class="brand-shell">
-      <picture><source srcset="assets/archon/archon-ac-outline-gold.webp" type="image/webp"><img class="brand-section-logo" src="assets/archon/archon-ac-outline-gold.png" alt="" aria-hidden="true" loading="lazy" width="600" height="557"></picture>
-      <p class="brand-eyebrow">Archon · Intelligence</p>
-      <h2 class="brand-title" data-es="Automatización, IA y control operativo." data-en="Automation, AI and operational control.">Automatización, IA y control operativo.</h2>
-      <p class="brand-lead" data-es="No se trata de meter IA por moda. Se trata de detectar fricción, ordenar datos, automatizar decisiones repetibles y mantener supervisión humana sobre lo importante." data-en="This is not about adding AI because it is fashionable. It is about finding friction, ordering data, automating repeatable decisions and keeping human supervision over what matters.">No se trata de meter IA por moda. Se trata de detectar fricción, ordenar datos, automatizar decisiones repetibles y mantener supervisión humana sobre lo importante.</p>
-      <div class="brand-grid brand-grid--three" style="margin-top:34px">
-        <article class="brand-card">
-          <span class="brand-card-label" data-es="01 · Diagnóstico" data-en="01 · Diagnosis">01 · Diagnóstico</span>
-          <h3 data-es="Radiografía Pro" data-en="Pro Radiography">Radiografía Pro</h3>
-          <p data-es="Mapa de procesos, cuellos de botella, stack, riesgo y prioridades. Una lectura clara antes de construir." data-en="A map of processes, bottlenecks, stack, risk and priorities. A clear reading before building.">Mapa de procesos, cuellos de botella, stack, riesgo y prioridades. Una lectura clara antes de construir.</p>
-          <div class="brand-price">250 EUR<small data-es="Pago único" data-en="One-time payment">Pago único</small></div>
-        </article>
-        <article class="brand-card">
-          <span class="brand-card-label" data-es="02 · Ejecución" data-en="02 · Execution">02 · Ejecución</span>
-          <h3 data-es="Proyecto por hitos" data-en="Milestone project">Proyecto por hitos</h3>
-          <p data-es="Automatizaciones, integraciones y sistemas internos desplegados por fases, con entregables claros." data-en="Automations, integrations and internal systems deployed by phases, with clear deliverables.">Automatizaciones, integraciones y sistemas internos desplegados por fases, con entregables claros.</p>
-          <div class="brand-price">950+ EUR<small data-es="Según alcance" data-en="Depending on scope">Según alcance</small></div>
-        </article>
-        <article class="brand-card">
-          <span class="brand-card-label" data-es="03 · Continuidad" data-en="03 · Continuity">03 · Continuidad</span>
-          <h3 data-es="Mantenimiento y Calidad Total" data-en="Maintenance and Total Quality">Mantenimiento y Calidad Total</h3>
-          <p data-es="Monitorización, ajustes, soporte y mejora continua para que el sistema no se enfríe." data-en="Monitoring, adjustments, support and continuous improvement so the system stays alive.">Monitorización, ajustes, soporte y mejora continua para que el sistema no se enfríe.</p>
-          <div class="brand-price">350 EUR<small data-es="/ mes · sin permanencia" data-en="/ month · no lock-in">/ mes · sin permanencia</small></div>
-        </article>
-      </div>
-      <div class="brand-btn-row">
-        <a class="brand-btn brand-btn--accent" href="/intelligence" data-es="Ver servicios de Intelligence" data-en="View Intelligence services">Ver servicios de Intelligence</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="brand-section brand-section--compact" id="atelier">
-    <div class="brand-shell">
-      <p class="brand-eyebrow">Archon · Atelier</p>
-      <h2 class="brand-title" data-es="Expresión, posicionamiento y crecimiento." data-en="Expression, positioning and growth.">Expresión, posicionamiento y crecimiento.</h2>
-      <p class="brand-lead" data-es="Atelier es la fuerza exterior de Archon: traduce claridad interna en presencia pública, contenido, campañas y comunicación medible sin perder la arquitectura común." data-en="Atelier is Archon's outward force: it translates internal clarity into public presence, content, campaigns and measurable communication without losing the shared architecture.">Atelier es la fuerza exterior de Archon: traduce claridad interna en presencia pública, contenido, campañas y comunicación medible sin perder la arquitectura común.</p>
-      <div class="brand-grid brand-grid--two" style="margin-top:34px">
-        <article class="brand-card brand-card--accent">
-          <span class="brand-card-label" data-es="Flagship" data-en="Flagship">Flagship</span>
-          <h3 data-es="Gestión Digital Integral" data-en="Integral Digital Management">Gestión Digital Integral</h3>
-          <p data-es="Web y SEO técnico, contenido, redes, blog orgánico, Meta Ads, CRM, fidelización y reporting mensual trabajando como una sola arquitectura." data-en="Web and technical SEO, content, social media, organic blog, Meta Ads, CRM, retention and monthly reporting working as one architecture.">Web y SEO técnico, contenido, redes, blog orgánico, Meta Ads, CRM, fidelización y reporting mensual trabajando como una sola arquitectura.</p>
-          <div class="brand-price">850 EUR<small data-es="/ mes · inversión publicitaria aparte" data-en="/ month · ad spend separate">/ mes · inversión publicitaria aparte</small></div>
-          <p data-es="Setup inicial único: 550 EUR. Permanencia mínima recomendada: 6 meses. Inversión orientativa 6 meses: 5.650 EUR, excluida inversión publicitaria." data-en="One-time setup: 550 EUR. Recommended minimum term: 6 months. Estimated 6-month investment: 5,650 EUR, excluding ad spend.">Setup inicial único: 550 EUR. Permanencia mínima recomendada: 6 meses. Inversión orientativa 6 meses: 5.650 EUR, excluida inversión publicitaria.</p>
-        </article>
-        <article class="brand-card">
-          <span class="brand-card-label" data-es="Mensaje comercial" data-en="Commercial note">Mensaje comercial</span>
-          <h3 data-es="Todo trabaja como un solo sistema." data-en="Everything works as one system.">Todo trabaja como un solo sistema.</h3>
-          <p data-es="Comprar los servicios por separado costaría 880 €/mes. El paquete integral los unifica en una sola estrategia por 850 €. La diferencia no es el descuento — es que todo trabaja como un solo sistema." data-en="Buying the services separately would cost 880 €/month. The integral package unifies them into one strategy for 850 €. The difference is not the discount — it is that everything works as one system.">Comprar los servicios por separado costaría 880 €/mes. El paquete integral los unifica en una sola estrategia por 850 €. La diferencia no es el descuento — es que todo trabaja como un solo sistema.</p>
-          <ul class="brand-list">
-            <li data-es="Mantenimiento web + reporting + SEO continuo: 300 EUR / mes." data-en="Web maintenance + reporting + continuous SEO: 300 EUR / month.">Mantenimiento web + reporting + SEO continuo: 300 EUR / mes.</li>
-            <li data-es="Gestión mensual de redes sociales: 280 EUR / mes." data-en="Monthly social media management: 280 EUR / month.">Gestión mensual de redes sociales: 280 EUR / mes.</li>
-            <li data-es="Blog SEO: 150–250 EUR / mes." data-en="SEO blog: 150–250 EUR / month.">Blog SEO: 150–250 EUR / mes.</li>
-            <li data-es="Gestión de campañas Meta Ads: 100 EUR / mes." data-en="Meta Ads campaign management: 100 EUR / month.">Gestión de campañas Meta Ads: 100 EUR / mes.</li>
-          </ul>
-        </article>
-      </div>
-      <div class="brand-btn-row">
-        <a class="brand-btn brand-btn--accent" href="/atelier" data-es="Ver servicios de Atelier" data-en="View Atelier services">Ver servicios de Atelier</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="brand-section brand-section--compact" id="precios">
-    <div class="brand-shell">
-      <p class="brand-eyebrow">Precios</p>
-      <h2 class="brand-title">Empieza por claridad. Escala solo si tiene sentido.</h2>
-      <div class="brand-grid brand-grid--three">
-        <article class="brand-card">
-          <span class="brand-card-label">Diagnóstico</span>
-          <h3>Auditoría 33 minutos</h3>
-          <div class="brand-price">0 EUR<small>Sin compromiso</small></div>
-          <p>Una conversación corta para detectar si hay retorno real antes de invertir nada.</p>
-        </article>
-        <article class="brand-card brand-card--accent">
-          <span class="brand-card-label">Más contratado</span>
-          <h3>Radiografía Pro</h3>
-          <div class="brand-price">250 EUR<small>Pago único</small></div>
-          <p>Mapa de procesos, fricción, stack, riesgo, prioridades y hoja de ruta en 72h.</p>
-        </article>
-        <article class="brand-card">
-          <span class="brand-card-label">Ejecución</span>
-          <h3>Proyecto por hitos</h3>
-          <div class="brand-price">950+ EUR<small>Según alcance</small></div>
-          <p>Automatizaciones, integraciones y agentes desplegados por fases con entregables.</p>
-        </article>
-        <article class="brand-card">
-          <span class="brand-card-label">Sistema completo</span>
-          <h3>Full Stack Cerebro Archon</h3>
-          <div class="brand-price">2.500+ EUR<small>Pago por hitos</small></div>
-          <p>Fuente única de verdad, automatización, IA aplicada y supervisión integrada.</p>
-        </article>
-        <article class="brand-card">
-          <span class="brand-card-label">Continuidad Intelligence</span>
-          <h3>Mantenimiento y Calidad Total</h3>
-          <div class="brand-price">350 EUR<small>/ mes · sin permanencia</small></div>
-          <p>Monitorización, ajustes, soporte y mejora continua del sistema.</p>
-        </article>
-        <article class="brand-card">
-          <span class="brand-card-label">Continuidad Atelier</span>
-          <h3>Gestión Digital Integral</h3>
-          <div class="brand-price">850 EUR<small>/ mes + 550 EUR setup</small></div>
-          <p>Web, SEO, contenido, redes, blog, Meta Ads, CRM, fidelización y reporting.</p>
-        </article>
-      </div>
-      <div class="brand-btn-row">
-        <a class="brand-btn brand-btn--accent" href="/contacto">Reservar auditoría gratuita</a>
-        <a class="brand-btn brand-btn--ghost" href="/precio-consultoria-ia-empresas">Ver precios detallados</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="brand-section" id="manifiesto">
-    <div class="brand-shell">
-      <p class="brand-eyebrow" data-es="Manifiesto" data-en="Manifesto">Manifiesto</p>
-      <div class="brand-grid brand-grid--four brand-grid--two">
-        <article class="brand-card"><h3 data-es="Sistemas sobre ruido." data-en="Systems over noise.">Sistemas sobre ruido.</h3><p data-es="Una empresa no necesita más canales si no sabe qué hacer con la información que ya tiene." data-en="A company does not need more channels if it does not know what to do with the information it already has.">Una empresa no necesita más canales si no sabe qué hacer con la información que ya tiene.</p></article>
-        <article class="brand-card"><h3 data-es="Ejecución sobre promesas." data-en="Execution over promises.">Ejecución sobre promesas.</h3><p data-es="La estrategia solo importa si aterriza en entregables, responsables y semanas concretas." data-en="Strategy only matters if it lands in deliverables, owners and specific weeks.">La estrategia solo importa si aterriza en entregables, responsables y semanas concretas.</p></article>
-        <article class="brand-card"><h3 data-es="Datos sobre intuición." data-en="Data over intuition.">Datos sobre intuición.</h3><p data-es="La intuición ayuda. La medición evita que confundamos movimiento con avance." data-en="Intuition helps. Measurement prevents us from confusing movement with progress.">La intuición ayuda. La medición evita que confundamos movimiento con avance.</p></article>
-        <article class="brand-card"><h3 data-es="Arquitectura sobre improvisación." data-en="Architecture over improvisation.">Arquitectura sobre improvisación.</h3><p data-es="Lo que crece sin estructura acaba pidiendo urgencias. Lo que se diseña bien permite respirar." data-en="What grows without structure ends up demanding emergencies. What is designed well gives room to breathe.">Lo que crece sin estructura acaba pidiendo urgencias. Lo que se diseña bien permite respirar.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="brand-section" id="equipo">
-    <div class="brand-shell">
-      <p class="brand-eyebrow" data-es="Dirección" data-en="Direction">Dirección</p>
-      <h2 class="brand-title" data-es="Archon Consultancies está dirigida por Pablo Alcocer Hurtado." data-en="Archon Consultancies is led by Pablo Alcocer Hurtado.">Archon Consultancies está dirigida por Pablo Alcocer Hurtado.</h2>
-      <p class="brand-lead" data-es="Dos fuerzas. Una arquitectura. Intelligence construye dentro; Atelier expresa fuera." data-en="Two forces. One architecture. Intelligence builds inside; Atelier expresses outward.">Dos fuerzas. Una arquitectura. Intelligence construye dentro; Atelier expresa fuera.</p>
-      <div class="brand-grid brand-grid--two" style="margin-top:34px">
-        <article class="brand-card brand-team-card">
-          <picture><source srcset="assets/archon/pablo-alcocer-profile.webp" type="image/webp"><img class="brand-person-photo brand-person-photo--pablo" src="assets/archon/pablo-alcocer-profile.jpg" alt="Pablo Alcocer Hurtado" loading="lazy" width="800" height="600"></picture>
-          <div>
-            <h3>Pablo Alcocer Hurtado</h3>
-            <p class="brand-role" data-es="Fundador · Archon Consultancies" data-en="Founder · Archon Consultancies">Fundador · Archon Consultancies</p>
-            <p data-es="Dirige la arquitectura general de Archon: IA aplicada, automatización, datos, posicionamiento técnico y comunicación medible trabajando como una sola estructura." data-en="He leads Archon's overall architecture: applied AI, automation, data, technical positioning and measurable communication working as one structure.">Dirige la arquitectura general de Archon: IA aplicada, automatización, datos, posicionamiento técnico y comunicación medible trabajando como una sola estructura.</p>
-          </div>
-        </article>
-        <article class="brand-card brand-force-card">
-          <span class="brand-card-label" data-es="Arquitectura Archon" data-en="Archon Architecture">Arquitectura Archon</span>
-          <h3 data-es="Equilibrio de fuerzas." data-en="Balance of forces.">Equilibrio de fuerzas.</h3>
-          <p data-es="Intelligence trabaja abajo y dentro: infraestructura, datos, automatización, control y agua. Atelier trabaja arriba y fuera: expresión, posicionamiento, comunicación, crecimiento y fuego." data-en="Intelligence works below and inside: infrastructure, data, automation, control and water. Atelier works above and outside: expression, positioning, communication, growth and fire.">Intelligence trabaja abajo y dentro: infraestructura, datos, automatización, control y agua. Atelier trabaja arriba y fuera: expresión, posicionamiento, comunicación, crecimiento y fuego.</p>
-          <div class="brand-force-axis" aria-label="Equilibrio de fuerzas Archon">
-            <div>
-              <span>Dentro</span>
-              <strong>Intelligence</strong>
-            </div>
-            <div>
-              <span>Fuera</span>
-              <strong>Atelier</strong>
-            </div>
-          </div>
-        </article>
-      </div>
-      <div class="brand-btn-row">
-        <a class="brand-btn brand-btn--ghost" href="/equipo" data-es="Ver equipo completo" data-en="View full team">Ver equipo completo</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="brand-section brand-section--compact" id="casos">
-    <div class="brand-shell">
-      <p class="brand-eyebrow">Builds y demos</p>
-      <h2 class="brand-title">Sistemas diseñados para enseñar cómo piensa Archon.</h2>
-      <p class="brand-lead">Diagnóstico, arquitectura, automatización, medición y límites claros.</p>
-      <div class="brand-grid brand-grid--three" style="margin-top:34px">
+      <p class="brand-eyebrow" data-es="02 · Demos de sistema" data-en="02 · System demos">02 · Demos de sistema</p>
+      <h2 class="brand-title" data-es="Así conectamos el trabajo." data-en="How we connect the work.">Así conectamos el trabajo.</h2>
+      <p class="brand-lead" data-es="Ejemplos de diseño para entender el enfoque. Son demos operativas, no resultados de clientes." data-en="Design examples to understand the approach. These are operational demos, not client results.">Ejemplos de diseño para entender el enfoque. Son demos operativas, no resultados de clientes.</p>
+      <div class="brand-grid brand-grid--three home-demos">
         <article class="brand-card">
           <span class="brand-card-label">Demo · CRM</span>
-          <h3>CRM + seguimiento comercial automatizado</h3>
-          <p>Formulario web, cualificación de lead, asignación de prioridad, email de seguimiento y registro en CRM con trazabilidad completa.</p>
-          <a class="brand-link" href="/contacto">Solicitar Radiografía Pro</a>
+          <h3 data-es="Seguimiento comercial" data-en="Sales follow-up">Seguimiento comercial</h3>
+          <p data-es="Una consulta pasa del formulario al CRM con prioridad y próxima acción. El seguimiento deja de depender de la memoria." data-en="An enquiry moves from the form to the CRM with a priority and a next action. Follow-up no longer depends on memory.">Una consulta pasa del formulario al CRM con prioridad y próxima acción. El seguimiento deja de depender de la memoria.</p>
         </article>
-        <article class="brand-card brand-card--accent">
-          <span class="brand-card-label">Demo · IA</span>
-          <h3>Soporte + base de conocimiento con IA</h3>
-          <p>Asistente entrenado con documentación interna, límites de respuesta, escalado humano y resumen de incidencias por semana.</p>
-          <a class="brand-link" href="/chatbots-agentes-ia-zaragoza">Ver chatbots y agentes IA</a>
+        <article class="brand-card">
+          <span class="brand-card-label" data-es="Demo · IA" data-en="Demo · AI">Demo · IA</span>
+          <h3 data-es="Soporte con conocimiento" data-en="Knowledge-based support">Soporte con conocimiento</h3>
+          <p data-es="Documentación interna conectada a un asistente con límites de respuesta y escalado a una persona." data-en="Internal documentation connected to an assistant with response boundaries and escalation to a person.">Documentación interna conectada a un asistente con límites de respuesta y escalado a una persona.</p>
         </article>
         <article class="brand-card">
           <span class="brand-card-label">Demo · Reporting</span>
-          <h3>Reporting ejecutivo automatizado</h3>
-          <p>Extracción de datos, resumen semanal, alertas de desviación y lectura ejecutiva para tomar decisiones sin revisar Excel.</p>
-          <a class="brand-link" href="/contacto">Solicitar Radiografía Pro</a>
+          <h3 data-es="Datos para decidir" data-en="Data for decisions">Datos para decidir</h3>
+          <p data-es="Información de negocio reunida en un resumen periódico con desviaciones y prioridades de seguimiento." data-en="Business information brought together in a periodic summary with deviations and follow-up priorities.">Información de negocio reunida en un resumen periódico con desviaciones y prioridades de seguimiento.</p>
         </article>
       </div>
       <div class="brand-btn-row">
-        <a class="brand-btn brand-btn--ghost" href="/casos">Ver casos y demos operativas</a>
+        <a class="brand-btn brand-btn--ghost" data-es="Ver las demos descritas" data-en="Read the demo walkthroughs" href="/casos">Ver las demos descritas</a>
       </div>
     </div>
   </section>
 
-  <section class="brand-section" id="diferencial">
+  <section class="brand-section" id="metodo">
     <div class="brand-shell">
-      <p class="brand-eyebrow">Posicionamiento</p>
-      <h2 class="brand-title">Contra quién no competimos.</h2>
-      <div class="brand-grid brand-grid--two">
-        <div class="brand-card">
-          <p>No somos una agencia de posts. No somos una consultora que vende PDFs eternos. No somos una empresa de software a medida sin foco. No somos un proveedor que mete IA donde no hace falta.</p>
-          <p>Archon trabaja como una capa de sistema: procesos, IA, automatización, CRM, marketing y reporting bajo una arquitectura común.</p>
+      <p class="brand-eyebrow" data-es="03 · Cómo trabajamos" data-en="03 · How we work">03 · Cómo trabajamos</p>
+      <h2 class="brand-title" data-es="Del bloqueo al siguiente paso." data-en="From bottleneck to next step.">Del bloqueo al siguiente paso.</h2>
+      <ol class="home-steps" id="manifiesto">
+        <li><h3 data-es="Entender" data-en="Understand">Entender</h3><p data-es="En 33 minutos revisamos tu contexto, el problema principal y si Archon puede ayudarte." data-en="In 33 minutes we review your context, your main problem and whether Archon can help.">En 33 minutos revisamos tu contexto, el problema principal y si Archon puede ayudarte.</p></li>
+        <li><h3 data-es="Definir" data-en="Define">Definir</h3><p data-es="Acordamos prioridades, entregables, responsables y presupuesto antes de empezar." data-en="We agree on priorities, deliverables, responsibilities and budget before starting.">Acordamos prioridades, entregables, responsables y presupuesto antes de empezar.</p></li>
+        <li><h3 data-es="Ejecutar y medir" data-en="Deliver and measure">Ejecutar y medir</h3><p data-es="Trabajamos por fases, revisamos lo que funciona y decidimos el siguiente avance con datos." data-en="We work in phases, review what works and use data to decide the next step.">Trabajamos por fases, revisamos lo que funciona y decidimos el siguiente avance con datos.</p></li>
+      </ol>
+      <div class="home-founder" id="equipo">
+        <picture><source srcset="assets/archon/pablo-alcocer-profile.webp" type="image/webp"><img class="brand-person-photo brand-person-photo--pablo" src="assets/archon/pablo-alcocer-profile.jpg" alt="Pablo Alcocer Hurtado" loading="lazy" width="800" height="600"></picture>
+        <div id="diferencial">
+          <h3>Pablo Alcocer Hurtado</h3>
+          <p class="brand-role" data-es="Fundador · Archon Consultancies" data-en="Founder · Archon Consultancies">Fundador · Archon Consultancies</p>
+          <p data-es="Pablo dirige la arquitectura de Archon y conecta las decisiones de infraestructura con las de comunicación y crecimiento." data-en="Pablo leads Archon's architecture, connecting infrastructure decisions with communication and growth.">Pablo dirige la arquitectura de Archon y conecta las decisiones de infraestructura con las de comunicación y crecimiento.</p>
+          <a class="brand-link" data-es="Conocer la dirección y la arquitectura" data-en="Meet the founder and explore the architecture" href="/equipo">Conocer la dirección y la arquitectura</a>
         </div>
-        <div class="brand-card brand-card--accent">
-          <span class="brand-card-label">Lo que sí somos</span>
-          <h3>Una boutique de sistemas empresariales.</h3>
-          <p>Dos disciplinas bajo una misma arquitectura. Intelligence reduce fricción operativa. Atelier convierte esa claridad en comunicación medible.</p>
-          <a class="brand-btn brand-btn--accent" href="/intelligence">Ver cómo trabajamos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="brand-section home-band" id="precios">
+    <div class="brand-shell">
+      <p class="brand-eyebrow" data-es="04 · Inversión" data-en="04 · Investment">04 · Inversión</p>
+      <h2 class="brand-title" data-es="Un alcance claro para cada etapa." data-en="A clear scope for each stage.">Un alcance claro para cada etapa.</h2>
+      <div class="brand-grid brand-grid--two home-pricing">
+        <div class="home-price-column home-force--water">
+          <h3>Archon Intelligence</h3>
+          <dl class="home-price-list">
+            <div><dt>Radiografía Pro</dt><dd>250 EUR <small data-es="· pago único" data-en="· one-time">· pago único</small></dd></div>
+            <div><dt><span data-es="Proyecto por hitos" data-en="Milestone project">Proyecto por hitos</span></dt><dd><span data-es="Desde 950 EUR" data-en="From 950 EUR">Desde 950 EUR</span></dd></div>
+            <div><dt>Full Stack Cerebro Archon</dt><dd><span data-es="Desde 2.500 EUR" data-en="From 2,500 EUR">Desde 2.500 EUR</span></dd></div>
+            <div><dt><span data-es="Mantenimiento y Calidad Total" data-en="Maintenance and Total Quality">Mantenimiento y Calidad Total</span></dt><dd>350 EUR/<span data-es="mes" data-en="month">mes</span></dd></div>
+          </dl>
+          <p data-es="La Radiografía entrega mapa de procesos y prioridades en 72 horas. La implantación se presupuesta por alcance; el mantenimiento es mensual y sin permanencia." data-en="The Radiography delivers a process map and priorities in 72 hours. Implementation is priced by scope; maintenance is monthly with no lock-in.">La Radiografía entrega mapa de procesos y prioridades en 72 horas. La implantación se presupuesta por alcance; el mantenimiento es mensual y sin permanencia.</p>
+          <a class="brand-link" data-es="Ver alcance y precios de Intelligence" data-en="View Intelligence scope and pricing" href="/precio-consultoria-ia-empresas">Ver alcance y precios de Intelligence</a>
+        </div>
+        <div class="home-price-column home-force--fire">
+          <h3>Archon Atelier</h3>
+          <p data-es="Gestión Digital Integral" data-en="Integral Digital Management">Gestión Digital Integral</p>
+          <p class="home-main-price">850 EUR <small data-es="/ mes" data-en="/ month">/ mes</small></p>
+          <p data-es="Setup inicial único: 550 EUR. Inversión publicitaria aparte." data-en="One-time setup: 550 EUR. Ad spend separate.">Setup inicial único: 550 EUR. Inversión publicitaria aparte.</p>
+          <p data-es="Web y SEO, contenido, redes, blog, Meta Ads, CRM y reporting bajo una misma dirección. Consulta los entregables y condiciones del plan." data-en="Web and SEO, content, social media, blog, Meta Ads, CRM and reporting under one direction. See the plan's deliverables and terms.">Web y SEO, contenido, redes, blog, Meta Ads, CRM y reporting bajo una misma dirección. Consulta los entregables y condiciones del plan.</p>
+          <a class="brand-link" data-es="Ver qué incluye Atelier" data-en="See what Atelier includes" href="/atelier#alcance">Ver qué incluye Atelier</a>
         </div>
       </div>
     </div>
   </section>
 
   <section class="brand-section" id="contacto">
-    <div class="brand-shell brand-grid brand-grid--two">
+    <div class="brand-shell brand-grid brand-grid--two home-contact">
       <div>
-        <p class="brand-eyebrow" data-es="Contacto" data-en="Contact">Contacto</p>
-        <h2 class="brand-title" data-es="Tu empresa no necesita más ruido. Necesita procesos claros, comunicación precisa y ejecución medible." data-en="Your company does not need more noise. It needs clear processes, precise communication and measurable execution.">Tu empresa no necesita más ruido. Necesita procesos claros, comunicación precisa y ejecución medible.</h2>
-        <p class="brand-lead" data-es="Cuéntanos si el bloqueo está dentro de la operación, fuera en la comunicación o en ambos lados. Te responderemos con el siguiente paso lógico." data-en="Tell us whether the bottleneck is inside operations, outside in communication, or on both sides. We will respond with the logical next step.">Cuéntanos si el bloqueo está dentro de la operación, fuera en la comunicación o en ambos lados. Te responderemos con el siguiente paso lógico.</p>
+        <p class="brand-eyebrow" data-es="05 · Primera conversación" data-en="05 · First conversation">05 · Primera conversación</p>
+        <h2 class="brand-title" data-es="Hablar con Archon" data-en="Talk to Archon">Hablar con Archon</h2>
+        <p class="brand-lead" data-es="33 minutos gratuitos para entender qué te frena y decidir por dónde empezar." data-en="33 free minutes to understand what is holding you back and decide where to start.">33 minutos gratuitos para entender qué te frena y decidir por dónde empezar.</p>
+        <p data-es="Revisaremos tu solicitud y te responderemos por email para acordar la conversación. No necesitas tener una solución elegida." data-en="We will review your enquiry and reply by email to arrange the conversation. You do not need to have chosen a solution.">Revisaremos tu solicitud y te responderemos por email para acordar la conversación. No necesitas tener una solución elegida.</p>
+        <p><a class="brand-link" href="mailto:archon.consultancies@hotmail.com">archon.consultancies@hotmail.com</a><br><a class="brand-link" href="tel:+34693500740">+34 693 500 740</a></p>
       </div>
-      <form class="brand-card brand-form" action="https://formsubmit.co/archon.consultancies@hotmail.com" method="POST" aria-label="Formulario de contacto Archon">
-        <input type="hidden" name="_subject" value="Nueva solicitud Archon dual line">
+      <form class="brand-form" action="https://formsubmit.co/archon.consultancies@hotmail.com" method="POST" aria-label="Contacto Archon">
+        <input type="hidden" name="_subject" value="Primera conversación con Archon">
         <input type="hidden" name="_next" value="https://archonconsultancies.com/gracias">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
         <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
-        <input class="brand-field" type="text" name="name" autocomplete="name" required data-es-placeholder="Nombre y apellidos" data-en-placeholder="Full name" placeholder="Nombre y apellidos" aria-label="Nombre y apellidos">
-        <input class="brand-field" type="email" name="email" autocomplete="email" required data-es-placeholder="Email de contacto" data-en-placeholder="Contact email" placeholder="Email de contacto" aria-label="Email de contacto">
-        <input class="brand-field" type="text" name="business" autocomplete="organization" required data-es-placeholder="Empresa o proyecto" data-en-placeholder="Company or project" placeholder="Empresa o proyecto" aria-label="Empresa o proyecto">
-        <select name="project_type" required aria-label="Tipo de proyecto">
-          <option value="" disabled selected data-es="Tipo de proyecto" data-en="Project type">Tipo de proyecto</option>
+        <label class="brand-label" data-es="Nombre" data-en="Name" for="home-name">Nombre</label>
+        <input id="home-name" class="brand-field" type="text" name="name" autocomplete="name" required maxlength="150">
+        <label class="brand-label" data-es="Email" data-en="Email" for="home-email">Email</label>
+        <input id="home-email" class="brand-field" type="email" name="email" autocomplete="email" required maxlength="254">
+        <label class="brand-label" data-es="Empresa o proyecto (opcional)" data-en="Company or project (optional)" for="home-business">Empresa o proyecto (opcional)</label>
+        <input id="home-business" class="brand-field" type="text" name="business" autocomplete="organization" maxlength="200">
+        <label class="brand-label" data-es="Qué necesitas trabajar" data-en="What you need to work on" for="home-type">Qué necesitas trabajar</label>
+        <select id="home-type" name="project_type" required>
+          <option value="" disabled selected data-es="Selecciona una opción" data-en="Choose an option">Selecciona una opción</option>
           <option value="Intelligence" data-es="Intelligence · IA y automatización" data-en="Intelligence · AI and automation">Intelligence · IA y automatización</option>
-          <option value="Atelier" data-es="Atelier · Marketing estratégico" data-en="Atelier · Strategic marketing">Atelier · Marketing estratégico</option>
-          <option value="Ambas líneas" data-es="Ambas líneas" data-en="Both lines">Ambas líneas</option>
+          <option value="Atelier" data-es="Atelier · Marketing y comunicación" data-en="Atelier · Marketing and communication">Atelier · Marketing y comunicación</option>
+          <option value="Ambas" data-es="Ambas fuerzas" data-en="Both forces">Ambas fuerzas</option>
+          <option value="No lo sé todavía" data-es="No lo sé todavía" data-en="I am not sure yet">No lo sé todavía</option>
         </select>
-        <textarea name="message" required data-es-placeholder="Cuéntanos qué quieres ordenar, automatizar, comunicar o medir." data-en-placeholder="Tell us what you want to organise, automate, communicate or measure." placeholder="Cuéntanos qué quieres ordenar, automatizar, comunicar o medir." aria-label="Mensaje"></textarea>
-        <button class="brand-btn brand-btn--accent" type="submit" data-es="Enviar solicitud" data-en="Send request">Enviar solicitud</button>
+        <label class="brand-label" data-es="Qué te gustaría mejorar" data-en="What you would like to improve" for="home-message">Qué te gustaría mejorar</label>
+        <textarea id="home-message" name="message" required maxlength="5000"></textarea>
+        <p class="home-note" data-es="Usaremos tus datos para atender esta solicitud. <a class=&quot;brand-link&quot; href=&quot;/privacidad&quot;>Privacidad</a>." data-en="We will use your details to respond to this enquiry. <a class=&quot;brand-link&quot; href=&quot;/privacidad&quot;>Privacy</a>.">Usaremos tus datos para atender esta solicitud. <a class="brand-link" href="/privacidad">Privacidad</a>.</p>
+        <button class="brand-btn brand-btn--accent" data-es="Hablar con Archon" data-en="Talk to Archon" type="submit">Hablar con Archon</button>
       </form>
     </div>
   </section>
@@ -734,7 +526,10 @@ gtag("config", "G-1DEHH0QHZ5");
     localStorage.setItem(storageKey, lang);
   }
 
-  const initial = localStorage.getItem(storageKey) === "en" ? "en" : "es";
+  const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+  const initial = requestedLanguage === "en" || requestedLanguage === "es"
+    ? requestedLanguage
+    : localStorage.getItem(storageKey) === "en" ? "en" : "es";
   setLanguage(initial);
 
   if (toggle){
@@ -746,5 +541,7 @@ gtag("config", "G-1DEHH0QHZ5");
 })();
 </script>
 <script src="assets/js/archon-chatbot.js?v=20260419e" defer></script>
+<script src="/assets/js/archon-contact.js?v=20260908" defer></script>
+  <script src="/assets/js/archon-consent.js?v=20260908" defer></script>
 </body>
 </html>

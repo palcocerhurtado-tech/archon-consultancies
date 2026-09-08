@@ -1,0 +1,127 @@
+.contact-status {
+  min-height: 1.6em;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.contact-status[data-state="error"] {
+  padding: 12px;
+  border: 1px solid #ad4033;
+  background: #fff4f2;
+  color: #832c22;
+}
+
+.contact-status[data-state="success"] {
+  color: #21613c;
+}
+
+form[aria-busy="true"] button[type="submit"],
+form[aria-busy="true"] input[type="submit"] {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.brand-form input,
+.brand-form textarea,
+.brand-form select {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.brand-form :is(input, textarea, select, button):focus-visible {
+  outline: 2px solid var(--color-accent, #7c6336);
+  outline-offset: 3px;
+}
+
+.brand-form .contact-privacy {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.contact-confirmation {
+  max-width: 760px;
+  padding-block: 64px;
+  overflow-wrap: anywhere;
+}
+
+.atelier-scope-table {
+  table-layout: fixed;
+  margin-top: 28px;
+}
+
+.atelier-scope-table caption {
+  padding: 0 0 18px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.atelier-scope-table th:first-child {
+  width: 20%;
+}
+
+.atelier-scope-table th,
+.atelier-scope-table td {
+  overflow-wrap: anywhere;
+  letter-spacing: 0;
+}
+
+.atelier-scope-table th {
+  font-size: 13px;
+}
+
+.atelier-scope-table th,
+.atelier-scope-table td {
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .atelier-scope-table,
+  .atelier-scope-table tbody,
+  .atelier-scope-table tr,
+  .atelier-scope-table td,
+  .atelier-scope-table th[scope="row"] {
+    display: block;
+    width: 100%;
+  }
+
+  .atelier-scope-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .atelier-scope-table tr {
+    border-bottom: 2px solid var(--color-line);
+  }
+
+  .atelier-scope-table td {
+    border-bottom: 0;
+    padding-top: 0;
+  }
+}
+
+.contact-confirmation .brand-title {
+  font-size: 44px;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.contact-confirmation .brand-lead {
+  font-size: 20px;
+  letter-spacing: 0;
+}
+
+@media (max-width: 560px) {
+  .contact-confirmation .brand-title {
+    font-size: 34px;
+  }
+
+  .contact-confirmation {
+    padding-block: 40px;
+  }
+}

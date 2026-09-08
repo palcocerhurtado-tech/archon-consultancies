@@ -117,7 +117,9 @@ Las grandes consultoras de IA (Accenture, Deloitte, KPMG) cobran entre 5.000 y 1
 ### Servicios y precios Atelier
 
 **Gestión Digital Integral (GDI) — 850 EUR/mes + setup único de 550 EUR**
-Servicio flagship. Incluye: web y SEO técnico mensual, gestión de redes sociales (contenido, calendario, publicación), blog orgánico con SEO, gestión de Meta Ads (inversión publicitaria aparte), CRM y estrategia de fidelización, y reporting mensual con métricas de negocio. Permanencia mínima recomendada: 6 meses para resultados sostenibles.
+Incluye: diseño web o creación de ecommerce dentro del alcance acordado, SEO técnico, 3 publicaciones semanales, una cuenta de marca en cada red acordada (calendario, diseño y textos), blog orgánico con SEO, gestión de Meta Ads (inversión publicitaria aparte), CRM y estrategia de fidelización, y reporting mensual con métricas de negocio. Los 6 meses son una recomendación, no una permanencia obligatoria.
+
+Antes de contratar, Pablo analiza y valida la solicitud y confirma si puede comenzar de inmediato o propone una fecha posterior según disponibilidad. La propuesta concreta las plataformas, formatos y distribución del contenido, las páginas o catálogo inicial de la web o ecommerce, funciones e integraciones, entregables, rondas de revisión y calendario. No se presuponen revisiones ni ampliaciones ilimitadas. Las ampliaciones y costes externos necesarios se identifican en la propuesta. Alcance completo: https://archonconsultancies.com/atelier#alcance
 
 **Mantenimiento web + SEO continuo — 300 EUR/mes**
 Actualizaciones técnicas, optimización continua de rendimiento web, mejoras de SEO técnico y monitorización de posicionamiento.

@@ -1,0 +1,307 @@
+.brand-home,
+.brand-home * {
+  letter-spacing: 0;
+}
+
+.brand-home {
+  overflow-wrap: anywhere;
+}
+
+.brand-home::before,
+.brand-home .home-hero::before,
+.brand-home .home-hero::after {
+  content: none;
+}
+
+.brand-home .brand-title {
+  max-width: 900px;
+  font-size: 44px;
+  line-height: 1.12;
+}
+
+.brand-home .home-hero {
+  padding: 64px 0 48px;
+  background: #fff url("../archon/archon-ac-outline-gold.webp") no-repeat right 6% center / auto 75%;
+}
+
+.home-hero .brand-shell {
+  position: relative;
+}
+
+.brand-home .home-hero .brand-title {
+  max-width: 820px;
+  font-size: 60px;
+}
+
+.home-offer {
+  max-width: 780px;
+  margin: 22px 0 0;
+  font-size: 26px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.brand-home .brand-lead {
+  font-size: 20px;
+  max-width: 680px;
+}
+
+.home-note {
+  margin: 18px 0 0;
+  max-width: 620px;
+  color: var(--color-text-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.home-founder-line {
+  margin: 24px 0 0;
+  font-size: 14px;
+}
+
+.brand-home .brand-section {
+  padding: 64px 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.brand-home .home-band {
+  background: #fff;
+}
+
+.brand-home [id] {
+  scroll-margin-top: 120px;
+}
+
+.brand-home .brand-card-label,
+.brand-home .brand-eyebrow,
+.brand-home .brand-role {
+  font-size: 13px;
+}
+
+.brand-home .brand-btn {
+  padding: 12px 22px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.brand-home .brand-label {
+  font-size: 14px;
+}
+
+.home-forces,
+.home-demos,
+.home-pricing {
+  margin-top: 32px;
+}
+
+.home-force,
+.home-price-column {
+  min-width: 0;
+  padding: 24px 0 0;
+  border-top: 3px solid;
+}
+
+.home-force--water {
+  border-color: #276872;
+}
+
+.home-force--fire {
+  border-color: #b74837;
+}
+
+.home-force--water .brand-card-label {
+  color: #276872;
+}
+
+.home-force--fire .brand-card-label {
+  color: #a83b2b;
+}
+
+.home-force h3,
+.home-price-column h3,
+.home-example h3,
+.home-steps h3,
+.home-founder h3 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+.home-force p,
+.home-price-column p,
+.home-example p,
+.home-steps p,
+.home-founder p {
+  max-width: 680px;
+  color: var(--color-text-muted);
+}
+
+.home-example {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--color-line);
+}
+
+.home-example p {
+  max-width: 860px;
+}
+
+.home-service-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 24px;
+}
+
+.home-demos .brand-card {
+  padding: 26px;
+  box-shadow: none;
+  background: #fff;
+}
+
+.home-demos .brand-card h3 {
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.home-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  counter-reset: step;
+  list-style: none;
+  padding: 0;
+  margin: 36px 0;
+}
+
+.home-steps li {
+  counter-increment: step;
+  border-top: 1px solid var(--color-line);
+  padding-top: 18px;
+}
+
+.home-steps li::before {
+  content: "0" counter(step);
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--font-brand-mono);
+  color: var(--color-accent-dark);
+}
+
+.home-founder {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 680px);
+  align-items: center;
+  gap: 24px;
+  border-top: 1px solid var(--color-line);
+  padding-top: 28px;
+}
+
+.home-founder .brand-person-photo {
+  aspect-ratio: 3 / 4;
+  box-shadow: none;
+}
+
+.home-founder p {
+  margin: 8px 0;
+}
+
+.home-price-list {
+  margin: 22px 0;
+}
+
+.home-price-list > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  border-bottom: 1px solid var(--color-line);
+  padding: 12px 0;
+}
+
+.home-price-list dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.home-price-list small {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.home-price-column .home-main-price {
+  font-size: 38px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 16px 0;
+}
+
+.home-main-price small {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.home-contact {
+  gap: 48px;
+}
+
+.home-contact .brand-form {
+  align-content: start;
+}
+
+.home-contact .home-note {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .brand-home .home-hero {
+    background-image: none;
+    padding: 40px 0;
+  }
+
+  .brand-home .home-hero .brand-title {
+    font-size: 42px;
+  }
+
+  .brand-home .brand-title {
+    font-size: 34px;
+  }
+
+  .brand-home .brand-section {
+    padding: 44px 0;
+  }
+
+  .home-offer {
+    font-size: 22px;
+  }
+
+  .home-steps {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .home-contact {
+    gap: 28px;
+  }
+
+  .brand-home [id] {
+    scroll-margin-top: 180px;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand-home .home-hero .brand-title {
+    font-size: 34px;
+  }
+
+  .home-founder {
+    grid-template-columns: 72px minmax(0, 1fr);
+    align-items: start;
+    gap: 16px;
+  }
+
+  .home-founder h3 {
+    font-size: 20px;
+  }
+}
