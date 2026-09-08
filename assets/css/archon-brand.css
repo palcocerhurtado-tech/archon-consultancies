@@ -780,10 +780,6 @@ body.archon-rebrand::before{
   object-position:center top;
 }
 
-.brand-person-photo--evelyn{
-  object-position:center 42%;
-}
-
 .brand-avatar{
   width:96px;
   height:96px;
@@ -822,6 +818,58 @@ body.archon-rebrand::before{
 .brand-profile-card .brand-person-photo{
   max-width:190px;
   height:auto;
+}
+
+.brand-force-card{
+  display:grid;
+  gap:20px;
+  align-content:start;
+}
+
+.brand-force-axis{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:12px;
+}
+
+.brand-force-axis > div{
+  min-height:168px;
+  display:grid;
+  align-content:space-between;
+  gap:14px;
+  padding:18px;
+  border:1px solid var(--color-line);
+  background:rgba(255,255,255,0.62);
+}
+
+.brand-force-axis > div:first-child{
+  border-color:rgba(42, 72, 101, 0.22);
+  background:linear-gradient(180deg, rgba(232,242,248,0.84), rgba(255,255,255,0.62));
+}
+
+.brand-force-axis > div:last-child{
+  border-color:rgba(174, 92, 49, 0.24);
+  background:linear-gradient(180deg, rgba(255,244,232,0.86), rgba(255,255,255,0.62));
+}
+
+.brand-force-axis span{
+  color:var(--color-accent-dark);
+  font-family:var(--font-brand-mono);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+}
+
+.brand-force-axis strong{
+  color:var(--color-text);
+  font-size:18px;
+}
+
+.brand-force-axis p{
+  margin:0;
+  color:var(--color-text-muted);
+  font-size:14px;
 }
 
 .brand-profile-list{
@@ -1075,6 +1123,10 @@ body.archon-rebrand::before{
   }
 
   .brand-profile-card{
+    grid-template-columns:1fr;
+  }
+
+  .brand-force-axis{
     grid-template-columns:1fr;
   }
 

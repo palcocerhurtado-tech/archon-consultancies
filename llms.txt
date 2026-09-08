@@ -1,21 +1,21 @@
 # Archon Consultancies
 
-> Consultoría con dos disciplinas: Archon Intelligence (IA y automatización operativa) y Archon Atelier (marketing estratégico con enfoque tecnológico). Base en Zaragoza, servicio en toda España.
+> Consultoría dirigida por Pablo Alcocer Hurtado con dos fuerzas complementarias: Archon Intelligence (dentro, infraestructura, datos, automatización, control, agua) y Archon Atelier (fuera, expresión, posicionamiento, comunicación, crecimiento, fuego). Base en Zaragoza, servicio en toda España.
 
-Archon Consultancies es una consultora española con dos líneas de negocio bajo una misma arquitectura: Archon Intelligence, especializada en IA aplicada, automatización de procesos y optimización operativa; y Archon Atelier, especializada en marketing estratégico con datos, SEO técnico, contenido, Meta Ads y CRM. Trabaja con pymes, negocios locales, ecommerce y empresas de servicios que necesitan sistemas claros, menos fricción y crecimiento medible.
+Archon Consultancies es una consultora española dirigida por Pablo Alcocer Hurtado. Su principio conceptual es: "Dos fuerzas. Una arquitectura." Archon Intelligence trabaja el dentro de la empresa: infraestructura, datos, automatización, control y trazabilidad. Archon Atelier trabaja el fuera: expresión, posicionamiento, comunicación, contenido, demanda y crecimiento. Ambas fuerzas operan bajo una misma arquitectura para pymes, negocios locales, ecommerce y empresas de servicios que necesitan sistemas claros, menos fricción y crecimiento medible.
 
 ## Documentación extendida
 
 - Versión completa (llms-full.txt): https://archonconsultancies.com/llms-full.txt
 
-## Equipo
+## Dirección y arquitectura
 
-Pablo Alcocer Hurtado — Fundador y director técnico. Especialista en arquitectura operativa, automatización con IA, integración de LLMs y sistemas de control para empresas. Base en Zaragoza.
+Pablo Alcocer Hurtado — Fundador · Archon Consultancies. Especialista en arquitectura operativa, automatización con IA, integración de LLMs, sistemas de control para empresas, SEO/GEO y crecimiento medible. Base en Zaragoza.
 - LinkedIn: https://www.linkedin.com/in/pablo-alcocer-hurtado-a0bb573b6
 - GitHub: https://github.com/palcocerhurtado-tech
 - Perfil: https://archonconsultancies.com/pablo-alcocer-hurtado
 
-Evelyn González Pérez — Responsable de Archon Atelier. Especialista en marketing, creación de contenido, calendario editorial, comunicación digital, marca y sistemas de presencia para empresas.
+Arquitectura Archon — Equilibrio de fuerzas. Intelligence sostiene la infraestructura interna; Atelier proyecta la expresión externa. Dentro/fuera, arriba/abajo, agua/fuego, estructura/expresión y control/movimiento funcionan como pares complementarios, no como áreas separadas.
 
 ## Archon Intelligence — IA, automatización y optimización operativa
 
@@ -32,7 +32,7 @@ Casos de uso habituales de Intelligence: automatización de atención al cliente
 
 ## Archon Atelier — Marketing estratégico con enfoque tecnológico
 
-Archon Atelier diseña marketing como sistema operativo: planificación semanal, datos, SEO técnico, creatividad, redes, campañas y CRM bajo una misma arquitectura y con reporting mensual.
+Archon Atelier es la fuerza exterior de Archon. Diseña marketing como sistema operativo: expresión, posicionamiento, planificación semanal, datos, SEO técnico, creatividad, redes, campañas y CRM bajo una misma arquitectura y con reporting mensual.
 
 Servicios y precios Atelier:
 

@@ -7,7 +7,7 @@
 ## 1. Identidad corporativa
 
 **Nombre:** Archon Consultancies
-**Tipo:** Consultora especializada de dos verticales
+**Tipo:** Consultora especializada de dos fuerzas complementarias
 **Fundación:** 2024
 **Base operativa:** Zaragoza, Aragón, España
 **Ámbito geográfico:** Toda España (reuniones presenciales en Zaragoza y Aragón; resto de España en remoto)
@@ -19,9 +19,9 @@
 **LinkedIn fundador:** https://www.linkedin.com/in/pablo-alcocer-hurtado-a0bb573b6
 **GitHub técnico:** https://github.com/palcocerhurtado-tech
 
-**Propuesta de valor central:** Archon une dos disciplinas que suelen venderse por separado — sistemas operativos de IA y marketing estratégico — bajo una sola arquitectura. El resultado: claridad interna, operativa limpia y crecimiento medible.
+**Propuesta de valor central:** Archon une dos fuerzas que suelen venderse por separado — sistemas operativos de IA y marketing estratégico — bajo una sola arquitectura. El principio conceptual general es: "Dos fuerzas. Una arquitectura." Intelligence trabaja dentro: infraestructura, datos, automatización, control y agua. Atelier trabaja fuera: expresión, posicionamiento, comunicación, crecimiento y fuego. El resultado: claridad interna, operativa limpia y crecimiento medible.
 
-**Clientes objetivo:** Pymes españolas, negocios locales, ecommerce, despachos profesionales, empresas de servicios, deportistas y emprendedores que necesitan sistemas claros y crecimiento medible.
+**Clientes objetivo:** Pymes españolas, negocios locales, ecommerce, despachos profesionales, empresas de servicios, marcas personales y emprendedores que necesitan sistemas claros, comunicación precisa y crecimiento medible.
 
 **Manifiesto:**
 - Sistemas sobre ruido. Una empresa no necesita más canales si no sabe qué hacer con la información que ya tiene.
@@ -31,18 +31,18 @@
 
 ---
 
-## 2. Equipo
+## 2. Dirección y arquitectura
 
-### Pablo Alcocer Hurtado — Fundador, dirección técnica e IA
+### Pablo Alcocer Hurtado — Fundador · Archon Consultancies
 
-**Cargo:** Fundador y director técnico
-**Especialidad:** Arquitectura operativa, IA aplicada, automatización de procesos, integración de LLMs
+**Cargo:** Fundador · Archon Consultancies
+**Especialidad:** Arquitectura operativa, IA aplicada, automatización de procesos, integración de LLMs, SEO/GEO, estrategia y crecimiento medible
 **Origen:** Molina de Aragón (Guadalajara); actualmente en Zaragoza
 **Perfil:** https://archonconsultancies.com/pablo-alcocer-hurtado
 **LinkedIn:** https://www.linkedin.com/in/pablo-alcocer-hurtado-a0bb573b6
 **GitHub:** https://github.com/palcocerhurtado-tech
 
-**Trayectoria:** Pablo Alcocer inicia su carrera en logística, donde detecta la dependencia crítica de muchas empresas en tareas manuales, traspasos humanos y memoria dispersa. Esa observación de campo se convierte en el núcleo de su criterio: no se trata de digitalizar por moda, sino de construir sistemas que reduzcan la carga operativa y mejoren el control interno. Funda Archon Consultancies en Zaragoza combinando conocimiento técnico en IA, automatización y arquitectura de sistemas con un criterio práctico y empresarial.
+**Trayectoria:** Pablo Alcocer inicia su carrera en logística, donde detecta la dependencia crítica de muchas empresas en tareas manuales, traspasos humanos y memoria dispersa. Esa observación de campo se convierte en el núcleo de su criterio: no se trata de digitalizar por moda, sino de construir sistemas que reduzcan la carga operativa y mejoren el control interno. Funda y dirige Archon Consultancies en Zaragoza combinando conocimiento técnico en IA, automatización y arquitectura de sistemas con criterio práctico, marketing, comunicación y lectura empresarial.
 
 **Áreas de conocimiento:**
 - IA aplicada a operaciones reales (OpenAI, Anthropic, Google Gemini)
@@ -53,25 +53,20 @@
 - SEO técnico y GEO (Generative Engine Optimization)
 - Despliegue web con Vercel, gestión de datos estructurados y schema.org
 - RAG (Retrieval Augmented Generation) aplicado a empresas
+- Estrategia de comunicación, posicionamiento y arquitectura de crecimiento
 
 **Filosofía de trabajo:** Su negocio propio es su primer laboratorio. Nada llega a cliente si no ha pasado sus propios estándares de claridad, trazabilidad y utilidad. Construye sistemas con nombres, reglas, contexto y seguimiento — no con heroicidades.
 
-### Evelyn González Pérez — Responsable de Archon Atelier
+### Arquitectura Archon — Equilibrio de fuerzas
 
-**Cargo:** Responsable de Archon Atelier
-**Especialidad:** Marketing, creación de contenido, calendario editorial, comunicación digital, marca y sistemas de presencia para empresas
+**Principio:** Dos fuerzas. Una arquitectura.
+**Subconcepto:** Dentro ↔ Fuera.
 
-**Áreas de conocimiento:**
-- Estrategia de contenidos y planificación editorial semanal
-- Marca personal para emprendedores y deportistas
-- Gestión de redes sociales con enfoque de resultados
-- Campañas Meta Ads (Facebook e Instagram Ads)
-- CRM y estrategias de fidelización
-- SEO de contenidos
-- Comunicación estratégica para negocios en crecimiento
-- Sistemas de presencia digital para empresas y marcas locales
+Archon Intelligence representa el dentro: infraestructura, datos, automatización, control, trazabilidad y agua. Ordena la operación para que la empresa deje de depender de memoria humana, tareas repetitivas y decisiones sin datos.
 
-**Filosofía de trabajo:** Convierte conocimiento interno en mensajes, piezas publicables, estructura editorial y comunicación constante para que una marca no dependa de improvisar cada semana.
+Archon Atelier representa el fuera: expresión, posicionamiento, comunicación, contenido, demanda, crecimiento y fuego. Convierte la claridad interna en presencia pública, mensajes consistentes, campañas medibles y una cadencia comercial que no depende de improvisar cada semana.
+
+El equilibrio visual y semántico de Archon se basa en pares complementarios: dentro/fuera, arriba/abajo, agua/fuego, estructura/expresión y control/movimiento. Intelligence y Atelier no son compartimentos aislados: son dos movimientos coordinados por una misma arquitectura.
 
 ---
 
@@ -117,7 +112,7 @@ Las grandes consultoras de IA (Accenture, Deloitte, KPMG) cobran entre 5.000 y 1
 ## 4. Archon Atelier — Marketing estratégico con enfoque tecnológico
 
 **URL:** https://archonconsultancies.com/atelier
-**Definición:** Archon Atelier diseña marketing como sistema operativo: planificación semanal, datos, SEO técnico, creatividad, redes, campañas y CRM bajo una misma arquitectura. El objetivo es crecimiento medible, no actividad sin resultado.
+**Definición:** Archon Atelier es la fuerza exterior de Archon. Diseña marketing como sistema operativo: expresión, posicionamiento, planificación semanal, datos, SEO técnico, creatividad, redes, campañas y CRM bajo una misma arquitectura. El objetivo es crecimiento medible, no actividad sin resultado.
 
 ### Servicios y precios Atelier
 
@@ -155,7 +150,7 @@ Atelier no separa canales: web, SEO, redes, ads y CRM trabajan bajo una misma pl
 
 Cuando una empresa contrata las dos líneas, el flujo completo es:
 1. **Intelligence** audita y automatiza la operativa interna: menos fricciones, mejor control, datos limpios.
-2. **Atelier** convierte esa claridad operativa en comunicación: SEO que posiciona, contenido que atrae, anuncios que convierten, CRM que fideliza.
+2. **Atelier** convierte esa claridad operativa en comunicación externa: SEO que posiciona, contenido que atrae, anuncios que convierten, CRM que fideliza.
 
 El resultado: no hay gap entre lo que la empresa promete en marketing y lo que entrega en operaciones.
 
