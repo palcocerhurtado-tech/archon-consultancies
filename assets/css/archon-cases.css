@@ -1,0 +1,142 @@
+.cases-eyebrow {
+  margin-bottom: 28px;
+}
+
+.cases-demo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 34px;
+}
+
+.cases-demo {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 24px;
+  padding: 30px;
+  border: 1px solid var(--color-line);
+  background: #fff;
+}
+
+.cases-demo--water {
+  border-top: 4px solid #276872;
+}
+
+.cases-demo--fire {
+  border-top: 4px solid #b74837;
+}
+
+.cases-demo--water .brand-card-label,
+.cases-demo--water .cases-flow span,
+.cases-demo--water .cases-outcome strong {
+  color: #276872;
+}
+
+.cases-demo--fire .brand-card-label,
+.cases-demo--fire .cases-flow span,
+.cases-demo--fire .cases-outcome strong {
+  color: #a83b2b;
+}
+
+.cases-demo-header h3 {
+  margin: 8px 0 0;
+  font-size: 28px;
+  line-height: 1.22;
+}
+
+.cases-demo-header p {
+  margin: 16px 0 0;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.cases-flow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cases-flow li {
+  min-width: 0;
+  padding: 16px 14px;
+  border: 1px solid var(--color-line);
+  background: #fbfaf7;
+}
+
+.cases-flow span {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--font-brand-mono);
+  font-size: 12px;
+}
+
+.cases-flow strong {
+  display: block;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.cases-flow p {
+  margin: 8px 0 0;
+  color: var(--color-text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cases-outcome {
+  padding-top: 16px;
+  border-top: 1px solid var(--color-line);
+}
+
+.cases-outcome strong {
+  display: block;
+  font-family: var(--font-brand-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.cases-outcome p {
+  margin: 10px 0 0;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.cases-bridge {
+  margin-top: 28px;
+  padding: 22px 0 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.cases-bridge p {
+  max-width: 920px;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .cases-demo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .cases-demo {
+    padding: 22px;
+  }
+
+  .cases-demo-header h3 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 340px) {
+  .cases-flow {
+    grid-template-columns: 1fr;
+  }
+}
