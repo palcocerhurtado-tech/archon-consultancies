@@ -122,9 +122,17 @@
   gap: 12px;
 }
 
+.studio-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 6px 0 14px;
+}
+
 .studio-command,
 .studio-icon-btn,
-.studio-segmented button {
+.studio-segmented button,
+.studio-tool {
   min-height: 42px;
   display: inline-flex;
   align-items: center;
@@ -138,6 +146,18 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.studio-tool {
+  min-height: 48px;
+  padding: 0 8px;
+  background: #fff;
+}
+
+.studio-tool:hover,
+.studio-icon-btn:hover,
+.studio-segmented button:hover {
+  border-color: var(--color-accent);
 }
 
 .studio-command {
@@ -285,6 +305,10 @@
 @media (max-width: 520px) {
   .studio-controls {
     grid-template-columns: 1fr;
+  }
+
+  .studio-tool-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .studio-panel {

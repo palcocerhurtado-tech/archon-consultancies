@@ -1,5 +1,3 @@
-const GITHUB_USER = "palcocerhurtado-tech";
-const GITHUB_API = "https://api.github.com";
 const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
 
 function jsonResponse(data, status) {
@@ -20,117 +18,72 @@ function clampList(value, limit) {
   return Array.isArray(value) ? value.slice(0, limit) : [];
 }
 
-function repoSummary(repo) {
-  return {
-    name: repo.name,
-    description: repo.description || "",
-    language: repo.language || "",
-    htmlUrl: repo.html_url,
-    topics: Array.isArray(repo.topics) ? repo.topics.slice(0, 8) : [],
-    updatedAt: repo.updated_at || "",
-    stars: repo.stargazers_count || 0
-  };
-}
-
-async function fetchRepos() {
-  let response;
-  try {
-    response = await fetch(
-      `${GITHUB_API}/users/${GITHUB_USER}/repos?per_page=100&sort=updated`,
-      {
-        headers: {
-          accept: "application/vnd.github+json",
-          "user-agent": "archon-content-engine"
-        }
-      }
-    );
-  } catch (error) {
-    return [];
-  }
-
-  if (!response.ok) return [];
-
-  const repos = await response.json();
-  return Array.isArray(repos)
-    ? repos
-        .filter(function (repo) {
-          return !repo.fork;
-        })
-        .map(repoSummary)
-        .slice(0, 30)
-    : [];
-}
-
 function fallbackContent(params, reason) {
-  const repoName = normalizeString(params.repo && params.repo.name) || "un sistema Archon";
-  const description =
-    normalizeString(params.repo && params.repo.description) ||
+  const brief =
     normalizeString(params.brief) ||
-    "una pieza construida para convertir trabajo tecnico en comunicacion clara";
-  const language = normalizeString(params.repo && params.repo.language) || "sistema";
-  const angle = normalizeString(params.angle) || "autoridad";
+    "Crear una pieza visual premium para Archon Studio con energia de diseno, marca y movimiento.";
+  const format = normalizeString(params.format) || "instagram";
+  const mode = normalizeString(params.mode) || "design";
 
   return {
     source: "fallback",
     fallbackReason: reason ? "ai_unavailable" : "",
-    repoName: repoName,
-    angle: angle,
-    format: normalizeString(params.format) || "instagram",
+    mode: mode,
+    format: format,
     slides: [
       {
         kicker: "ARCHON STUDIO",
-        headline: repoName,
-        body: "Un proyecto real convertido en una pieza de comunicacion lista para redes.",
-        footer: "Archon Consultancies"
+        headline: "Lienzo en blanco.",
+        body: brief,
+        footer: "Diseno, imagen y video."
       },
       {
-        kicker: "INTELLIGENCE",
-        headline: "Del trabajo tecnico al sistema.",
-        body: `${description} Tecnologia base: ${language}.`,
-        footer: "Dentro: datos, estructura y control."
+        kicker: "CAPAS",
+        headline: "Construye la pieza.",
+        body: "Texto, formas, fondos, marcas, escenas y prompts visuales en un mismo espacio.",
+        footer: "Control creativo."
       },
       {
-        kicker: "ATELIER",
-        headline: "Del sistema a la narrativa.",
-        body: "La pieza se transforma en contenido publicable, medible y conectado con ventas.",
-        footer: "Fuera: expresion, posicionamiento y crecimiento."
+        kicker: "SALIDA",
+        headline: "Publica o prototipa.",
+        body: "Exporta PNG, prepara copy y deja el guion visual listo para producir imagen o video.",
+        footer: "Dos fuerzas. Una arquitectura."
       }
     ],
-    instagram: `Estoy convirtiendo proyectos reales en contenido que explica como trabaja Archon.\n\nHoy: ${repoName}.\n\nLa idea no es publicar por publicar. Es transformar construccion tecnica en una narrativa que una empresa pueda entender, medir y usar.\n\nDos fuerzas. Una arquitectura.`,
-    linkedin: `Una empresa no necesita mas contenido. Necesita que su trabajo real se pueda explicar mejor.\n\n${repoName} sirve como ejemplo: ${description}\n\nArchon Studio convierte repositorios, sistemas e ideas en piezas de comunicacion para redes, manteniendo trazabilidad entre lo que se construye dentro y lo que se expresa fuera.`,
-    hashtags: ["#ArchonConsultancies", "#Automatizacion", "#IA", "#MarketingEstrategico", "#GitHub"],
-    imagePrompt: `Visual editorial sobrio para ${repoName}: interfaz tecnica, capas de diseno, energia agua y fuego, marca premium, sin texto pequeno.`,
-    cta: "Quieres convertir tus sistemas en contenido que venda? Habla con Archon."
+    instagram: `Archon Studio nace como un lienzo creativo para convertir ideas en piezas visuales listas para publicar.\n\n${brief}\n\nDiseno, imagen y video bajo una misma arquitectura.`,
+    linkedin: `Archon Studio es un entorno de creacion visual para construir piezas de marca desde cero: capas, texto, composicion, prompts y storyboard.\n\nLa idea: vender primero el estudio, integrar despues generacion avanzada de imagen y video.`,
+    hashtags: ["#ArchonStudio", "#Diseno", "#IA", "#MarketingEstrategico", "#Contenido"],
+    imagePrompt: `Interfaz creativa premium tipo estudio de diseno, lienzo en blanco, capas, herramientas de imagen y video, estetica Archon, sobria y potente.`,
+    videoPrompt: `Storyboard de 8 segundos para presentar Archon Studio: lienzo vacio, aparecen capas, texto, formas y una pieza final exportada.`,
+    cta: "Crear una pieza nueva"
   };
 }
 
 function buildPrompt(params) {
   return [
-    "Eres Archon Studio, un motor editorial de Archon Consultancies.",
-    "Objetivo: convertir trabajo tecnico real en contenido comercial para Instagram, LinkedIn y carruseles.",
-    "No inventes resultados, clientes, metricas auditadas ni promesas.",
-    "Usa el principio conceptual: Dos fuerzas. Una arquitectura.",
-    "Intelligence = dentro, infraestructura, datos, automatizacion, control, agua.",
-    "Atelier = fuera, expresion, posicionamiento, comunicacion, crecimiento, fuego.",
+    "Eres Archon Studio, un director creativo para un editor visual tipo Canva + Illustrator.",
+    "Objetivo: convertir una idea libre en copy, slides, prompt visual y prompt de video.",
+    "Trabaja desde lienzo en blanco y desde una idea libre del usuario.",
+    "No prometas publicacion automatica ni generacion de imagen si no se pide.",
+    "Tono: premium, claro, comercial, sin humo.",
     "Devuelve SOLO JSON valido con esta forma:",
     "{",
-    '  "repoName": "string",',
-    '  "angle": "autoridad|demo|producto|aprendizaje",',
-    '  "format": "instagram|linkedin|carousel",',
+    '  "mode": "design|image|video|campaign",',
+    '  "format": "instagram|story|linkedin|poster|video",',
     '  "slides": [{"kicker":"string","headline":"string","body":"string","footer":"string"}],',
     '  "instagram": "string",',
     '  "linkedin": "string",',
     '  "hashtags": ["string"],',
     '  "imagePrompt": "string",',
+    '  "videoPrompt": "string",',
     '  "cta": "string"',
     "}",
-    "Maximo 5 slides. Titulares cortos. Texto util, comercial y sin humo.",
+    "Maximo 5 slides. Titulares cortos. Hazlo editable y accionable.",
     "Datos de entrada:",
     JSON.stringify(
       {
-        repo: params.repo || null,
         brief: params.brief || "",
-        angle: params.angle || "",
+        mode: params.mode || "",
         format: params.format || ""
       },
       null,
@@ -163,7 +116,7 @@ function sanitizeGenerated(value, params) {
       return {
         kicker: normalizeString(slide && slide.kicker).slice(0, 42),
         headline: normalizeString(slide && slide.headline).slice(0, 86),
-        body: normalizeString(slide && slide.body).slice(0, 240),
+        body: normalizeString(slide && slide.body).slice(0, 260),
         footer: normalizeString(slide && slide.footer).slice(0, 64)
       };
     })
@@ -172,10 +125,9 @@ function sanitizeGenerated(value, params) {
     });
 
   return {
-    source: safe.source || "ai",
+    source: normalizeString(safe.source) || "ai",
     fallbackReason: normalizeString(safe.fallbackReason),
-    repoName: normalizeString(safe.repoName) || fallback.repoName,
-    angle: normalizeString(safe.angle) || fallback.angle,
+    mode: normalizeString(safe.mode) || fallback.mode,
     format: normalizeString(safe.format) || fallback.format,
     slides: slides.length ? slides : fallback.slides,
     instagram: normalizeString(safe.instagram) || fallback.instagram,
@@ -187,6 +139,7 @@ function sanitizeGenerated(value, params) {
         return tag.startsWith("#") ? tag : `#${tag.replace(/\s+/g, "")}`;
       }),
     imagePrompt: normalizeString(safe.imagePrompt) || fallback.imagePrompt,
+    videoPrompt: normalizeString(safe.videoPrompt) || fallback.videoPrompt,
     cta: normalizeString(safe.cta) || fallback.cta
   };
 }
@@ -205,7 +158,7 @@ async function callGemini(params) {
     body: JSON.stringify({
       contents: [{ role: "user", parts: [{ text: buildPrompt(params) }] }],
       generationConfig: {
-        temperature: 0.45,
+        temperature: 0.55,
         topP: 0.9,
         maxOutputTokens: 1800,
         responseMimeType: "application/json"
@@ -218,12 +171,7 @@ async function callGemini(params) {
   });
 
   if (!response.ok || !payload) {
-    return fallbackContent(
-      params,
-      payload && payload.error && payload.error.message
-        ? payload.error.message
-        : `Gemini request failed with status ${response.status}`
-    );
+    return fallbackContent(params, "Gemini request failed");
   }
 
   const raw =
@@ -248,16 +196,14 @@ export function OPTIONS() {
   });
 }
 
-export async function GET() {
-  const repos = await fetchRepos();
+export function GET() {
   return jsonResponse(
     {
       ok: true,
-      user: GITHUB_USER,
       configured: Boolean(process.env.GEMINI_API_KEY),
       provider: "gemini",
       model: "gemini-2.5-flash",
-      repos: repos
+      connectedSources: []
     },
     200
   );
@@ -272,9 +218,8 @@ export async function POST(request) {
   }
 
   const params = {
-    repo: body && body.repo && typeof body.repo === "object" ? body.repo : null,
-    brief: normalizeString(body && body.brief).slice(0, 1000),
-    angle: normalizeString(body && body.angle).slice(0, 40),
+    brief: normalizeString(body && body.brief).slice(0, 1400),
+    mode: normalizeString(body && body.mode).slice(0, 40),
     format: normalizeString(body && body.format).slice(0, 40)
   };
 

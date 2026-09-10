@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Archon Studio convierte repositorios, ideas y sistemas reales en contenido visual para Instagram, LinkedIn y carruseles.">
+<meta name="description" content="Archon Studio es un lienzo creativo para diseñar imagen, video, carruseles y piezas de marca desde cero.">
 <meta name="author" content="Archon Consultancies">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="Archon Consultancies">
 <meta property="og:locale" content="es_ES">
 <meta property="og:url" content="https://archonconsultancies.com/archon-studio">
-<meta property="og:title" content="Archon Studio | Content Engine">
-<meta property="og:description" content="Un editor visual para convertir trabajo real de GitHub en piezas listas para publicar.">
+<meta property="og:title" content="Archon Studio | Creative Canvas">
+<meta property="og:description" content="Un estudio visual para crear piezas de marca desde lienzo en blanco con capas, herramientas y prompts.">
 <meta property="og:image" content="https://archonconsultancies.com/assets/archon/banner.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Archon Studio | Content Engine">
-<meta name="twitter:description" content="GitHub, IA y un lienzo visual para generar publicaciones con criterio Archon.">
+<meta name="twitter:title" content="Archon Studio | Creative Canvas">
+<meta name="twitter:description" content="Lienzo visual, capas, herramientas de diseño y preparación para imagen y video con IA.">
 <meta name="twitter:image" content="https://archonconsultancies.com/assets/archon/banner.jpg">
 <meta name="theme-color" content="#F4F1EC">
-<title>Archon Studio | Content Engine</title>
+<title>Archon Studio | Creative Canvas</title>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&amp;family=Inter:wght@400;700;800&amp;display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -43,7 +43,7 @@
       "url": "https://archonconsultancies.com/archon-studio",
       "applicationCategory": "DesignApplication",
       "operatingSystem": "Web",
-      "description": "Editor visual y motor editorial para convertir repositorios e ideas en contenido publicable."
+      "description": "Editor visual con lienzo en blanco, capas, herramientas de diseño, imagen y video."
     },
     {
       "@type": "BreadcrumbList",
@@ -76,13 +76,13 @@
   <section class="studio-hero">
     <div class="brand-shell studio-hero-grid">
       <div>
-        <p class="brand-eyebrow">Archon Studio · Content Engine</p>
-        <h1 class="brand-title">Convierte trabajo real en contenido publicable.</h1>
-        <p class="brand-lead">Un lienzo operativo para transformar repositorios, ideas y sistemas en publicaciones de Instagram, LinkedIn y carruseles. Intelligence lee la materia prima. Atelier la convierte en expresion.</p>
+        <p class="brand-eyebrow">Archon Studio · Creative Canvas</p>
+        <h1 class="brand-title">Lienzo en blanco para imagen, video y marca.</h1>
+        <p class="brand-lead">Una primera version del hijo de Canva e Illustrator: capas, texto, formas, plantillas, prompts, storyboard y exportacion. Sin conectar cuentas externas. Primero se diseña; despues se automatiza.</p>
       </div>
       <div class="studio-hero-actions">
         <a class="brand-btn brand-btn--accent" href="#studio-app">Abrir editor</a>
-        <a class="brand-btn brand-btn--ghost" href="https://github.com/palcocerhurtado-tech" target="_blank" rel="noopener noreferrer">Ver GitHub fuente</a>
+        <a class="brand-btn brand-btn--ghost" href="#studio-app">Empezar en blanco</a>
       </div>
     </div>
   </section>
@@ -90,18 +90,12 @@
   <section class="studio-shell" id="studio-app" aria-label="Archon Studio editor">
     <aside class="studio-panel studio-source">
       <div class="studio-panel-head">
-        <p class="brand-eyebrow">01 · Materia prima</p>
-        <h2>Fuente</h2>
+        <p class="brand-eyebrow">01 · Lienzo</p>
+        <h2>Herramientas</h2>
       </div>
       <label class="studio-field">
-        <span>Repositorio GitHub</span>
-        <select id="repoSelect">
-          <option>Cargando repos...</option>
-        </select>
-      </label>
-      <label class="studio-field">
-        <span>Idea o enfoque</span>
-        <textarea id="briefInput" rows="5">Convertir este proyecto en una pieza comercial que muestre como Archon une tecnologia, comunicacion y venta.</textarea>
+        <span>Idea libre</span>
+        <textarea id="briefInput" rows="5">Diseñar una pieza premium para presentar Archon Studio como un editor visual de imagen y video.</textarea>
       </label>
       <div class="studio-controls">
         <label class="studio-field">
@@ -109,21 +103,32 @@
           <select id="formatSelect">
             <option value="instagram">Instagram post</option>
             <option value="carousel">Carrusel</option>
+            <option value="story">Story/Reel</option>
             <option value="linkedin">LinkedIn</option>
+            <option value="poster">Poster</option>
           </select>
         </label>
         <label class="studio-field">
-          <span>Angulo</span>
-          <select id="angleSelect">
-            <option value="autoridad">Autoridad</option>
-            <option value="demo">Demo</option>
-            <option value="producto">Producto</option>
-            <option value="aprendizaje">Aprendizaje</option>
+          <span>Modo</span>
+          <select id="modeSelect">
+            <option value="design">Diseño</option>
+            <option value="image">Imagen IA</option>
+            <option value="video">Video</option>
+            <option value="campaign">Campaña</option>
           </select>
         </label>
       </div>
-      <button class="studio-command studio-command--primary" id="generateBtn" type="button">Generar pieza</button>
-      <p class="studio-note" id="sourceStatus">Lee repos publicos de GitHub. No publica nada automaticamente.</p>
+      <div class="studio-tool-grid" aria-label="Herramientas rapidas">
+        <button class="studio-tool" type="button" data-tool="text">Texto</button>
+        <button class="studio-tool" type="button" data-tool="shape">Forma</button>
+        <button class="studio-tool" type="button" data-tool="badge">Sello</button>
+        <button class="studio-tool" type="button" data-tool="image">Imagen</button>
+        <button class="studio-tool" type="button" data-tool="video">Escena</button>
+        <button class="studio-tool" type="button" data-tool="template">Plantilla</button>
+      </div>
+      <button class="studio-command studio-command--primary" id="generateBtn" type="button">Generar direccion</button>
+      <button class="studio-command" id="blankBtn" type="button">Nuevo lienzo</button>
+      <p class="studio-note" id="sourceStatus">Sin cuentas externas. Diseña, exporta y prepara prompts.</p>
     </aside>
 
     <section class="studio-workspace">
@@ -131,6 +136,7 @@
         <div class="studio-segmented" id="slideTabs" role="tablist" aria-label="Slides generadas"></div>
         <div class="studio-toolbar-actions">
           <button class="studio-icon-btn" type="button" id="copyPostBtn">Copiar copy</button>
+          <button class="studio-icon-btn" type="button" id="copyPromptBtn">Copiar prompt</button>
           <button class="studio-icon-btn" type="button" id="downloadBtn">Exportar PNG</button>
         </div>
       </div>
@@ -141,9 +147,19 @@
 
     <aside class="studio-panel studio-inspector">
       <div class="studio-panel-head">
-        <p class="brand-eyebrow">02 · Capas</p>
+        <p class="brand-eyebrow">02 · Propiedades</p>
         <h2>Inspector</h2>
       </div>
+      <label class="studio-field">
+        <span>Plantilla</span>
+        <select id="templateSelect">
+          <option value="blank">Lienzo limpio</option>
+          <option value="launch">Lanzamiento</option>
+          <option value="offer">Oferta</option>
+          <option value="quote">Frase potente</option>
+          <option value="video">Storyboard video</option>
+        </select>
+      </label>
       <label class="studio-field">
         <span>Kicker</span>
         <input id="kickerInput" type="text">
@@ -171,12 +187,22 @@
           </select>
         </label>
         <label class="studio-field">
+          <span>Fondo</span>
+          <input id="backgroundInput" type="color" value="#F4F1EC">
+        </label>
+      </div>
+      <div class="studio-controls">
+        <label class="studio-field">
           <span>Tamano</span>
           <select id="sizeSelect">
             <option value="square">1080 x 1080</option>
             <option value="story">1080 x 1920</option>
             <option value="linkedin">1200 x 627</option>
           </select>
+        </label>
+        <label class="studio-field">
+          <span>Intensidad</span>
+          <input id="intensityInput" type="range" min="0" max="100" value="58">
         </label>
       </div>
       <div class="studio-copy-box">
@@ -186,6 +212,10 @@
       <div class="studio-copy-box">
         <p class="brand-eyebrow">Prompt visual</p>
         <textarea id="promptOutput" rows="5"></textarea>
+      </div>
+      <div class="studio-copy-box">
+        <p class="brand-eyebrow">Guion video</p>
+        <textarea id="videoOutput" rows="5"></textarea>
       </div>
     </aside>
   </section>
