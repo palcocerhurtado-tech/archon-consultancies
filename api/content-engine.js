@@ -72,7 +72,7 @@ function fallbackContent(params, reason) {
 
   return {
     source: "fallback",
-    fallbackReason: reason || "",
+    fallbackReason: reason ? "ai_unavailable" : "",
     repoName: repoName,
     angle: angle,
     format: normalizeString(params.format) || "instagram",
