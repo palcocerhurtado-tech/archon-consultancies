@@ -48,6 +48,11 @@
       "permanent": true
     },
     {
+      "source": "/archon-studio.html",
+      "destination": "/archon-studio",
+      "permanent": true
+    },
+    {
       "source": "/zaragoza.html",
       "destination": "/zaragoza",
       "permanent": true

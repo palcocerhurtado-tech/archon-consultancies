@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Archon Studio convierte repositorios, ideas y sistemas reales en contenido visual para Instagram, LinkedIn y carruseles.">
+<meta name="author" content="Archon Consultancies">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://archonconsultancies.com/archon-studio">
+<link rel="alternate" hreflang="es" href="https://archonconsultancies.com/archon-studio">
+<link rel="alternate" hreflang="x-default" href="https://archonconsultancies.com/archon-studio">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Archon Consultancies">
+<meta property="og:locale" content="es_ES">
+<meta property="og:url" content="https://archonconsultancies.com/archon-studio">
+<meta property="og:title" content="Archon Studio | Content Engine">
+<meta property="og:description" content="Un editor visual para convertir trabajo real de GitHub en piezas listas para publicar.">
+<meta property="og:image" content="https://archonconsultancies.com/assets/archon/banner.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Archon Studio | Content Engine">
+<meta name="twitter:description" content="GitHub, IA y un lienzo visual para generar publicaciones con criterio Archon.">
+<meta name="twitter:image" content="https://archonconsultancies.com/assets/archon/banner.jpg">
+<meta name="theme-color" content="#F4F1EC">
+<title>Archon Studio | Content Engine</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&amp;family=Inter:wght@400;700;800&amp;display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&amp;family=Inter:wght@400;700;800&amp;display=optional"></noscript>
+<link rel="stylesheet" href="assets/css/archon-brand.css">
+<link rel="stylesheet" href="assets/css/archon-studio.css?v=20260910">
+<link rel="stylesheet" href="assets/css/archon-consent.css?v=20260908">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://archonconsultancies.com/archon-studio#app",
+      "name": "Archon Studio",
+      "url": "https://archonconsultancies.com/archon-studio",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web",
+      "description": "Editor visual y motor editorial para convertir repositorios e ideas en contenido publicable."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Inicio","item":"https://archonconsultancies.com/"},
+        {"@type":"ListItem","position":2,"name":"Archon Studio","item":"https://archonconsultancies.com/archon-studio"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="archon-rebrand archon-studio-page">
+<header class="brand-topbar">
+  <div class="brand-shell brand-nav">
+    <a class="brand-logo" href="/" aria-label="Archon Consultancies">
+      <img class="brand-logo-mark" src="assets/archon/logo-ac-star.png" alt="Archon Consultancies" loading="eager" fetchpriority="high">
+    </a>
+    <nav class="brand-nav-links" aria-label="Navegacion principal">
+      <a href="/">Inicio</a>
+      <a href="/intelligence">Intelligence</a>
+      <a href="/atelier">Atelier</a>
+      <a href="/casos">Casos</a>
+      <a href="/contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top" class="studio-main">
+  <section class="studio-hero">
+    <div class="brand-shell studio-hero-grid">
+      <div>
+        <p class="brand-eyebrow">Archon Studio · Content Engine</p>
+        <h1 class="brand-title">Convierte trabajo real en contenido publicable.</h1>
+        <p class="brand-lead">Un lienzo operativo para transformar repositorios, ideas y sistemas en publicaciones de Instagram, LinkedIn y carruseles. Intelligence lee la materia prima. Atelier la convierte en expresion.</p>
+      </div>
+      <div class="studio-hero-actions">
+        <a class="brand-btn brand-btn--accent" href="#studio-app">Abrir editor</a>
+        <a class="brand-btn brand-btn--ghost" href="https://github.com/palcocerhurtado-tech" target="_blank" rel="noopener noreferrer">Ver GitHub fuente</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="studio-shell" id="studio-app" aria-label="Archon Studio editor">
+    <aside class="studio-panel studio-source">
+      <div class="studio-panel-head">
+        <p class="brand-eyebrow">01 · Materia prima</p>
+        <h2>Fuente</h2>
+      </div>
+      <label class="studio-field">
+        <span>Repositorio GitHub</span>
+        <select id="repoSelect">
+          <option>Cargando repos...</option>
+        </select>
+      </label>
+      <label class="studio-field">
+        <span>Idea o enfoque</span>
+        <textarea id="briefInput" rows="5">Convertir este proyecto en una pieza comercial que muestre como Archon une tecnologia, comunicacion y venta.</textarea>
+      </label>
+      <div class="studio-controls">
+        <label class="studio-field">
+          <span>Formato</span>
+          <select id="formatSelect">
+            <option value="instagram">Instagram post</option>
+            <option value="carousel">Carrusel</option>
+            <option value="linkedin">LinkedIn</option>
+          </select>
+        </label>
+        <label class="studio-field">
+          <span>Angulo</span>
+          <select id="angleSelect">
+            <option value="autoridad">Autoridad</option>
+            <option value="demo">Demo</option>
+            <option value="producto">Producto</option>
+            <option value="aprendizaje">Aprendizaje</option>
+          </select>
+        </label>
+      </div>
+      <button class="studio-command studio-command--primary" id="generateBtn" type="button">Generar pieza</button>
+      <p class="studio-note" id="sourceStatus">Lee repos publicos de GitHub. No publica nada automaticamente.</p>
+    </aside>
+
+    <section class="studio-workspace">
+      <div class="studio-toolbar" aria-label="Controles del lienzo">
+        <div class="studio-segmented" id="slideTabs" role="tablist" aria-label="Slides generadas"></div>
+        <div class="studio-toolbar-actions">
+          <button class="studio-icon-btn" type="button" id="copyPostBtn">Copiar copy</button>
+          <button class="studio-icon-btn" type="button" id="downloadBtn">Exportar PNG</button>
+        </div>
+      </div>
+      <div class="studio-canvas-wrap">
+        <canvas id="studioCanvas" width="1080" height="1080" aria-label="Lienzo de Archon Studio"></canvas>
+      </div>
+    </section>
+
+    <aside class="studio-panel studio-inspector">
+      <div class="studio-panel-head">
+        <p class="brand-eyebrow">02 · Capas</p>
+        <h2>Inspector</h2>
+      </div>
+      <label class="studio-field">
+        <span>Kicker</span>
+        <input id="kickerInput" type="text">
+      </label>
+      <label class="studio-field">
+        <span>Titular</span>
+        <textarea id="headlineInput" rows="3"></textarea>
+      </label>
+      <label class="studio-field">
+        <span>Cuerpo</span>
+        <textarea id="bodyInput" rows="5"></textarea>
+      </label>
+      <label class="studio-field">
+        <span>Pie</span>
+        <input id="footerInput" type="text">
+      </label>
+      <div class="studio-controls">
+        <label class="studio-field">
+          <span>Tema</span>
+          <select id="themeSelect">
+            <option value="archon">Archon</option>
+            <option value="water">Intelligence</option>
+            <option value="fire">Atelier</option>
+            <option value="mono">Mono</option>
+          </select>
+        </label>
+        <label class="studio-field">
+          <span>Tamano</span>
+          <select id="sizeSelect">
+            <option value="square">1080 x 1080</option>
+            <option value="story">1080 x 1920</option>
+            <option value="linkedin">1200 x 627</option>
+          </select>
+        </label>
+      </div>
+      <div class="studio-copy-box">
+        <p class="brand-eyebrow">Copy generado</p>
+        <textarea id="postOutput" rows="8"></textarea>
+      </div>
+      <div class="studio-copy-box">
+        <p class="brand-eyebrow">Prompt visual</p>
+        <textarea id="promptOutput" rows="5"></textarea>
+      </div>
+    </aside>
+  </section>
+</main>
+
+<footer class="brand-footer">
+  <div class="brand-shell brand-footer-grid">
+    <div>
+      <img src="assets/archon/logo-ac-star-white.png" class="brand-footer-logo" alt="Archon Consultancies" loading="lazy" width="160" height="160">
+      <strong>Archon Consultancies</strong>
+      <p>IA, operaciones y marketing estrategico desde Zaragoza.</p>
+      <p><a href="mailto:archon.consultancies@hotmail.com">archon.consultancies@hotmail.com</a> · <a href="tel:+34693500740">+34 693 500 740</a></p>
+    </div>
+    <nav class="brand-footer-links" aria-label="Enlaces de pie de pagina">
+      <a href="/">Inicio</a>
+      <a href="/intelligence">Intelligence</a>
+      <a href="/atelier">Atelier</a>
+      <a href="/casos">Casos</a>
+      <a href="/contacto">Contacto</a>
+      <a href="/privacidad">Privacidad</a>
+    </nav>
+  </div>
+</footer>
+<script src="assets/js/archon-studio.js?v=20260910" defer></script>
+<script src="assets/js/archon-consent.js?v=20260908" defer></script>
+</body>
+</html>
