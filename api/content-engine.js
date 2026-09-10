@@ -61,7 +61,7 @@ async function fetchRepos() {
     : [];
 }
 
-function fallbackContent(params) {
+function fallbackContent(params, reason) {
   const repoName = normalizeString(params.repo && params.repo.name) || "un sistema Archon";
   const description =
     normalizeString(params.repo && params.repo.description) ||
@@ -72,6 +72,7 @@ function fallbackContent(params) {
 
   return {
     source: "fallback",
+    fallbackReason: reason || "",
     repoName: repoName,
     angle: angle,
     format: normalizeString(params.format) || "instagram",
@@ -172,6 +173,7 @@ function sanitizeGenerated(value, params) {
 
   return {
     source: safe.source || "ai",
+    fallbackReason: normalizeString(safe.fallbackReason),
     repoName: normalizeString(safe.repoName) || fallback.repoName,
     angle: normalizeString(safe.angle) || fallback.angle,
     format: normalizeString(safe.format) || fallback.format,
@@ -191,7 +193,7 @@ function sanitizeGenerated(value, params) {
 
 async function callGemini(params) {
   if (!process.env.GEMINI_API_KEY) {
-    return fallbackContent(params);
+    return fallbackContent(params, "missing Gemini API key");
   }
 
   const response = await fetch(GEMINI_API_URL, {
@@ -216,7 +218,12 @@ async function callGemini(params) {
   });
 
   if (!response.ok || !payload) {
-    return fallbackContent(params);
+    return fallbackContent(
+      params,
+      payload && payload.error && payload.error.message
+        ? payload.error.message
+        : `Gemini request failed with status ${response.status}`
+    );
   }
 
   const raw =
