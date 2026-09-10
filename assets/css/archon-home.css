@@ -153,15 +153,108 @@
   margin-top: 24px;
 }
 
-.home-demos .brand-card {
-  padding: 26px;
-  box-shadow: none;
+.home-demos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  align-items: stretch;
+}
+
+.home-demo-system {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 22px;
+  padding: 28px;
+  border: 1px solid var(--color-line);
   background: #fff;
 }
 
-.home-demos .brand-card h3 {
-  font-size: 24px;
+.home-demo-system--water {
+  border-top: 4px solid #276872;
+}
+
+.home-demo-system--fire {
+  border-top: 4px solid #b74837;
+}
+
+.home-demo-system--water .brand-card-label,
+.home-demo-system--water .home-demo-node span,
+.home-demo-system--water .home-demo-metrics dt {
+  color: #276872;
+}
+
+.home-demo-system--fire .brand-card-label,
+.home-demo-system--fire .home-demo-node span,
+.home-demo-system--fire .home-demo-metrics dt {
+  color: #a83b2b;
+}
+
+.home-demo-head h3 {
+  margin: 8px 0 0;
+  font-size: 26px;
   line-height: 1.25;
+}
+
+.home-demo-flow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  align-content: start;
+}
+
+.home-demo-node {
+  position: relative;
+  min-width: 0;
+  padding: 16px 14px;
+  border: 1px solid var(--color-line);
+  background: #fbfaf7;
+}
+
+.home-demo-node span {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--font-brand-mono);
+  font-size: 12px;
+}
+
+.home-demo-node strong {
+  display: block;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.home-demo-node p {
+  margin: 8px 0 0;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.home-demo-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.home-demo-metrics div {
+  min-width: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-line);
+}
+
+.home-demo-metrics dt {
+  font-family: var(--font-brand-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.home-demo-metrics dd {
+  margin: 8px 0 0;
+  color: var(--color-text-muted);
+  font-size: 14px;
+  line-height: 1.45;
 }
 
 .home-steps {
@@ -281,6 +374,10 @@
     gap: 16px;
   }
 
+  .home-demos {
+    grid-template-columns: 1fr;
+  }
+
   .home-contact {
     gap: 28px;
   }
@@ -303,5 +400,16 @@
 
   .home-founder h3 {
     font-size: 20px;
+  }
+
+  .home-demo-system {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 340px) {
+  .home-demo-flow,
+  .home-demo-metrics {
+    grid-template-columns: 1fr;
   }
 }
