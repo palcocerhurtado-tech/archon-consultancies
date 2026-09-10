@@ -247,6 +247,9 @@ export async function GET() {
     {
       ok: true,
       user: GITHUB_USER,
+      configured: Boolean(process.env.GEMINI_API_KEY),
+      provider: "gemini",
+      model: "gemini-2.5-flash",
       repos: repos
     },
     200
