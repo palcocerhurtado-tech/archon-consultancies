@@ -14,7 +14,7 @@ test('every piece returns to its original position at both ends of scroll', () =
 });
 test('the suspended state separates every piece and preserves its scale',()=>{
   for(let i=0;i<10;i++){
-    const f=mechanismFrame(.5,i);
+    const f=mechanismFrame(.4,i);
     assert.equal(f.spread,1);assert.equal(f.scale,1);
     assert.ok(Math.abs(f.x)+Math.abs(f.y)>0);
   }
@@ -67,8 +67,18 @@ test('rapid scroll reversals remain continuous and bounded',()=>{
   for(let i=0;i<300;i++){
     const next=advanceMotion(position,i<80?1:i<160?0:1,velocity,1/60);
     assert.ok(next.position>=0&&next.position<=1);
-    assert.ok(Math.abs(next.position-position)<.15);
+    assert.ok(Math.abs(next.position-position)<.19);
     assert.ok(Number.isFinite(next.velocity));
     position=next.position;velocity=next.velocity;
   }
+});
+
+
+test('scroll response reaches 95 percent of a new target within ten 60Hz frames',()=>{
+  let position=0,velocity=0;
+  for(let i=0;i<10;i++){
+    const next=advanceMotion(position,1,velocity,1/60);
+    position=next.position;velocity=next.velocity;
+  }
+  assert.ok(position>.95);
 });

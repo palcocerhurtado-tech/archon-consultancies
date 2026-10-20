@@ -5,8 +5,8 @@ const smooth = value => { const t=clamp(value); return clamp(t*t*t*(t*(t*6-15)+1
 const vectors = [[0,-210,-7],[-220,130,-11],[170,125,9],[-240,-90,-18],[190,-100,16],[0,230,9],[125,-155,5],[210,85,-5],[235,-45,13],[240,165,-10]];
 
 export function mechanismFrame(progress,index,expressive=false,compact=false){
-  const p=clamp(progress),delay=index*.007;
-  const spread=smooth((p-.04-delay)/.38)*(1-smooth((p-.51-delay)/.38));
+  const p=clamp(progress),delay=index*.004;
+  const spread=smooth((p-.025-delay)/.32)*(1-smooth((p-.44-delay)/.35));
   const [x,y,r]=vectors[index];
   const strength=(expressive?1.18:.85)*(compact?.62:1);
   return {x:x*spread*strength,y:y*spread*strength,rotate:r*spread*(expressive?1.3:.65),
@@ -15,7 +15,7 @@ export function mechanismFrame(progress,index,expressive=false,compact=false){
 
 // Exact critically damped response: preserves velocity, independent of display refresh rate.
 export function advanceMotion(current,target,velocity,seconds){
-  const dt=Math.max(0,Math.min(seconds,.064)),omega=18;
+  const dt=Math.max(0,Math.min(seconds,.064)),omega=30;
   const offset=current-target,c=velocity+omega*offset,decay=Math.exp(-omega*dt);
   const position=target+(offset+c*dt)*decay;
   const nextVelocity=(velocity-omega*c*dt)*decay;
@@ -72,7 +72,7 @@ function initMechanism(section){
     bar.style.transform=`scaleX(${p})`;
     const count=Math.round(p*100);
     if(count!==lastCounter){counter.textContent=String(count).padStart(3,'0');lastCounter=count;}
-    const next=p<.12?0:p<.44?1:p<.53?2:p<.94?3:4;
+    const next=p<.07?0:p<.36?1:p<.45?2:p<.84?3:4;
     if(next!==phaseIndex){
       phaseIndex=next;
       phase.textContent=(document.documentElement.lang==='en'
