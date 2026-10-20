@@ -1,13 +1,12 @@
-import { logoLayers } from '../archon/mechanism/layers.js';
-/* Original artwork, split into disjoint lossless layers. No redraw or deformation. */
+import { logoLayers, artworkBounds } from '../archon/emblem/layers.js';
+/* Higgsfield architectural emblem, split into fourteen disjoint lossless layers. */
 export const clamp = value => Math.max(0, Math.min(1, value));
 const smooth = value => { const t=clamp(value); return clamp(t*t*t*(t*(t*6-15)+10)); };
-const vectors = [[0,-210,-7],[-220,130,-11],[170,125,9],[-240,-90,-18],[190,-100,16],[0,230,9],[125,-155,5],[210,85,-5],[235,-45,13],[240,165,-10]];
 
 export function mechanismFrame(progress,index,expressive=false,compact=false){
   const p=clamp(progress),delay=index*.004;
   const spread=smooth((p-.025-delay)/.32)*(1-smooth((p-.44-delay)/.35));
-  const [x,y,r]=vectors[index];
+  const [x,y,r]=logoLayers[index].motion;
   const strength=(expressive?1.18:.85)*(compact?.62:1);
   return {x:x*spread*strength,y:y*spread*strength,rotate:r*spread*(expressive?1.3:.65),
     scale:1-smooth((p-.93)/.07)*.08,spread};
@@ -44,7 +43,12 @@ function initMechanism(section){
     plane.append(part);return part;
   });
   const intact=document.createElement('img');intact.src=original.src;intact.alt='';
-  intact.className='mechanism-intact';intact.draggable=false;plane.append(intact);
+  intact.className='mechanism-intact';intact.draggable=false;
+  intact.style.left=(artworkBounds.x+310)/2240*100+'%';
+  intact.style.top=(artworkBounds.y+110)/1870*100+'%';
+  intact.style.width=artworkBounds.width/2240*100+'%';
+  intact.style.height=artworkBounds.height/1870*100+'%';
+  plane.append(intact);
   let target=0,current=0,velocity=0,raf=0,active=false,phaseIndex=-1;
   let travel=1,start=0,lastTime=0,unit=1,assembled=null,lastCounter=-1;
   function measure(){
@@ -72,7 +76,7 @@ function initMechanism(section){
     bar.style.transform=`scaleX(${p})`;
     const count=Math.round(p*100);
     if(count!==lastCounter){counter.textContent=String(count).padStart(3,'0');lastCounter=count;}
-    const next=p<.07?0:p<.36?1:p<.45?2:p<.84?3:4;
+    const next=p<.07?0:p<.36?1:p<.45?2:p<.86?3:4;
     if(next!==phaseIndex){
       phaseIndex=next;
       phase.textContent=(document.documentElement.lang==='en'

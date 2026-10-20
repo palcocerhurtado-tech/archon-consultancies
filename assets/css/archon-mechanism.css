@@ -149,3 +149,6 @@ body.has-mechanism { background:#f4f1ec; }
   .mechanism-active .mechanism-part { will-change:auto; }
   .core-carrier,.core-logo { transform:none; }
 }
+
+/* The square architectural emblem fits without stretching. */
+.mechanism-art>img { left:16.4508929%; width:67.6339286%; top:5.8823529%; height:auto; }

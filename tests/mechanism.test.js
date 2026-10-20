@@ -1,26 +1,26 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { mechanismFrame, advanceMotion } from '../assets/js/archon-mechanism.js';
-import { logoLayers } from '../assets/archon/mechanism/layers.js';
+import { logoLayers } from '../assets/archon/emblem/layers.js';
 import { existsSync } from 'node:fs';
 
 test('every piece returns to its original position at both ends of scroll', () => {
   for (const expressive of [false,true]) for (const compact of [false,true]) {
-    for(let i=0;i<10;i++) for(const p of [0,1,-1,2]) {
+    for(let i=0;i<logoLayers.length;i++) for(const p of [0,1,-1,2]) {
       const f=mechanismFrame(p,i,expressive,compact);
       assert.equal(Math.abs(f.x)+Math.abs(f.y)+Math.abs(f.rotate),0);
     }
   }
 });
 test('the suspended state separates every piece and preserves its scale',()=>{
-  for(let i=0;i<10;i++){
+  for(let i=0;i<logoLayers.length;i++){
     const f=mechanismFrame(.4,i);
     assert.equal(f.spread,1);assert.equal(f.scale,1);
     assert.ok(Math.abs(f.x)+Math.abs(f.y)>0);
   }
 });
 test('opening and assembly have continuous, bounded positions',()=>{
-  for(let i=0;i<10;i++){
+  for(let i=0;i<logoLayers.length;i++){
     let prev=mechanismFrame(0,i,true);
     for(let n=1;n<=1000;n++){
       const f=mechanismFrame(n/1000,i,true);
@@ -39,8 +39,8 @@ test('mobile shortens travel and Atelier has a wider composition',()=>{
   assert.ok(Math.abs(mechanismFrame(.5,1,false,true).x)<Math.abs(mechanismFrame(.5,1).x));
   assert.ok(Math.abs(mechanismFrame(.5,1,true).x)>Math.abs(mechanismFrame(.5,1).x));
 });
-test('all ten lossless layers exist locally with valid geometry',()=>{
-  assert.equal(logoLayers.length,10);
+test('all fourteen emblem parts exist locally with valid geometry',()=>{
+  assert.equal(logoLayers.length,14);
   for(const layer of logoLayers){
     assert.ok(existsSync(new URL('..'+layer.src,import.meta.url)));
     assert.ok(layer.width>0&&layer.height>0);
@@ -76,9 +76,16 @@ test('rapid scroll reversals remain continuous and bounded',()=>{
 
 test('scroll response reaches 95 percent of a new target within ten 60Hz frames',()=>{
   let position=0,velocity=0;
-  for(let i=0;i<10;i++){
+  for(let i=0;i<logoLayers.length;i++){
     const next=advanceMotion(position,1,velocity,1/60);
     position=next.position;velocity=next.velocity;
   }
   assert.ok(position>.95);
+});
+
+
+test('architectural components and all six star rays have independent trajectories',()=>{
+  const names=new Set(logoLayers.map(x=>x.name));
+  for(const name of ['arch-left','arch-right','keystone','capital-left','capital-right','pier-left','pier-right','base','star-top','star-left','star-right','star-gold-left','star-gold-right','star-gold-bottom'])assert.ok(names.has(name));
+  for(const layer of logoLayers)assert.equal(layer.motion.length,3);
 });

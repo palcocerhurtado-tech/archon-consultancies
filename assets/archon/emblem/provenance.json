@@ -1,0 +1,23 @@
+{
+  "provider": "Higgsfield",
+  "model": "gpt_image_2_5",
+  "job_id": "07ae2e24-1f0f-46d7-b67a-380ecf790a70",
+  "components": [
+    "arch-left",
+    "arch-right",
+    "keystone",
+    "capital-left",
+    "capital-right",
+    "pier-left",
+    "pier-right",
+    "base",
+    "star-top",
+    "star-left",
+    "star-right",
+    "star-gold-left",
+    "star-gold-right",
+    "star-gold-bottom"
+  ],
+  "reference": "User-provided architectural arch and geometric star",
+  "format": "Raster artwork with a vector-like geometric finish"
+}
