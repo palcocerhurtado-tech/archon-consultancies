@@ -1,0 +1,78 @@
+/* Local-only editorial direction. Original logo files and brand colours are untouched. */
+body.has-mechanism { background:#f4f1ec; }
+.has-mechanism .brand-topbar { background:rgba(244,241,236,.95); }
+.has-mechanism .brand-hero::before,.has-mechanism .brand-hero::after { content:none; }
+.has-mechanism .brand-hero { background:#f4f1ec; padding:clamp(56px,8vw,112px) 0 64px; }
+.brand-home.has-mechanism .home-hero { background:#f4f1ec; }
+.brand-home.has-mechanism .home-hero .brand-title { max-width:1020px; font-size:clamp(42px,7.3vw,108px); line-height:1.02; letter-spacing:-.065em; }
+.has-mechanism .home-offer { font-size:clamp(18px,2vw,24px); max-width:750px; }
+.has-mechanism .brand-eyebrow { letter-spacing:.12em; }
+.has-mechanism .brand-btn { transition:background-color .2s,color .2s,border-color .2s; }
+.has-mechanism .brand-btn:hover { background:#0b0b0b; color:#fff; }
+.has-mechanism .brand-btn:focus-visible { outline:2px solid #7c6336; outline-offset:5px; }
+.mechanism { position:relative; background:#fff; border-block:1px solid rgba(11,11,11,.15); }
+.mechanism-ready { height:240svh; }
+.mechanism-stage { min-height:680px; position:relative; background:#fff; }
+.mechanism-ready .mechanism-stage { position:sticky; top:var(--mechanism-header,96px); height:calc(100svh - var(--mechanism-header,96px)); min-height:0; }
+.mechanism-shell { width:min(100% - 64px,1440px); margin:auto; height:100%; display:grid; grid-template-columns:minmax(200px,.75fr) minmax(0,2fr); gap:24px; align-items:center; }
+.mechanism-copy { z-index:1; padding-block:40px; align-self:center; }
+.mechanism-index { font:11px var(--font-brand-mono); color:#7c6336; letter-spacing:.15em; text-transform:uppercase; margin:0 0 34px; }
+.mechanism-title { font:700 clamp(35px,4.1vw,66px)/1.02 var(--font-brand); letter-spacing:-.055em; margin:0 0 24px; }
+.mechanism-description { color:#4a4a4a; max-width:280px; font-size:15px; line-height:1.65; }
+.mechanism-art { width:100%; min-width:0; position:relative; aspect-ratio:2240/1870; }
+.mechanism-art>img { position:absolute; width:72.857%; height:auto; left:13.839%; top:5.882%; }
+.mechanism-art>img[hidden] { display:none; }
+.mechanism-svg { display:block; width:100%; height:100%; overflow:visible; transform-origin:center; }
+.mechanism-svg g { transform-box:view-box; }
+.mechanism-readout { margin-top:38px; border-top:1px solid #d8d2c8; padding-top:16px; max-width:280px; }
+.mechanism-phase { font:12px var(--font-brand-mono); text-transform:uppercase; letter-spacing:.08em; }
+.mechanism-meter { height:2px; background:#e9e4dc; margin-top:14px; overflow:hidden; }
+.mechanism-meter span { display:block; height:100%; background:#a8884b; transform:scaleX(0); transform-origin:left; }
+.mechanism-counter { float:right; color:#7c6336; font:12px var(--font-brand-mono); }
+.mechanism-cue { position:absolute; bottom:22px; left:32px; color:#655b4b; font:10px var(--font-brand-mono); letter-spacing:.1em; text-transform:uppercase; }
+.has-mechanism .brand-section { border-top:1px solid rgba(11,11,11,.12); }
+.mechanism[data-mechanism="atelier"] .mechanism-title { font-size:clamp(42px,5vw,78px); }
+.mechanism-reduced { height:auto; }
+.mechanism-reduced .mechanism-stage { position:relative; top:auto; height:auto; min-height:600px; }
+.mechanism-reduced .mechanism-readout,.mechanism-reduced .mechanism-cue { display:none; }
+@media(min-width:1100px){
+  .has-mechanism .brand-hero-grid { grid-template-columns:minmax(0,1.5fr) minmax(280px,.65fr); gap:52px; }
+  .has-mechanism .brand-hero-panel { align-self:end; background:transparent; box-shadow:none; border-width:1px 0 0; padding:28px 0 0; }
+  .has-mechanism .brand-hero-panel .brand-logo-watermark { display:none; }
+}
+@media(max-width:760px){
+  .has-mechanism .brand-hero { padding:42px 0; }
+  .brand-home.has-mechanism .home-hero .brand-title { font-size:clamp(38px,10vw,70px); }
+  .mechanism-ready { height:175svh; }
+  .mechanism-shell { width:calc(100% - 36px); grid-template-columns:1fr; grid-template-rows:auto minmax(0,1fr); gap:0; }
+  .mechanism-copy { padding:24px 0 0; }
+  .mechanism-index { margin:0 0 14px; font-size:9px; }
+  .mechanism-title,.mechanism[data-mechanism="atelier"] .mechanism-title { font-size:clamp(28px,8vw,44px); margin:0 0 10px; max-width:360px; }
+  .mechanism-description { max-width:470px; font-size:13px; margin:0; }
+  .mechanism-art { align-self:center; max-width:600px; max-height:100%; margin:auto; }
+  .mechanism-readout { margin-top:16px; padding-top:10px; max-width:none; }
+  .mechanism-meter { margin-top:8px; }
+  .mechanism-phase,.mechanism-counter { font-size:10px; }
+  .mechanism-cue { bottom:10px; left:18px; font-size:9px; }
+  .mechanism-stage { min-height:600px; }
+  .mechanism-reduced .mechanism-stage { height:auto; min-height:0; }
+}
+@media(max-height:600px) and (min-width:761px){
+  .mechanism-title { font-size:32px; }
+  .mechanism-description { font-size:12px; }
+  .mechanism-index { margin-bottom:16px; }
+  .mechanism-readout { margin-top:18px; }
+  .mechanism-art { max-height:90%; }
+}
+@media(prefers-reduced-motion:reduce){
+  .mechanism-ready { height:auto; }
+  .mechanism-ready .mechanism-stage { position:relative; top:auto; height:auto; min-height:0; }
+  .mechanism-readout,.mechanism-cue { display:none; }
+  .has-mechanism .brand-btn { transition:none; }
+}
+/* The SVG fits the available stage height, including short laptop and mobile screens. */
+.mechanism-ready .mechanism-art { height:100%; min-height:0; aspect-ratio:auto; }
+.mechanism-reduced .mechanism-art { height:auto; aspect-ratio:2240/1870; }
+@media(prefers-reduced-motion:reduce){
+  .mechanism-ready .mechanism-art { height:auto; aspect-ratio:2240/1870; }
+}
