@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mechanismFrame } from '../assets/js/archon-mechanism.js';
+import { mechanismFrame, advanceMotion } from '../assets/js/archon-mechanism.js';
 import { logoLayers } from '../assets/archon/mechanism/layers.js';
 import { existsSync } from 'node:fs';
 
@@ -46,5 +46,29 @@ test('all ten lossless layers exist locally with valid geometry',()=>{
     assert.ok(layer.width>0&&layer.height>0);
     assert.ok(layer.x>=0&&layer.y>=0);
     assert.ok(layer.x+layer.width<=1632.001&&layer.y+layer.height<=1515.001);
+  }
+});
+
+
+test('damping reaches the same position at 60Hz and 120Hz',()=>{
+  const simulate=hz=>{
+    let position=0,velocity=0;
+    for(let i=0;i<hz;i++){
+      const next=advanceMotion(position,1,velocity,1/hz);
+      position=next.position;velocity=next.velocity;
+    }
+    return position;
+  };
+  assert.ok(Math.abs(simulate(60)-simulate(120))<1e-10);
+  assert.ok(simulate(60)>.9999);
+});
+test('rapid scroll reversals remain continuous and bounded',()=>{
+  let position=0,velocity=0;
+  for(let i=0;i<300;i++){
+    const next=advanceMotion(position,i<80?1:i<160?0:1,velocity,1/60);
+    assert.ok(next.position>=0&&next.position<=1);
+    assert.ok(Math.abs(next.position-position)<.15);
+    assert.ok(Number.isFinite(next.velocity));
+    position=next.position;velocity=next.velocity;
   }
 });

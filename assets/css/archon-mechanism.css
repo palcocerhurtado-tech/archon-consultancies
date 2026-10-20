@@ -76,3 +76,76 @@ body.has-mechanism { background:#f4f1ec; }
 @media(prefers-reduced-motion:reduce){
   .mechanism-ready .mechanism-art { height:auto; aspect-ratio:2240/1870; }
 }
+
+/* Compositor-friendly logo layers. Geometry and colours come from the original image. */
+.mechanism-viewport { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+.mechanism-plane { position:relative; flex:none; transform-origin:center; }
+.mechanism-part { position:absolute; display:block; max-width:none; pointer-events:none; backface-visibility:hidden; }
+.mechanism-plane .mechanism-intact { position:absolute; left:13.8392857%; top:5.8823529%; width:72.8571429%; height:81.0160428%; max-width:none; opacity:0; pointer-events:none; }
+.mechanism-plane.is-assembled .mechanism-part { opacity:0; }
+.mechanism-plane.is-assembled .mechanism-intact { opacity:1; }
+.mechanism-active .mechanism-part { will-change:transform; }
+
+/* A mechanical centre for the previously empty right-hand side of the hero. */
+.brand-home.has-mechanism .home-hero .brand-shell { width:min(100% - 64px,1440px); }
+.home-hero-layout { display:grid; grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr); gap:clamp(24px,4vw,72px); align-items:start; }
+.home-hero-copy { min-width:0; }
+.brand-home.has-mechanism .home-hero .brand-title { font-size:clamp(44px,5.6vw,88px); max-width:780px; }
+.archon-core { --core-open:0; position:sticky; top:140px; min-width:0; margin:18px 0 0; align-self:start; }
+.core-registration,.core-caption { display:flex; justify-content:space-between; gap:20px; color:#7c6336; font:9px var(--font-brand-mono); letter-spacing:.12em; text-transform:uppercase; }
+.core-registration { padding-bottom:18px; border-bottom:1px solid rgba(168,136,75,.35); }
+.core-stage { position:relative; aspect-ratio:1; perspective:900px; isolation:isolate; }
+.core-axis { position:absolute; background:rgba(168,136,75,.18); pointer-events:none; }
+.core-axis--x { width:100%; height:1px; left:0; top:50%; }
+.core-axis--y { height:100%; width:1px; top:0; left:50%; }
+.core-carrier { position:absolute; inset:7%; transform-style:preserve-3d; pointer-events:none; }
+.core-carrier--one { transform:translate3d(calc(var(--core-open) * -22px),calc(var(--core-open) * -26px),0); }
+.core-carrier--two { inset:12%; transform:translate3d(calc(var(--core-open) * 30px),calc(var(--core-open) * 12px),0); }
+.core-carrier--three { inset:4%; transform:translate3d(0,calc(var(--core-open) * 38px),0); }
+.core-ring { position:absolute; inset:0; border:1.3px solid #a8884b; border-radius:50%; backface-visibility:visible; transform-style:preserve-3d; animation:core-orbit-one 28s linear infinite; }
+.core-ring--two { border-color:rgba(11,11,11,.65); border-width:1px; animation:core-orbit-two 36s linear infinite; }
+.core-ring--three { border-color:rgba(168,136,75,.6); border-width:1px; animation:core-orbit-three 44s linear infinite; }
+.core-ring i { position:absolute; left:50%; top:-4px; width:7px; height:7px; margin-left:-3px; border-radius:50%; background:#a8884b; }
+.core-ring--two i { background:#0b0b0b; width:5px; height:5px; top:-3px; }
+.core-logo { position:absolute; z-index:2; left:19%; top:21%; width:62%; height:auto; transform:translate3d(0,calc(var(--core-open) * -12px),0); }
+.core-node { position:absolute; width:4px; height:4px; border:1px solid #a8884b; border-radius:50%; top:50%; }
+.core-node--one { left:-2px; }.core-node--two { right:-2px; }
+.core-caption { padding-top:18px; border-top:1px solid rgba(168,136,75,.35); }
+.core-paused .core-ring,.core-hidden .core-ring { animation-play-state:paused; }
+@keyframes core-orbit-one {
+  from { transform:rotateX(62deg) rotateY(-18deg) rotateZ(0deg); }
+  to { transform:rotateX(62deg) rotateY(-18deg) rotateZ(360deg); }
+}
+@keyframes core-orbit-two {
+  from { transform:rotateX(-28deg) rotateY(62deg) rotateZ(35deg); }
+  to { transform:rotateX(-28deg) rotateY(62deg) rotateZ(-325deg); }
+}
+@keyframes core-orbit-three {
+  from { transform:rotateX(46deg) rotateY(32deg) rotateZ(90deg); }
+  to { transform:rotateX(46deg) rotateY(32deg) rotateZ(450deg); }
+}
+@media(max-width:1000px){
+  .home-hero-layout { grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:24px; }
+  .brand-home.has-mechanism .home-hero .brand-title { font-size:clamp(38px,5.8vw,64px); }
+  .archon-core { top:160px; }
+  .core-registration,.core-caption { font-size:8px; letter-spacing:.06em; }
+}
+@media(max-width:760px){
+  .brand-home.has-mechanism .home-hero .brand-shell { width:calc(100% - 36px); }
+  .home-hero-layout { grid-template-columns:1fr; gap:18px; }
+  .home-hero-copy { display:contents; }
+  .home-hero-copy>.brand-eyebrow { grid-row:1; margin-bottom:0; }
+  .home-hero-copy>.brand-title { grid-row:2; }
+  .brand-home.has-mechanism .home-hero .brand-title { font-size:clamp(38px,9.5vw,68px); }
+  .archon-core { grid-row:3; position:relative; top:auto; width:min(100%,440px); justify-self:center; margin:12px 0; }
+  .core-registration,.core-caption { font-size:8px; }
+  .home-hero-copy>.home-offer,.home-hero-copy>.home-note,.home-hero-copy>.home-founder-line { margin-top:0; }
+}
+@media(prefers-reduced-motion:reduce){
+  .core-ring { animation:none; }
+  .core-ring--one { transform:rotateX(62deg) rotateY(-18deg); }
+  .core-ring--two { transform:rotateX(-28deg) rotateY(62deg) rotateZ(35deg); }
+  .core-ring--three { transform:rotateX(46deg) rotateY(32deg) rotateZ(90deg); }
+  .mechanism-active .mechanism-part { will-change:auto; }
+  .core-carrier,.core-logo { transform:none; }
+}
