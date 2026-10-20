@@ -1,0 +1,26 @@
+{
+  "star": {
+    "source": "star-original.png",
+    "sha256": "1f803a82f858d6660f573a99ee428d643912ae4606ff4124fa6886807f434e9b",
+    "redrawn": false,
+    "transformation": "uniform scale and translation; original alpha mask; bronze and gold sampled from surrounding objects; shallow relief and cast shadow"
+  },
+  "backgrounds": {
+    "provider": "Higgsfield",
+    "intelligence": "31dce057-fec4-4d32-9750-d48ae6ce4057",
+    "atelier": "2e64894e-2824-4a1f-8d69-c06de2a8f04f"
+  },
+  "status": "concepts for review; not connected to production pages",
+  "clean_plates": {
+    "provider": "Higgsfield",
+    "intelligence": "adcbb519-62ae-47d0-b60f-031e2ff46792",
+    "atelier": "38cfae7c-8130-44ee-aaea-021bdc678aee"
+  },
+  "animation": {
+    "format": "pre-rendered local WebP layers",
+    "intelligence_layers": 15,
+    "atelier_layers": 14,
+    "star_geometry": "six sectors partition the original alpha mask",
+    "builder": "scripts/build-service-worlds.py"
+  }
+}
