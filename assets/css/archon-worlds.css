@@ -1,0 +1,52 @@
+/* Two material worlds, rendered locally; animation only transforms baked layers. */
+.world { background:#f4f1ec; }
+.world .world-stage { background:#f4f1ec; min-height:650px; }
+.world-ready { height:195svh; }
+.world-ready .world-stage { position:sticky; top:var(--mechanism-header,96px); height:calc(100svh - var(--mechanism-header,96px)); min-height:0; }
+.world-layout { position:relative; width:min(100%,1600px); height:100%; min-height:650px; margin:auto; }
+.world-ready .world-layout { min-height:0; }
+.world-art { position:absolute; inset:0; overflow:hidden; }
+.world-art>img,.world-plane { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:100%; aspect-ratio:1344/752; height:auto; }
+.world-art>img { object-fit:contain; max-height:100%; }
+.world-art>img[hidden] { display:none; }
+.world-plane { overflow:visible; }
+.world-background { display:block; width:100%; height:100%; }
+.world-part { position:absolute; display:block; max-width:none; pointer-events:none; backface-visibility:hidden; transform-origin:center; }
+.world-active .world-part { will-change:transform; }
+.world-copy { position:absolute; top:50%; left:5%; transform:translateY(-50%); width:32%; max-width:390px; padding:0; z-index:1; }
+.world-copy .mechanism-title { font-size:clamp(32px,3.6vw,57px); }
+.world[data-world="atelier"] .mechanism-title { font-size:clamp(32px,3.6vw,57px); }
+.world-copy .mechanism-index { margin-bottom:25px; }
+.world-copy .mechanism-description { max-width:300px; color:#3f382f; }
+.world .mechanism-cue { left:5%; bottom:20px; }
+.world-reduced { height:auto; }
+.world-reduced .world-stage { position:relative; top:auto; height:650px; }
+.world-reduced .mechanism-readout,.world-reduced .mechanism-cue { display:none; }
+@media(min-width:761px) and (max-height:640px) {
+ .world-copy .mechanism-title,.world[data-world="atelier"] .mechanism-title { font-size:32px; }
+ .world-copy .mechanism-index { margin-bottom:12px; }
+ .world-copy .mechanism-readout { margin-top:18px; }
+}
+@media(max-width:760px) {
+ .world-ready { height:160svh; }
+ .world .world-stage { min-height:650px; }
+ .world-ready .world-stage { min-height:0; }
+ .world-layout { display:flex; flex-direction:column; padding-top:24px; }
+ .world-copy { position:relative; top:auto; left:auto; transform:none; width:calc(100% - 36px); max-width:none; margin:0 18px; flex:none; }
+ .world-copy .mechanism-index { margin-bottom:12px; }
+ .world-copy .mechanism-title,.world[data-world="atelier"] .mechanism-title { font-size:clamp(27px,7.5vw,40px); max-width:500px; margin-bottom:10px; }
+ .world-copy .mechanism-description { max-width:500px; }
+ .world-copy .mechanism-readout { margin-top:14px; }
+ .world-art { position:relative; inset:auto; flex:1; min-height:0; width:100%; }
+ .world-plane,.world-art>img { transform:translate(-67.70833%,-50%); }
+ .world-art>img { width:192%; max-width:none; max-height:none; }
+ .world .mechanism-cue { left:18px; bottom:8px; font-size:8px; }
+ .world-reduced { height:auto; }
+ .world-reduced .world-stage { height:650px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .world-ready { height:auto; }
+ .world-ready .world-stage { position:relative; top:auto; height:650px; min-height:0; }
+ .world-part { will-change:auto; }
+ .world .mechanism-readout,.world .mechanism-cue { display:none; }
+}
