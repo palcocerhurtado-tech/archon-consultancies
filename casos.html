@@ -35,7 +35,7 @@
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&family=Inter:wght@400;700;800&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&family=Inter:wght@400;700;800&display=optional"></noscript>
 <link rel="stylesheet" href="assets/css/archon-brand.css">
-<link rel="stylesheet" href="assets/css/archon-cases.css?v=20260910">
+<link rel="stylesheet" href="assets/css/archon-cases.css?v=20261019">
 <link rel="stylesheet" href="assets/css/archon-chatbot.css">
 <script type="application/ld+json">
 {
@@ -121,7 +121,7 @@
       <div>
         <p class="brand-eyebrow">Builds y demos</p>
         <h1 class="brand-title">Sistemas diseñados para enseñar cómo piensa Archon.</h1>
-        <p class="brand-lead">Esta página no vende relatos maquillados. Reúne demos operativas para mostrar cómo se diseña un sistema: diagnóstico, arquitectura, automatización, medición y límites claros.</p>
+        <p class="brand-lead">Prueba el seguimiento de consultas con datos ficticios y explora los modelos de CRM, soporte y reporting. Cada ejemplo indica qué puedes comprobar y cuáles son sus límites.</p>
         <div class="brand-btn-row">
           <a class="brand-btn brand-btn--accent" href="/contacto">Solicitar Radiografía Pro</a>
           <a class="brand-btn brand-btn--ghost" href="/intelligence">Ver Intelligence</a>
@@ -138,6 +138,19 @@
       </aside>
     </div>
   </section>
+
+
+  <section class="brand-section lead-demo" id="demo-interactiva" aria-labelledby="lead-demo-title" data-lead-demo>
+    <div class="brand-shell">
+<p class="brand-eyebrow" data-es="Demo interactiva · Datos ficticios" data-en="Interactive demo · Fictional data">Demo interactiva · Datos ficticios</p><h2 class="brand-title" id="lead-demo-title" data-es="Prueba cómo se ordena una consulta." data-en="Try organising an enquiry.">Prueba cómo se ordena una consulta.</h2><p class="brand-lead" data-es="Elige un ejemplo y observa su prioridad, responsable y próxima acción. Repite la misma consulta para comprobar que no se duplica; prueba una sin origen para ver cuándo interviene una persona." data-en="Choose a sample and see its priority, owner and next action. Repeat an enquiry to check that it is not duplicated; try one without a source to see when a person intervenes.">Elige un ejemplo y observa su prioridad, responsable y próxima acción. Repite la misma consulta para comprobar que no se duplica; prueba una sin origen para ver cuándo interviene una persona.</p><p class="brand-section-note" data-es="Simulación con reglas predefinidas y datos ficticios. Los registros solo viven en esta página: no conecta con un CRM, no envía mensajes ni muestra resultados de clientes." data-en="Simulation using predefined rules and fictional data. Records exist only on this page: it does not connect to a CRM, send messages or show client results.">Simulación con reglas predefinidas y datos ficticios. Los registros solo viven en esta página: no conecta con un CRM, no envía mensajes ni muestra resultados de clientes.</p>
+<div class="brand-btn-row lead-demo-controls" data-demo-controls hidden>
+<button type="button" class="brand-btn brand-btn--ghost" data-demo-sample="standard" data-es="Consulta desde la web" data-en="Website enquiry">Consulta desde la web</button><button type="button" class="brand-btn brand-btn--ghost" data-demo-sample="urgent" data-es="Consulta urgente" data-en="Urgent enquiry">Consulta urgente</button><button type="button" class="brand-btn brand-btn--ghost" data-demo-sample="incomplete" data-es="Consulta sin origen" data-en="Enquiry without source">Consulta sin origen</button><button type="button" class="brand-btn brand-btn--ghost" data-demo-reset data-es="Reiniciar demo" data-en="Reset demo">Reiniciar demo</button></div>
+<noscript><p>Activa JavaScript para probar la simulación. / Enable JavaScript to try the simulation.</p></noscript>
+<p class="lead-demo-status" role="status" aria-live="polite" aria-atomic="true" data-demo-status></p>
+<div class="lead-demo-table-wrap" role="region" aria-labelledby="lead-demo-table-title" tabindex="0"><table class="lead-demo-table"><caption id="lead-demo-table-title" data-es="Registro de consultas ficticias" data-en="Fictional enquiry records">Registro de consultas ficticias</caption><thead><tr><th scope="col" data-es="ID" data-en="ID">ID</th><th scope="col" data-es="Empresa" data-en="Company">Empresa</th><th scope="col" data-es="Origen" data-en="Source">Origen</th><th scope="col" data-es="Prioridad" data-en="Priority">Prioridad</th><th scope="col" data-es="Responsable" data-en="Owner">Responsable</th><th scope="col" data-es="Próxima acción" data-en="Next action">Próxima acción</th></tr></thead><tbody data-demo-records></tbody></table></div>
+<p class="brand-section-note" data-es="En una implantación real se conectan los canales y el CRM acordados, se prueban las excepciones y se valida la recepción de los avisos. Esta simulación permite inspeccionar solo las reglas de seguimiento." data-en="A real implementation connects the agreed channels and CRM, tests exceptions and validates notification delivery. This simulation lets you inspect follow-up rules only.">En una implantación real se conectan los canales y el CRM acordados, se prueban las excepciones y se valida la recepción de los avisos. Esta simulación permite inspeccionar solo las reglas de seguimiento.</p>
+</div>
+</section>
 
   <section class="brand-section" id="demos">
     <div class="brand-shell">
@@ -347,5 +360,6 @@
 </script>
 <script src="assets/js/archon-chatbot.js?v=20260419e" defer></script>
   <script src="/assets/js/archon-consent.js?v=20260908" defer></script>
+<script type="module" src="/assets/js/archon-lead-demo.js?v=20261019"></script>
 </body>
 </html>
