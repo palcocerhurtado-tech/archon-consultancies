@@ -1,0 +1,86 @@
+/* Need-led entry, progressive contact, and navigation within the page. */
+html:has(body[data-ux-page]) { scroll-padding-top:calc(var(--ux-header-height,100px) + 18px); }
+body[data-ux-page] [hidden] { display:none!important; }
+.ux-sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; clip-path:inset(50%); overflow:hidden; white-space:nowrap; }
+[data-ux-page] :is(a,button,input,select,textarea):focus-visible { outline:2px solid #796032; outline-offset:4px; }
+.ux-entry { background:#eee9df; border-block:1px solid #d7cebf; padding:clamp(40px,6vw,88px) 0; }
+.ux-entry h2 { max-width:850px; font-size:clamp(34px,4.5vw,64px); line-height:1.08; letter-spacing:-.05em; margin:0 0 30px; }
+.ux-needs-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:clamp(24px,4vw,64px); align-items:start; }
+.ux-needs-choices { border:0; margin:0; padding:0; min-width:0; display:grid; gap:10px; }
+.ux-needs-choices legend { font:11px var(--font-brand-mono); text-transform:uppercase; letter-spacing:.1em; margin-bottom:18px; }
+.ux-need-choice { display:block; position:relative; cursor:pointer; }
+.ux-need-choice input { position:absolute; top:calc(50% - 9px); left:20px; width:18px; height:18px; accent-color:#a8884b; margin:0; z-index:1; }
+.ux-need-choice .ux-choice-face { display:flex; gap:18px; align-items:center; padding:23px 20px 23px 54px; min-height:86px; border:1px solid #c9c0b1; background:#f4f1ec; transition:background-color .18s,border-color .18s; }
+.ux-need-choice strong { font-size:17px; line-height:1.4; font-weight:600; }
+.ux-need-choice .ux-choice-arrow { margin-left:auto; color:#7c6336; font-size:21px; }
+.ux-need-choice input:checked+.ux-choice-face { border-color:#7c6336; background:#fffdf8; box-shadow:inset 3px 0 #a8884b; }
+.ux-need-choice input:focus-visible+.ux-choice-face { outline:2px solid #796032; outline-offset:4px; }
+.ux-need-result { padding:22px 0; }
+.ux-need-result h3 { font-size:clamp(25px,2.9vw,40px); letter-spacing:-.04em; line-height:1.16; margin:0 0 18px; max-width:530px; }
+.ux-need-result p { max-width:560px; color:#4e463c; }
+.ux-need-result ul { padding-left:19px; margin:24px 0 28px; color:#4e463c; }
+.ux-need-result li { padding:4px 0; }
+.ux-need-placeholder { border-top:1px solid #c9c0b1; margin:22px 0; padding-top:24px; color:#625847; font-size:17px; }
+.ux-need-result .brand-btn-row { align-items:center; gap:20px; }
+.ux-form-step { border:0; margin:0; padding:0; min-width:0; display:grid; gap:18px; }
+.ux-form-step legend { font-size:clamp(25px,3vw,34px); letter-spacing:-.035em; font-weight:600; line-height:1.2; margin-bottom:24px; }
+.ux-field { min-width:0; }
+.ux-field .brand-label { margin:0 0 8px; font-size:12px; line-height:1.5; letter-spacing:.025em; }
+.ux-field textarea { min-height:130px; }
+.ux-field-hint,.ux-next-info { font-size:13px; line-height:1.6; color:#62594a; margin:10px 0 0; }
+.ux-form-progress { list-style:none; padding:0; margin:0 0 20px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.ux-form-progress li { border-top:2px solid #d7cebf; padding-top:10px; color:#6e6558; font-size:11px; line-height:1.5; }
+.ux-form-progress li[aria-current] { border-color:#a8884b; color:#241d13; font-weight:700; }
+.ux-form-progress li.is-complete { border-color:#6a624f; }
+.ux-wizard .ux-form-error:empty { display:none; }
+.ux-form-error { font-size:14px; color:#832c22; margin:0 0 10px; }
+.ux-field [aria-invalid=true] { border-color:#a43c2d; }
+.ux-form-controls { display:flex; align-items:center; justify-content:space-between; gap:18px; }
+.ux-form-controls>button:last-child { margin-left:auto; }
+.ux-text-button { min-height:44px; border:0; padding:8px 0; color:#4e3b1a; background:transparent; font:inherit; font-size:14px; text-decoration:underline; text-underline-offset:4px; cursor:pointer; }
+.ux-text-button:disabled { opacity:.5; cursor:wait; }
+.ux-summary { display:grid; gap:20px; }
+.ux-summary-section { border-top:1px solid #d7cebf; padding-top:8px; }
+.ux-summary-heading { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+.ux-summary h3 { font-size:16px; margin:0; }
+.ux-summary dl { margin:10px 0 0; }
+.ux-summary dt { color:#62594a; font-size:11px; text-transform:uppercase; letter-spacing:.07em; margin:16px 0 4px; }
+.ux-summary dd { margin:0; white-space:pre-wrap; overflow-wrap:anywhere; font-size:15px; line-height:1.65; }
+.ux-next-info { padding:14px 16px; border-left:2px solid #a8884b; background:#eee9df; margin:0; }
+.ux-menu-toggle { display:none; min-height:44px; min-width:68px; border:1px solid #b7ab94; background:transparent; color:#251f16; font:13px var(--font-brand-mono); cursor:pointer; }
+.ux-nav-ready .brand-service-menu { display:none; }
+.ux-nav-ready .ux-services-open .brand-service-menu { display:grid; visibility:visible; opacity:1; transform:none; pointer-events:auto; }
+.ux-wayfinder { position:relative; border-top:1px solid #d9d1c5; background:rgba(244,241,236,.98); }
+.ux-wayfinder-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; min-height:48px; }
+.ux-section-links { display:flex; gap:22px; min-width:0; }
+.ux-section-links a { min-height:44px; display:flex; align-items:center; font-size:12px; text-decoration:none; color:#655c4d; white-space:nowrap; }
+.ux-section-links a[aria-current] { color:#251f16; text-decoration:underline; text-decoration-color:#a8884b; text-underline-offset:7px; }
+.ux-diagnosis { display:flex; align-items:center; min-height:44px; color:#3f3016; font-size:12px; text-decoration:none; font-weight:600; white-space:nowrap; }
+.ux-section-select { display:none; }
+.ux-reading-progress { position:absolute; bottom:-1px; left:0; height:2px; width:100%; background:#a8884b; transform:scaleX(0); transform-origin:left; pointer-events:none; }
+@media(max-width:900px) {
+ .ux-nav-ready .brand-nav { flex-direction:row; align-items:center; flex-wrap:wrap; min-height:82px; padding:10px 0; gap:10px; }
+ .ux-menu-toggle { display:block; margin-left:auto; }
+ .ux-nav-ready .brand-nav-links { display:grid; grid-template-columns:1fr 1fr; width:100%; padding:8px 0; max-height:55svh; overflow-y:auto; }
+ .ux-nav-ready .brand-service-nav { grid-column:1/-1; }
+ .ux-nav-ready .ux-services-open .brand-service-menu { position:static; margin-top:8px; box-shadow:none; width:100%; }
+ .ux-wayfinder-inner { min-height:46px; gap:12px; }
+ .ux-section-links { display:none; }
+ .ux-section-select { display:block; min-width:0; max-width:45%; }
+ .ux-section-select select { min-height:44px; padding:4px 18px 4px 0; width:100%; color:#62543b; border:0; background:transparent; font:12px var(--font-brand); }
+ .ux-diagnosis { font-size:11px; }
+}
+@media(max-width:760px) {
+ .ux-needs-layout { grid-template-columns:1fr; gap:10px; }
+ .ux-entry h2 { margin-bottom:26px; }
+ .ux-need-result { padding-top:20px; }
+ .ux-need-choice .ux-choice-face { min-height:76px; padding-block:18px; }
+ .ux-form-progress { gap:9px; }
+ .ux-form-progress li { font-size:10px; }
+ .ux-form-controls .brand-btn { width:auto; min-width:0; font-size:11px; padding-inline:18px; }
+ .ux-form-controls { flex-wrap:wrap; }
+}
+@media(prefers-reduced-motion:reduce) {
+ html:has(body[data-ux-page]) { scroll-behavior:auto; }
+ .ux-choice-face { transition:none!important; }
+}
