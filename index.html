@@ -288,9 +288,10 @@
 <link rel="stylesheet" href="/assets/css/archon-contact.css?v=20260908">
   <link rel="stylesheet" href="/assets/css/archon-consent.css?v=20260908">
 <link rel="stylesheet" href="/assets/css/archon-mechanism.css?v=20261020d">
+<link rel="stylesheet" href="/assets/css/archon-journey.css?v=20261021a">
 </head>
 <!-- Confirmed contact submission; the native form remains available without JavaScript. -->
-<body class="archon-rebrand brand-home has-mechanism">
+<body data-ux-page="home" class="archon-rebrand brand-home has-mechanism">
 <a href="#top" class="skip-link">Saltar al contenido principal</a>
 <header class="brand-topbar">
   <div class="brand-shell brand-nav">
@@ -332,7 +333,7 @@
       <p class="brand-lead" data-es="Conectamos tu web, tus campañas y tu seguimiento comercial para que cada consulta tenga un responsable y un siguiente paso." data-en="We connect your website, campaigns and sales follow-up so every enquiry has an owner and a next step.">Conectamos tu web, tus campañas y tu seguimiento comercial para que cada consulta tenga un responsable y un siguiente paso.</p>
       <div class="brand-btn-row">
         <a class="brand-btn brand-btn--accent" data-es="Solicitar diagnóstico gratuito" data-en="Request a free consultation" href="#contacto" data-contact-cta="hero">Solicitar diagnóstico gratuito</a>
-        <a class="brand-btn brand-btn--ghost" data-es="Ver qué podemos resolver" data-en="See what we can solve" href="#servicios">Ver qué podemos resolver</a>
+        <a class="brand-btn brand-btn--ghost" data-es="Ver qué podemos resolver" data-en="See what we can solve" href="#necesidad">Ver qué podemos resolver</a>
       </div>
       <p class="home-note" data-es="Primera conversación gratuita de 33 minutos: revisamos tu bloqueo principal y acordamos el siguiente paso. Sin compromiso." data-en="A free 33-minute first conversation: we review your main bottleneck and agree on the next step. No obligation.">Primera conversación gratuita de 33 minutos: revisamos tu bloqueo principal y acordamos el siguiente paso. Sin compromiso.</p>
       <p class="home-founder-line" data-es="Dirigida por Pablo Alcocer Hurtado · Fundador" data-en="Led by Pablo Alcocer Hurtado · Founder">Dirigida por Pablo Alcocer Hurtado · Fundador</p>
@@ -353,6 +354,23 @@
       </figure>
     </div>
   </section>
+
+<section class="ux-entry" id="necesidad" aria-labelledby="ux-needs-title">
+<div class="brand-shell">
+<p class="brand-eyebrow" data-es="Empieza por lo que necesitas" data-en="Start with what you need">Empieza por lo que necesitas</p>
+<h2 id="ux-needs-title" data-es="¿Qué quieres mejorar?" data-en="What would you like to improve?">¿Qué quieres mejorar?</h2>
+<div class="ux-needs-layout" data-need-picker hidden>
+<fieldset class="ux-needs-choices"><legend data-es="Elige tu punto de partida" data-en="Choose your starting point">Elige tu punto de partida</legend>
+<label class="ux-need-choice"><input type="radio" name="visitor-need" value="intelligence" aria-controls="ux-need-panel"><span class="ux-choice-face"><strong>Quiero automatizar</strong><span class="ux-choice-arrow" aria-hidden="true">↗</span></span></label>
+<label class="ux-need-choice"><input type="radio" name="visitor-need" value="atelier" aria-controls="ux-need-panel"><span class="ux-choice-face"><strong>Quiero mejorar mi marca</strong><span class="ux-choice-arrow" aria-hidden="true">↗</span></span></label>
+<label class="ux-need-choice"><input type="radio" name="visitor-need" value="guidance" aria-controls="ux-need-panel"><span class="ux-choice-face"><strong>Necesito orientación</strong><span class="ux-choice-arrow" aria-hidden="true">↗</span></span></label>
+</fieldset>
+<div>
+<p class="ux-need-placeholder" data-need-placeholder data-es="Tres puntos de partida. Una primera conversación para decidir el siguiente paso." data-en="Three starting points. One first conversation to decide what comes next.">Tres puntos de partida. Una primera conversación para decidir el siguiente paso.</p>
+<div class="ux-need-result" id="ux-need-panel" data-need-result aria-live="polite" aria-atomic="true" hidden><h3></h3><p></p><ul></ul><div class="brand-btn-row"><a class="brand-btn brand-btn--accent" data-need-contact data-contact-cta="need-picker" href="#contacto">Hablar de mi proyecto</a><a class="brand-link" data-need-service href="/servicios">Ver servicios</a></div></div>
+</div></div>
+<noscript><p>Elige tu punto de partida: <a href="/intelligence">Automatización</a> · <a href="/atelier">Marca y comunicación</a> · <a href="/contacto">Orientación</a>.</p></noscript>
+</div></section>
 <section class="mechanism" data-mechanism="archon" aria-labelledby="mechanism-title">
 <div class="mechanism-stage" data-mechanism-stage>
 <div class="mechanism-shell">
@@ -540,7 +558,7 @@
         <p data-es="Revisaremos tu solicitud y te responderemos por email para acordar la conversación. No necesitas tener una solución elegida." data-en="We will review your enquiry and reply by email to arrange the conversation. You do not need to have chosen a solution.">Revisaremos tu solicitud y te responderemos por email para acordar la conversación. No necesitas tener una solución elegida.</p>
         <p><a class="brand-link" href="mailto:archon.consultancies@hotmail.com">archon.consultancies@hotmail.com</a><br><a class="brand-link" href="tel:+34693500740">+34 693 500 740</a></p>
       </div>
-      <form class="brand-form" action="https://formsubmit.co/archon.consultancies@hotmail.com" method="POST" aria-label="Contacto Archon">
+      <form data-ux-form class="brand-form" action="https://formsubmit.co/archon.consultancies@hotmail.com" method="POST" aria-label="Contacto Archon">
         <input type="hidden" name="_subject" value="Primera conversación con Archon">
         <input type="hidden" name="_next" value="https://archonconsultancies.com/gracias">
         <input type="hidden" name="_template" value="table">
@@ -627,5 +645,6 @@
 <script src="/assets/js/archon-contact.js?v=20260908" defer></script>
   <script src="/assets/js/archon-consent.js?v=20260908" defer></script>
 <script type="module" src="/assets/js/archon-mechanism.js?v=20261020d"></script>
+<script type="module" src="/assets/js/archon-journey.js?v=20261021a"></script>
 </body>
 </html>

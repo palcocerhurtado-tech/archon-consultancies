@@ -148,9 +148,10 @@
 </script>
 <link rel="stylesheet" href="/assets/css/archon-contact.css?v=20260908">
   <link rel="stylesheet" href="/assets/css/archon-consent.css?v=20260908">
+<link rel="stylesheet" href="/assets/css/archon-journey.css?v=20261021a">
 </head>
 <!-- Confirmed contact submission; the native form remains available without JavaScript. -->
-<body class="archon-rebrand">
+<body data-ux-page="contacto" class="archon-rebrand">
 <a href="#top" class="skip-link">Saltar al contenido principal</a>
 <header class="brand-topbar">
   <div class="brand-shell brand-nav">
@@ -199,7 +200,7 @@
         <span class="brand-card-label">Formulario</span>
         <h2>Primer diagnóstico</h2>
         <p>Cuéntanos qué necesitas. Pablo revisará tu solicitud y te responderá por email para acordar la conversación y confirmar disponibilidad.</p>
-        <form class="brand-form" action="https://formsubmit.co/archon.consultancies@hotmail.com" method="POST" aria-label="Formulario de contacto — primer diagnóstico">
+        <form data-ux-form class="brand-form" action="https://formsubmit.co/archon.consultancies@hotmail.com" method="POST" aria-label="Formulario de contacto — primer diagnóstico">
           <input type="hidden" name="_subject" value="Nuevo contacto desde Archon Consultancies">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_next" value="https://archonconsultancies.com/gracias">
@@ -266,5 +267,6 @@
 <script src="assets/js/archon-chatbot.js?v=20260419e" defer></script>
 <script src="/assets/js/archon-contact.js?v=20260908" defer></script>
   <script src="/assets/js/archon-consent.js?v=20260908" defer></script>
+<script type="module" src="/assets/js/archon-journey.js?v=20261021a"></script>
 </body>
 </html>
