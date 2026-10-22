@@ -1,6 +1,6 @@
 :root{
-  --font-body:"Manrope",sans-serif;
-  --font-display:"Libre Baskerville",serif;
+  --font-body:"Inter","Helvetica Neue",Arial,sans-serif;
+  --font-display:"Inter","Helvetica Neue",Arial,sans-serif;
 }
 
 body,

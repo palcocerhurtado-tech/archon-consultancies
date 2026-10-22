@@ -9,12 +9,28 @@
   --color-line:rgba(11,11,11,0.12);
   --color-line-accent:rgba(168,136,75,0.32);
   --color-footer:#0B0B0B;
+  --color-topbar-bg:rgba(244,241,236,0.92);
   --font-brand:Inter, "Helvetica Neue", Arial, sans-serif;
   --font-brand-mono:"IBM Plex Mono", "JetBrains Mono", monospace;
   --space-shell:min(100% - 40px, 1180px);
   --radius-none:0;
   --shadow-soft:0 28px 80px rgba(11,11,11,0.08);
   --shadow-card:0 18px 52px rgba(11,11,11,0.06);
+}
+
+/* ── Modo oscuro (opt-in vía toggle, persistido en localStorage) ── */
+:root[data-theme="dark"]{
+  --color-bg:#0B0B0B;
+  --color-surface:#17160F;
+  --color-surface-soft:#1F1D14;
+  --color-text:#F4F1EC;
+  --color-text-muted:#B9B2A6;
+  --color-accent:#C9A86A;
+  --color-accent-dark:#A8884B;
+  --color-line:rgba(244,241,236,0.14);
+  --color-line-accent:rgba(201,168,106,0.32);
+  --color-footer:#050505;
+  --color-topbar-bg:rgba(11,11,11,0.88);
 }
 
 /* ── Skip link de accesibilidad ── */
@@ -75,7 +91,7 @@ body.archon-rebrand::before{
   top:0;
   z-index:80;
   border-bottom:1px solid var(--color-line);
-  background:rgba(244,241,236,0.92);
+  background:var(--color-topbar-bg);
   backdrop-filter:blur(18px);
 }
 
@@ -165,7 +181,7 @@ body.archon-rebrand::before{
   gap:12px;
   padding:16px;
   border:1px solid var(--color-line);
-  background:#FFFFFF;
+  background:var(--color-surface);
   box-shadow:var(--shadow-soft);
   opacity:0;
   pointer-events:none;
@@ -174,7 +190,8 @@ body.archon-rebrand::before{
 }
 
 .brand-service-nav:hover .brand-service-menu,
-.brand-service-nav:focus-within .brand-service-menu{
+.brand-service-nav:focus-within .brand-service-menu,
+.brand-service-nav.is-open .brand-service-menu{
   opacity:1;
   pointer-events:auto;
   transform:translateY(0);
@@ -667,7 +684,7 @@ body.archon-rebrand::before{
   padding:0 22px;
   border:1px solid var(--color-text);
   background:var(--color-text);
-  color:#FFFFFF;
+  color:var(--color-bg);
   font-family:var(--font-brand-mono);
   font-size:11px;
   font-weight:700;
@@ -747,7 +764,7 @@ body.archon-rebrand::before{
   min-height:54px;
   padding:14px 16px;
   border:1px solid var(--color-line);
-  background:#FFFFFF;
+  background:var(--color-surface);
   color:var(--color-text);
   font:inherit;
 }
