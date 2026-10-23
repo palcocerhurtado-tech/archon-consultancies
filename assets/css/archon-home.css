@@ -21,7 +21,7 @@
 
 .brand-home .home-hero {
   padding: 64px 0 48px;
-  background: #fff url("../archon/archon-ac-outline-gold.webp") no-repeat right 6% center / auto 75%;
+  background: var(--color-surface) url("../archon/archon-ac-outline-gold.webp") no-repeat right 6% center / auto 75%;
 }
 
 .home-hero .brand-shell {
@@ -65,7 +65,7 @@
 }
 
 .brand-home .home-band {
-  background: #fff;
+  background: var(--color-surface);
 }
 
 .brand-home [id] {
@@ -167,7 +167,7 @@
   gap: 22px;
   padding: 28px;
   border: 1px solid var(--color-line);
-  background: #fff;
+  background: var(--color-surface);
 }
 
 .home-demo-system--water {
@@ -208,7 +208,7 @@
   min-width: 0;
   padding: 16px 14px;
   border: 1px solid var(--color-line);
-  background: #fbfaf7;
+  background: var(--color-surface-soft);
 }
 
 .home-demo-node span {

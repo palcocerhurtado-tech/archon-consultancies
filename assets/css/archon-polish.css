@@ -1,0 +1,261 @@
+/* Archon Polish — sitewide utility layer (back-to-top, scroll progress,
+   skip link, print styles, copy-to-clipboard, theme toggle, site search).
+   Loaded on every real site page alongside archon-consent.css. */
+
+/* ── Skip link (fallback for pages without archon-brand.css) ── */
+.skip-link{
+  position:absolute;
+  top:-40px;
+  left:0;
+  background:#0B0B0B;
+  color:#F4F1EC;
+  padding:8px 16px;
+  text-decoration:none;
+  font-size:14px;
+  z-index:10000;
+  transition:top 0.2s;
+}
+.skip-link:focus{
+  top:0;
+}
+
+/* ── Scroll progress bar ── */
+.archon-scroll-progress{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:3px;
+  z-index:9999;
+  background:transparent;
+  pointer-events:none;
+}
+.archon-scroll-progress-fill{
+  height:100%;
+  width:0%;
+  background:var(--color-accent, #A8884B);
+  transition:width 0.1s linear;
+}
+
+/* ── Floating utility cluster (back-to-top, search, theme) ── */
+.archon-back-to-top,
+.archon-search-trigger,
+.archon-theme-toggle{
+  position:fixed;
+  right:20px;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:1px solid rgba(11,11,11,0.14);
+  background:var(--color-accent, #A8884B);
+  color:#0B0B0B;
+  font-size:18px;
+  line-height:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:9000;
+  box-shadow:0 10px 30px rgba(11,11,11,0.32);
+  opacity:0;
+  transform:translateY(12px);
+  pointer-events:none;
+  transition:opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+.archon-back-to-top:hover,
+.archon-search-trigger:hover,
+.archon-theme-toggle:hover{
+  background:var(--color-accent-dark, #7C6336);
+  color:#F4F1EC;
+}
+.archon-back-to-top{
+  bottom:20px;
+}
+.archon-back-to-top.is-visible{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+.archon-search-trigger{
+  bottom:76px;
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+.archon-theme-toggle{
+  bottom:132px;
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+@media (max-width: 560px){
+  .archon-back-to-top,
+  .archon-search-trigger,
+  .archon-theme-toggle{
+    width:40px;
+    height:40px;
+    right:14px;
+    font-size:16px;
+  }
+  .archon-back-to-top{ bottom:14px; }
+  .archon-search-trigger{ bottom:64px; }
+  .archon-theme-toggle{ bottom:114px; }
+}
+
+/* ── Copy-to-clipboard button next to tel:/mailto: links ── */
+.archon-copy-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:1.6em;
+  height:1.6em;
+  margin-left:0.4em;
+  border:1px solid currentColor;
+  border-radius:4px;
+  background:transparent;
+  color:inherit;
+  opacity:0.6;
+  font-size:0.75em;
+  line-height:1;
+  cursor:pointer;
+  vertical-align:middle;
+  transition:opacity 0.15s ease;
+}
+.archon-copy-btn:hover{
+  opacity:1;
+}
+.archon-copy-btn.is-copied{
+  opacity:1;
+  color:#3B8F5C;
+  border-color:#3B8F5C;
+}
+
+/* ── Site search overlay ── */
+.archon-search-overlay{
+  position:fixed;
+  inset:0;
+  z-index:9500;
+  background:rgba(8,8,8,0.72);
+  backdrop-filter:blur(4px);
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:10vh 20px 20px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.18s ease;
+}
+.archon-search-overlay.is-open{
+  opacity:1;
+  pointer-events:auto;
+}
+.archon-search-panel{
+  width:min(640px, 100%);
+  max-height:72vh;
+  background:#F4F1EC;
+  color:#0B0B0B;
+  border-radius:8px;
+  box-shadow:0 30px 90px rgba(0,0,0,0.5);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  transform:translateY(-12px);
+  transition:transform 0.18s ease;
+}
+.archon-search-overlay.is-open .archon-search-panel{
+  transform:translateY(0);
+}
+.archon-search-field-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 16px;
+  border-bottom:1px solid rgba(11,11,11,0.12);
+}
+.archon-search-field-row input{
+  flex:1;
+  border:none;
+  outline:none;
+  background:transparent;
+  font-size:16px;
+  color:#0B0B0B;
+  font-family:inherit;
+}
+.archon-search-close{
+  border:none;
+  background:transparent;
+  color:#0B0B0B;
+  font-size:20px;
+  cursor:pointer;
+  opacity:0.6;
+  line-height:1;
+  padding:4px 6px;
+}
+.archon-search-close:hover{
+  opacity:1;
+}
+.archon-search-results{
+  overflow-y:auto;
+  padding:8px;
+}
+.archon-search-result{
+  display:block;
+  padding:12px 12px;
+  border-radius:6px;
+  text-decoration:none;
+  color:#0B0B0B;
+}
+.archon-search-result:hover,
+.archon-search-result.is-active{
+  background:rgba(168,136,75,0.14);
+}
+.archon-search-result-title{
+  font-weight:700;
+  font-size:14.5px;
+  margin-bottom:3px;
+}
+.archon-search-result-desc{
+  font-size:12.5px;
+  color:#4A4A4A;
+  line-height:1.4;
+}
+.archon-search-empty{
+  padding:24px 16px;
+  font-size:14px;
+  color:#4A4A4A;
+  text-align:center;
+}
+
+/* ── Print stylesheet ── */
+@media print{
+  .archon-back-to-top,
+  .archon-search-trigger,
+  .archon-theme-toggle,
+  .archon-scroll-progress,
+  .archon-search-overlay,
+  .skip-link,
+  nav,
+  header,
+  footer,
+  [class*="chatbot"],
+  [class*="sticky"],
+  .brand-topbar,
+  .brand-footer,
+  #stickyCta{
+    display:none !important;
+  }
+  body{
+    background:#fff !important;
+    color:#000 !important;
+  }
+  a[href]:not([href^="#"])::after{
+    content:" (" attr(href) ")";
+    font-size:0.8em;
+    color:#555;
+  }
+  * {
+    box-shadow:none !important;
+    text-shadow:none !important;
+  }
+}

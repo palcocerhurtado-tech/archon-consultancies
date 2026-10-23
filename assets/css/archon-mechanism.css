@@ -1,18 +1,18 @@
 /* Local-only editorial direction. Original logo files and brand colours are untouched. */
-body.has-mechanism { background:#f4f1ec; }
-.has-mechanism .brand-topbar { background:rgba(244,241,236,.95); }
+body.has-mechanism { background:var(--color-bg,#f4f1ec); }
+.has-mechanism .brand-topbar { background:var(--color-topbar-bg,rgba(244,241,236,.95)); }
 .has-mechanism .brand-hero::before,.has-mechanism .brand-hero::after { content:none; }
-.has-mechanism .brand-hero { background:#f4f1ec; padding:clamp(56px,8vw,112px) 0 64px; }
-.brand-home.has-mechanism .home-hero { background:#f4f1ec; }
+.has-mechanism .brand-hero { background:var(--color-bg,#f4f1ec); padding:clamp(56px,8vw,112px) 0 64px; }
+.brand-home.has-mechanism .home-hero { background:var(--color-bg,#f4f1ec); }
 .brand-home.has-mechanism .home-hero .brand-title { max-width:1020px; font-size:clamp(42px,7.3vw,108px); line-height:1.02; letter-spacing:-.065em; }
 .has-mechanism .home-offer { font-size:clamp(18px,2vw,24px); max-width:750px; }
 .has-mechanism .brand-eyebrow { letter-spacing:.12em; }
 .has-mechanism .brand-btn { transition:background-color .2s,color .2s,border-color .2s; }
-.has-mechanism .brand-btn:hover { background:#0b0b0b; color:#fff; }
-.has-mechanism .brand-btn:focus-visible { outline:2px solid #7c6336; outline-offset:5px; }
-.mechanism { position:relative; background:#fff; border-block:1px solid rgba(11,11,11,.15); }
+.has-mechanism .brand-btn:hover { background:var(--color-text,#0b0b0b); color:var(--color-bg,#fff); }
+.has-mechanism .brand-btn:focus-visible { outline:2px solid var(--color-accent-dark,#7c6336); outline-offset:5px; }
+.mechanism { position:relative; background:var(--color-surface,#fff); border-block:1px solid var(--color-line,rgba(11,11,11,.15)); }
 .mechanism-ready { height:200svh; }
-.mechanism-stage { min-height:680px; position:relative; background:#fff; }
+.mechanism-stage { min-height:680px; position:relative; background:var(--color-surface,#fff); }
 .mechanism-ready .mechanism-stage { position:sticky; top:var(--mechanism-header,96px); height:calc(100svh - var(--mechanism-header,96px)); min-height:0; }
 .mechanism-shell { width:min(100% - 64px,1440px); margin:auto; height:100%; display:grid; grid-template-columns:minmax(200px,.75fr) minmax(0,2fr); gap:24px; align-items:center; }
 .mechanism-copy { z-index:1; padding-block:40px; align-self:center; }
@@ -24,9 +24,9 @@ body.has-mechanism { background:#f4f1ec; }
 .mechanism-art>img[hidden] { display:none; }
 .mechanism-svg { display:block; width:100%; height:100%; overflow:visible; transform-origin:center; }
 .mechanism-svg g { transform-box:view-box; }
-.mechanism-readout { margin-top:38px; border-top:1px solid #d8d2c8; padding-top:16px; max-width:280px; }
+.mechanism-readout { margin-top:38px; border-top:1px solid var(--color-line,#d8d2c8); padding-top:16px; max-width:280px; }
 .mechanism-phase { font:12px var(--font-brand-mono); text-transform:uppercase; letter-spacing:.08em; }
-.mechanism-meter { height:2px; background:#e9e4dc; margin-top:14px; overflow:hidden; }
+.mechanism-meter { height:2px; background:var(--color-line,#e9e4dc); margin-top:14px; overflow:hidden; }
 .mechanism-meter span { display:block; height:100%; background:#a8884b; transform:scaleX(0); transform-origin:left; }
 .mechanism-counter { float:right; color:#7c6336; font:12px var(--font-brand-mono); }
 .mechanism-cue { position:absolute; bottom:22px; left:32px; color:#655b4b; font:10px var(--font-brand-mono); letter-spacing:.1em; text-transform:uppercase; }
