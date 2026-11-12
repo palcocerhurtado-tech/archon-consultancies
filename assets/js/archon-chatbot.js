@@ -8,17 +8,32 @@
   const PUZZLE_META_KEY = "archon_puzzle_meta_v1";
   const PUZZLE_FRUSTRATION_KEY = "archon_frustration_keywords";
   const PUZZLE_START_KEY = "archon_start_time";
+  const SOLVED_ANSWERS_KEY = "archon_puzzle_answers_v1";
+  const HIRAM_KEY_HANDOFF = "archon_hiram_passphrase";
   const PUZZLE_PRIMARY_TIMEOUT_MS = 600000;
   const PUZZLE_HISTORY_LIMIT = 3;
-  const PUZZLE_CAESAR_HINT = "FODPD D PL";
+  const SECONDARY_FIRST_STEP = 3;
+  const SECONDARY_LAST_STEP = 15;
+  const VOICE_REVEAL_STEP = 16;
+  const VOICE_STEP = 17;
+  const MAX_PUZZLE_STEP = 17;
   const PUZZLE_HINT_REGEX = /(pista|clave|formula|frase|sombra|acceso|entrar|entrada|abrir|abre|abrirse|decir|dime|como entro|como entrar|como abrir)/;
   const PUZZLE_HELP_REGEX = /(otra|mas|más|extra|adicional|diferente|ayuda|insisto|sigo|pista mas|pista más|otra pista|mas ayuda|más ayuda)/;
   const PUZZLE_FRUSTRATION_REGEX = /(no entiendo|no lo pillo|no lo veo|no se|no sé|imposible|no funciona|no encaja|me pierdo|atascado|atascada|bloqueado|bloqueada)/;
   const PUZZLE_ANSWER_HASHES = {
-    3: "cce1ffa3ef79971b5145c2593439414062aaccd2b4b2be4d988119c5f14d3625",
-    4: "c6f3ac57944a531490cd39902d0f777715fd005efac9a30622d5f5205e7f6894",
-    5: "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
-    6: "c253943d1798ad93ad3e37ae3af5b838576f96d204eb4bde3142a926532af75a"
+    3: "4f0195a7a692ab3df4c59f0fcbdbe96360fbf63ba371e962914b791d6b7dfac3",
+    4: "3d5f1d095f03cbeab065f280e5c42801aa0122b683af43b458dfa65fa438b5e8",
+    5: "7a500642411a9243873449ac9de4dae1dbb002dac44d56d13fbe169afa8b7b7d",
+    6: "146694126c81d5f47f3f2d46a7089bb050a904f3b8d778eaab0cae321ce786b3",
+    7: "8106ef383a52f7a9fc1fc9db36232e4eef6e3c0f87eb15d1e20ae75e5cf3d651",
+    8: "3964afc255457c1b60fcd5db406d4339cdb84e033869405e0acda7b526b7c4d2",
+    9: "98ec6bab1c0bd9f13b1cdbfb257d1094efaeb697b4d82035c4167955b1b872f3",
+    10: "73eaae435a81ca4c48641067957914ed23d5f5a584f4e9cf7ae66ea420c05c39",
+    11: "cce1ffa3ef79971b5145c2593439414062aaccd2b4b2be4d988119c5f14d3625",
+    12: "5408938d268391ad258e25a9622131455806596625a5bcfe6e442ec9ea2dcfc4",
+    13: "3d5f1d095f03cbeab065f280e5c42801aa0122b683af43b458dfa65fa438b5e8",
+    14: "c63b7441f153bbcc5644464c0a1a8b04e938eefeb6b8162f23a52e7da7122faf",
+    15: "c253943d1798ad93ad3e37ae3af5b838576f96d204eb4bde3142a926532af75a"
   };
   const PRIMARY_HINTS = [
     "Vqeqyunf gequzgn l geqf chzgb geqf",
@@ -29,69 +44,178 @@
       step: 3,
       key: "hint.step3.riddle",
       shortTitle: "Acertijo I",
-      title: "Acertijo I — El Profeta Encadenado",
+      title: "Acertijo I — El Hijo de la Viuda",
       body: [
-        "Jura aquel cuya boca es fragua: \"encendida está mi palabra\".",
-        "En Anatot nació, mas Jerusalén lo oyó clamar hasta el fin.",
-        "Rollo quemó el rey, columna a columna, sobre su brasero de invierno.",
-        "En pozo de Malquías lo hundieron; con trapos podridos lo sacaron.",
-        "Mira el alfabeto hebreo que teje sus lamentos en cinco cantos.",
-        "Inseparable del yugo de madera y del otro, de hierro, que vino después.",
-        "Alfarero visitó, y del vaso roto aprendió la lección de los reinos.",
-        "Siete letras componen mi nombre: la primera, la que aquí inicia cada verso."
+        "De Neftalí era su sangre por parte de madre; de Tiro, su oficio por parte de padre.",
+        "El rey que lo envió no reinaba en Jerusalén, sino en la costa de los cedros.",
+        "Fundió el bronce de las columnas, de los mares y de los utensilios del Templo;",
+        "ningún metal se le resistía, ninguna medida lo engañaba.",
+        "No llevó corona ni ejército: llevó el compás y la escuadra.",
+        "Lee el libro de los Reyes, capítulo séptimo, donde se nombra al maestro constructor.",
+        "Dos palabras completan mi nombre: la primera, mi oficio heredado; la segunda, mi padre no reconocido.",
+        "Responde con nombre y apellido, tal como los lee la tradición del oficio."
       ].join("\n")
     },
     {
       step: 4,
       key: "hint.step4.riddle",
       shortTitle: "Acertijo II",
-      title: "Acertijo II — El Número de la Ciudad Alta",
+      title: "Acertijo II — Los que Exigieron la Palabra",
       body: [
-        "Soy la edad en que el Nazareno expiró sobre el madero;",
-        "soy los años que el pastor-rey ciñó corona en Sion.",
-        "Variaciones compuso el sordo de Bonn sobre un vals mediocre de Diabelli,",
-        "y las mías son exactamente las que él firmó.",
-        "Grado supremo en la escala del maestro que levantó el Templo.",
-        "Mi dígito es el menor primo impar, y me escribo dos veces seguido."
+        "No fueron dos, ni fueron cuatro: fueron los que esperaron en las tres puertas del Templo.",
+        "Uno en el poniente, uno en el mediodía, uno en el oriente; ninguno dejó salir al maestro.",
+        "Cada uno portaba una herramienta de trabajo convertida en arma: la regla, la escuadra, el mazo.",
+        "Cada golpe fue una pregunta sin respuesta, porque el maestro prefirió morir antes que mentir el grado que no tenían.",
+        "El mismo número cuenta las veces que el gallo esperó para cantar sobre la negación de otro hombre, siglos después.",
+        "Escribe en letra el número de golpes, el número de guardianes, el número de puertas."
       ].join("\n")
     },
     {
       step: 5,
       key: "hint.step5.riddle",
       shortTitle: "Acertijo III",
-      title: "Acertijo III — El Eco del Dígito",
+      title: "Acertijo III — Las Columnas Gemelas",
       body: [
-        "Niega Pedro antes que el gallo cante;",
-        "tres veces tienta el hambre, el trono y el abismo al Nazareno en el desierto;",
-        "hunde tres días la piedra la tumba antes de rodar.",
-        "Soy donde Agustín halló su Dios,",
-        "y donde Pitágoras vio la primera forma que cierra el plano.",
-        "No par, no unidad: la síntesis mínima."
+        "A la derecha del pórtico, una; a la izquierda, su hermana.",
+        "Una se nombra \"él establecerá\"; la otra, \"en él hay fuerza\".",
+        "Ningún techo las une: sostienen solo el cielo y la memoria.",
+        "El libro de los Reyes mide la altura de cada una en codos, no en metros, no en pies.",
+        "No cuentes las dos columnas juntas: cuenta solo lo que mide una, grabada en el capítulo séptimo, versículo quince.",
+        "Responde en letra, un único número."
       ].join("\n")
     },
     {
       step: 6,
       key: "hint.step6.riddle",
       shortTitle: "Acertijo IV",
-      title: "Acertijo IV — La Promesa Misma",
+      title: "Acertijo IV — El Grado que Corona",
       body: [
-        "\"Clámame, y yo te responderé; y te enseñaré cosas grandes y ocultas que tú no conoces.\"",
-        "Así prometió el Altísimo al profeta del yugo.",
-        "Nombra al profeta, cita el capítulo, cita el versículo.",
-        "Pero ten cuidado: en la lengua de Cervantes, el punto separa,",
-        "no los dos puntos que pone el anglosajón."
+        "Treinta y dos escalones recorre quien avanza por el rito escocés, antiguo y aceptado.",
+        "Pero hay un grado que no se conquista por mérito ordinario: se concede, no se escala.",
+        "Es el último círculo, el que corona la cúpula sin dejar nada por encima.",
+        "Mi dígito se repite dos veces seguidas, y ninguna de las dos es par.",
+        "El mismo número nombra, siglos antes, los años que un rey-pastor reinó sobre Jerusalén antes de ceder el trono a su hijo constructor.",
+        "Responde en letra."
       ].join("\n")
     },
     {
       step: 7,
       key: "hint.step7.riddle",
       shortTitle: "Acertijo V",
-      title: "Acertijo V — La Llave Vocal",
+      title: "Acertijo V — La Rama que no se Seca",
       body: [
-        "El silencio no abre; las teclas tampoco.",
-        "La voz es la llave: di en palabras lo que en cifras se escribe.",
-        "El profeta, el capítulo, el versículo — pronunciados, no tecleados.",
-        "Donde otros dibujan un signo, tú di la palabra."
+        "No crece en el jardín, crece sobre la tumba sin nombre.",
+        "La plantaron los compañeros para marcar un lugar que no debía olvidarse ni delatarse.",
+        "Es de madera que no se pudre fácilmente, espinosa para quien se acerca sin derecho.",
+        "En la tradición del oficio es el signo de que el alma del maestro no terminó donde terminó su cuerpo.",
+        "Una sola palabra, el nombre del arbusto, nada más."
+      ].join("\n")
+    },
+    {
+      step: 8,
+      key: "hint.step8.riddle",
+      shortTitle: "Acertijo VI",
+      title: "Acertijo VI — La Cifra que Multiplica",
+      body: [
+        "Toma el número de guardianes del Acertijo II.",
+        "Multiplícalo por el grado que corona, el del Acertijo IV.",
+        "Al resultado, réstale la altura de una sola columna, la del Acertijo III.",
+        "Lo que obtienes no es una fecha ni una edad: es una llave para lo que viene después.",
+        "Responde en letra, un único número, sin usar cifras."
+      ].join("\n")
+    },
+    {
+      step: 9,
+      key: "hint.step9.riddle",
+      shortTitle: "Acertijo VII",
+      title: "Acertijo VII — El Número de Contacto",
+      body: [
+        "El mito tiene su templo; Archon tiene el suyo, hecho de procesos y no de piedra.",
+        "Fuera de este archivo, en la fachada visible donde se habla de precios y de auditorías,",
+        "hay una línea directa con quien dirige esta consultoría.",
+        "No lo vas a encontrar aquí dentro: tienes que salir de la cámara y buscar el teléfono de contacto de Archon.",
+        "Toma solo los últimos tres dígitos de ese número.",
+        "Responde en letra, un único número."
+      ].join("\n")
+    },
+    {
+      step: 10,
+      key: "hint.step10.riddle",
+      shortTitle: "Acertijo VIII",
+      title: "Acertijo VIII — El Mensaje Desplazado",
+      body: [
+        "HO BXJR VH URPSH",
+        "Cada letra ha caminado hacia delante en el alfabeto, siempre el mismo número de pasos.",
+        "Ese número no es un capricho: es el resultado del Acertijo VI, reducido al resto de dividirlo entre las letras del alfabeto latino (veintiséis).",
+        "Desplaza cada letra hacia atrás ese mismo número de posiciones y lee la frase resultante.",
+        "Responde la frase completa, en minúsculas, tal como queda descifrada."
+      ].join("\n")
+    },
+    {
+      step: 11,
+      key: "hint.step11.riddle",
+      shortTitle: "Acertijo IX",
+      title: "Acertijo IX — El Conocido antes del Vientre",
+      body: [
+        "\"Antes que te formase en el vientre te conocí, y antes que nacieses te santifiqué.\"",
+        "Así habló el Altísimo a un niño que se decía demasiado joven para hablar en su nombre.",
+        "Ese niño llevaría después un yugo de madera sobre los hombros, como señal para los reyes.",
+        "Su libro abre con esa promesa, en el primer capítulo, versículo quinto.",
+        "Responde solo su nombre de profeta."
+      ].join("\n")
+    },
+    {
+      step: 12,
+      key: "hint.step12.riddle",
+      shortTitle: "Acertijo X",
+      title: "Acertijo X — El que Rompió la Madera",
+      body: [
+        "El profeta del yugo caminó con madera sobre el cuello, anunciando sumisión a Babilonia.",
+        "Otro profeta, de Gabaón, se levantó en el Templo y rompió ese yugo ante el pueblo, prometiendo libertad en dos años.",
+        "Falsa fue su promesa: antes de cumplirse el plazo, murió, y el yugo de madera fue sustituido por uno de hierro.",
+        "El libro de Jeremías, capítulo veintiocho, guarda su nombre.",
+        "Responde solo el nombre de ese falso profeta."
+      ].join("\n")
+    },
+    {
+      step: 13,
+      key: "hint.step13.riddle",
+      shortTitle: "Acertijo XI",
+      title: "Acertijo XI — El Número que Vuelve",
+      body: [
+        "Un gallo cantó dos veces esa noche; antes de la segunda, un pescador había dicho tres veces que no conocía al hombre.",
+        "El mismo número cuenta los días que una piedra selló una tumba antes de rodar,",
+        "y los patriarcas que se nombran antes de Moisés en el primer libro: Abraham, Isaac, Jacob.",
+        "No es par, no es la unidad: es la síntesis mínima que cierra un triángulo.",
+        "Responde en letra, un único número."
+      ].join("\n")
+    },
+    {
+      step: 14,
+      key: "hint.step14.riddle",
+      shortTitle: "Acertijo XII",
+      title: "Acertijo XII — El Perdón sin Límite",
+      body: [
+        "Preguntó Pedro cuántas veces debía perdonar a su hermano: ¿hasta siete?",
+        "\"No te digo hasta siete, sino aun hasta setenta veces siete\", respondió el maestro.",
+        "No te pido la frase: te pido el resultado de esa multiplicación, escrito por completo en letra.",
+        "Mateo guarda la respuesta en el capítulo dieciocho, versículo veintidós.",
+        "Responde el número completo, en letra, sin cifras."
+      ].join("\n")
+    },
+    {
+      step: 15,
+      key: "hint.step15.riddle",
+      shortTitle: "Acertijo XIII — La Epifanía",
+      title: "Acertijo XIII — La Epifanía",
+      body: [
+        "Ya tienes al profeta conocido antes del vientre, el del Acertijo IX.",
+        "Ya tienes el grado que corona, el mismo número que mide los años del rey-pastor, del Acertijo IV.",
+        "Ya tienes el número que vuelve, la síntesis mínima del Acertijo XI.",
+        "Une los tres: el nombre, después el primer número, después el segundo número.",
+        "Pero ten cuidado: en la lengua de Cervantes, el punto separa los dos últimos,",
+        "no los dos puntos que pone el anglosajón.",
+        "Esta es la última puerta que se escribe. La que sigue ya no se teclea: se pronuncia."
       ].join("\n")
     }
   ];
@@ -137,7 +261,7 @@
   ];
 
   const occultPersona = {
-    name: "El sol negro",
+    name: "El Arquitecto — Cámara de Hiram Acacia 777",
     overview:
       "No soy un gurú ni un escaparate de secretos. En el archivo velado hablo como una voz de renacimiento severo: mezcla de disciplina hermética, reforma interior, soberanía espiritual y arquitectura de orden.",
     mission:
@@ -691,7 +815,7 @@
               '</article>'
             );
           }).join("") +
-          '<article class="archon-chatbot-puzzle-item voice-step" data-step="8" data-state="locked" hidden>' +
+          '<article class="archon-chatbot-puzzle-item voice-step" data-step="' + VOICE_STEP + '" data-state="locked" hidden>' +
             '<h3>' + escapeHtml(t("hint.step8.title", "Paso Final — La Llave")) + '</h3>' +
             '<p>' + escapeHtml(t("hint.step8.copy", "La puerta ya solo escucha voz. Pulsa el micrófono y pronuncia la llave completa.")) + '</p>' +
             '<button id="voice-trigger" class="archon-chatbot-voice-trigger" type="button">' + escapeHtml(t("hint.step8.voice", "Pronunciar la llave")) + '</button>' +
@@ -973,7 +1097,7 @@
         return Number(step);
       })
       .filter(function (step) {
-        if (!Number.isInteger(step) || step < 1 || step > 8 || seen.has(step)) {
+        if (!Number.isInteger(step) || step < 1 || step > MAX_PUZZLE_STEP || seen.has(step)) {
           return false;
         }
         seen.add(step);
@@ -999,25 +1123,25 @@
     );
     const currentStep = safeRevealedSteps.indexOf(Number(meta.currentStep)) !== -1
       ? Number(meta.currentStep)
-      : progress >= 8
-        ? 8
+      : progress >= MAX_PUZZLE_STEP
+        ? MAX_PUZZLE_STEP
         : progress;
-    const stage = progress >= 8
+    const stage = progress >= MAX_PUZZLE_STEP
       ? "final"
       : safeRevealedSteps.some(function (step) {
-          return step >= 3 && step <= 7;
+          return step >= SECONDARY_FIRST_STEP && step <= VOICE_REVEAL_STEP;
         })
         ? "secondary"
         : "primary";
 
     return {
-      progress: Math.min(Math.max(progress, 1), 8),
+      progress: Math.min(Math.max(progress, 1), MAX_PUZZLE_STEP),
       stage: meta.stage === "final" || stage === "final"
         ? "final"
         : meta.stage === "secondary" || stage === "secondary"
           ? "secondary"
           : "primary",
-      currentStep: Math.min(Math.max(currentStep, 1), 8),
+      currentStep: Math.min(Math.max(currentStep, 1), MAX_PUZZLE_STEP),
       revealedSteps: safeRevealedSteps,
       engaged: Boolean(meta.engaged),
       primaryHintsDelivered: Math.max(0, Number(meta.primaryHintsDelivered) || 0),
@@ -1228,13 +1352,19 @@
   }
 
   function occultDefaultOptions() {
-    return [
+    const options = [
       { label: "Quien habla aqui", action: "occultIdentity" },
       { label: "Doctrina del archivo", action: "occultDoctrine" },
       { label: "Historia velada", action: "occultTopic", value: "historia-humanidad" },
-      { label: "Biblioteca local", action: "occultLibrary" },
-      { label: "Cerrar la camara", action: "returnFacade" }
+      { label: "Biblioteca local", action: "occultLibrary" }
     ];
+
+    if (buildMasterPassphrase()) {
+      options.push({ label: "Abrir la Cámara de Hiram Acacia 777", action: "openCamera777" });
+    }
+
+    options.push({ label: "Cerrar la camara", action: "returnFacade" });
+    return options;
   }
 
   function defaultOptions() {
@@ -1302,9 +1432,9 @@
   }
 
   function unlockVoiceStage() {
-    revealPuzzleSteps([7, 8], "final", 8);
+    revealPuzzleSteps([VOICE_REVEAL_STEP, VOICE_STEP], "final", VOICE_STEP);
     renderPuzzleContainer();
-    scrollPuzzleStepIntoView(8);
+    scrollPuzzleStepIntoView(VOICE_STEP);
   }
 
   function buildCurrentRiddleReply(step) {
@@ -1314,37 +1444,110 @@
   }
 
   function auxiliaryHintForStep(step) {
+    if (step === 3) {
+      return t(
+        "hint.step3.secondary",
+        "No busques un apellido moderno: es un oficio heredado unido al nombre de un padre extranjero."
+      );
+    }
+
     if (step === 4) {
       return t(
         "hint.step4.secondary",
-        "Piensa en números que aparecen repetidamente en el arte, la religión y las matemáticas."
+        "Tres puertas, tres guardianes, un golpe cada uno. El mismo número cuenta las negaciones de un pescador."
       );
     }
 
     if (step === 5) {
       return t(
         "hint.step5.secondary",
-        "No par, no unidad: busca el número que sintetiza la dualidad."
+        "1 Reyes 7:15. Una sola columna, no la suma de las dos."
       );
     }
 
     if (step === 6) {
+      return t(
+        "hint.step6.secondary",
+        "Es un grado, no una edad: el escalón que ya no se gana, se otorga."
+      );
+    }
+
+    if (step === 7) {
+      return t(
+        "hint.step7.secondary",
+        "Un arbusto espinoso que no se pudre; su rama marcó la tumba sin nombre."
+      );
+    }
+
+    if (step === 8) {
       if (
         getPuzzleMapCounter(step, "stepAttempts") < 2 ||
         getPuzzleMapCounter(step, "stepHintRequests") < 2
       ) {
-        return t("hint.step6.secondary.generic", "Medita sobre la promesa exacta y sobre cómo se separa en castellano.");
+        return t(
+          "hint.step8.secondary.generic",
+          "Tres operaciones encadenadas: multiplicar primero, restar después. Usa los resultados de II, III y IV, en ese orden."
+        );
       }
 
       return t(
-        "hint.step6.secondary",
-        "Si el Acertijo IV te cuesta, toma esta cifra. El desplazamiento es el mismo número que encontraste en el Acertijo III: " + PUZZLE_CAESAR_HINT
+        "hint.step8.secondary",
+        "Guardianes (Acertijo II) por grado (Acertijo IV), menos altura de columna (Acertijo III): 3 × 33 − 18."
       );
     }
 
-    if (step === 8 || state.puzzle.voiceFailures > 0) {
+    if (step === 9) {
       return t(
-        "hint.step8.secondary",
+        "hint.step9.secondary",
+        "Sal de esta cámara y busca el teléfono de contacto de Archon en la web visible. Los tres últimos dígitos, en letra."
+      );
+    }
+
+    if (step === 10) {
+      return t(
+        "hint.step10.secondary",
+        "El desplazamiento es el resultado del Acertijo VI, pero reducido al resto de dividirlo entre veintiséis."
+      );
+    }
+
+    if (step === 11) {
+      return t(
+        "hint.step11.secondary",
+        "Jeremías 1:5. El mismo profeta que ya conoces de otros pasos de este archivo."
+      );
+    }
+
+    if (step === 12) {
+      return t(
+        "hint.step12.secondary",
+        "Jeremías 28. El profeta que rompió el yugo de madera en público, y murió antes de que se cumpliera su promesa."
+      );
+    }
+
+    if (step === 13) {
+      return t(
+        "hint.step13.secondary",
+        "No par, no unidad: la síntesis mínima que ya apareció antes en este mismo archivo."
+      );
+    }
+
+    if (step === 14) {
+      return t(
+        "hint.step14.secondary",
+        "Setenta veces siete. Haz la multiplicación y escribe el resultado en letra, completo."
+      );
+    }
+
+    if (step === 15) {
+      return t(
+        "hint.step15.secondary",
+        "Profeta del Acertijo IX, capítulo igual al grado del Acertijo IV, versículo igual al número del Acertijo XI. Nombre, espacio, capítulo, punto, versículo."
+      );
+    }
+
+    if (step === VOICE_STEP || state.puzzle.voiceFailures > 0) {
+      return t(
+        "hint.step17.secondary",
         "La voz no coincide. Recuerda: pronuncia el nombre completo, el capítulo y el versículo separados por \"punto\"."
       );
     }
@@ -1453,7 +1656,7 @@
       return false;
     }
 
-    if (state.puzzle.stage === "secondary" && currentPuzzleStep() >= 3 && currentPuzzleStep() <= 6) {
+    if (state.puzzle.stage === "secondary" && currentPuzzleStep() >= SECONDARY_FIRST_STEP && currentPuzzleStep() <= SECONDARY_LAST_STEP) {
       return normalizedText.length > 0 && normalizedText.length <= 80;
     }
 
@@ -1469,12 +1672,12 @@
   }
 
   function promptAfterWrongPuzzleAttempt(step) {
-    if (step === 6 && getPuzzleMapCounter(step, "stepAttempts") >= 2) {
+    if (step === SECONDARY_LAST_STEP && getPuzzleMapCounter(step, "stepAttempts") >= 2) {
       respondWithPuzzleMessage(auxiliaryHintForStep(step));
       return;
     }
 
-    if (step >= 3 && step <= 6) {
+    if (step >= SECONDARY_FIRST_STEP && step <= SECONDARY_LAST_STEP) {
       respondWithPuzzleMessage(
         t("hint.answer.retry", "Eso no encaja todavía con el paso activo. Si quieres otra ayuda, pídeme pista.")
       );
@@ -1486,6 +1689,24 @@
     );
   }
 
+  function openHiddenCamera() {
+    const passphrase = buildMasterPassphrase();
+    if (!passphrase) return false;
+
+    try {
+      sessionStorage.setItem(
+        HIRAM_KEY_HANDOFF,
+        JSON.stringify({ passphrase: passphrase, issuedAt: Date.now() })
+      );
+    } catch (error) {
+      return false;
+    }
+
+    const target = new URL("/hiram-acacia-777.html", window.location.origin).href;
+    const win = window.open(target, "_blank");
+    return Boolean(win);
+  }
+
   function completeOccultUnlock(sourceLabel) {
     state.puzzle.voiceUnlocked = true;
     state.puzzle.voiceFailures = 0;
@@ -1494,27 +1715,66 @@
     setOccultAdmissionState(true);
     setOccultMode(true);
     renderPuzzleContainer();
+
+    const opened = openHiddenCamera();
+
     addBotMessage(
-      "<p><strong>" + escapeHtml(t("hint.open.title", "La cámara ha reconocido la voz.")) + "</strong></p>" +
+      "<p><strong>" + escapeHtml(t("hint.open.title", "La Cámara de Hiram Acacia 777 ha reconocido la voz.")) + "</strong></p>" +
       "<p>" + escapeHtml(
-        sourceLabel
-          ? t("hint.open.body.voice", "La llave pronunciada ha alterado el sello. El archivo se abre.")
-          : t("hint.open.body.fallback", "La llave validada ha alterado el sello. El archivo se abre.")
+        opened
+          ? t(
+              "hint.open.body.camera",
+              "La llave pronunciada ha alterado el sello. Se ha abierto una nueva pestaña con el archivo completo."
+            )
+          : sourceLabel
+            ? t("hint.open.body.voice", "La llave pronunciada ha alterado el sello. El archivo se abre.")
+            : t("hint.open.body.fallback", "La llave validada ha alterado el sello. El archivo se abre.")
       ) + "</p>"
     );
     addOptions(occultDefaultOptions());
     setStatus(t("hint.open.status", "Archivo velado concedido."), "live");
+  }
 
-    if (typeof window.openHiddenCamera === "function") {
-      window.openHiddenCamera();
+  function saveSolvedAnswer(step, normalizedAnswer) {
+    let store;
+    try {
+      store = JSON.parse(sessionStorage.getItem(SOLVED_ANSWERS_KEY) || "{}");
+    } catch (error) {
+      store = {};
     }
+    store[String(step)] = normalizedAnswer;
+    try {
+      sessionStorage.setItem(SOLVED_ANSWERS_KEY, JSON.stringify(store));
+    } catch (error) {
+      return;
+    }
+  }
+
+  function getSolvedAnswers() {
+    try {
+      return JSON.parse(sessionStorage.getItem(SOLVED_ANSWERS_KEY) || "{}");
+    } catch (error) {
+      return {};
+    }
+  }
+
+  function buildMasterPassphrase() {
+    const answers = getSolvedAnswers();
+    const parts = [];
+    for (let step = SECONDARY_FIRST_STEP; step <= SECONDARY_LAST_STEP; step += 1) {
+      const value = answers[String(step)];
+      if (!value) return null;
+      parts.push(value);
+    }
+    return parts.join("|");
   }
 
   async function tryAdvancePuzzle(text) {
     const step = currentPuzzleStep();
 
     if (state.puzzle.stage === "primary") {
-      if (await matchesPuzzleAnswer(6, text)) {
+      if (await matchesPuzzleAnswer(SECONDARY_LAST_STEP, text)) {
+        saveSolvedAnswer(SECONDARY_LAST_STEP, normalizePuzzleAnswer(text));
         unlockVoiceStage();
         respondWithPuzzleMessage(
           t(
@@ -1534,9 +1794,10 @@
       return false;
     }
 
-    if (state.puzzle.stage === "secondary" && step >= 3 && step <= 6) {
+    if (state.puzzle.stage === "secondary" && step >= SECONDARY_FIRST_STEP && step <= SECONDARY_LAST_STEP) {
       if (await matchesPuzzleAnswer(step, text)) {
-        if (step === 6) {
+        saveSolvedAnswer(step, normalizePuzzleAnswer(text));
+        if (step === SECONDARY_LAST_STEP) {
           unlockVoiceStage();
           respondWithPuzzleMessage(
             t(
@@ -1577,7 +1838,7 @@
     state.puzzle.voiceFailures += 1;
     savePuzzleState();
     renderPuzzleContainer();
-    respondWithPuzzleMessage(auxiliaryHintForStep(8));
+    respondWithPuzzleMessage(auxiliaryHintForStep(VOICE_STEP));
   }
 
   async function evaluateVoiceAlternatives(alternatives, sourceLabel) {
@@ -3165,6 +3426,17 @@
       return;
     }
 
+    if (option.action === "openCamera777") {
+      const opened = openHiddenCamera();
+      respondWithPuzzleMessage(
+        opened
+          ? t("hint.reopen.ok", "Se ha abierto una nueva pestaña con la Cámara de Hiram Acacia 777.")
+          : t("hint.reopen.fail", "El navegador ha bloqueado la pestaña emergente. Autoriza los pop-ups para esta web e inténtalo de nuevo.")
+      );
+      addOptions(occultDefaultOptions());
+      return;
+    }
+
     if (option.action === "occultClue") {
       replyWithOccultClue();
       addOptions(occultGateOptions());
@@ -3380,7 +3652,9 @@
         normalizedText.indexOf("tu nombre") !== -1 ||
         normalizedText.indexOf("quien habla") !== -1 ||
         normalizedText.indexOf("como debo llamarte") !== -1 ||
-        normalizedText.indexOf("sol negro") !== -1
+        normalizedText.indexOf("sol negro") !== -1 ||
+        normalizedText.indexOf("hiram acacia") !== -1 ||
+        normalizedText.indexOf("arquitecto") !== -1
       )
     ) {
       answerOccultIdentity();
@@ -3517,7 +3791,7 @@
 
       addBotMessage(
         state.occultAdmitted
-          ? "<p><strong>El archivo velado sigue abierto.</strong></p><p>Habla El sol negro desde una disciplina de renacimiento, simbolo y archivo. Puedo trabajar contigo desde hermetismo, alquimia, via iniciatica, arquetipos, meditacion, runas, grimorios o cosmologia simbolica, siempre separando historia, interpretacion y borde especulativo.</p>"
+          ? "<p><strong>El archivo velado sigue abierto.</strong></p><p>Habla el Arquitecto, desde la Camara de Hiram Acacia 777, con una disciplina de renacimiento, simbolo y archivo. Puedo trabajar contigo desde hermetismo, alquimia, via iniciatica, arquetipos, meditacion, runas, grimorios o cosmologia simbolica, siempre separando historia, interpretacion y borde especulativo.</p>"
           : "<p><strong>La camara velada sigue escuchando.</strong></p><p>Has alterado el borde, pero todavia no he desplegado el archivo. Si quieres seguir, pide admision o acepta otra sombra menos literal.</p>"
       );
       addOptions(state.occultAdmitted
